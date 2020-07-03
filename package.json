@@ -19,6 +19,7 @@
   "homepage": "https://github.com/masschaos/lottocrawler#readme",
   "dependencies": {
     "axios": "^0.19.2",
+    "cron": "^1.8.2",
     "moment": "^2.27.0"
   }
 }

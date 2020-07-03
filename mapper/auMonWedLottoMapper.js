@@ -13,7 +13,7 @@ const number_format = require('../util/format').number_format
     "jackpot": [ ],
     "other": [ ],
     "issue": "1789",
-    "numbers": "23,40,27,21,39,29,28,37,17",
+    "numbers": "23,40,27,21,39,29,28#37,17",
     "name": "Mon & Wed Lotto",
     "lotteryID": "au-mon-wed-lotto"
     }
@@ -33,7 +33,7 @@ function auMonWedLottoMapper(data){
         "jackpot": [ ],
         "other": [ ],
         "issue": data.DrawNumber,
-        "numbers": [data.PrimaryNumbers.join(','), data.SecondaryNumbers.join(',')].join(','),
+        "numbers": [data.PrimaryNumbers.join(','), data.SecondaryNumbers.join(',')].join('#'),
         "name": "Mon & Wed Lotto",
         "lotteryID": "au-mon-wed-lotto"
     }
