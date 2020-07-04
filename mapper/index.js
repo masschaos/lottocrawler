@@ -6,11 +6,18 @@ let auMonWedLottoMapper = require('./auMonWedLottoMapper')
 let auSuper66Mapper = require('./auSuper66Mapper')
 
 let mappers = new Map()
-mappers.set('TattsLotto', auTattsLottoMapper)
-mappers.set('OzLotto', auOzLottoMapper)
-mappers.set('Powerball', auPowerballMapper)
-mappers.set('SetForLife744', auSetForLife744Mapper)
-mappers.set('MonWedLotto', auMonWedLottoMapper)
-mappers.set('Super66', auSuper66Mapper)
+mappers.set('au-tattslotto', auTattsLottoMapper)
+mappers.set('au-oz-lotto', auOzLottoMapper)
+mappers.set('au-powerball', auPowerballMapper)
+mappers.set('au-set-for-life', auSetForLife744Mapper)
+mappers.set('au-mon-wed-lotto', auMonWedLottoMapper)
+mappers.set('au-super-66', auSuper66Mapper)
 
-module.exports = mappers
+function getMapper(lotteryId){
+    if(mappers.has(lotteryId)){
+        return mappers.get(lotteryId)
+    }
+    return null
+}
+
+module.exports = {getMapper}
