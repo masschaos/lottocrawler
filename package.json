@@ -1,0 +1,25 @@
+{
+  "name": "lottocrawler",
+  "version": "1.0.0",
+  "description": "lottocrawler",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/masschaos/lottocrawler.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/masschaos/lottocrawler/issues"
+  },
+  "homepage": "https://github.com/masschaos/lottocrawler#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "cron": "^1.8.2",
+    "moment": "^2.27.0"
+  }
+}
