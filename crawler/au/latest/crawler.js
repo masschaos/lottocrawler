@@ -1,5 +1,4 @@
 const axios = require('axios')
-const getMapper = require("../../mapper").getMapper
 
 class auCrawler {
     constructor(lotteryId){
@@ -23,8 +22,12 @@ class auCrawler {
         this.productCode = this.productCodes[lotteryId]
     }
 
+    parse(data){
+        return ''
+    }
+
     crawl(){
-        console.log(`${this.lotteryId} crawl started`)
+        console.log(`[主要源]${this.lotteryId} 开始爬取`)
         //通过接口获取澳大利亚6个彩种的最新数据
         axios.post('https://data.api.thelott.com/sales/vmax/web/data/lotto/latestresults',
             {
@@ -35,40 +38,38 @@ class auCrawler {
         )
         .then((resp)=>{
             if(resp.data && resp.data.DrawResults){
-                let arrLottos = []
+                let data = []
                 let list = resp.data.DrawResults
                 list.forEach(a => {
-                    if(this.lotteryIds[a.ProductId]){
-                        let m = getMapper(this.lotteryIds[a.ProductId])
-                        if(m){
-                            arrLottos.push(m(a))
-                        }
-                    }
-                    
+                    data.push(this.parse(a))
                 })
-                this.store(arrLottos)
+                console.log(`[主要源]${this.lotteryId} 爬取成功: ${JSON.stringify(data)}`)
+                this.store(data)
             }
         })
         .catch((err)=> {
-            console.log(err)
+            console.log(`[主要源]${this.lotteryId} 爬取失败: ${err}`)
         })
     }
 
     store(data){
         if(data && data.length > 0){
-            console.log(`${this.lotteryId} store started`)
+            console.log(`[主要源]${this.lotteryId} 开始存储: ${JSON.stringify(data)}`)
             for(let idx in data){
                 const item = data[idx]
-                console.log(item)
                 axios.post("https://seaapi.lottowawa.com/staging/results", item, {
                     headers:{
                         "Authorization": "Bearer xxxxxx",
                         "Content-Type" : "application/json"
                     },
                 }).then((resp) => {
-                    console.log(resp.data)
+                    console.log(`[主要源]${this.lotteryId} 存储成功`)
                 }).catch((err) => {
-                    console.log(err.response.data)
+                    if(err.response.data.error && err.response.data.error == 'DuplicatedResult'){
+                        console.log(`[主要源]${this.lotteryId} 存储失败: 重复数据`)
+                      } else {
+                        console.log(`[主要源]${this.lotteryId} 存储失败: ${err.response.data}`)
+                      }
                 })
             }
         }

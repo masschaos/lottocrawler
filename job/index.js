@@ -1,6 +1,6 @@
 const fs = require('fs')
 
-const auJobClass = require('./auJob')
+const auJobClass = require('./au')
 
 let classMap = new Map()
 classMap.set("au", auJobClass)
