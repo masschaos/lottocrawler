@@ -10,7 +10,7 @@ class auJob {
     start() {
         console.log("au-job started")
 
-        this.job = new cronJob('0 */1 * * * *', () => {
+        this.job = new cronJob('0 5 */1 * * *', () => {
             console.log("au-job runing")
 
             axios.get(process.env.BASE_URL + '/lotteries?country=au&level=0').then((resp) => {
