@@ -2,7 +2,7 @@ const axios = require('axios')
 const getMapper = require("../../mapper").getMapper
 
 class auCrawler {
-    constructor(lotteryId){
+    constructor(lotteryId) {
         this.productCodes = {
             "au-tattslotto": "TattsLotto",
             "au-oz-lotto": "OzLotto",
@@ -12,18 +12,18 @@ class auCrawler {
             "au-super-66": "Super66"
         }
         this.lotteryIds = {
-            "TattsLotto":"au-tattslotto",
-            "OzLotto":"au-oz-lotto",
-            "Powerball":"au-powerball",
-            "SetForLife744":"au-set-for-life",
-            "MonWedLotto":"au-mon-wed-lotto",
-            "Super66":"au-super-66",
+            "TattsLotto": "au-tattslotto",
+            "OzLotto": "au-oz-lotto",
+            "Powerball": "au-powerball",
+            "SetForLife744": "au-set-for-life",
+            "MonWedLotto": "au-mon-wed-lotto",
+            "Super66": "au-super-66",
         }
         this.lotteryId = lotteryId
         this.productCode = this.productCodes[lotteryId]
     }
 
-    crawl(){
+    crawl() {
         console.log(`${this.lotteryId} crawl started`)
         //通过接口获取澳大利亚6个彩种的最新数据
         axios.post('https://data.api.thelott.com/sales/vmax/web/data/lotto/latestresults',
@@ -33,37 +33,37 @@ class auCrawler {
                 "OptionalProductFilter": [this.productCode]           //彩种
             }
         )
-        .then((resp)=>{
-            if(resp.data && resp.data.DrawResults){
-                let arrLottos = []
-                let list = resp.data.DrawResults
-                list.forEach(a => {
-                    if(this.lotteryIds[a.ProductId]){
-                        let m = getMapper(this.lotteryIds[a.ProductId])
-                        if(m){
-                            arrLottos.push(m(a))
+            .then((resp) => {
+                if (resp.data && resp.data.DrawResults) {
+                    let arrLottos = []
+                    let list = resp.data.DrawResults
+                    list.forEach(a => {
+                        if (this.lotteryIds[a.ProductId]) {
+                            let m = getMapper(this.lotteryIds[a.ProductId])
+                            if (m) {
+                                arrLottos.push(m(a))
+                            }
                         }
-                    }
-                    
-                })
-                this.store(arrLottos)
-            }
-        })
-        .catch((err)=> {
-            console.log(err)
-        })
+
+                    })
+                    this.store(arrLottos)
+                }
+            })
+            .catch((err) => {
+                console.log(err)
+            })
     }
 
-    store(data){
-        if(data && data.length > 0){
+    store(data) {
+        if (data && data.length > 0) {
             console.log(`${this.lotteryId} store started`)
-            for(let idx in data){
+            for (let idx in data) {
                 const item = data[idx]
                 console.log(item)
-                axios.post("https://seaapi.lottowawa.com/staging/results", item, {
-                    headers:{
+                axios.post(url.resolve(process.env.BASE_URL, "/results"), item, {
+                    headers: {
                         "Authorization": "Bearer xxxxxx",
-                        "Content-Type" : "application/json"
+                        "Content-Type": "application/json"
                     },
                 }).then((resp) => {
                     console.log(resp.data)
