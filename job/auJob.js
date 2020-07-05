@@ -1,4 +1,3 @@
-const url = require('url');
 const cronJob = require('cron').CronJob
 const axios = require('axios')
 const getCrawler = require('../crawler/latest').getCrawler
@@ -14,7 +13,7 @@ class auJob {
         this.job = new cronJob('0 */1 * * * *', () => {
             console.log("au-job runing")
 
-            axios.get(url.resolve(process.env.BASE_URL, '/lotteries?country=au&level=0')).then((resp) => {
+            axios.get(process.env.BASE_URL + '/lotteries?country=au&level=0').then((resp) => {
                 if (resp.data && resp.data.length > 0) {
                     const lotteryIds = resp.data.map(a => a.id)
                     for (let idx in lotteryIds) {

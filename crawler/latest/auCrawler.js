@@ -1,4 +1,3 @@
-const url = require('url');
 const axios = require('axios')
 const getMapper = require("../../mapper").getMapper
 
@@ -61,7 +60,7 @@ class auCrawler {
             for (let idx in data) {
                 const item = data[idx]
                 console.log(item)
-                axios.post(url.resolve(process.env.BASE_URL, "/results"), item, {
+                axios.post(process.env.BASE_URL + "/results", item, {
                     headers: {
                         "Authorization": "Bearer xxxxxx",
                         "Content-Type": "application/json"
