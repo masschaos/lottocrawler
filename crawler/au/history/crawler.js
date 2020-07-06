@@ -1,5 +1,5 @@
 const axios = require('axios')
-const lottorIdProductCodeConfig = require('../../../config/const').lottorIdProductCodeConfig
+const lotteryIdProductCodeConfig = require('../../../config/const').lotteryIdProductCodeConfig
 const sleep = require('../../../util').sleep
 const fs = require('fs')
 const path = require('path')
@@ -20,7 +20,7 @@ class crawler {
 
     async crawl(){
         try {
-            const drawNo = 3249 //4065//await this.getDrawNo()
+            const drawNo = await this.getDrawNo() //4065//await this.getDrawNo()
             const result = []
             console.log(drawNo)
             const finalDrawNo = 1
@@ -60,7 +60,7 @@ class crawler {
             {
                 "MinDrawNo": minDrawNo,
                 "MaxDrawNo": maxDrawNo,
-                "Product": lottorIdProductCodeConfig[this.lottoryId],
+                "Product": lotteryIdProductCodeConfig[this.lottoryId],
                 "CompanyFilter": [
                     "NTLotteries"
                 ]
@@ -81,7 +81,7 @@ class crawler {
             {
                 "CompanyId": "NTLotteries",
                 "MaxDrawCountPerProduct": 1,
-                "OptionalProductFilter": [lottorIdProductCodeConfig[this.lottoryId]]
+                "OptionalProductFilter": [lotteryIdProductCodeConfig[this.lottoryId]]
             }).then(resp => {
                 // console.log(resp.data)
                 if(resp.data.DrawResults && resp.data.DrawResults.length > 0){

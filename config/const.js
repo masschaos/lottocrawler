@@ -1,5 +1,13 @@
+const lotteryIdConfig = [
+    "au-tattslotto",
+    "au-oz-lotto",
+    "au-powerball",
+    "au-set-for-life",
+    "au-mon-wed-lotto",
+    "au-super-66"
+]
 
-const lottorIdProductCodeConfig = 
+const lotteryIdProductCodeConfig = 
 {
     "au-tattslotto": "TattsLotto",
     "au-oz-lotto": "OzLotto",
@@ -10,5 +18,6 @@ const lottorIdProductCodeConfig =
 }
 
 module.exports = {
-    lottorIdProductCodeConfig
+    lotteryIdProductCodeConfig,
+    lotteryIdConfig
 }
