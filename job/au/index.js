@@ -1,30 +1,31 @@
 const cronJob = require('cron').CronJob
 const axios = require('axios')
 const getCrawler = require('../../crawler/au/latest').getCrawler
+const {sleep, compareLocalTime} = require('../../util')
+const {innerApi} = require('../../util/api')
 
 class auJob {
 
     constructor(){
     }
 
-    start() {
-        console.log("au-job 开始")
-
+    async start() {
         // this.job = new cronJob('0 */1 * * * *', () => {
-            console.log("au-job 运行中")
-            
-            axios.get('https://seaapi.lottowawa.com/staging/lotteries?country=au&level=0').then((resp) => {
-                if(resp.data && resp.data.length > 0){
-                    const lotteryIds = resp.data.map(a => a.id)
-                    for(let idx in lotteryIds){
-                        const crawlers = getCrawler(lotteryIds[idx])
-                        if(crawlers && crawlers.length > 0){
-                            setTimeout(() => {
+            new innerApi().fetchLotteries('au',0).then((data) => {
+                if(data && data.length > 0){
+                    for(let idx in data){
+                        const lottery = data[idx]
+                        //如果已经到了该彩种每周的抓取时间,则开始抓取
+                        if(compareLocalTime(lottery.country, lottery.drawConfig.timeRule, lottery.timeZone) < 0){
+                            const crawlers = getCrawler(lottery.id)
+                            if(crawlers && crawlers.length > 0){
                                 crawlers.forEach(crawler => {
                                     new crawler().crawl()
                                 })
-                            }, 5000 * idx);
+                                sleep(5000*idx)
+                            }
                         }
+                        
                     }
                 }
             })

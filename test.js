@@ -1,0 +1,24 @@
+const moment = require("moment-timezone")
+
+// console.log(new moment().tz("GMT+10:00").format("YYYY-MM-DD HH:mm:ss"))
+
+// 获取当前时区
+// console.log(moment.tz.guess())
+
+// const weekOfday = moment().format('E')
+// console.log(weekOfday)
+// console.log(moment().add(7-weekOfday, 'days'))
+// console.log(moment().add(7-weekOfday, 'days').format('YYYY-MM-DD')+" 19:30")
+// console.log(moment(moment().add(7-weekOfday, 'days').format('YYYY-MM-DD')+" 19:30"))
+// console.log(moment(moment(moment().add(7-weekOfday, 'days').format('YYYY-MM-DD')+" 19:30")).diff(moment(new moment()), 'seconds'))
+// console.log(moment("2014-06-01 12:00").tz("America/New_York"))
+
+const compareLocalTime = require('./util').compareLocalTime
+
+console.log(compareLocalTime('au', '00 21 * * 6', 'GMT+10:00'))
+
+// const {innerApi} = require("./util/api")
+
+// new innerApi().fetchLotteries("au", 0).then(res => {
+//     console.log(res)
+// })

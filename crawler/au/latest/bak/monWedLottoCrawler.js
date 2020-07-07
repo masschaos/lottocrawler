@@ -1,4 +1,5 @@
 const crawer = require('./crawler')
+const {innerApi} = require("../../../../util/api")
 
 const lotteryID = 'au-mon-wed-lotto'
 const monUrl = 'https://australia.national-lottery.com/monday-lotto/results'
@@ -46,16 +47,19 @@ class monWedLottoCrawler extends crawer{
   crawl () {
     const mon = super.crawl(monUrl, this.parse)
     const wed = super.crawl(wedUrl, this.parse)
-    console.log(`[备用源]${this.lotteryId} 开始爬取`)
     Promise.all([mon, wed]).then((res) => {
       if (res[0] === null || res[1] === null) {
         return null
       }
       const data = res[0].issue > res[1].issue ? res[0] : res[1]
-      console.log(`[备用源]${this.lotteryId} 爬取成功: ${JSON.stringify(data)}`)
-      super.store(super.assembleFormatData(data))
-    }).catch(err => {
-      console.log(`[备用源]${this.lotteryId} 爬取失败: ${err}`)
+      if(data && data.length > 0){
+        for(let idx in data){
+            const item = this.parse(data[idx])
+            await new innerApi().saveLastestResult(item)
+        }
+      }
+    }).catch(error => {
+      console.log(error)
     })
   }  
 }

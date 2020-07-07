@@ -17,7 +17,12 @@ const lotteryIdProductCodeConfig =
     "au-super-66": "Super66"
 }
 
+let innerApiBaseUrl = "https://seaapi.lottowawa.com/staging"
+let auCrawlerApiBaseUrl = "https://data.api.thelott.com/sales/vmax/web/data/lotto"
+
 module.exports = {
     lotteryIdProductCodeConfig,
-    lotteryIdConfig
+    lotteryIdConfig,
+    innerApiBaseUrl,
+    auCrawlerApiBaseUrl
 }

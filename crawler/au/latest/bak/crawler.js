@@ -69,32 +69,6 @@ class crawler {
       await browser.close()
     }
   }
-
-  store(data){
-    if(data && data.length > 0){
-        console.log(`[备用源]${this.lotteryId} 开始存储: ${JSON.stringify(data)}`)
-        for(let idx in data){
-            const item = data[idx]
-            // console.log(item)
-            axios.post("https://seaapi.lottowawa.com/staging/results", item, {
-                headers:{
-                    "Authorization": "Bearer xxxxxx",
-                    "Content-Type" : "application/json"
-                },
-            }).then((resp) => {
-                // console.log(resp.data)
-                console.log(`[备用源]${this.lotteryId} 存储成功`)
-            }).catch((err) => {
-                // console.log(err.response.data)
-                if(err.response.data.error && err.response.data.error == 'DuplicatedResult'){
-                  console.log(`[备用源]${this.lotteryId} 存储失败: 重复数据`)
-                } else {
-                  console.log(`[备用源]${this.lotteryId} 存储失败: ${err.response.data}`)
-                }
-            })
-        }
-    }
-  }
 }
 
 
