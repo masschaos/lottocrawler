@@ -1,7 +1,4 @@
 const axios = require('axios')
-const mappers = require('./mapper')
-const cronJob = require('cron').CronJob
-const moment = require('moment')
 const getJob = require('./job').getJob
 
 axios.get(process.env.BASE_URL + '/system/config').then((resp) => {

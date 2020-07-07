@@ -5,8 +5,17 @@
   "main": "index.js",
   "scripts": {
     "dev": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test.js"
   },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "cron": "^1.8.2",
+    "moment": "^2.27.0",
+    "moment-timezone": "^0.5.31",
+    "puppeteer": "^4.0.1",
+    "standard": "^14.3.4"
+  },
+  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/masschaos/lottocrawler.git"
@@ -16,10 +25,5 @@
   "bugs": {
     "url": "https://github.com/masschaos/lottocrawler/issues"
   },
-  "homepage": "https://github.com/masschaos/lottocrawler#readme",
-  "dependencies": {
-    "axios": "^0.19.2",
-    "cron": "^1.8.2",
-    "moment": "^2.27.0"
-  }
+  "homepage": "https://github.com/masschaos/lottocrawler#readme"
 }
