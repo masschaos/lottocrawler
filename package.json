@@ -10,6 +10,7 @@
   "dependencies": {
     "axios": "^0.19.2",
     "cron": "^1.8.2",
+    "cron-parser": "^2.15.0",
     "moment": "^2.27.0",
     "moment-timezone": "^0.5.31",
     "puppeteer": "^4.0.1",
