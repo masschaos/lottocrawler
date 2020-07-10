@@ -23,7 +23,13 @@ class auJob {
                                     const crawler = crawlers[crawlerIdx]
                                     try {
                                         await new crawler().crawl()
+                                        //如果导入成功，则不适用备用源
+                                        break
                                     } catch (error) {
+                                        //如果数据已存在则跳过所有源
+                                        if(error.error == "DuplicatedResult"){
+                                            break
+                                        }
                                         console.log(error)
                                     }
                                 }

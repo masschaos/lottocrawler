@@ -4,7 +4,7 @@ let crawlers = new Map()
 // crawlers.set('au-powerball', [require('./powerBallCrawler'),require('./bak/powerBallCrawler')])
 // crawlers.set('au-set-for-life', [require('./setForLifeCrawler'),require('./bak/setForLifeCrawler')])
 crawlers.set('au-mon-wed-lotto', [
-    // require('./monWedLottoCrawler'),
+    require('./monWedLottoCrawler'),
     require('./bak/monWedLottoCrawler')])
 // crawlers.set('au-super-66', [require('./super66Crawler'),require('./bak/super66Crawler')])
 
