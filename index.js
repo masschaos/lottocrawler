@@ -11,4 +11,6 @@ axios.get(process.env.BASE_URL + '/system/config').then((resp) => {
             }
         })
     }
+}).catch(err => {
+    console.log(err)
 })

@@ -4,7 +4,7 @@
   "description": "lottocrawler",
   "main": "index.js",
   "scripts": {
-    "dev": "node index.js",
+    "dev": "BASE_URL=https://seaapi.lottowawa.com/staging node index.js",
     "test": "node test.js"
   },
   "dependencies": {
