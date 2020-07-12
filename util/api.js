@@ -1,10 +1,29 @@
 const axios = require("axios")
-const {innerApiBaseUrl, auCrawlerApiBaseUrl, lotteryIdProductCodeConfig} = require('../config/const')
+const {auCrawlerApiBaseUrl, lotteryIdProductCodeConfig} = require('../config/const')
 
 class innerApi {
     fetchLotteries(country, level){
         return new Promise((resolve, reject) => {
-            axios.get(`${innerApiBaseUrl}/lotteries`, 
+            axios.get(`${process.env.BASE_URL}/lotteries`, 
+            {params:{
+                country,
+                level
+            }}, {
+                headers:{
+                    "Authorization": "Bearer xxxxxx",
+                    "Content-Type" : "application/json"
+                },
+            }).then((resp) => {
+                resolve(resp.data)
+            }).catch((err) => {
+                reject(err.response.data)
+            })
+        })
+    }
+
+    fetchLastestResult(country, level){
+        return new Promise((resolve, reject) => {
+            axios.get(`${process.env.BASE_URL}/results`,
             {params:{
                 country,
                 level
@@ -23,7 +42,7 @@ class innerApi {
 
     saveLastestResult(data){
         return new Promise((resolve, reject) => {
-            axios.post(`${innerApiBaseUrl}/results`, data, {
+            axios.post(`${process.env.BASE_URL}/results`, data, {
                 headers:{
                     "Authorization": "Bearer xxxxxx",
                     "Content-Type" : "application/json"
@@ -35,10 +54,11 @@ class innerApi {
             })
         })
     }
+
+    
 }
 
 class auCrawlerApi {
-
     fetchLastestResult(lotteryId) {
         return new Promise((resolve, reject) => {
             axios.post(`${auCrawlerApiBaseUrl}/latestresults`,
@@ -50,6 +70,27 @@ class auCrawlerApi {
             .then((resp)=>{
                 if(resp.data && resp.data.DrawResults){
                     resolve(resp.data.DrawResults)
+                }
+            })
+            .catch((err)=> {
+                reject(err)
+            })
+        })
+    }
+    fetchDrawRangeResult(lotteryId, drawNo) {
+        return new Promise((resolve, reject) => {
+            axios.post(`${auCrawlerApiBaseUrl}/results/search/drawrange`,
+            {
+                "MinDrawNo": drawNo,
+                "MaxDrawNo": drawNo,
+                "Product": lotteryIdProductCodeConfig[lotteryId],
+                "CompanyFilter": [
+                    "NTLotteries"
+                ]
+            })
+            .then((resp)=>{
+                if(resp.data && resp.data.Draws){
+                    resolve(resp.data.Draws)
                 }
             })
             .catch((err)=> {

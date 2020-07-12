@@ -12,7 +12,7 @@ class auCrawler {
     crawl(){
         return new Promise(async (resolve, reject) =>{
             try {
-                const data = await new auCrawlerApi().fetchLastestResult(this.lotteryId)
+                const data = await new auCrawlerApi().fetchDrawRangeResult(this.lotteryId, process.env.DRAW_NO)
                 if(data && data.length > 0){
                     for(let idx in data){
                         const item = this.parse(data[idx])

@@ -1,4 +1,5 @@
 const moment = require('moment-timezone')
+const cronParser = require("cron-parser")
 
 function sleep(ms){
     return new Promise((resolve, reject) => {
@@ -12,26 +13,26 @@ const timeZoneConfig = {
     }
 }
 
-function compareLocalTime(country, timeRule, timeZone){
-    const rules = timeRule.split(' ')
-    const min = rules[0]
-    const hour = rules[1]
-    const tDayOfWeek = rules[4]
-    const cDayOfWeek = moment().format('E')
+function rightNow(country, timeRule, timeZone){
+    const cron = cronParser.parseExpression('* '+timeRule, {
+        currentDate: moment(moment().format("YYYY-MM-DD 00:00:00"), "YYYY-MM-DD HH:mm:ss").toDate(),
+        endDate: new Date(),
+        tz: timeZoneConfig[country][timeZone]
+    })
+    return cron.hasNext()
+}
 
-    const dt1Format = moment().add(tDayOfWeek-cDayOfWeek, 'days').format('YYYY-MM-DD')+` ${hour}:${min}`
-    // console.log(timeZoneConfig[country][timeZone])
-    // console.log(moment(dt1Format).tz(timeZoneConfig[country][timeZone]))
-    const dt1 = moment(dt1Format).tz(timeZoneConfig[country][timeZone])
-    const localTimeZone = moment.tz.guess()
-    const dt2 = moment()
-    // console.log(dt1)
-    // console.log(dt2)
-
-    return moment(dt1).diff(dt2, 'seconds')
+function haveCrawledToday(country, drawTime, timeZone){
+    // console.log(drawTime)
+   const dateValue =  moment().tz(timeZoneConfig[country][timeZone]).format('YYYYMMDD')
+//    console.log(dateValue)
+//    console.log(drawTime.substr(0,8))
+//    console.log(dateValue == drawTime.substr(0,8))
+   return dateValue == drawTime.substr(0,8)
 }
 
 module.exports = {
     sleep,
-    compareLocalTime
+    rightNow,
+    haveCrawledToday
 }
