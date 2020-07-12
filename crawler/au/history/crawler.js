@@ -3,15 +3,13 @@ const lotteryIdProductCodeConfig = require('../../../config/const').lotteryIdPro
 const sleep = require('../../../util').sleep
 const fs = require('fs')
 const path = require('path')
+const { max } = require('moment')
 
 
 
 class crawler {
     constructor(lottoryId){
         this.lottoryId = lottoryId
-        const filePath = path.join(__dirname, '../../../data/au',lottoryId+'.json')
-        fs.writeFileSync(filePath, "")
-        this.ws = fs.createWriteStream(filePath, {encoding: "utf-8"})
     }
 
     parse(data){
@@ -20,17 +18,27 @@ class crawler {
 
     async crawl(){
         try {
+            const filePath = path.join(__dirname, '../../../data/au',this.lottoryId+'.json')
+            // if(fs.existsSync(filePath)){
+            //     fs.unlinkSync(filePath)
+            // }
+            fs.writeFileSync(filePath, "")
+            this.ws = fs.createWriteStream(filePath, {encoding: "utf-8"})
+
             const drawNo = await this.getDrawNo() //4065//await this.getDrawNo()
-            const result = []
+            
             console.log(drawNo)
             const finalDrawNo = 1
             await this.ws.write("[")
             if(drawNo != null){
                 for(let i = drawNo; i >= finalDrawNo; i -= 50){
+                    const result = []
                     const maxDrawNo = i
                     const minDrawNo = i-50 < 0 ? 1 : i-50
                     const draws = await this.getDrawRange(minDrawNo, maxDrawNo)
+                    
                     console.log(`drawNo: ${drawNo}, finalDrawNo: ${finalDrawNo}, minDrawNo: ${minDrawNo}, maxDrawNo: ${maxDrawNo}`)
+                    // console.log(draws.map(a => a.DrawNumber))
                     const percent = parseInt(((maxDrawNo == drawNo) ? (drawNo-minDrawNo)/(drawNo-finalDrawNo) : (drawNo-minDrawNo-1)/(drawNo-finalDrawNo))*100)
                     console.log(`${percent > 100 ? 100 : percent}%`)
                     if(draws != null){

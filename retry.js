@@ -1,6 +1,6 @@
 const argv = process.argv
 const lotteryIdConfig = require('./config/const').lotteryIdConfig
-const getCrawler = require('./crawler/au/history').getCrawler
+const getCrawler = require('./crawler/au/retry').getCrawler
 
 // console.log(argv.filter((val, idx) => {
 //     return idx >= 2
@@ -17,9 +17,8 @@ const getCrawler = require('./crawler/au/history').getCrawler
 //     console.log("传入的lotteryId不合法")
 //     return
 // }
+console.log(process.env.LOTTERY_ID)
 
-// const crawler = getCrawler(lotteryId)
-// new crawler().crawl()
 
 async function rework () {
     try {

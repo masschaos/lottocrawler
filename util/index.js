@@ -14,7 +14,7 @@ const timeZoneConfig = {
 }
 
 function rightNow(country, timeRule, timeZone){
-    const cron = cronParser.parseExpression(timeRule, {
+    const cron = cronParser.parseExpression('* '+timeRule, {
         currentDate: moment(moment().format("YYYY-MM-DD 00:00:00"), "YYYY-MM-DD HH:mm:ss").toDate(),
         endDate: new Date(),
         tz: timeZoneConfig[country][timeZone]
@@ -22,7 +22,17 @@ function rightNow(country, timeRule, timeZone){
     return cron.hasNext()
 }
 
+function haveCrawledToday(country, drawTime, timeZone){
+    // console.log(drawTime)
+   const dateValue =  moment().tz(timeZoneConfig[country][timeZone]).format('YYYYMMDD')
+//    console.log(dateValue)
+//    console.log(drawTime.substr(0,8))
+//    console.log(dateValue == drawTime.substr(0,8))
+   return dateValue == drawTime.substr(0,8)
+}
+
 module.exports = {
     sleep,
-    rightNow
+    rightNow,
+    haveCrawledToday
 }

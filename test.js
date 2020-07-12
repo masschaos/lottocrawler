@@ -24,17 +24,29 @@ const moment = require("moment-timezone")
 // })
 
 
-const cronParser = require("cron-parser")
+// const cronParser = require("cron-parser")
 
-var cron = cronParser.parseExpression("* 21 01 * * 4", {
-    currentDate: moment(moment().format("YYYY-MM-DD 00:00:00"), "YYYY-MM-DD HH:mm:ss").toDate(),
-    endDate: new Date(),
-    tz: "Australia/Sydney"
-})
-console.log(cron.hasNext())
+// var cron = cronParser.parseExpression("* 21 01 * * 4", {
+//     currentDate: moment(moment().format("YYYY-MM-DD 00:00:00"), "YYYY-MM-DD HH:mm:ss").toDate(),
+//     endDate: new Date(),
+//     tz: "Australia/Sydney"
+// })
+// console.log(cron.hasNext())
 
 // console.log(moment("2020-07-08 19:30:00").clone().tz("Australia/Sydney").format("YYYY-MM-DD HH:mm:ss"))
 
 
-console.log(moment().format("YYYY-MM-DD 00:00:00"))
-console.log(moment(moment().format("YYYY-MM-DD 00:00:00"), "YYYY-MM-DD HH:mm:ss").toDate())
+// console.log(moment().format("YYYY-MM-DD 00:00:00"))
+// console.log(moment(moment().format("YYYY-MM-DD 00:00:00"), "YYYY-MM-DD HH:mm:ss").toDate())
+
+
+const timeNowLocal = moment()
+console.log(timeNowLocal)
+const timeNowAu = moment().tz("Australia/Sydney")
+console.log(timeNowAu)
+console.log(timeNowLocal.diff(timeNowAu, 'hours'))
+const timeDrawTimeLocal = moment("20200712000000", "YYYYMMDDHHmmss")
+const timeDrawTimeAu = moment("20200712000000", "YYYYMMDDHHmmss").tz("Australia/Sydney")
+console.log(timeDrawTimeLocal)
+console.log(timeDrawTimeAu)
+
