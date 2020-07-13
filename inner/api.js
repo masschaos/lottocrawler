@@ -1,30 +1,33 @@
 const axios = require('axios')
-const { auCrawlerApiBaseUrl, lotteryIdProductCodeConfig } = require('../config/const')
+const { config, lotteryIdProductCodeConfig } = require('../config')
+
+const { baseURL, token } = config
+
+const api = axios.create({
+  baseURL,
+  timeout: 1000,
+  headers: { Authorization: 'Bearer ' + token }
+})
 
 class innerApi {
   async fetchSystemConfig () {
-    return await axios.get(`${process.env.BASE_URL}/system/config`)
+    try {
+      const res = await api.get('system/config')
+      return res.data
+    } catch (err) {
+      // TODO: wrap the error
+      throw new Error(err)
+    }
   }
 
-  fetchLotteries (country, level) {
-    return new Promise((resolve, reject) => {
-      axios.get(`${process.env.BASE_URL}/lotteries`,
-        {
-          params: {
-            country,
-            level
-          }
-        }, {
-          headers: {
-            Authorization: 'Bearer xxxxxx',
-            'Content-Type': 'application/json'
-          }
-        }).then((resp) => {
-        resolve(resp.data)
-      }).catch((err) => {
-        reject(err.response.data)
+  async fetchLotteries (country, level) {
+    return await api.get('lotteries',
+      {
+        params: {
+          country,
+          level
+        }
       })
-    })
   }
 
   fetchLastestResult (country, level) {
