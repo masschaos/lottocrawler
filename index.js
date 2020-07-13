@@ -1,6 +1,6 @@
 const getJob = require('./job').getJob
 const CronJob = require('cron').CronJob
-const { innerApi } = require('util/api')
+const { innerApi } = require('inner/api')
 
 // 每个 cron 周期，从这里开始执行
 async function run () {

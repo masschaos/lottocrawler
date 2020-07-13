@@ -1,6 +1,6 @@
 const getCrawler = require('../../crawler/au/latest').getCrawler
 const { sleep, rightNow, haveCrawledToday } = require('../../util')
-const { innerApi } = require('../../util/api')
+const { innerApi } = require('../../inner/api')
 
 class auJob {
   async start () {
