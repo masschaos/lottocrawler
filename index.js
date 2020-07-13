@@ -1,16 +1,22 @@
-const axios = require('axios')
 const getJob = require('./job').getJob
+const CronJob = require('cron').CronJob
+const { innerApi } = require('util/api')
 
-axios.get(process.env.BASE_URL + '/system/config').then((resp) => {
-    if (resp.data && resp.data.countries) {
-        resp.data.countries.forEach(a => {
-            const countryJob = getJob(a.code);
-
-            if (countryJob) {
-                new countryJob().start()
-            }
-        })
+// 每个 cron 周期，从这里开始执行
+async function run () {
+  try {
+    const resp = await innerApi.fetchSystemConfig()
+    for (const country of resp.data.countries) {
+      const CountryJob = getJob(country.code)
+      if (CountryJob) {
+        new CountryJob().start()
+      }
     }
-}).catch(err => {
+  } catch (err) {
     console.log(err)
-})
+  }
+}
+
+// 每个小时的 5分开始一轮检查
+var job = new CronJob('0 5 * * * *', run)
+job.start()
