@@ -12,11 +12,14 @@ class dailyGrandCrawler extends crawler {
       const drawTime = document.querySelector(drawTimeSelector).getAttribute('data-selecteddate')
       const numberSelector = 'ul.winning-numbers-list > li'
       const encoreSelector = 'div.encore-number > span.number'
-      const encore = document.querySelector(encoreSelector).textContent.trim()
       const numberItems = Array.from(document.querySelectorAll(numberSelector))
+      if (numberItems.length === 0) {
+        return null
+      }
       let numbers = numberItems.map((item) => {
         return item.textContent.trim()
       })
+      const encore = document.querySelector(encoreSelector).textContent.trim()
       const index = numbers.indexOf('+')
       numbers = numbers.slice(0, index).join(',') + '#' + numbers.slice(index + 1, numbers.length).join(',').replace('GN', '') + '|' + encore
 
@@ -39,6 +42,27 @@ class dailyGrandCrawler extends crawler {
         prize: 'FREE PLAY',
         prizeFr: 'd’un Jeu gratuit'
       })
+
+      const bonusSelector = '#guaranteed-prize-modal > div > div > div.table-section > div > ul > li'
+      let bonusNumbers = Array.from(document.querySelectorAll(bonusSelector))
+      const other = []
+      if (bonusNumbers.length !== 0) {
+        bonusNumbers = bonusNumbers.map((item) => {
+          return item.textContent.trim()
+        })
+        bonusNumbers = bonusNumbers.join(',')
+        const bonuPrizeSelector = '#guaranteed-prize-modal > div > div > div.table-section > p'
+        let bonuPrize = document.querySelector(bonuPrizeSelector).textContent.trim()
+        const bonuCount = Number(bonuPrize.split('x')[0].trim())
+        bonuPrize = bonuPrize.split('x')[0].trim()
+        other.push({
+          name: 'BONUS',
+          nameFr: 'BONUS',
+          prize: bonuPrize,
+          count: bonuCount,
+          number: bonusNumbers
+        })
+      }
 
       let encoreLines = Array.from(document.querySelectorAll(encoreDrawSelector))
       encoreLines = encoreLines.map((item) => {
@@ -64,27 +88,34 @@ class dailyGrandCrawler extends crawler {
       return {
         drawTime: drawTime,
         numbers: numbers,
-        breakdown: breakdown
+        breakdown: breakdown,
+        other: other
       }
     })
+    if (result === null) {
+      return null
+    }
     result.drawTime = super.dateFormatter(result.drawTime)
     result.lotteryID = lotteryID
     result.name = lotteryName
     result.issue = ''
     result.detail = []
     result.jackpot = []
-    result.other = []
     result.breakdown = super.fillFrName(result.breakdown, enFrMap)
     return JSON.stringify(result)
   }
 
-  crawl () {
-    super.crawl(url, this.parse)
+  async crawl (targetDrawTime, saveFilePath) {
+    let targetUrl = url
+    if (targetDrawTime !== undefined) {
+      targetUrl = targetUrl + super.urlParams(targetDrawTime)
+    }
+    return super.crawl(targetUrl, this.parse, targetDrawTime)
       .then(res => {
         if (res === null) {
           console.log('未开奖:' + lotteryID)
         } else {
-          super.saveData(res)
+          super.saveData(res, saveFilePath)
         }
       })
       .catch(error => {

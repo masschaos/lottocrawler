@@ -8,8 +8,8 @@ const enFrMap = {
 }
 
 class pick2Crawler extends crawler {
-  async parse (page) {
-    const result = await page.evaluate(() => {
+  async parse (page, targetDrawTime) {
+    const result = await page.evaluate((targetDrawTime) => {
       const drawTimeSelector = '#video-wrap > div > div > div.main-content > div.renderContent > div.large-date-container > div:nth-child(2) > p'
       const drawTime = document.querySelector(drawTimeSelector).getAttribute('data-selecteddate')
       let numberSelector = '#eveningdraw > div > div > ul > li'
@@ -17,14 +17,18 @@ class pick2Crawler extends crawler {
       let mainPrizeSelector = '#pick-game3-collapse > div > div > div > div > div > div > table > tbody > tr'
       let encorePrizeSelector = '#pick-game4-collapse > div > div > div > div > div > div > table > tbody > tr'
       let timeAt = '223000'
-      if (document.querySelector(encoreSelector) === null || document.querySelector(encoreSelector).textContent.trim() === '') {
+      if ((targetDrawTime === undefined && Array.from(document.querySelectorAll(numberSelector)).length === 0) || (targetDrawTime !== undefined && targetDrawTime.slice(8) === '140000')) {
         timeAt = '140000'
         numberSelector = '#middaydraw > div > div > ul > li'
         encoreSelector = '#middaydraw > div > div > div > span.number'
         mainPrizeSelector = '#pick-game1-collapse > div > div > div > div > div > div > table > tbody > tr'
         encorePrizeSelector = '#pick-game2-collapse > div > div > div > div > div > div > table > tbody > tr'
       }
+
       const numberItems = Array.from(document.querySelectorAll(numberSelector))
+      if (numberItems.length === 0) {
+        return null
+      }
       let numbers = numberItems.map((item) => {
         return item.textContent.trim()
       })
@@ -68,7 +72,7 @@ class pick2Crawler extends crawler {
         breakdown: breakdown,
         timeAt: timeAt
       }
-    })
+    }, targetDrawTime)
     if (result === null) {
       return result
     }
@@ -84,13 +88,17 @@ class pick2Crawler extends crawler {
     return JSON.stringify(result)
   }
 
-  crawl () {
-    super.crawl(url, this.parse)
+  async crawl (targetDrawTime, saveFilePath) {
+    let targetUrl = url
+    if (targetDrawTime !== undefined) {
+      targetUrl = targetUrl + super.urlParams(targetDrawTime)
+    }
+    return super.crawl(targetUrl, this.parse, targetDrawTime)
       .then(res => {
         if (res === null) {
           console.log('未开奖:' + lotteryID)
         } else {
-          super.saveData(res)
+          super.saveData(res, saveFilePath)
         }
       })
       .catch(error => {

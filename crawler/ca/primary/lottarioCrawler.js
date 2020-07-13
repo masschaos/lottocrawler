@@ -13,8 +13,10 @@ class lottarioCrawler extends crawler {
       const numberSelector = 'ul.winning-numbers-list > li'
       const encoreSelector = 'div.encore-number > span.number'
       const earlyBirdSelector = 'li.prize-draw-item'
-      const encore = document.querySelector(encoreSelector).textContent.trim()
       const numberItems = Array.from(document.querySelectorAll(numberSelector))
+      if (numberItems.length === 0) {
+        return null
+      }
       let numbers = numberItems.map((item) => {
         return item.textContent.trim()
       })
@@ -22,6 +24,7 @@ class lottarioCrawler extends crawler {
       const earlyBirdNumbers = earlyBirdItems.map((item) => {
         return item.textContent.trim()
       })
+      const encore = document.querySelector(encoreSelector).textContent.trim()
       const index = numbers.indexOf('+')
       numbers = numbers.slice(0, index).join(',') + '#' + numbers.slice(index + 1, numbers.length).join(',').replace('Bonus', '') + '|' + earlyBirdNumbers.join(',') + '|' + encore
       const mainPrizeDrawSelector = '#lottario-game1collapse > div > div > div > div > div > div > table > tbody > tr'
@@ -62,6 +65,9 @@ class lottarioCrawler extends crawler {
         breakdown: breakdown
       }
     })
+    if (result === null) {
+      return result
+    }
     result.drawTime = super.dateFormatter(result.drawTime)
     result.lotteryID = lotteryID
     result.name = lotteryName
@@ -73,13 +79,17 @@ class lottarioCrawler extends crawler {
     return JSON.stringify(result)
   }
 
-  crawl () {
-    super.crawl(url, this.parse)
+  async crawl (targetDrawTime, saveFilePath) {
+    let targetUrl = url
+    if (targetDrawTime !== undefined) {
+      targetUrl = targetUrl + super.urlParams(targetDrawTime)
+    }
+    return super.crawl(targetUrl, this.parse, targetDrawTime)
       .then(res => {
         if (res === null) {
           console.log('未开奖:' + lotteryID)
         } else {
-          super.saveData(res)
+          super.saveData(res, saveFilePath)
         }
       })
       .catch(error => {

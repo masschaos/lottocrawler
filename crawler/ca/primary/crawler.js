@@ -1,6 +1,7 @@
 const puppeteer = require('puppeteer')
 const { innerApi } = require('../../../util/api')
 const moment = require('moment-timezone')
+const fs = require('fs')
 
 class crawler {
   dateFormatter (dateString, timeString) {
@@ -8,6 +9,13 @@ class crawler {
       timeString = '000000'
     }
     return moment.parseZone(new Date(dateString)).format('YYYYMMDD') + timeString
+  }
+
+  urlParams (targetDrawTime) {
+    const current = moment(targetDrawTime.slice(0, 8))
+    const startDate = moment(current).subtract(1, 'd')
+    const endDate = moment(current).add(1, 'd')
+    return '?startDate=' + startDate.format('YYYY-MM-DD') + '&endDate=' + endDate.format('YYYY-MM-DD')
   }
 
   fillFrName (breakdown, enFrMap) {
@@ -26,7 +34,7 @@ class crawler {
     })
   }
 
-  async crawl (url, parseFunction) {
+  async crawl (url, parseFunction, targetDrawTime) {
     const browser = await puppeteer.launch()
     const page = await browser.newPage()
     page.setRequestInterception(true)
@@ -39,7 +47,7 @@ class crawler {
     })
     try {
       await page.goto(url)
-      const result = await parseFunction(page)
+      const result = await parseFunction(page, targetDrawTime)
       return result
     } catch (error) {
       console.log(error)
@@ -49,9 +57,15 @@ class crawler {
     }
   }
 
-  async saveData (item) {
-    //console.log(item)
-    await new innerApi().saveLastestResult(item)
+  async saveData (item, saveFilePath) {
+    if (saveFilePath !== undefined) {
+      const writeStream = fs.createWriteStream(saveFilePath, { encoding: 'utf-8', flags: 'a' })
+      writeStream.write(item + '\n')
+      writeStream.close()
+    } else {
+      // console.log(item)
+      await new innerApi().saveLastestResult(item)
+    }
   }
 }
 

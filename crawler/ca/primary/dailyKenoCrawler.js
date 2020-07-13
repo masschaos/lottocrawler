@@ -6,8 +6,8 @@ const url = 'https://lottery.olg.ca/en-ca/winning-numbers/daily-keno/winning-num
 const enFrMap = {}
 
 class dailyKenoCrawler extends crawler {
-  async parse (page) {
-    const result = await page.evaluate(() => {
+  async parse (page, targetDrawTime) {
+    const result = await page.evaluate((targetDrawTime) => {
       const drawTimeSelector = '#video-wrap > div > div > div.main-content > div.renderContent > div.large-date-container > div:nth-child(2) > p'
       const drawTime = document.querySelector(drawTimeSelector).getAttribute('data-selecteddate')
       let numberSelector = '#dailykeno-eveningdraw > div > div > ul > li'
@@ -15,18 +15,21 @@ class dailyKenoCrawler extends crawler {
       let betSelector = '#daily-keno-game-eveningcollapse > div > div > div > div.inner.circle-slider-detail-container > div'
       let encorePrizeSelector = '#daily-keno-game-evening-encorecollapse > div > div > div > div > div > div > table > tbody > tr'
       let timeAt = '223000'
-      if (document.querySelector(encoreSelector) === null || document.querySelector(encoreSelector).textContent.trim() === '') {
+      if ((targetDrawTime === undefined && Array.from(document.querySelectorAll(numberSelector)).length === 0) || (targetDrawTime !== undefined && targetDrawTime.slice(8) === '140000')) {
         timeAt = '140000'
         numberSelector = '#dailykeno-middaydraw > div > div > ul > li'
         encoreSelector = '#dailykeno-middaydraw > div > div > div > span.number'
         betSelector = '#daily-keno-game-middaycollapse > div > div > div > div.inner.circle-slider-detail-container > div'
         encorePrizeSelector = '#daily-keno-game-midday-encorecollapse > div > div > div > div > div > div > table > tbody > tr'
       }
-      const encore = document.querySelector(encoreSelector).textContent.trim()
       const numberItems = Array.from(document.querySelectorAll(numberSelector))
+      if (numberItems.length === 0) {
+        return null
+      }
       let numbers = numberItems.map((item) => {
         return item.textContent.trim()
       })
+      const encore = document.querySelector(encoreSelector).textContent.trim()
       numbers = numbers.join(',') + '|' + encore
 
       const breakdown = Array.from(document.querySelectorAll(betSelector)).map((item, index) => {
@@ -65,7 +68,7 @@ class dailyKenoCrawler extends crawler {
         breakdown: breakdown,
         timeAt: timeAt
       }
-    })
+    }, targetDrawTime)
     if (result === null) {
       return result
     }
@@ -81,13 +84,17 @@ class dailyKenoCrawler extends crawler {
     return JSON.stringify(result)
   }
 
-  crawl () {
-    super.crawl(url, this.parse)
+  async crawl (targetDrawTime, saveFilePath) {
+    let targetUrl = url
+    if (targetDrawTime !== undefined) {
+      targetUrl = targetUrl + super.urlParams(targetDrawTime)
+    }
+    return super.crawl(targetUrl, this.parse, targetDrawTime)
       .then(res => {
         if (res === null) {
           console.log('未开奖:' + lotteryID)
         } else {
-          super.saveData(res)
+          super.saveData(res, saveFilePath)
         }
       })
       .catch(error => {
