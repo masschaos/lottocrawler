@@ -1,3 +1,4 @@
+const VError = require('verror')
 const axios = require('axios')
 const { config, lotteryIdProductCodeConfig } = require('../config')
 
@@ -15,8 +16,7 @@ class innerApi {
       const res = await api.get('system/config')
       return res.data
     } catch (err) {
-      // TODO: wrap the error
-      throw new Error(err)
+      throw new VError(err, '请求系统配置出错')
     }
   }
 

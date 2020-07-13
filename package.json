@@ -4,7 +4,7 @@
   "description": "lottocrawler",
   "main": "index.js",
   "scripts": {
-    "dev": "BASE_URL=https://seaapi.lottowawa.com/staging node index.js",
+    "dev": "node -r dotenv/config dev.js",
     "retry": "BASE_URL=https://seaapi.lottowawa.com/staging DRAW_NO=4065 LOTTERY_ID=au-tattslotto node retry.js",
     "history": "BASE_URL=https://seaapi.lottowawa.com/staging LOTTERY_ID=au-tattslotto node history.js",
     "test": "node test.js"
@@ -15,9 +15,11 @@
     "cron-parser": "^2.15.0",
     "moment": "^2.27.0",
     "moment-timezone": "^0.5.31",
-    "puppeteer": "^4.0.1"
+    "puppeteer": "^4.0.1",
+    "verror": "^1.10.0"
   },
   "devDependencies": {
+    "dotenv": "^8.2.0",
     "standard": "^14.3.4"
   },
   "repository": {
