@@ -10,6 +10,7 @@
     "test": "node test.js"
   },
   "dependencies": {
+    "@masschaos/im": "^0.1.3",
     "axios": "^0.19.2",
     "cron": "^1.8.2",
     "cron-parser": "^2.15.0",

@@ -1,5 +1,6 @@
 // const getJob = require('./job').getJob
 const { innerApi } = require('./inner/api')
+const im = require('./util/im')
 
 // 每个 cron 周期，从这里开始执行
 async function run () {
@@ -13,9 +14,7 @@ async function run () {
     //   }
     // }
   } catch (err) {
-    console.log('message:', err.message)
-    console.log('name:', err.name)
-    console.log('stack:', err.stack)
+    im.error(err.message + '\n```' + err.stack + '```')
   }
 }
 

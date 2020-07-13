@@ -21,7 +21,14 @@ const auCrawlerApiBaseUrl = 'https://data.api.thelott.com/sales/vmax/web/data/lo
 
 const config = {
   baseURL: process.env.BASE_URL || 'https://seaapi.lottowawa.com/staging',
-  token: process.env.TOKEN
+  token: process.env.TOKEN,
+  im: {
+    provider: process.env.IM_PROVIDER || 'slack',
+    token: process.env.IM_TOKEN,
+    debugChannel: process.env.IM_DEBUG_CHANNEL,
+    infoChannel: process.env.IM_INFO_CHANNEL,
+    errorChannel: process.env.IM_ERROR_CHANNEL
+  }
 }
 
 module.exports = {
