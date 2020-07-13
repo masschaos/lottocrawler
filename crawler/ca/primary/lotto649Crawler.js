@@ -11,17 +11,41 @@ class lotto649Crawler extends crawler {
       const drawTimeSelector = '#video-wrap > div > div > div.main-content > div.large-date-container > div:nth-child(2) > p'
       const drawTime = document.querySelector(drawTimeSelector).getAttribute('data-selecteddate')
       const numberSelector = 'ul.winning-numbers-list > li'
-      const guaranteedSelector = '#video-wrap > div > div > div.main-content > div.renderContent > div > div.lotto-649-one-prize-draw > div.draw-container > div.prize-draw-number.draw-container-margin'
+      const guaranteedSelector = 'div.prize-draw-number.draw-container-margin'
       const encoreSelector = 'div.encore-number > span.number'
-      const encore = document.querySelector(encoreSelector).textContent.trim()
-      const guaranteedNumbers = document.querySelector(guaranteedSelector).textContent.trim().replace('-', '#')
+      const specilEventNumberSelector = '#guaranteed-prize-modal > div > div > div:nth-child(4) > div > ul > li'
       const numberItems = Array.from(document.querySelectorAll(numberSelector))
+      if (numberItems.length === 0) {
+        return null
+      }
+      const guaranteedNumbers = document.querySelector(guaranteedSelector).textContent.trim().replace('-', '#')
+      const encore = document.querySelector(encoreSelector).textContent.trim()
       let numbers = numberItems.map((item) => {
         return item.textContent.trim()
       })
       const index = numbers.indexOf('+')
       numbers = numbers.slice(0, index).join(',') + '#' + numbers.slice(index + 1, numbers.length).join(',').replace('Bonus', '')
       numbers = [numbers, encore, guaranteedNumbers].join('|')
+      let specialNumbers = Array.from(document.querySelectorAll(specilEventNumberSelector))
+      const other = []
+      if (specialNumbers.length !== 0) {
+        specialNumbers = specialNumbers.map((item) => {
+          return item.textContent.trim()
+        })
+        const specialPrizeSelector = '#guaranteed-prize-modal > div > div > div:nth-child(4) > p'
+        let specialPrize = document.querySelector(specialPrizeSelector).textContent.trim()
+        const specialCount = Number(specialPrize.split('X')[0].trim())
+        specialPrize = specialPrize.split('X')[1].trim()
+        specialNumbers = specialNumbers.join(',')
+        other.push({
+          name: 'SPECIAL EVENT',
+          nameFr: 'ÉVÉNEMENTS SPÉCIAUX',
+          prize: specialPrize,
+          count: specialCount,
+          number: specialNumbers
+        })
+      }
+
       const mainPrizeDrawSelector = '#lotto-649-game1collapse > div > div > div > div > div.game-prize-table.game-prize-3col-table > div > table > tbody > tr'
       const encoreDrawSelector = '#lotto-649-game3collapse > div > div > div > div > div > div > table > tbody > tr'
       const guaranteedDrawSelector = '#lotto-649-game2collapse > div > div > div > div > div > div > table > tbody > tr'
@@ -72,27 +96,34 @@ class lotto649Crawler extends crawler {
       return {
         drawTime: drawTime,
         numbers: numbers,
-        breakdown: breakdown
+        breakdown: breakdown,
+        other: other
       }
     })
+    if (result === null) {
+      return result
+    }
     result.drawTime = super.dateFormatter(result.drawTime)
     result.lotteryID = lotteryID
     result.name = lotteryName
     result.issue = ''
     result.detail = []
     result.jackpot = []
-    result.other = []
     result.breakdown = super.fillFrName(result.breakdown, enFrMap)
     return JSON.stringify(result)
   }
 
-  crawl () {
-    super.crawl(url, this.parse)
+  async crawl (targetDrawTime, saveFilePath) {
+    let targetUrl = url
+    if (targetDrawTime !== undefined) {
+      targetUrl = targetUrl + super.urlParams(targetDrawTime)
+    }
+    return super.crawl(targetUrl, this.parse, targetDrawTime)
       .then(res => {
         if (res === null) {
           console.log('未开奖:' + lotteryID)
         } else {
-          super.saveData(res)
+          super.saveData(res, saveFilePath)
         }
       })
       .catch(error => {
