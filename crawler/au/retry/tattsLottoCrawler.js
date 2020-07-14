@@ -4,7 +4,7 @@ const moment = require('moment')
 const money_format = require('../../../util/format').money_format
 
 class tattsLottoCrawler extends crawler {
-    constructor(){
+    constructor() {
         super("au-tattslotto")
     }
 
@@ -12,12 +12,12 @@ class tattsLottoCrawler extends crawler {
     [
         {
         "drawTime":"20110426000000",
-        "detail": [{"Division": "1", "Division Prize": "", "Winners": 0},
-        {"Division": "2", "Division Prize": "$13,184.65", "Winners": 46},
-        {"Division": "3", "Division Prize": "$1,252.40", "Winners": 1045},
-        {"Division": "4", "Division Prize": "$36.80", "Winners": 1045},
-        {"Division": "5", "Division Prize": "$23.7", "Winners": 1045},
-        {"Division": "6", "Division Prize": "$12.95", "Winners": 1045}
+        "detail": [{"name": "1", "prize": "", "count": 0},
+        {"name": "2", "prize": "$13,184.65", "count": 46},
+        {"name": "3", "prize": "$1,252.40", "count": 1045},
+        {"name": "4", "prize": "$36.80", "count": 1045},
+        {"name": "5", "prize": "$23.7", "count": 1045},
+        {"name": "6", "prize": "$12.95", "count": 1045}
         ],
         "jackpot": [ ],
         "other": [ ],
@@ -28,19 +28,19 @@ class tattsLottoCrawler extends crawler {
         }
     ]
     */
-    parse(data){
+    parse(data) {
         let item = {
             "drawTime": moment(data.DrawDate).format('YYYYMMDDHHmmss'),
-            "detail": data.Dividends.length <=0 ? [] : data.Dividends.map(a => {
+            "detail": data.Dividends.length <= 0 ? [] : data.Dividends.map(a => {
                 let result = {
-                    "Division": a.Division, 
-                    "Division Prize": a.BlocDividend > 0 ? money_format(a.BlocDividend, 2, ".", ",","$") : "" , 
-                    "Winners": a.BlocNumberOfWinners
+                    name: a.Division,
+                    prize: a.BlocDividend > 0 ? money_format(a.BlocDividend, 2, ".", ",", "$") : "",
+                    count: a.BlocNumberOfWinners
                 }
                 return result
             }),
-            "jackpot": [ ],
-            "other": [ ],
+            "jackpot": [],
+            "other": [],
             "issue": data.DrawNumber,
             "numbers": [data.PrimaryNumbers.join(','), data.SecondaryNumbers.join(',')].join('#'),
             "name": "TattsLotto",
