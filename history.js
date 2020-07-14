@@ -1,5 +1,5 @@
 const argv = process.argv
-const lotteryIdConfig = require('./config/const').lotteryIdConfig
+const { lotteryIdConfig } = require('../config')
 const getCrawler = require('./crawler/au/history').getCrawler
 
 // console.log(argv.filter((val, idx) => {
@@ -22,12 +22,12 @@ const getCrawler = require('./crawler/au/history').getCrawler
 // new crawler().crawl()
 
 async function rework () {
-    try {
-        const crawler = getCrawler(process.env.LOTTERY_ID)
-        await new crawler().crawl()
-    } catch (error) {
-        console.log(error)
-    }
+  try {
+    const crawler = getCrawler(process.env.LOTTERY_ID)
+    await new crawler().crawl()
+  } catch (error) {
+    console.log(error)
+  }
 }
 
 rework()

@@ -1,29 +1,26 @@
 const puppeteer = require('puppeteer')
 const crawler = require('./crawler')
-const {saveLastestResult} = require("../../../../util/api")
 
 const lotteryID = 'au-super-66'
 const url = 'https://australia.national-lottery.com/super-66/results'
 
-
 class supper66Crawler extends crawler {
-  constructor(){
+  constructor () {
     super(lotteryID)
   }
 
   async startCrawl (parseFunction) {
-    return new Promise(async(resolve, reject) => {
+    return new Promise(async (resolve, reject) => {
       try {
-        
         resolve(result)
       } catch (error) {
         reject(error)
       }
     })
   }
-  
+
   async parse (page) {
-    return new Promise(async(resolve, reject) => {
+    return new Promise(async (resolve, reject) => {
       try {
         const result = await page.evaluate((lotteryID) => {
           const balls = Array.from(document.querySelectorAll('#content > div.resultsOuter.full.fluid > div > div.balls > .result'))
@@ -46,7 +43,7 @@ class supper66Crawler extends crawler {
       }
     })
   };
-  
+
   async crawl () {
     return new Promise(async (resolve, reject) => {
       try {
@@ -57,11 +54,10 @@ class supper66Crawler extends crawler {
         const result = await this.parse(page)
         await browser.close()
         const data = super.assembleFormatData(result)
-        if(data && data.length > 0){
-          for(let idx in data){
-              const item = data[idx]
-              console.log(item)
-              await saveLastestResult(item)
+        if (data && data.length > 0) {
+          for (const idx in data) {
+            const item = data[idx]
+            console.log(item)
           }
         }
         resolve()
@@ -71,6 +67,5 @@ class supper66Crawler extends crawler {
     })
   }
 }
-
 
 module.exports = supper66Crawler

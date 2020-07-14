@@ -1,4 +1,5 @@
-const { auCrawlerApi, saveLastestResult } = require('../../../inner/api')
+const { fetchLastestResult } = require('./api')
+const VError = require('verror')
 
 class Crawler {
   constructor (lotteryId) {
@@ -9,22 +10,13 @@ class Crawler {
     return ''
   }
 
-  crawl () {
-    return new Promise(async (resolve, reject) => {
-      try {
-        const data = await new auCrawlerApi().fetchLastestResult(this.lotteryId)
-        if (data && data.length > 0) {
-          for (const idx in data) {
-            const item = this.parse(data[idx])
-            console.log(item)
-            await saveLastestResult(item)
-          }
-        }
-        resolve()
-      } catch (error) {
-        reject(error)
-      }
-    })
+  async crawl () {
+    const data = await fetchLastestResult(this.lotteryId)
+    // 得到的结果是个只有一个元素的列表
+    if (data && data.length === 1) {
+      return this.parse(data[0])
+    }
+    throw new VError(`抓取 ${this.lotteryId} 虽未出错,但结果不符合预期:${data}`)
   }
 }
 

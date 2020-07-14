@@ -1,11 +1,10 @@
 const crawler = require('./crawler')
-const {saveLastestResult} = require("../../../../util/api")
 
 const lotteryID = 'au-oz-lotto'
 const url = 'https://australia.national-lottery.com/oz-lotto/results'
 
-class ozLottoCrawler extends crawler{
-  constructor(){
+class ozLottoCrawler extends crawler {
+  constructor () {
     super(lotteryID)
   }
 
@@ -47,23 +46,22 @@ class ozLottoCrawler extends crawler{
       }
     })
   }
-  
+
   crawl () {
     return new Promise((reject, resolve) => {
       super.crawl(url, this.parse).then(async (res) => {
         const data = super.assembleFormatData(res)
-        if(data && data.length > 0){
-          for(let idx in data){
-              const item = data[idx]
-              console.log(item)
-              await saveLastestResult(item)
+        if (data && data.length > 0) {
+          for (const idx in data) {
+            const item = data[idx]
+            console.log(item)
           }
         }
         resolve()
       }).catch(error => {
         reject(error)
-      })   
-    }) 
+      })
+    })
   }
 }
 

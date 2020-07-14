@@ -10,9 +10,9 @@ async function run () {
     const resp = await fetchSystemConfig()
     console.log(resp)
     // 遍历该区域所有需要爬的国家
-    for (const country of resp.data.countries.filter(x => { return x.upstream && x.upstream === 'crawler' })) {
+    for (const country of resp.countries.filter(x => { return x.upstream && x.upstream === 'crawler' })) {
       // 一个国家有多个level
-      for (const level of country.level) {
+      for (const level of country.levels) {
         // 彩种列表
         const lotteries = await fetchLotteries(country.code, level.code)
         if (lotteries.length === 0) {
@@ -41,17 +41,10 @@ async function run () {
               }
               // 一个彩票会有多个爬虫，调用到成功为止
               for (const Crawler of crawlers) {
-                try {
-                  await new Crawler().crawl()
-                  // 如果导入成功，则不再使用备用源抓取数据
-                  break
-                } catch (error) {
-                  // 如果提示数据已存在, 则跳过所有源
-                  if (error.error === 'DuplicatedResult') {
-                    break
-                  }
-                  console.log(error)
-                }
+                await new Crawler().crawl()
+                // TODO: 在这里导入
+                // 如果导入成功，则不再使用备用源抓取数据
+                break
               }
             }
           }
