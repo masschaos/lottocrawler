@@ -40,7 +40,7 @@ class innerApi {
         })
     }
 
-    saveLastestResult(data){
+    async saveLastestResult(data){
         return new Promise((resolve, reject) => {
             axios.post(`${process.env.BASE_URL}/results`, data, {
                 headers:{

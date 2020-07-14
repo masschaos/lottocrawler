@@ -50,13 +50,15 @@ class ozLottoCrawler extends crawler{
   
   crawl () {
     return new Promise((reject, resolve) => {
-      super.crawl(url, this.parse).then(async (res) => {
+      super.crawl(url, this.parse).then((res) => {
         const data = super.assembleFormatData(res)
         if(data && data.length > 0){
           for(let idx in data){
               const item = data[idx]
               console.log(item)
-              await new innerApi().saveLastestResult(item)
+              new innerApi().saveLastestResult(item).catch(error => {
+                reject(error)
+              })
           }
         }
         resolve()
