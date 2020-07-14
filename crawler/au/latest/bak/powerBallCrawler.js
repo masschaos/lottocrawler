@@ -1,5 +1,5 @@
 const crawler = require('./crawler')
-const {innerApi} = require("../../../../util/api")
+const {saveLastestResult} = require("../../../../util/api")
 
 const lotteryID = 'au-powerball'
 const url = 'https://australia.national-lottery.com/powerball/results'
@@ -57,7 +57,7 @@ class powerBallCrawler extends crawler{
           for(let idx in data){
               const item = data[idx]
               console.log(item)
-              await new innerApi().saveLastestResult(item)
+              await saveLastestResult(item)
           }
         }
         resolve()

@@ -1,4 +1,4 @@
-const { auCrawlerApi, innerApi } = require('../../../inner/api')
+const { auCrawlerApi, saveLastestResult } = require('../../../inner/api')
 
 class auCrawler {
   constructor (lotteryId) {
@@ -17,7 +17,7 @@ class auCrawler {
           for (const idx in data) {
             const item = this.parse(data[idx])
             console.log(item)
-            await new innerApi().saveLastestResult(item)
+            await saveLastestResult(item)
           }
         }
         resolve()

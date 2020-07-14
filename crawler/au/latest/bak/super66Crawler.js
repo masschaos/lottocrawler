@@ -1,6 +1,6 @@
 const puppeteer = require('puppeteer')
 const crawler = require('./crawler')
-const {innerApi} = require("../../../../util/api")
+const {saveLastestResult} = require("../../../../util/api")
 
 const lotteryID = 'au-super-66'
 const url = 'https://australia.national-lottery.com/super-66/results'
@@ -61,7 +61,7 @@ class supper66Crawler extends crawler {
           for(let idx in data){
               const item = data[idx]
               console.log(item)
-              await new innerApi().saveLastestResult(item)
+              await saveLastestResult(item)
           }
         }
         resolve()

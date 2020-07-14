@@ -1,14 +1,15 @@
 const getCrawler = require('../../crawler/au/latest').getCrawler
 const { sleep, rightNow, haveCrawledToday } = require('../../util')
-const { innerApi } = require('../../inner/api')
+const { fetchLotteries, fetchLastestResult } = require('../../inner/api')
 
 class auJob {
   async start () {
-    new innerApi().fetchLotteries('au', 0).then(async (data) => {
+    // FIXME: 动态传参
+    fetchLotteries('au', 0).then(async (data) => {
       // 获取澳大利亚最新的开奖列表
       let results = []
       try {
-        results = await new innerApi().fetchLastestResult('au', 0)
+        results = await fetchLastestResult('au', 0)
       } catch (error) {
         console.log(error)
       }

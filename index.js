@@ -1,11 +1,11 @@
 // const getJob = require('./job').getJob
-const { innerApi } = require('./inner/api')
+const { fetchSystemConfig } = require('./inner/api')
 const im = require('./util/im')
 
 // 每个 cron 周期，从这里开始执行
 async function run () {
   try {
-    const resp = await new innerApi().fetchSystemConfig()
+    const resp = await fetchSystemConfig()
     console.log(resp)
     // for (const country of resp.data.countries) {
     //   const CountryJob = getJob(country.code)

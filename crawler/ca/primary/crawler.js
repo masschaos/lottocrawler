@@ -1,5 +1,5 @@
 const puppeteer = require('puppeteer')
-const { innerApi } = require('../../../util/api')
+const { saveLastestResult } = require('../../../util/api')
 const moment = require('moment-timezone')
 const fs = require('fs')
 
@@ -64,7 +64,7 @@ class crawler {
       writeStream.close()
     } else {
       // console.log(item)
-      await new innerApi().saveLastestResult(item)
+      await saveLastestResult(item)
     }
   }
 }

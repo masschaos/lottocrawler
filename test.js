@@ -17,7 +17,7 @@ const moment = require("moment-timezone")
 
 // console.log(compareLocalTime('au', '00 21 * * 6', 'GMT+10:00'))
 
-// const {innerApi} = require("./util/api")
+// const {saveLastestResult} = require("./util/api")
 
 // new innerApi().fetchLotteries("au", 0).then(res => {
 //     console.log(res)

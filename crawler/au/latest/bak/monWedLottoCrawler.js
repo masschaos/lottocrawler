@@ -1,5 +1,5 @@
 const crawer = require('./crawler')
-const { innerApi } = require('../../../../inner/api')
+const { saveLastestResult } = require('../../../../inner/api')
 
 const lotteryID = 'au-mon-wed-lotto'
 const monUrl = 'https://australia.national-lottery.com/monday-lotto/results'
@@ -62,7 +62,7 @@ class monWedLottoCrawler extends crawer {
 
         if (data) {
           console.log(data)
-          await new innerApi().saveLastestResult(data)
+          await saveLastestResult(data)
         }
         resolve()
       } catch (error) {
