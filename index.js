@@ -41,10 +41,20 @@ async function run () {
               }
               // 一个彩票会有多个爬虫，调用到成功为止
               for (const Crawler of crawlers) {
-                await new Crawler().crawl()
-                // TODO: 在这里导入
-                // 如果导入成功，则不再使用备用源抓取数据
-                break
+                // 捕获单个彩票爬虫的异常，如果出问题了就继续下一个
+                try {
+                  const data = await new Crawler().crawl()
+                  console.log(data)
+                  // TODO: 在这里导入
+                  // 如果导入成功，则不再使用备用源抓取数据
+                  break
+                } catch (err) {
+                  im.error(`${lottery.id}的爬虫出了问题清核查:${err.message}` + '\n```' + err.stack + '```', {
+                    id: lottery.id,
+                    国家: country.name
+                  })
+                  continue
+                }
               }
             }
           }
@@ -52,7 +62,7 @@ async function run () {
       }
     }
   } catch (err) {
-    im.error(err.message + '\n```' + err.stack + '```')
+    im.error('爬虫挂了快去修复，发生如下错误：\n' + err.message + '\n```' + err.stack + '```')
   }
 }
 
