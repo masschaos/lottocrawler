@@ -1,7 +1,7 @@
 const im = require('./util/im')
 const route = require('./router')
 const { hasNewDraw } = require('./util/time')
-const { fetchLotteries, fetchLastestResult, fetchSystemConfig } = require('./inner/api')
+const { fetchLotteries, fetchLastestResult, fetchSystemConfig, saveLastestResult } = require('./inner/api')
 
 // 每个 cron 周期，从这里开始执行
 async function run () {
@@ -27,18 +27,19 @@ async function run () {
         }
         // 开始检查每个彩票
         for (const lottery of lotteries) {
+          const { drawConfig: { timeRule }, delay, tz, id, isQuickDraw } = lottery
           // 找到对应的结果
           const result = results.find(x => {
-            return x.lotteryID === lottery.id
+            return x.lotteryID === id
           })
           // 根据预计开奖时间规则(lottery.drawConfig.timeRule)判断是否到了抓取数据的时间 ,
-          if (result && !hasNewDraw(lottery.drawConfig.timeRule, lottery.delay, result.drawTime, lottery.tz)) {
-            console.log(`还未开奖，跳过${lottery.id}`)
+          if (result && !hasNewDraw(timeRule, isQuickDraw, delay, result.drawTime, tz)) {
+            console.log(`还未开奖，跳过${id}`)
             continue
           }
-          const crawlers = route(lottery.country, lottery.id)
+          const crawlers = route(lottery.country, id)
           if (!crawlers || crawlers.length === 0) {
-            im.error('预期外情况，未找到彩票爬虫', { country: country.name, lottery: lottery.id })
+            im.error('预期外情况，未找到彩票爬虫', { country: country.name, lottery: id })
             break
           }
           // 一个彩票会有多个爬虫，调用到成功为止
@@ -52,27 +53,33 @@ async function run () {
               // 和已经存在的对比一下
               if (data.drawTime <= result.drawTime) {
                 im.info('开奖时间到了但是还没新数据，请改善延迟配置', {
-                  id: lottery.id,
-                  rule: lottery.timeRule,
-                  last: result.drawTime,
-                  delay: lottery.delay
+                  彩票: id,
+                  规则: timeRule,
+                  我们: result.drawTime,
+                  网站: data.drawTime,
+                  延迟: delay
                 })
                 continue
               }
               // 发生了备用源数据更快的情况
               if (bak) {
                 im.info('发生了备用源数据更快的情况', {
-                  id: lottery.id,
+                  id: id,
                   source: crawler.baseURL
                 })
               }
               bak = true
-              // TODO: 在这里导入
+              // 保存数据
+              await saveLastestResult(data)
+              im.info('彩票爬虫更新数据成功', {
+                彩票: id,
+                期次: data.drawTime
+              })
               // 如果导入成功，则不再使用备用源抓取数据
               break
             } catch (err) {
               im.error(`${lottery.id}的爬虫出了问题清核查:${err.message}` + '\n```' + err.stack + '```', {
-                id: lottery.id,
+                彩票: id,
                 国家: country.name
               })
               continue
