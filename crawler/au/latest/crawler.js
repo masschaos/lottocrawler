@@ -1,6 +1,6 @@
 const { auCrawlerApi, saveLastestResult } = require('../../../inner/api')
 
-class auCrawler {
+class Crawler {
   constructor (lotteryId) {
     this.lotteryId = lotteryId
   }
@@ -28,4 +28,4 @@ class auCrawler {
   }
 }
 
-module.exports = auCrawler
+module.exports = Crawler
