@@ -1,7 +1,9 @@
-const im = require('@masschaos/im')
-const { config: { im: { token, debugChannel, infoChannel, errorChannel } } } = require('../config')
+const IM = require('@masschaos/im')
+const { config: { env } } = require('../config')
 
-im.setToken(token)
-im.setChannels(debugChannel, infoChannel, errorChannel)
+const im = new IM({
+  source: '彩票结果爬虫',
+  env
+})
 
 module.exports = im

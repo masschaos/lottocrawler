@@ -6,7 +6,7 @@ const { baseURL, token } = config
 
 const api = axios.create({
   baseURL,
-  timeout: 1000,
+  timeout: 10000,
   headers: { Authorization: 'Bearer ' + token }
 })
 
