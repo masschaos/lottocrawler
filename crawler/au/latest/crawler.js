@@ -12,8 +12,6 @@ class auCrawler {
     crawl(){
         return new Promise(async (resolve, reject) =>{
             try {
-                reject("失败原因")
-                return
                 const data = await new auCrawlerApi().fetchLastestResult(this.lotteryId)
                 if(data && data.length > 0){
                     for(let idx in data){

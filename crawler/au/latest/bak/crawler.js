@@ -46,29 +46,26 @@ class crawler {
   async crawl (url, parseFunction) {
     const browser = await puppeteer.launch()
     const page = await browser.newPage()
-    return new Promise(async (resolve, reject) => {
-      try {
-        // Goto result page
-        await page.goto(url)
-    
-        // View prize divisions
-        const viewDivisionsSelector = '#content > div.resultsOuter.full.fluid > div > span > a'
-        await page.waitForSelector(viewDivisionsSelector)
-        await page.click(viewDivisionsSelector)
-    
-        // Display balls in drawn order
-        const ballOrderSelector = '#ballOrderButton'
-        await page.waitForSelector(ballOrderSelector)
-        await page.click(ballOrderSelector)
-    
-        const result = await parseFunction(page)
-        resolve(result)
-      } catch (error) {
-        reject(error)
-      } finally {
-        await browser.close()
-      }
-    })
+    try{
+      // Goto result page
+      await page.goto(url)
+
+      // View prize divisions
+      const viewDivisionsSelector = '#content > div.resultsOuter.full.fluid > div > span > a'
+      await page.waitForSelector(viewDivisionsSelector)
+      await page.click(viewDivisionsSelector)
+
+      // Display balls in drawn order
+      const ballOrderSelector = '#ballOrderButton'
+      await page.waitForSelector(ballOrderSelector)
+      await page.click(ballOrderSelector)
+
+      const result = await parseFunction(page)
+      return result
+
+    } finally{
+      await browser.close()
+    }
   }
 }
 
