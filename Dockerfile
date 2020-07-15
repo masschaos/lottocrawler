@@ -1,6 +1,4 @@
-FROM node
-
-WORKDIR /app
+FROM zenika/alpine-chrome:with-node
 
 COPY . .
 
