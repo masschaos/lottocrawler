@@ -56,7 +56,8 @@ async function run () {
                   规则: timeRules,
                   我们: result.drawTime,
                   网站: data.drawTime,
-                  延迟: delay
+                  延迟: delay,
+                  快开: isQuickDraw
                 })
                 continue
               }

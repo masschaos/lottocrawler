@@ -10,7 +10,7 @@ function sleep (ms) {
 
 // convert 20201231000000 format to Date
 function parseDrawTime (drawTime, tz) {
-  return moment(drawTime, 'YYYYMMDDhhmmss', tz)
+  return moment.tz(drawTime, 'YYYYMMDDhhmmss', tz)
 }
 
 // timeRules 开奖规则 cron 列表
@@ -30,9 +30,10 @@ function hasNewDraw (timeRules, isQuickDraw, delay, lastDrawTime, tz) {
     if (!isQuickDraw) {
       currentDate = currentDate.add(1, 'day')
     }
+    const endDate = moment().tz(tz).add(-delay, 'm')
     const cron = cronParser.parseExpression(timeRule, {
       currentDate,
-      endDate: moment().tz(tz).add(-delay, 'm'),
+      endDate,
       tz
     })
     if (cron.hasNext()) {
