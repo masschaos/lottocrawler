@@ -1,5 +1,5 @@
 const puppeteer = require('puppeteer')
-const date_format = require('../../../../util/format').date_format
+const dateFormat = require('../../../../util/format').dateFormat
 
 class crawler {
   constructor (lotteryId) {
@@ -27,7 +27,7 @@ class crawler {
     const lotteryName = this.lottoIdConfig[lotteryID]
     const jackpot = detail.slice(0, 1)
     const other = detail.slice(1)
-    drawTime = date_format(drawTime)
+    drawTime = dateFormat(drawTime)
 
     const data = {
       drawTime: drawTime,

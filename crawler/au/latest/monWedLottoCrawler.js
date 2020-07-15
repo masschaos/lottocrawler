@@ -1,9 +1,9 @@
 const crawler = require('./crawler')
 const moment = require('moment')
-const money_format = require('../../../util/format').money_format
+const moneyFormat = require('../../../util/format').moneyFormat
 
 class monWedLottoCrawler extends crawler {
-  constructor() {
+  constructor () {
     super('au-mon-wed-lotto')
   }
 
@@ -24,13 +24,13 @@ class monWedLottoCrawler extends crawler {
         }
     ]
     */
-  parse(data) {
+  parse (data) {
     const item = {
       drawTime: moment(data.DrawDate).format('YYYYMMDDHHmmss'),
       detail: data.Dividends.map(a => {
         const result = {
           name: a.Division,
-          prize: a.BlocDividend > 0 ? money_format(a.BlocDividend, 2, '.', ',', '$') : '',
+          prize: a.BlocDividend > 0 ? moneyFormat(a.BlocDividend, 2, '.', ',', '$') : '',
           count: a.BlocNumberOfWinners
         }
         return result

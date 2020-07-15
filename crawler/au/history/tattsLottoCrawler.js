@@ -1,7 +1,7 @@
 const crawler = require("./crawler")
 const { supportsDescriptors } = require("define-properties")
 const moment = require('moment')
-const money_format = require('../../../util/format').money_format
+const moneyFormat = require('../../../util/format').moneyFormat
 
 class tattsLottoCrawler extends crawler {
     constructor() {
@@ -34,7 +34,7 @@ class tattsLottoCrawler extends crawler {
             "detail": data.Dividends.length <= 0 ? [] : data.Dividends.map(a => {
                 let result = {
                     "Division": a.Division,
-                    "Division Prize": a.BlocDividend > 0 ? money_format(a.BlocDividend, 2, ".", ",", "$") : "",
+                    "Division Prize": a.BlocDividend > 0 ? moneyFormat(a.BlocDividend, 2, ".", ",", "$") : "",
                     "Winners": a.BlocNumberOfWinners
                 }
                 return result

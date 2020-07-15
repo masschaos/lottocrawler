@@ -1,6 +1,6 @@
 const crawler = require('./crawler')
 const moment = require('moment')
-const money_format = require('../../../util/format').money_format
+const moneyFormat = require('../../../util/format').moneyFormat
 
 class powerBallCrawler extends crawler {
   constructor () {
@@ -30,7 +30,7 @@ class powerBallCrawler extends crawler {
       detail: data.Dividends.map(a => {
         const result = {
           name: a.Division,
-          prize: a.BlocDividend > 0 ? money_format(a.BlocDividend, 2, '.', ',', '$') : '',
+          prize: a.BlocDividend > 0 ? moneyFormat(a.BlocDividend, 2, '.', ',', '$') : '',
           count: a.BlocNumberOfWinners
         }
         return result

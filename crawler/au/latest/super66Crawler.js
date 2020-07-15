@@ -1,13 +1,13 @@
 const crawler = require('./crawler')
 const moment = require('moment')
-const money_format = require('../../../util/format').money_format
+const moneyFormat = require('../../../util/format').moneyFormat
 
 class super66Crawler extends crawler {
-    constructor() {
-        super('au-super-66')
-    }
+  constructor () {
+    super('au-super-66')
+  }
 
-    /* 
+  /*
     [
         {
         "drawTime":"20110426000000",
@@ -26,26 +26,26 @@ class super66Crawler extends crawler {
         }
     ]
     */
-    parse(data) {
-        let item = {
-            "drawTime": moment(data.DrawDate).format('YYYYMMDDHHmmss'),
-            "detail": data.Dividends.map(a => {
-                let result = {
-                    name: a.Division,
-                    prize: a.BlocDividend > 0 ? money_format(a.BlocDividend, 2, ".", ",", "$") : "",
-                    count: a.BlocNumberOfWinners
-                }
-                return result
-            }),
-            "jackpot": [],
-            "other": [],
-            "issue": data.DrawNumber,
-            "numbers": [data.PrimaryNumbers.join('|'), data.SecondaryNumbers.join('|')].join('|'),
-            "name": "Super 66",
-            "lotteryID": "au-super-66"
+  parse (data) {
+    const item = {
+      drawTime: moment(data.DrawDate).format('YYYYMMDDHHmmss'),
+      detail: data.Dividends.map(a => {
+        const result = {
+          name: a.Division,
+          prize: a.BlocDividend > 0 ? moneyFormat(a.BlocDividend, 2, '.', ',', '$') : '',
+          count: a.BlocNumberOfWinners
         }
-        return item
+        return result
+      }),
+      jackpot: [],
+      other: [],
+      issue: data.DrawNumber,
+      numbers: [data.PrimaryNumbers.join('|'), data.SecondaryNumbers.join('|')].join('|'),
+      name: 'Super 66',
+      lotteryID: 'au-super-66'
     }
+    return item
+  }
 }
 
 module.exports = super66Crawler
