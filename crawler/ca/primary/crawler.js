@@ -1,9 +1,8 @@
-const puppeteer = require('puppeteer')
-const { saveLastestResult } = require('../../../util/api')
+const { newPage } = require('../../../pptr')
 const moment = require('moment-timezone')
 const fs = require('fs')
 
-class crawler {
+class Crawler {
   dateFormatter (dateString, timeString) {
     if (timeString === undefined) {
       timeString = '000000'
@@ -35,8 +34,7 @@ class crawler {
   }
 
   async crawl (url, parseFunction, targetDrawTime) {
-    const browser = await puppeteer.launch()
-    const page = await browser.newPage()
+    const page = await newPage()
     page.setRequestInterception(true)
     page.on('request', request => {
       if (['image', 'script', 'stylesheet'].includes(request.resourceType())) {
@@ -53,20 +51,17 @@ class crawler {
       console.log(error)
       return null
     } finally {
-      await browser.close()
+      await page.close()
     }
   }
 
   async saveData (item, saveFilePath) {
-    if (saveFilePath !== undefined) {
+    if (saveFilePath) {
       const writeStream = fs.createWriteStream(saveFilePath, { encoding: 'utf-8', flags: 'a' })
       writeStream.write(item + '\n')
       writeStream.close()
-    } else {
-      // console.log(item)
-      await saveLastestResult(item)
     }
   }
 }
 
-module.exports = crawler
+module.exports = Crawler

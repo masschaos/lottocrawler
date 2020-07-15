@@ -18,4 +18,4 @@ function getCrawler (lotteryId) {
   return null
 }
 
-module.exports = { getCrawler }
+module.exports = getCrawler

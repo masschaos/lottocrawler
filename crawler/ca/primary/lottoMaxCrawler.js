@@ -1,11 +1,11 @@
-const crawler = require('./crawler')
+const Crawler = require('./crawler')
 
 const lotteryID = 'ca-lotto-max'
 const lotteryName = 'lotto max'
 const url = 'https://lottery.olg.ca/en-ca/winning-numbers/lotto-max/winning-numbers'
 const enFrMap = {}
 
-class lottoMaxCrawler extends crawler {
+class LottoMaxCrawler extends Crawler {
   async parse (page) {
     const result = await page.evaluate(() => {
       const drawTimeSelector = '#video-wrap > div > div > div.main-content > div.renderContent > div.large-date-container > div:nth-child(2) > p'
@@ -79,7 +79,7 @@ class lottoMaxCrawler extends crawler {
     result.jackpot = []
     result.other = []
     result.breakdown = super.fillFrName(result.breakdown, enFrMap)
-    return JSON.stringify(result)
+    return result
   }
 
   async crawl (targetDrawTime, saveFilePath) {
@@ -87,18 +87,12 @@ class lottoMaxCrawler extends crawler {
     if (targetDrawTime !== undefined) {
       targetUrl = targetUrl + super.urlParams(targetDrawTime)
     }
-    return super.crawl(targetUrl, this.parse, targetDrawTime)
-      .then(res => {
-        if (res === null) {
-          console.log('未开奖:' + lotteryID)
-        } else {
-          super.saveData(res, saveFilePath)
-        }
-      })
-      .catch(error => {
-        console.log(error)
-      })
+    const res = await super.crawl(targetUrl, this.parse, targetDrawTime)
+    if (!saveFilePath) {
+      return res
+    }
+    await super.saveData(res, saveFilePath)
   }
 }
 
-module.exports = lottoMaxCrawler
+module.exports = new LottoMaxCrawler()

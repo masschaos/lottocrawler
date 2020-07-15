@@ -1,4 +1,4 @@
-const crawler = require('./crawler')
+const Crawler = require('./crawler')
 
 const lotteryID = 'ca-poker-lotto'
 const lotteryName = 'poker lotto'
@@ -15,7 +15,7 @@ const enFrMap = {
   'Pair Jacks+(J.Q.K.A)': 'Paire De Valets+(v,d,r,a)'
 }
 
-class pokerLottoCrawler extends crawler {
+class PokerLottoCrawler extends Crawler {
   async parse (page) {
     const result = await page.evaluate(() => {
       const drawTimeSelector = '#video-wrap > div > div > div.main-content > div.renderContent > div.large-date-container > div:nth-child(2) > p'
@@ -90,7 +90,7 @@ class pokerLottoCrawler extends crawler {
     result.jackpot = []
     result.other = []
     result.breakdown = super.fillFrName(result.breakdown, enFrMap)
-    return JSON.stringify(result)
+    return result
   }
 
   async crawl (targetDrawTime, saveFilePath) {
@@ -98,18 +98,12 @@ class pokerLottoCrawler extends crawler {
     if (targetDrawTime !== undefined) {
       targetUrl = targetUrl + super.urlParams(targetDrawTime)
     }
-    return super.crawl(targetUrl, this.parse, targetDrawTime)
-      .then(res => {
-        if (res === null) {
-          console.log('未开奖:' + lotteryID)
-        } else {
-          super.saveData(res, saveFilePath)
-        }
-      })
-      .catch(error => {
-        console.log(error)
-      })
+    const res = await super.crawl(targetUrl, this.parse, targetDrawTime)
+    if (!saveFilePath) {
+      return res
+    }
+    await super.saveData(res, saveFilePath)
   }
 }
 
-module.exports = pokerLottoCrawler
+module.exports = new PokerLottoCrawler()

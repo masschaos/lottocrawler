@@ -20,7 +20,7 @@ const getBrowserInstance = async () => {
   }
   return instance
 }
-const PuppeteerPage = async () => {
+const newPage = async () => {
   const browser = await getBrowserInstance() // 使用这种方式并不高效，因为得打开chrome. 生产里面最好还是用connect的方式，这样维护一个打开的chrome，打开页面就可以了。
   const page = await browser.newPage()
   // page.on('console', consoleObj => console.log(consoleObj.text())) // 解决console没反应的问题
@@ -30,5 +30,5 @@ const PuppeteerPage = async () => {
 
 module.exports = {
   getBrowserInstance,
-  PuppeteerPage
+  newPage
 }

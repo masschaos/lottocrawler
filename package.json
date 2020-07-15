@@ -12,11 +12,13 @@
   "dependencies": {
     "@masschaos/im": "^0.3.2",
     "axios": "^0.19.2",
+    "bufferutil": "^4.0.1",
     "cron": "^1.8.2",
     "cron-parser": "^2.15.0",
     "moment": "^2.27.0",
     "moment-timezone": "^0.5.31",
-    "puppeteer": "^4.0.1",
+    "puppeteer": "^5.1.0",
+    "utf-8-validate": "^5.0.2",
     "verror": "^1.10.0"
   },
   "devDependencies": {

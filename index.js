@@ -2,6 +2,7 @@ const im = require('./util/im')
 const route = require('./router')
 const { hasNewDraw } = require('./util/time')
 const { fetchLotteries, fetchLastestResult, fetchSystemConfig, saveLastestResult } = require('./inner/api')
+const { getBrowserInstance } = require('./pptr')
 
 // 每个 cron 周期，从这里开始执行
 async function run () {
@@ -22,8 +23,7 @@ async function run () {
         // 最新结果列表
         const results = await fetchLastestResult(country.code, level.code)
         if (results.length === 0) {
-          im.error('预期外情况，国家最新结果为空', { country: country.name, level: level.code })
-          break
+          im.info('运行爬虫时，国家最新结果为空，这只应在首次出现', { country: country.name, level: level.code })
         }
         // 开始检查每个彩票
         for (const lottery of lotteries) {
@@ -39,8 +39,8 @@ async function run () {
           }
           const crawlers = route(lottery.country, id)
           if (!crawlers || crawlers.length === 0) {
-            im.error('预期外情况，未找到彩票爬虫', { country: country.name, lottery: id })
-            break
+            im.info('预期外情况，未找到彩票爬虫，请关注。', { country: country.name, lottery: id })
+            continue
           }
           // 一个彩票会有多个爬虫，调用到成功为止
           let bak = false
@@ -50,7 +50,7 @@ async function run () {
               const data = await crawler.crawl()
               console.log(data)
               // 和已经存在的对比一下
-              if (data.drawTime <= result.drawTime) {
+              if (result && data.drawTime <= result.drawTime) {
                 im.info('开奖时间到了但是还没新数据，请改善延迟配置', {
                   彩票: id,
                   规则: timeRules,
@@ -89,6 +89,10 @@ async function run () {
     }
   } catch (err) {
     im.error('爬虫挂了快去修复，发生如下错误：\n' + err.message + '\n```' + err.stack + '```')
+  } finally {
+    // 无论如何都关闭浏览器实例
+    const browser = await getBrowserInstance()
+    await browser.close()
   }
 }
 

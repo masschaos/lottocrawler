@@ -1,4 +1,4 @@
-const crawler = require('./crawler')
+const Crawler = require('./crawler')
 
 const lotteryID = 'ca-pick-4'
 const lotteryName = 'pick4'
@@ -11,7 +11,7 @@ const enFrMap = {
   '24-Way Box': 'Catégorie 24 - Désordre'
 }
 
-class pick4Crawler extends crawler {
+class Pick4Crawler extends Crawler {
   async parse (page, targetDrawTime) {
     const result = await page.evaluate((targetDrawTime) => {
       const drawTimeSelector = '#video-wrap > div > div > div.main-content > div.renderContent > div.large-date-container > div:nth-child(2) > p'
@@ -88,7 +88,7 @@ class pick4Crawler extends crawler {
     result.jackpot = []
     result.other = []
     result.breakdown = super.fillFrName(result.breakdown, enFrMap)
-    return JSON.stringify(result)
+    return result
   }
 
   async crawl (targetDrawTime, saveFilePath) {
@@ -96,18 +96,12 @@ class pick4Crawler extends crawler {
     if (targetDrawTime !== undefined) {
       targetUrl = targetUrl + super.urlParams(targetDrawTime)
     }
-    return super.crawl(targetUrl, this.parse, targetDrawTime)
-      .then(res => {
-        if (res === null) {
-          console.log('未开奖:' + lotteryID)
-        } else {
-          super.saveData(res, saveFilePath)
-        }
-      })
-      .catch(error => {
-        console.log(error)
-      })
+    const res = await super.crawl(targetUrl, this.parse, targetDrawTime)
+    if (!saveFilePath) {
+      return res
+    }
+    await super.saveData(res, saveFilePath)
   }
 }
 
-module.exports = pick4Crawler
+module.exports = new Pick4Crawler()

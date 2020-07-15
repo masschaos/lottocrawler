@@ -14,21 +14,19 @@ const lotteryIds = [
   // 'ca-poker-lotto'
 ]
 
-function testCrawlLatestDraw () {
-  lotteryIds.forEach((lotteryId) => {
-    const crawlers = getCrawler(lotteryId)
-    crawlers.forEach(crawler => {
-      new crawler().crawl()
-    })
-  })
-}
+// function testCrawlLatestDraw () {
+//   lotteryIds.forEach((lotteryId) => {
+//     const crawlers = getCrawler(lotteryId)
+//     crawlers.forEach(crawler => {
+//       new crawler().crawl()
+//     })
+//   })
+// }
 
 function testCrawlDrawByDrawTime () {
   lotteryIds.forEach((lotteryId) => {
     const crawlers = getCrawler(lotteryId)
-    crawlers.forEach(crawler => {
-      new crawler().crawl('20190731140000', 'test.json')
-    })
+    crawlers[0].crawl('20190731140000', 'test.json')
   })
 }
 
