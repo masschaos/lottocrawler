@@ -2,7 +2,7 @@ const crawler = require('./crawler')
 const moment = require('moment')
 const moneyFormat = require('../../../util/format').moneyFormat
 
-class setForLifeCrawler extends crawler {
+class SetForLifeCrawler extends crawler {
   constructor () {
     super('au-set-for-life')
   }
@@ -46,4 +46,4 @@ class setForLifeCrawler extends crawler {
   }
 }
 
-module.exports = setForLifeCrawler
+module.exports = new SetForLifeCrawler()

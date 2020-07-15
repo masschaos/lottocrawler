@@ -2,7 +2,7 @@ const crawler = require('./crawler')
 const moment = require('moment')
 const moneyFormat = require('../../../util/format').moneyFormat
 
-class super66Crawler extends crawler {
+class Super66Crawler extends crawler {
   constructor () {
     super('au-super-66')
   }
@@ -48,4 +48,4 @@ class super66Crawler extends crawler {
   }
 }
 
-module.exports = super66Crawler
+module.exports = new Super66Crawler()

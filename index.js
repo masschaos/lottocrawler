@@ -27,13 +27,13 @@ async function run () {
         }
         // 开始检查每个彩票
         for (const lottery of lotteries) {
-          const { drawConfig: { timeRule }, delay, tz, id, isQuickDraw } = lottery
+          const { drawConfig: { timeRules }, delay, tz, id, isQuickDraw } = lottery
           // 找到对应的结果
           const result = results.find(x => {
             return x.lotteryID === id
           })
           // 根据预计开奖时间规则(lottery.drawConfig.timeRule)判断是否到了抓取数据的时间 ,
-          if (result && !hasNewDraw(timeRule, isQuickDraw, delay, result.drawTime, tz)) {
+          if (result && !hasNewDraw(timeRules, isQuickDraw, delay, result.drawTime, tz)) {
             console.log(`还未开奖，跳过${id}`)
             continue
           }
@@ -44,17 +44,16 @@ async function run () {
           }
           // 一个彩票会有多个爬虫，调用到成功为止
           let bak = false
-          for (const Crawler of crawlers) {
+          for (const crawler of crawlers) {
             // 捕获单个彩票爬虫的异常，如果出问题了就继续下一个
             try {
-              const crawler = new Crawler()
               const data = await crawler.crawl()
               console.log(data)
               // 和已经存在的对比一下
               if (data.drawTime <= result.drawTime) {
                 im.info('开奖时间到了但是还没新数据，请改善延迟配置', {
                   彩票: id,
-                  规则: timeRule,
+                  规则: timeRules,
                   我们: result.drawTime,
                   网站: data.drawTime,
                   延迟: delay

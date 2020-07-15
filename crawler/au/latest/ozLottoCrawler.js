@@ -2,7 +2,7 @@ const crawler = require('./crawler')
 const moment = require('moment')
 const moneyFormat = require('../../../util/format').moneyFormat
 
-class ozLottoCrawler extends crawler {
+class OzLottoCrawler extends crawler {
   constructor () {
     super('au-oz-lotto')
   }
@@ -46,4 +46,4 @@ class ozLottoCrawler extends crawler {
   }
 }
 
-module.exports = ozLottoCrawler
+module.exports = new OzLottoCrawler()

@@ -2,7 +2,7 @@ const crawler = require('./crawler')
 const moment = require('moment')
 const moneyFormat = require('../../../util/format').moneyFormat
 
-class powerBallCrawler extends crawler {
+class PowerBallCrawler extends crawler {
   constructor () {
     super('au-powerball')
   }
@@ -46,4 +46,4 @@ class powerBallCrawler extends crawler {
   }
 }
 
-module.exports = powerBallCrawler
+module.exports = new PowerBallCrawler()
