@@ -1,6 +1,7 @@
 const { newPage } = require('../../../pptr')
 const moment = require('moment-timezone')
 const fs = require('fs')
+const VError = require('verror')
 
 class Crawler {
   dateFormatter (dateString, timeString) {
@@ -47,9 +48,8 @@ class Crawler {
       await page.goto(url)
       const result = await parseFunction(page, targetDrawTime)
       return result
-    } catch (error) {
-      console.log(error)
-      return null
+    } catch (err) {
+      throw VError(err, '加拿大爬虫出错')
     } finally {
       await page.close()
     }
