@@ -17,6 +17,7 @@
     "cron-parser": "^2.15.0",
     "moment": "^2.27.0",
     "moment-timezone": "^0.5.31",
+    "pino": "^6.4.0",
     "puppeteer": "^5.1.0",
     "utf-8-validate": "^5.0.2",
     "verror": "^1.10.0"

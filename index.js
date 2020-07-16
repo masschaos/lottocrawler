@@ -1,6 +1,7 @@
 const im = require('./util/im')
 const route = require('./router')
 const { hasNewDraw } = require('./util/time')
+const log = require('./util/log')
 const { fetchLotteries, fetchLastestResult, fetchSystemConfig, saveLastestResult } = require('./inner/api')
 const { getBrowserInstance } = require('./pptr')
 
@@ -9,11 +10,12 @@ async function run () {
   try {
     // 取得部署区域系统配置
     const resp = await fetchSystemConfig()
-    console.log(resp)
+    log.info(resp)
     // 遍历该区域所有需要爬的国家
     for (const country of resp.countries.filter(x => { return x.upstream && x.upstream === 'crawler' })) {
       // 一个国家有多个level
       for (const level of country.levels) {
+        log.info(`check ${country.name} level ${level.code}`)
         // 彩种列表
         const lotteries = await fetchLotteries(country.code, level.code)
         if (lotteries.length === 0) {
@@ -34,7 +36,7 @@ async function run () {
           })
           // 根据预计开奖时间规则(lottery.drawConfig.timeRule)判断是否到了抓取数据的时间 ,
           if (result && !hasNewDraw(timeRules, isQuickDraw, delay, result.drawTime, tz)) {
-            console.log(`还未开奖，跳过${id}`)
+            log.info(`还未开奖，跳过${id}`)
             continue
           }
           const crawlers = route(lottery.country, id)
@@ -48,7 +50,7 @@ async function run () {
             // 捕获单个彩票爬虫的异常，如果出问题了就继续下一个
             try {
               const data = await crawler.crawl()
-              console.log(data)
+              log.info({ data })
               // 和已经存在的对比一下
               if (result && data.drawTime <= result.drawTime) {
                 im.info('开奖时间到了但是还没新数据，请改善延迟配置', {
