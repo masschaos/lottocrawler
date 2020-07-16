@@ -1,4 +1,5 @@
 const Crawler = require('./crawler')
+const VError = require('verror')
 
 const lotteryID = 'ca-lotto-649'
 const lotteryName = 'lotto 6/49'
@@ -16,7 +17,7 @@ class Lotto649Crawler extends Crawler {
       const specilEventNumberSelector = '#guaranteed-prize-modal > div > div > div:nth-child(4) > div > ul > li'
       const numberItems = Array.from(document.querySelectorAll(numberSelector))
       if (numberItems.length === 0) {
-        return null
+        throw new VError(`${lotteryID}没有抓到数据，可能数据源不可用或有更改，请检查调度策略。`)
       }
       const guaranteedNumbers = document.querySelector(guaranteedSelector).textContent.trim().replace('-', '#')
       const encore = document.querySelector(encoreSelector).textContent.trim()
@@ -100,9 +101,6 @@ class Lotto649Crawler extends Crawler {
         other: other
       }
     })
-    if (result === null) {
-      return result
-    }
     result.drawTime = super.dateFormatter(result.drawTime)
     result.lotteryID = lotteryID
     result.name = lotteryName

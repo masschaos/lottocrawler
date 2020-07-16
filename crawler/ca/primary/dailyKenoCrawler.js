@@ -1,4 +1,5 @@
 const Crawler = require('./crawler')
+const VError = require('verror')
 
 const lotteryID = 'ca-daily-keno'
 const lotteryName = 'daily keno'
@@ -24,7 +25,7 @@ class DailyKenoCrawler extends Crawler {
       }
       const numberItems = Array.from(document.querySelectorAll(numberSelector))
       if (numberItems.length === 0) {
-        return null
+        throw new VError(`${lotteryID}没有抓到数据，可能数据源不可用或有更改，请检查调度策略。`)
       }
       let numbers = numberItems.map((item) => {
         return item.textContent.trim()
@@ -69,9 +70,6 @@ class DailyKenoCrawler extends Crawler {
         timeAt: timeAt
       }
     }, targetDrawTime)
-    if (result === null) {
-      return result
-    }
     result.drawTime = super.dateFormatter(result.drawTime, result.timeAt)
     delete result.timeAt
     result.lotteryID = lotteryID

@@ -1,4 +1,5 @@
 const Crawler = require('./crawler')
+const VError = require('verror')
 
 const lotteryID = 'ca-lotto-max'
 const lotteryName = 'lotto max'
@@ -14,7 +15,7 @@ class LottoMaxCrawler extends Crawler {
       const encoreSelector = 'div.encore-number > span.number'
       const numberItems = Array.from(document.querySelectorAll(numberSelector))
       if (numberItems.length === 0) {
-        return null
+        throw new VError(`${lotteryID}没有抓到数据，可能数据源不可用或有更改，请检查调度策略。`)
       }
       let numbers = numberItems.map((item) => {
         return item.textContent.trim()
@@ -68,9 +69,6 @@ class LottoMaxCrawler extends Crawler {
         breakdown: breakdown
       }
     })
-    if (result === null) {
-      return result
-    }
     result.drawTime = super.dateFormatter(result.drawTime)
     result.lotteryID = lotteryID
     result.name = lotteryName
