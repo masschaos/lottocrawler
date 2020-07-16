@@ -3,7 +3,8 @@ const config = {
   token: process.env.TOKEN,
   cron: process.env.CRON || '0 5 * * * *',
   env: process.env.DEPLOYMENT_ENV,
-  pptrEnv: process.env.PPTR_ENV
+  pptrEnv: process.env.PPTR_ENV,
+  level: process.env.LOG_LEVEL || 'info'
 }
 
 module.exports = config
