@@ -3,7 +3,7 @@ const route = require('./router')
 const { hasNewDraw } = require('./util/time')
 const log = require('./util/log')
 const { fetchLotteries, fetchLastestResult, fetchSystemConfig, saveLastestResult } = require('./inner/api')
-const { getBrowserInstance } = require('./pptr')
+const { closeBrowser } = require('./pptr')
 
 // 每个 cron 周期，从这里开始执行
 async function run () {
@@ -94,8 +94,7 @@ async function run () {
     im.error('爬虫挂了快去修复，发生如下错误：\n' + err.message + '\n```' + err.stack + '```')
   } finally {
     // 无论如何都关闭浏览器实例
-    const browser = await getBrowserInstance()
-    await browser.close()
+    await closeBrowser()
   }
 }
 
