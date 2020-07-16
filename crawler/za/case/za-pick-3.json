@@ -1,0 +1,54 @@
+{
+    "drawTime": "20190320000000",
+    "numbers": "3|6|6",
+    "jackpot": [],
+    "breakdown": [
+        {
+            "name": "main",
+            "detail": [
+                {
+                    "name": "STRAIGHT",
+                    "count": 0,
+                    "prize": "R3:R1,500|R5:R2,500|R10:R5,000|R20:R10,000"
+                },
+                {
+                    "name": "3-WAY MIX",
+                    "count": 0,
+                    "prize": "R3:R501|R5:R835|R10:R1,670|R20:R3,340"
+                },
+                {
+                    "name": "6-WAY MIX",
+                    "count": 0,
+                    "prize": "R3:R252|R5:R420|R10:R840|R20:R1,680"
+                },
+                {
+                    "name": "FRONT PAIR",
+                    "count": 0,
+                    "prize": "R3:R150|R5:R250|R10:R500|R20:R1,000"
+                },
+                {
+                    "name": "BACK PAIR",
+                    "count": 0,
+                    "prize": "R3:R150|R5:R250|R10:R500|R20:R1,000"
+                },
+                {
+                    "name": "SPLIT PAIR",
+                    "count": 0,
+                    "prize": "R3:R150|R5:R250|R10:R500|R20:R1,000"
+                }
+            ]
+        }
+    ],
+    // pick-3 这个彩种不做
+    "other": [
+        {
+            "DRAW MACHINE": "RNG2",
+            "NEXT DRAW DATE": "2019-03-21"
+        }
+    ],
+    "name": "PICK 3",
+    "lotteryID": "za-pick-3",
+    "issue": "834",
+    "nextDrawTime": "20200717000000",
+    "saleAmount": "R249.00"
+}

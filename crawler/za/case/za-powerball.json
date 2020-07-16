@@ -1,0 +1,78 @@
+{
+    "drawTime": "20200714000000",
+    "numbers": "49,28,21,48,20#03",
+    "jackpot": [
+        "R30,143,660.65"
+    ],
+    "breakdown": [
+        {
+            "name": "main",
+            "detail": [
+                {
+                    "count": "0",
+                    "name": "FIVE CORRECT NUMBERS + POWERBALL",
+                    "prize": "R0.00"
+                },
+                {
+                    "count": "0",
+                    "name": "FIVE CORRECT NUMBERS",
+                    "prize": "R0.00"
+                },
+                {
+                    "count": "6",
+                    "name": "FOUR CORRECT NUMBERS + POWERBALL",
+                    "prize": "R87,962.10"
+                },
+                {
+                    "count": "279",
+                    "name": "FOUR CORRECT NUMBERS",
+                    "prize": "R1,235.00"
+                },
+                {
+                    "count": "645",
+                    "name": "THREE CORRECT NUMBERS + POWERBALL",
+                    "prize": "R603.90"
+                },
+                {
+                    "count": "12470",
+                    "name": "THREE CORRECT NUMBERS",
+                    "prize": "R26.10"
+                },
+                {
+                    "count": "10263",
+                    "name": "TWO CORRECT NUMBERS + POWERBALL",
+                    "prize": "R23.80"
+                },
+                {
+                    "count": "56831",
+                    "name": "ONE CORRECT NUMBERS + POWERBALL",
+                    "prize": "R15.00"
+                },
+                {
+                    "count": "99080",
+                    "name": "MATCH POWERBALL",
+                    "prize": "R10.00"
+                }
+            ]
+        }
+    ],
+    "other": [
+        {
+            "ROLLOVER AMOUNT": "R26,468,816.15",
+            "ROLLOVER NO": "4",
+            "DRAW MACHINE": "RNG2/RNG2"
+        }
+    ],
+    "name": "PowerBall",
+    "lotteryID": "za-powerball",
+    "issue": "1111",
+    "nextDrawTime": "20200717000000",
+    "saleAmount": "R16,867,665.00",
+    "poolSize": [
+        "R12,081,553.26"
+    ],
+    "nextPoolSize": [],
+    "nextJackpot": [
+        "R31,000,000.00"
+    ]
+}

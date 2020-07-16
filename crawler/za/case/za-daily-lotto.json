@@ -1,0 +1,47 @@
+{
+    "drawTime": "20200714000000",
+    "numbers": "10,32,28,07,09",
+    "breakdown": [
+        {
+            "name": "main",
+            "detail": [
+                {
+                    "count": "0",
+                    "name": "FIVE CORRECT NUMBERS",
+                    "prize": "R0.00"
+                },
+                {
+                    "count": "171",
+                    "name": "FOUR CORRECT NUMBERS",
+                    "prize": "R2,065.40"
+                },
+                {
+                    "count": "5963",
+                    "name": "THREE CORRECT NUMBERS",
+                    "prize": "R22.20"
+                },
+                {
+                    "count": "63322",
+                    "name": "TWO CORRECT NUMBERS",
+                    "prize": "R5.00"
+                }
+            ]
+        }
+    ],
+    "other": [
+        {
+            "DRAW MACHINE": "RNG2"
+        }
+    ],
+    "name": "DAILY LOTTO",
+    "lotteryID": "za-daily-lotto",
+    "issue": "492",
+    "nextDrawTime": "20200715000000",
+    "saleAmount": "R1,612,719.00",
+    "poolSize": [
+        "R802,172.00"
+    ],
+    "jackpot": [],
+    "nextJackpot": [],
+    "nextPoolSize": []
+}

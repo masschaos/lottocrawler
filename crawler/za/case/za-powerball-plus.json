@@ -1,0 +1,75 @@
+{
+    "drawTime": "20200714000000",
+    "numbers": "11,06,39,48,25#03",
+    "jackpot": [],
+    "breakdown": [
+        {
+            "name": "main",
+            "detail": [
+                {
+                    "count": "0",
+                    "name": "FIVE CORRECT NUMBERS + POWERBALL",
+                    "prize": "R0.00"
+                },
+                {
+                    "count": "1",
+                    "name": "FIVE CORRECT NUMBERS",
+                    "prize": "R143,769.10"
+                },
+                {
+                    "count": "13",
+                    "name": "FOUR CORRECT NUMBERS + POWERBALL",
+                    "prize": "R6,925.30"
+                },
+                {
+                    "count": "270",
+                    "name": "FOUR CORRECT NUMBERS",
+                    "prize": "R565.40"
+                },
+                {
+                    "count": "632",
+                    "name": "THREE CORRECT NUMBERS + POWERBALL",
+                    "prize": "R273.00"
+                },
+                {
+                    "count": "12283",
+                    "name": "THREE CORRECT NUMBERS",
+                    "prize": "R11.80"
+                },
+                {
+                    "count": "9655",
+                    "name": "TWO CORRECT NUMBERS + POWERBALL",
+                    "prize": "R11.20"
+                },
+                {
+                    "count": "52492",
+                    "name": "ONE CORRECT NUMBERS + POWERBALL",
+                    "prize": "R7.50"
+                },
+                {
+                    "count": "84521",
+                    "name": "MATCH POWERBALL",
+                    "prize": "R5.00"
+                }
+            ]
+        }
+    ],
+    "other": [
+        {
+            "ROLLOVER AMOUNT": "R1,959,304.88",
+            "DRAW MACHINE": "RNG2/RNG2"
+        }
+    ],
+    "nextDrawTime": "20200717000000",
+    "saleAmount": "R7,471,695.00",
+    "name": "PowerBall PLUS",
+    "lotteryID": "za-powerball-plus",
+    "issue": "1111",
+    "poolSize": [
+        "R3,587,667.28"
+    ],
+    "nextPoolSize": [],
+    "nextJackpot": [
+        "R4,000,000.00"
+    ]
+}

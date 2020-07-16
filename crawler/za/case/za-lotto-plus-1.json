@@ -1,0 +1,71 @@
+{
+    "drawTime": "20200711000000",
+    "numbers": "46,21,33,25,01,29#23",
+    "jackpot": [],
+    "breakdown": [
+        {
+            "name": "main",
+            "detail": [
+                {
+                    "count": "0",
+                    "name": "SIX CORRECT NUMBERS",
+                    "prize": "R0.00"
+                },
+                {
+                    "count": "0",
+                    "name": "FIVE CORRECT NUMBERS + BONUS BALL",
+                    "prize": "R0.00"
+                },
+                {
+                    "count": "39",
+                    "name": "FIVE CORRECT NUMBERS",
+                    "prize": "R3,714.00"
+                },
+                {
+                    "count": "62",
+                    "name": "FOUR CORRECT NUMBERS + BONUS BALL",
+                    "prize": "R2,745.30"
+                },
+                {
+                    "count": "1859",
+                    "name": "FOUR CORRECT NUMBERS",
+                    "prize": "R161.80"
+                },
+                {
+                    "count": "2533",
+                    "name": "THREE CORRECT NUMBERS + BONUS BALL",
+                    "prize": "R118.80"
+                },
+                {
+                    "count": "35384",
+                    "name": "THREE CORRECT NUMBERS",
+                    "prize": "R25.00"
+                },
+                {
+                    "count": "27644",
+                    "name": "TWO CORRECT NUMBERS + BONUS BALL",
+                    "prize": "R15.00"
+                }
+            ]
+        }
+    ],
+    "other": [
+        {
+            "ROLLOVER AMOUNT": "R2,990,040.75",
+            "ROLLOVER NO": "3",
+            "DRAW MACHINE": "RNG2"
+        }
+    ],
+    "name": "LOTTO PLUS 1",
+    "lotteryID": "za-lotto-plus-1",
+    "issue": "",
+    "nextDrawTime": "20200715000000",
+    "saleAmount": "R6,500,120.00",
+    "poolSize": [
+        "R5,206,061.96"
+    ],
+    "nextPoolSize": [],
+    "nextJackpot": [
+        "R4,000,000.00"
+    ]
+}

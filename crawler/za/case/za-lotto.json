@@ -1,0 +1,76 @@
+{
+    "drawTime": "20200711000000",
+    "numbers": "52,24,07,36,20,43#11",
+    // number 只要无顺序的
+    "breakdown": [
+        {
+            "name": "main",
+            "detail": [
+                {
+                    "count": "0",
+                    "name": "SIX CORRECT NUMBERS",
+                    "prize": "R0.00"
+                },
+                {
+                    "count": "4",
+                    "name": "FIVE CORRECT NUMBERS + BONUS BALL",
+                    "prize": "R21,955.00"
+                },
+                {
+                    "count": "26",
+                    "name": "FIVE CORRECT NUMBERS",
+                    "prize": "R5,874.20"
+                },
+                {
+                    "count": "136",
+                    "name": "FOUR CORRECT NUMBERS + BONUS BALL",
+                    "prize": "R1,403.80"
+                },
+                {
+                    "count": "2018",
+                    "name": "FOUR CORRECT NUMBERS",
+                    "prize": "R158.90"
+                },
+                {
+                    "count": "3578",
+                    "name": "THREE CORRECT NUMBERS + BONUS BALL",
+                    "prize": "R77.90"
+                },
+                {
+                    "count": "39454",
+                    "name": "THREE CORRECT NUMBERS",
+                    "prize": "R50.00"
+                },
+                {
+                    "count": "38239",
+                    "name": "TWO CORRECT NUMBERS + BONUS BALL",
+                    "prize": "R20.00  "
+                }
+            ]
+        }
+    ],
+    "other": [
+        {
+            "ROLLOVER AMOUNT": "R24,148,525.74",
+            "ROLLOVER NO": 10,
+            // "TOTAL POOL SIZE": "R27,916,858.14", 这个放到poolSize里面
+            // "TOTAL SALES": "R14,568,320.00", 放saleAmount里面
+            // "NEXT JACKPOT": "R27,000,000.00", 放nextJackpot里面
+            "DRAW MACHINE": "RNG2"
+            // "NEXT DRAW DATE": "2020-07-15"  放nextDrawTime
+        }
+    ],
+    "name": "LOTTO",
+    "lotteryID": "za-lotto",
+    "issue": "2038",
+    "nextDrawTime": "20200715000000",
+    "saleAmount": "R14,568,320.00",
+    "jackpot": [],
+    "nextJackpot": [
+        "R27,000,000.00"
+    ],
+    "poolSize": [
+        "R27,916,858.14"
+    ],
+    "nextPoolSize": []
+}

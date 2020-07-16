@@ -1,0 +1,73 @@
+{
+    "drawTime": "20200711000000",
+    "numbers": "39,14,44,43,36,30#37",
+    "jackpot": [],
+    "breakdown": [
+        {
+            "name": "main",
+            "detail": [
+                [
+                    {
+                        "count": "0",
+                        "name": "SIX CORRECT NUMBERS",
+                        "prize": "R0.00"
+                    },
+                    {
+                        "count": "0",
+                        "name": "FIVE CORRECT NUMBERS + BONUS BALL",
+                        "prize": "R0.00"
+                    },
+                    {
+                        "count": "26",
+                        "name": "FIVE CORRECT NUMBERS",
+                        "prize": "R5,614.90"
+                    },
+                    {
+                        "count": "61",
+                        "name": "FOUR CORRECT NUMBERS + BONUS BALL",
+                        "prize": "R2,812.20"
+                    },
+                    {
+                        "count": "1506",
+                        "name": "FOUR CORRECT NUMBERS",
+                        "prize": "R201.30"
+                    },
+                    {
+                        "count": "1878",
+                        "name": "THREE CORRECT NUMBERS + BONUS BALL",
+                        "prize": "R161.50"
+                    },
+                    {
+                        "count": "29782",
+                        "name": "THREE CORRECT NUMBERS",
+                        "prize": "R25.00"
+                    },
+                    {
+                        "count": "22245",
+                        "name": "TWO CORRECT NUMBERS + BONUS BALL",
+                        "prize": "R15.00"
+                    }
+                ]
+            ]
+        }
+    ],
+    "other": [
+        {
+            "ROLLOVER AMOUNT": "R10,079,341.86",
+            "ROLLOVER NO": "14",
+            "DRAW MACHINE": "RNG2"
+        }
+    ],
+    "name": "LOTTO PLUS 2",
+    "lotteryID": "za-lotto-plus-2",
+    "issue": "2039",
+    "nextDrawTime": "20200715000000",
+    "saleAmount": "R6,088,747.50",
+    "poolSize": [
+        "R12,081,553.26"
+    ],
+    "nextPoolSize": [],
+    "nextJackpot": [
+        "R11,000,000.00"
+    ]
+}
