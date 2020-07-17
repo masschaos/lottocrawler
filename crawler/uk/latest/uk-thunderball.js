@@ -49,8 +49,8 @@ const Craw = async (dataObj) => {
     const detailTable = await page.$eval(detailTableSelector, el => el.innerText)
     const detailLevelList = detailTable.split('\n')
     const detail = detailLevelList.map(line => {
-      const [name, winner, prizePerWinner, prize] = line.split('\t')
-      return { name, winner, prizePerWinner, prize }
+      const [name, count, prizePerWinner, prize] = line.split('\t')
+      return { name, count, prizePerWinner, prize }
     })
     return { detail, drawTime, numbers, issue: '', jackpot: jackpot, other: [] }
   } catch (error) {
