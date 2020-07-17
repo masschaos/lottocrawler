@@ -29,9 +29,9 @@ class monWedLottoCrawler extends crawler {
             "drawTime": moment(data.DrawDate).format('YYYYMMDDHHmmss'),
             "detail": data.Dividends.length <= 0 ? [] : data.Dividends.map(a => {
                 let result = {
-                    "Division": a.Division,
-                    "Division Prize": a.BlocDividend > 0 ? moneyFormat(a.BlocDividend, 2, ".", ",", "$") : "",
-                    "Winners": a.BlocNumberOfWinners
+                    name: a.Division,
+                    prize: a.BlocDividend > 0 ? money_format(a.BlocDividend, 2, ".", ",", "$") : "",
+                    count: a.BlocNumberOfWinners
                 }
                 return result
             }),

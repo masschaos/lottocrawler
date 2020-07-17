@@ -6,7 +6,7 @@ const { fetchLotteries, fetchLastestResult, fetchSystemConfig, saveLastestResult
 const { closeBrowser } = require('./pptr')
 
 // 每个 cron 周期，从这里开始执行
-async function run () {
+async function run() {
   try {
     // 取得部署区域系统配置
     const resp = await fetchSystemConfig()
@@ -80,7 +80,7 @@ async function run () {
               // 如果导入成功，则不再使用备用源抓取数据
               break
             } catch (err) {
-              im.error(`${lottery.id}的爬虫出了问题清核查:${err.message}` + '\n```' + err.stack + '```', {
+              im.error(`${lottery.id}的爬虫出了问题请核查:${err.message}` + '\n```' + err.stack + '```', {
                 彩票: id,
                 国家: country.name
               })
