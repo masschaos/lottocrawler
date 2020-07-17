@@ -11,7 +11,7 @@ const url = 'https://www.lottery.co.uk/lotto/hotpicks/results'
 
 
 const { newPage } = require('../../../pptr')
-const { MONTH } = require('./country')
+const { MONTH } = require('../country')
 const VError = require('verror')
 
 const numberSelector = '#siteContainer > div.main > div:nth-child(5) > div.paddedLight'

@@ -9,7 +9,7 @@ const lotteryID = 'uk-free-lottery'
 // const detail = []
 
 const { newPage } = require('../../../pptr')
-const { MONTH } = require('./country')
+const { MONTH } = require('../country')
 const VError = require('verror')
 // const { MONTH } = require('../country')
 // const { PuppeteerPage } = require('../pptr')

@@ -1,7 +1,7 @@
 const name = 'EuroMillions HotPicks'
 const lotteryID = 'uk-euromillions-hotpicks'
 const { newPage } = require('../../../pptr')
-const { MONTH } = require('./country')
+const { MONTH } = require('../country')
 const VError = require('verror')
 
 

@@ -2,7 +2,7 @@ const name = 'Local Lottery'
 const lotteryID = 'uk-local-lottery'
 
 const { newPage } = require('../../../pptr')
-const { MONTH } = require('./country')
+const { MONTH } = require('../country')
 const VError = require('verror')
 
 const url = 'https://www.lottery.co.uk/local-lotto-results'

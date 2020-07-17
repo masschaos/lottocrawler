@@ -9,7 +9,7 @@ const lotteryID = 'uk-free-month-lottery'
 // const detail = []
 
 const { newPage } = require('../../../pptr')
-const { MONTH } = require('./country')
+const { MONTH } = require('../country')
 const VError = require('verror')
 
 const url = 'https://www.lottery.co.uk/free-lottery/results'

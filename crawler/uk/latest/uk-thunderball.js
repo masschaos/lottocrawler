@@ -8,7 +8,7 @@ const lotteryID = 'uk-thunderball'
 // const detail = []
 
 const { newPage } = require('../../../pptr')
-const { MONTH } = require('./country')
+const { MONTH } = require('../country')
 const VError = require('verror')
 
 const url = 'https://www.lottery.co.uk/thunderball/results'
