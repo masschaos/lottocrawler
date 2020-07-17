@@ -17,71 +17,61 @@ const dateSelector = '#siteContainer > div.main > div:nth-child(5) > div.latestH
 const detailUrlSelector = '#siteContainer > div.main > div:nth-child(5) > div.resultsBottom.latest > a'
 const detailTableSelector = '#siteContainer > div.main > table.table.euromillions.mobFormat > tbody'
 
-
 const MonthOrDayProcess = (numberString) => {
-    let number = parseInt(numberString).toString()
-    return number.length < 2 ? '0' + number : number
+  const number = parseInt(numberString).toString()
+  return number.length < 2 ? '0' + number : number
 }
 
 const Craw = async (dataObj) => {
-    const { url, numberSelector, dateSelector, detailUrlSelector } = dataObj
-    const page = await newPage()
-    try {
-        // open index page
-        await page.goto(url)
-        await page.waitForSelector(numberSelector)
+  const { url, numberSelector, dateSelector, detailUrlSelector } = dataObj
+  const page = await newPage()
+  try {
+    // open index page
+    await page.goto(url)
+    await page.waitForSelector(numberSelector)
 
-        // get time
-        const dateStr = await page.$eval(dateSelector, el => el.innerText)
-        const [day, month, year] = dateStr.split(' ')
-        const drawTime = `${year}${MonthOrDayProcess(MONTH[month])}${MonthOrDayProcess(day)}000000`
-        console.log(drawTime)
+    // get time
+    const dateStr = await page.$eval(dateSelector, el => el.innerText)
+    const [day, month, year] = dateStr.split(' ')
+    const drawTime = `${year}${MonthOrDayProcess(MONTH[month])}${MonthOrDayProcess(day)}000000`
+    console.log(drawTime)
 
-        // get number and jackpot
-        const numberStr = await page.$eval(numberSelector, el => el.innerText)
-        let numberList = numberStr.split("\n")
-        console.log(numberList, "numberList")
-        const jackpot = numberList.slice(-1)
-        const numbers = `${numberList.slice(0, -4).join(",")}#${numberList.slice(-4, -2).join(",")}`
-        console.log(jackpot, numbers)
+    // get number and jackpot
+    const numberStr = await page.$eval(numberSelector, el => el.innerText)
+    const numberList = numberStr.split('\n')
+    console.log(numberList, 'numberList')
+    const jackpot = numberList.slice(-1)
+    const numbers = `${numberList.slice(0, -4).join(',')}#${numberList.slice(-4, -2).join(',')}`
+    console.log(jackpot, numbers)
 
-        // get detail url
-        const detailUrl = await page.$eval(detailUrlSelector, url => url.href)
-        console.log(detailUrl, "detailUrl")
+    // get detail url
+    const detailUrl = await page.$eval(detailUrlSelector, url => url.href)
+    console.log(detailUrl, 'detailUrl')
 
-        // open index page
-        await page.goto(detailUrl)
-        await page.waitForSelector(detailTableSelector)
+    // open index page
+    await page.goto(detailUrl)
+    await page.waitForSelector(detailTableSelector)
 
-        // get detail date
-        const detailTable = await page.$eval(detailTableSelector, el => el.innerText)
-        const detailLevelList = detailTable.split("\n")
-        const detail = detailLevelList.map(line => {
-            const [name, uk_winner, prizePerWinner, prize, total_winner] = line.split("\t")
-            return { name, winner: total_winner, prizePerWinner, prize, uk_winner }
-        })
-        return { detail, drawTime, numbers, issue: "", jackpot: jackpot, other: [] }
-
-    } catch (error) {
-        throw new VError(err, '爬虫发生预期外错误')
-        console.log(error)
-    } finally {
-        await page.close()
-    }
+    // get detail date
+    const detailTable = await page.$eval(detailTableSelector, el => el.innerText)
+    const detailLevelList = detailTable.split('\n')
+    const detail = detailLevelList.map(line => {
+      const [name, ukWinner, prizePerWinner, prize, count] = line.split('\t')
+      return { name, count, prizePerWinner, prize, ukWinner }
+    })
+    return { detail, drawTime, numbers, issue: '', jackpot: jackpot, other: [] }
+  } catch (error) {
+    throw new VError(error, '爬虫发生预期外错误')
+  } finally {
+    await page.close()
+  }
 }
 
-const EuroMillions = async () => {
-    const dataObj = { url, numberSelector, dateSelector, detailUrlSelector, detailTableSelector }
-    const mainData = await Craw(dataObj)
-    const results = { ...mainData, name, lotteryID }
-    return results
+const crawl = async () => {
+  const dataObj = { url, numberSelector, dateSelector, detailUrlSelector, detailTableSelector }
+  const mainData = await Craw(dataObj)
+  const results = { ...mainData, name, lotteryID }
+  return results
 }
 
-
-// (async () => {
-//     const newData = await EuroMillions()
-//     console.log(newData)
-// })()
-
-module.exports = EuroMillions
-
+module.exports = { crawl }
