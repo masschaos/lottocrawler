@@ -1,12 +1,13 @@
+const VError = require('verror')
 const im = require('./util/im')
+const log = require('./util/log')
 const route = require('./router')
 const { hasNewDraw } = require('./util/time')
-const log = require('./util/log')
 const { fetchLotteries, fetchLastestResult, fetchSystemConfig, saveLastestResult } = require('./inner/api')
 const { closeBrowser } = require('./pptr')
 
 // 每个 cron 周期，从这里开始执行
-async function run() {
+async function run () {
   try {
     // 取得部署区域系统配置
     const resp = await fetchSystemConfig()
@@ -80,7 +81,7 @@ async function run() {
               // 如果导入成功，则不再使用备用源抓取数据
               break
             } catch (err) {
-              im.error(`${lottery.id}的爬虫出了问题请核查:${err.message}` + '\n```' + err.stack + '```', {
+              im.error(`${lottery.id}的爬虫出了问题请核查:${err.message}` + '\n```' + VError.fullStack(err) + '```', {
                 彩票: id,
                 国家: country.name
               })
@@ -91,7 +92,7 @@ async function run() {
       }
     }
   } catch (err) {
-    im.error('爬虫挂了快去修复，发生如下错误：\n' + err.message + '\n```' + err.stack + '```')
+    im.error('爬虫挂了快去修复，发生如下错误：\n' + err.message + '\n```' + VError.fullStack(err) + '```')
   } finally {
     // 无论如何都关闭浏览器实例
     await closeBrowser()
