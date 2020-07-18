@@ -1,5 +1,5 @@
 const CronJob = require('cron').CronJob
-const run = require('./index')
+const run = require('./scheduler')
 const { cron } = require('./config')
 const im = require('./util/im')
 
