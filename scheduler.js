@@ -3,7 +3,7 @@ const im = require('./util/im')
 const log = require('./util/log')
 const route = require('./router')
 const { hasNewDraw } = require('./util/time')
-const { fetchLotteries, fetchLastestResult, fetchSystemConfig, saveLastestResult } = require('./inner/api')
+const { fetchLotteries, fetchLatestResult, fetchSystemConfig, saveLatestResult } = require('./inner/api')
 const { closeBrowser } = require('./pptr')
 
 // 每个 cron 周期，从这里开始执行
@@ -24,7 +24,7 @@ async function run () {
           break
         }
         // 最新结果列表
-        const results = await fetchLastestResult(country.code, level.code)
+        const results = await fetchLatestResult(country.code, level.code)
         if (results.length === 0) {
           im.info('运行爬虫时，国家最新结果为空，这只应在首次出现', { country: country.name, level: level.code })
         }
@@ -73,7 +73,7 @@ async function run () {
               }
               bak = true
               // 保存数据
-              await saveLastestResult(data)
+              await saveLatestResult(data)
               im.info('彩票爬虫更新数据成功', {
                 彩票: id,
                 期次: data.drawTime

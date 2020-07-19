@@ -34,7 +34,7 @@ async function fetchLotteries (country, level) {
   }
 }
 
-async function fetchLastestResult (country, level) {
+async function fetchLatestResult (country, level) {
   try {
     const res = await api.get('results',
       {
@@ -50,7 +50,7 @@ async function fetchLastestResult (country, level) {
   }
 }
 
-async function saveLastestResult (data) {
+async function saveLatestResult (data) {
   try {
     await api.post('results', data)
   } catch (err) {
@@ -79,6 +79,6 @@ module.exports = {
   auCrawlerApi,
   fetchSystemConfig,
   fetchLotteries,
-  fetchLastestResult,
-  saveLastestResult
+  fetchLatestResult,
+  saveLatestResult
 }
