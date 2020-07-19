@@ -19,4 +19,20 @@ async function start () {
   }
 }
 
+async function history () {
+  const country = 'za'
+  const lotteryIDs = [
+    'za-daily-lotto'
+  ]
+  const getCrawler = require('../../crawler/' + country)
+  for (const id of lotteryIDs) {
+    const crawlers = getCrawler.get(id)
+    for (const crawler of crawlers) {
+      const res = await crawler.crawlHistory('20200701', '20200710')
+      console.log(JSON.stringify(res))
+    }
+  }
+}
+
 start()
+history()

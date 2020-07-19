@@ -1,4 +1,5 @@
 const VError = require('verror')
+const moment = require('moment')
 const util = require('util')
 const axios = require('axios')
 const qs = require('qs')
@@ -173,23 +174,32 @@ function formatDrawResult (lotteryID, data, divNames) {
 }
 
 // 获取开奖issue列表
-async function getDrawIssues (lotteryID, offset, limit) {
-  // startDate: 01/07/2020
-  // endDate: 18/07/2020
+async function getDrawIssuesByAPI (lotteryID, offset, limit, startDate, endDate) {
   offset = offset === undefined ? 0 : offset
   limit = limit === undefined ? 10 : limit
   const config = LotteryConfig[lotteryID]
-  const path = util.format('/index.php?task=results.getViewAllURL&amp;Itemid=%s&amp;option=com_weaver&amp;controller=%s', config.itemId, config.controller)
-  const data = qs.stringify({
+  let taskType = startDate === undefined ? 'results.getViewAllURL' : 'results.getHistoricalData'
+  const path = util.format('/index.php?task=%s&amp;Itemid=%s&amp;option=com_weaver&amp;controller=%s', taskType, config.itemId, config.controller)
+  let data = qs.stringify({
     gameName: config.gameName,
     offset: offset,
     limit: limit,
     isAjax: true
   })
+  if (startDate !== undefined) {
+    taskType = 'results.getHistoricalData'
+    data = data + '&startDate=' + startDate + '&endDate=' + endDate
+  }
+  let errMsg = ''
   try {
     const response = await api.post(path, data)
     const result = response.data
-    if (result.code === 200) {
+    if (result.message === 'No Record Found') {
+      result.data = []
+    }
+    if (result.data === undefined) {
+      errMsg = result.message
+    } else {
       return result.data.map((item) => {
         return item.drawNumber
       })
@@ -197,7 +207,7 @@ async function getDrawIssues (lotteryID, offset, limit) {
   } catch (err) {
     throw new VError(err, '网络异常')
   }
-  throw new VError('源网站开奖列表接口返回异常状态码')
+  throw new VError(errMsg)
 }
 
 // 获取开奖详情
@@ -223,14 +233,36 @@ async function getDrawDetail (lotteryID, issue) {
 
 // 获取最新开奖期号
 async function getLatestDrawIssue (lotteryID) {
-  const result = await getDrawIssues(lotteryID, 0, 10)
+  const result = await getDrawIssuesByAPI(lotteryID, 0, 10)
   return result[0]
+}
+
+async function getHistoryDrawIssues (lotteryID, startDate, endDate) {
+  let offset = 0
+  const limit = 51
+  let issues = []
+  if (startDate !== undefined) {
+    endDate = endDate === undefined ? startDate : endDate
+    startDate = moment(startDate.slice(0, 8)).format('DD/MM/YYYY')
+    endDate = moment(endDate.slice(0, 8)).format('DD/MM/YYYY')
+  }
+  while (true) {
+    const issuePage = await getDrawIssuesByAPI(lotteryID, offset, limit, startDate, endDate)
+    if (issuePage.length > 0) {
+      issues = issues.concat(issuePage)
+    }
+    offset += limit
+    if (issuePage.length < limit) {
+      break
+    }
+  }
+  return issues
 }
 
 module.exports = {
   formatDrawResult,
   getLatestDrawIssue,
   getDrawDetail,
-  getDrawIssues,
+  getHistoryDrawIssues,
   formatMoney
 }
