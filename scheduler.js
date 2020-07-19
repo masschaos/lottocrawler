@@ -85,7 +85,7 @@ async function run () {
                 彩票: id,
                 国家: country.name
               })
-              continue
+              // 将继续尝试改彩票下一个爬虫
             }
           }
         }

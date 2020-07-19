@@ -7,7 +7,8 @@
     "dev": "node -r dotenv/config dev.js",
     "retry": "BASE_URL=https://seaapi.lottowawa.com/staging DRAW_NO=4065 LOTTERY_ID=au-tattslotto node retry.js",
     "history": "BASE_URL=https://seaapi.lottowawa.com/staging LOTTERY_ID=au-tattslotto node history.js",
-    "test": "node test.js"
+    "test": "node test.js",
+    "lint": "eslint . \"bin/*\" --cache"
   },
   "dependencies": {
     "@masschaos/im": "^0.3.2",
@@ -26,7 +27,12 @@
   },
   "devDependencies": {
     "dotenv": "^8.2.0",
-    "standard": "^14.3.4"
+    "eslint": "^7.5.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1"
   },
   "repository": {
     "type": "git",
