@@ -7,7 +7,6 @@
     "dev": "node -r dotenv/config dev.js",
     "retry": "BASE_URL=https://seaapi.lottowawa.com/staging DRAW_NO=4065 LOTTERY_ID=au-tattslotto node retry.js",
     "history": "BASE_URL=https://seaapi.lottowawa.com/staging LOTTERY_ID=au-tattslotto node history.js",
-    "test": "node test.js",
     "lint": "eslint . \"bin/*\" --cache"
   },
   "dependencies": {
