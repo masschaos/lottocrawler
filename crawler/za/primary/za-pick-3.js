@@ -1,5 +1,5 @@
-var common = require('./common')
-var util = require('util')
+const common = require('./common')
+const util = require('util')
 
 const lotteryID = 'za-pick-3'
 const divNames = [
@@ -16,11 +16,11 @@ function getNumbers (data) {
 }
 
 function getBreakDown (data) {
-  var detail = divNames.map((divName, index) => {
-    var seq = index + 1
-    var divPayoutKey = 'div' + seq + 'Payout'
-    var divWinnerKey = 'div' + seq + 'Winners'
-    var perMoney = Number(data[divPayoutKey]) / 100
+  const detail = divNames.map((divName, index) => {
+    const seq = index + 1
+    const divPayoutKey = 'div' + seq + 'Payout'
+    const divWinnerKey = 'div' + seq + 'Winners'
+    const perMoney = Number(data[divPayoutKey]) / 100
     return {
       name: divName,
       count: data[divWinnerKey],
@@ -39,9 +39,9 @@ function getBreakDown (data) {
 }
 
 async function crawl () {
-  var latestDrawIssue = await common.getLatestDrawIssue(lotteryID)
-  var drawResult = await common.getDrawDetail(lotteryID, latestDrawIssue)
-  var result = common.formatDrawResult(lotteryID, drawResult)
+  const latestDrawIssue = await common.getLatestDrawIssue(lotteryID)
+  const drawResult = await common.getDrawDetail(lotteryID, latestDrawIssue)
+  const result = common.formatDrawResult(lotteryID, drawResult)
   result.numbers = getNumbers(drawResult)
   result.breakdown = getBreakDown(drawResult)
   return result

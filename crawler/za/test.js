@@ -1,6 +1,6 @@
 async function start () {
-  var country = 'za'
-  var lotteryIDs = [
+  const country = 'za'
+  const lotteryIDs = [
     'za-daily-lotto',
     'za-lotto',
     'za-lotto-plus-1',
@@ -9,11 +9,11 @@ async function start () {
     'za-powerball',
     'za-powerball-plus'
   ]
-  var getCrawler = require('../../crawler/' + country)
-  for (var id of lotteryIDs) {
-    var crawlers = getCrawler.get(id)
-    for (var crawler of crawlers) {
-      var res = await crawler.crawl()
+  const getCrawler = require('../../crawler/' + country)
+  for (const id of lotteryIDs) {
+    const crawlers = getCrawler.get(id)
+    for (const crawler of crawlers) {
+      const res = await crawler.crawl()
       console.log(JSON.stringify(res))
     }
   }

@@ -1,7 +1,7 @@
-var VError = require('verror')
-var util = require('util')
-var axios = require('axios')
-var qs = require('qs')
+const VError = require('verror')
+const util = require('util')
+const axios = require('axios')
+const qs = require('qs')
 
 const baseURL = 'https://www.nationallottery.co.za'
 const api = axios.create({
@@ -85,10 +85,10 @@ function getBreakDown (data, divNames) {
   if (divNames === undefined) {
     return []
   }
-  var detail = divNames.map((divName, index) => {
-    var seq = index + 1
-    var divPayoutKey = util.format('div%sPayout', seq)
-    var divWinnerKey = util.format('div%sWinners', seq)
+  const detail = divNames.map((divName, index) => {
+    const seq = index + 1
+    const divPayoutKey = util.format('div%sPayout', seq)
+    const divWinnerKey = util.format('div%sWinners', seq)
     return {
       name: divName,
       count: data[divWinnerKey],
@@ -102,8 +102,8 @@ function getBreakDown (data, divNames) {
 }
 
 function getOther (data) {
-  var drawMachine = data.drawMachine
-  var powerballDrawMachine = data.powerballDrawMachine
+  let drawMachine = data.drawMachine
+  const powerballDrawMachine = data.powerballDrawMachine
   if (powerballDrawMachine !== '' && powerballDrawMachine !== undefined) {
     drawMachine = [drawMachine, powerballDrawMachine].join('/')
   }
@@ -140,7 +140,7 @@ function getNextJackpot (data) {
 // 格式化to货币显示，强制保留2位小数, 不足补0
 function formatMoney (money) {
   money = Number(parseFloat(money).toFixed(2)).toLocaleString()
-  var decimals = money.split('.')[1]
+  const decimals = money.split('.')[1]
   if (decimals === undefined) {
     money = money + '.00'
   } else if (decimals.length === 1) {
@@ -155,7 +155,7 @@ function formatDateTime (drawDate) {
 
 // 解析并格式化开奖结果
 function formatDrawResult (lotteryID, data, divNames) {
-  var result = {}
+  const result = {}
   result.drawTime = getDrawTime(data)
   result.name = getName(lotteryID)
   result.lotteryID = getLotteryID(lotteryID)
@@ -178,17 +178,17 @@ async function getDrawIssues (lotteryID, offset, limit) {
   // endDate: 18/07/2020
   offset = offset === undefined ? 0 : offset
   limit = limit === undefined ? 10 : limit
-  var config = LotteryConfig[lotteryID]
-  var path = util.format('/index.php?task=results.getViewAllURL&amp;Itemid=%s&amp;option=com_weaver&amp;controller=%s', config.itemId, config.controller)
-  var data = qs.stringify({
+  const config = LotteryConfig[lotteryID]
+  const path = util.format('/index.php?task=results.getViewAllURL&amp;Itemid=%s&amp;option=com_weaver&amp;controller=%s', config.itemId, config.controller)
+  const data = qs.stringify({
     gameName: config.gameName,
     offset: offset,
     limit: limit,
     isAjax: true
   })
   try {
-    var response = await api.post(path, data)
-    var result = response.data
+    const response = await api.post(path, data)
+    const result = response.data
     if (result.code === 200) {
       return result.data.map((item) => {
         return item.drawNumber
@@ -202,16 +202,16 @@ async function getDrawIssues (lotteryID, offset, limit) {
 
 // 获取开奖详情
 async function getDrawDetail (lotteryID, issue) {
-  var config = LotteryConfig[lotteryID]
-  var path = util.format('/index.php?task=results.redirectPageURL&amp;Itemid=%s&amp;option=com_weaver&amp;controller=%s', config.itemId, config.controller)
-  var data = qs.stringify({
+  const config = LotteryConfig[lotteryID]
+  const path = util.format('/index.php?task=results.redirectPageURL&amp;Itemid=%s&amp;option=com_weaver&amp;controller=%s', config.itemId, config.controller)
+  const data = qs.stringify({
     gameName: config.gameName,
     drawNumber: issue,
     isAjax: true
   })
   try {
-    var response = await api.post(path, data)
-    var result = response.data
+    const response = await api.post(path, data)
+    const result = response.data
     if (result.code === 200) {
       return result.data.drawDetails
     }
@@ -223,7 +223,7 @@ async function getDrawDetail (lotteryID, issue) {
 
 // 获取最新开奖期号
 async function getLatestDrawIssue (lotteryID) {
-  var result = await getDrawIssues(lotteryID, 0, 10)
+  const result = await getDrawIssues(lotteryID, 0, 10)
   return result[0]
 }
 

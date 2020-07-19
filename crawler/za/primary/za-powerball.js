@@ -1,4 +1,4 @@
-var common = require('./common')
+const common = require('./common')
 
 const lotteryID = 'za-powerball'
 const ballKeys = ['ball1', 'ball2', 'ball3', 'ball4', 'ball5']
@@ -17,19 +17,19 @@ const divNames = [
 
 // 需要各自爬虫实现
 function getNumbers (data) {
-  var ballNumberArray = ballKeys.map((key) => {
+  const ballNumberArray = ballKeys.map((key) => {
     return data[key].padStart(2, '0')
   })
-  var powerball = data[powerballKey].padStart(2, '0')
-  var ballNumers = ballNumberArray.join(',')
-  var numbers = [ballNumers, powerball].join('#')
+  const powerball = data[powerballKey].padStart(2, '0')
+  const ballNumers = ballNumberArray.join(',')
+  const numbers = [ballNumers, powerball].join('#')
   return numbers
 }
 
 async function crawl () {
-  var latestDrawIssue = await common.getLatestDrawIssue(lotteryID)
-  var drawResult = await common.getDrawDetail(lotteryID, latestDrawIssue)
-  var result = common.formatDrawResult(lotteryID, drawResult, divNames)
+  const latestDrawIssue = await common.getLatestDrawIssue(lotteryID)
+  const drawResult = await common.getDrawDetail(lotteryID, latestDrawIssue)
+  const result = common.formatDrawResult(lotteryID, drawResult, divNames)
   result.numbers = getNumbers(drawResult)
   return result
 }
