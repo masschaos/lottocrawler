@@ -2,6 +2,7 @@ const { newPage } = require('../../../pptr')
 const moment = require('moment-timezone')
 const fs = require('fs')
 const VError = require('verror')
+const { checkDrawResult } = require('../../common')
 
 class Crawler {
   dateFormatter (dateString, timeString) {
@@ -44,15 +45,17 @@ class Crawler {
         request.continue()
       }
     })
+    let result = null
     try {
       await page.goto(url)
-      const result = await parseFunction(page, targetDrawTime)
-      return result
+      result = await parseFunction(page, targetDrawTime)
     } catch (err) {
       throw VError(err, '加拿大爬虫出错')
     } finally {
       await page.close()
     }
+    checkDrawResult(result)
+    return result
   }
 
   async saveData (item, saveFilePath) {
@@ -62,6 +65,7 @@ class Crawler {
       writeStream.close()
     }
   }
+
 }
 
 module.exports = Crawler
