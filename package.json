@@ -5,12 +5,13 @@
   "main": "index.js",
   "scripts": {
     "dev": "node -r dotenv/config dev.js",
+    "play": "node -r dotenv/config play.js",
     "retry": "BASE_URL=https://seaapi.lottowawa.com/staging DRAW_NO=4065 LOTTERY_ID=au-tattslotto node retry.js",
     "history": "BASE_URL=https://seaapi.lottowawa.com/staging LOTTERY_ID=au-tattslotto node history.js",
-    "lint": "eslint . \"bin/*\" --cache"
+    "lint": "eslint ./**"
   },
   "dependencies": {
-    "@masschaos/im": "^0.3.2",
+    "@masschaos/im": "^0.3.5",
     "axios": "^0.19.2",
     "bufferutil": "^4.0.1",
     "cron": "^1.8.2",
