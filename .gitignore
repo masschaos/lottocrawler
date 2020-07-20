@@ -105,3 +105,6 @@ dist
 
 *.DS_Store
 data/
+
+# Playground
+/play.js
