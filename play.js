@@ -1,9 +1,11 @@
 // This is a playground, you can try anything here.
-const { SiteClosedError } = require('./util/error')
 
-const err = new SiteClosedError('id')
-console.log(err)
+const m = new Map()
 
-console.log(err.name === 'SiteClosedError')
+const a = 'hello'
 
-throw err
+try {
+  console.log(m.get(a))
+} catch (e) {
+  console.log(e)
+}
