@@ -1,5 +1,6 @@
 const common = require('./common')
 const util = require('util')
+const { checkDrawResult } = require('../../common')
 
 const lotteryID = 'za-pick-3'
 const divNames = [
@@ -48,6 +49,7 @@ async function crawlByIssue (issue) {
   const result = common.formatDrawResult(lotteryID, drawResult, divNames)
   result.numbers = getNumbers(drawResult)
   result.breakDown = getBreakDown(drawResult)
+  checkDrawResult(result)
   return result
 }
 
