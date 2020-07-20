@@ -67,12 +67,12 @@ npm run dev
 
 ## 爬虫接口
 
-在`crawler/国家代码`文件夹内，爬虫需要实现接口能让 `router.js` 的如下代码通过：
+在`crawler/国家代码`文件夹内，需要 export 一个 Map (key为彩票id，值为爬虫列表)
+能让 `router.js` 的如下代码通过：
 ```javascript
-// get Crawler 是一个函数，传入彩票id，返回一个该彩票的爬虫列表
-const getCrawler = require('./crawler/国家代码')
+const crawlerMap = require('./crawler/国家代码')
+const crawlers = crawlerMap.get(lotteryID)
 // 爬虫列表中的爬虫需要实现一个 async function crawl() ,作用是返回该彩票最新一期开奖数据
-const crawlers = getCrawler(lotteryID)
 for (const crawler of crawlers) {
   const data = await crawler.crawl()
   console.log(data)
