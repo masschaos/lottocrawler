@@ -81,11 +81,26 @@ async function run () {
               // 如果导入成功，则不再使用备用源抓取数据
               break
             } catch (err) {
-              im.error(`${lottery.id}的爬虫出了问题请核查:${err.message}` + '\n```' + VError.fullStack(err) + '```', {
-                彩票: id,
-                国家: country.name
-              })
-              // 将继续尝试改彩票下一个爬虫
+              switch (err.name) {
+                case 'SiteClosedError':
+                  im.error('网站在停业时间，将检查调度配置。', {
+                    彩票: id,
+                    国家: country.name
+                  })
+                  break
+                case 'DrawingError':
+                  im.info('网站正在开奖中，请适当修正调度延迟规则。', {
+                    彩票: id,
+                    国家: country.name
+                  })
+                  break
+                default:
+                  im.error(`${lottery.id}的爬虫出了问题请核查:${err.message}` + '\n```' + VError.fullStack(err) + '```', {
+                    彩票: id,
+                    国家: country.name
+                  })
+              }
+              // 将继续尝试该彩票下一个爬虫
             }
           }
         }
