@@ -1,4 +1,5 @@
 const common = require('./common')
+const { checkDrawResult } = require('../../common')
 
 const lotteryID = 'za-daily-lotto'
 const ballKeys = ['ball1', 'ball2', 'ball3', 'ball4', 'ball5']
@@ -22,6 +23,7 @@ async function crawlByIssue (issue) {
   const drawResult = await common.getDrawDetail(lotteryID, issue)
   const result = common.formatDrawResult(lotteryID, drawResult, divNames)
   result.numbers = getNumbers(drawResult)
+  checkDrawResult(result)
   return result
 }
 

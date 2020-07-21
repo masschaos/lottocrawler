@@ -11,7 +11,7 @@ async function run () {
   try {
     // 取得部署区域系统配置
     const resp = await fetchSystemConfig()
-    log.info(resp)
+    log.debug(resp)
     // 遍历该区域所有需要爬的国家
     for (const country of resp.countries.filter(x => { return x.upstream && x.upstream === 'crawler' })) {
       // 一个国家有多个level
@@ -51,7 +51,7 @@ async function run () {
             // 捕获单个彩票爬虫的异常，如果出问题了就继续下一个
             try {
               const data = await crawler.crawl()
-              log.info({ data })
+              log.debug({ data })
               // 和已经存在的对比一下
               if (result && data.drawTime <= result.drawTime) {
                 im.info('开奖时间到了但是还没新数据，请改善延迟配置', {
