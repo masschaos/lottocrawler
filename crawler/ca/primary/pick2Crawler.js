@@ -2,7 +2,7 @@ const Crawler = require('./crawler')
 const VError = require('verror')
 
 const lotteryID = 'ca-pick-2'
-const lotteryName = 'pick2'
+const lotteryName = 'PICK-2'
 const url = 'https://lottery.olg.ca/en-ca/winning-numbers/pick-2/winning-numbers'
 const enFrMap = {
   'Match First': '1er chiffr'

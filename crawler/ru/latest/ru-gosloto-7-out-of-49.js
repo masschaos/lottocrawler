@@ -11,7 +11,7 @@ const detailTotal = '#content > div.col.prizes > div.results_table.with_bottom_s
 const detailWaitfor = '#content > div.col.prizes > div.results_table.with_bottom_shadow > div > table'
 
 const { newPage } = require('../../../pptr')
-const { MONTH } = require('./country')
+const { MONTH } = require('../country')
 const VError = require('verror')
 
 const Craw = async (url, selectorAll) => {

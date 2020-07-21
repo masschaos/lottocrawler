@@ -11,7 +11,7 @@ const lotteryID = 'ru-russian-lotto'
 const name = 'Русское лото'
 
 const { newPage } = require('../../../pptr')
-const { MONTH } = require('./country')
+const { MONTH } = require('../country')
 const VError = require('verror')
 
 const Craw = async (url, selectorAll) => {

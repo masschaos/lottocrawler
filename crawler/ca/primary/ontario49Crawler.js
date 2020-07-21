@@ -2,7 +2,7 @@ const Crawler = require('./crawler')
 const VError = require('verror')
 
 const lotteryID = 'ca-ontario-49'
-const lotteryName = 'ontario 49'
+const lotteryName = 'ONTARIO 49'
 const url = 'https://lottery.olg.ca/en-ca/winning-numbers/ontario-49/winning-numbers'
 const enFrMap = {}
 

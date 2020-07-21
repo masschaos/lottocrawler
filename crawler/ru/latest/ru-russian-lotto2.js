@@ -9,7 +9,7 @@ const detailWaitfor = '#content > div.results_table'
 const lotteryID = 'ru-russian-lotto2'
 const name = 'Русского лото экспресс'
 
-const { MONTH } = require('./country')
+const { MONTH } = require('../country')
 const { newPage } = require('../../../pptr')
 const VError = require('verror')
 

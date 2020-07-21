@@ -2,7 +2,7 @@ const Crawler = require('./crawler')
 const VError = require('verror')
 
 const lotteryID = 'ca-pick-3'
-const lotteryName = 'pick3'
+const lotteryName = 'PICK-3'
 const url = 'https://lottery.olg.ca/en-ca/winning-numbers/pick-3/winning-numbers'
 const enFrMap = {
   Straight: "Dans l'ordre",

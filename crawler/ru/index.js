@@ -10,5 +10,11 @@ crawlers.set('ru-russian-lotto', [require('./latest/ru-russian-lotto')])
 crawlers.set('ru-russian-lotto2', [require('./latest/ru-russian-lotto2')])
 crawlers.set('ru-sportloto-matchball', [require('./latest/ru-sportloto-matchball')])
 crawlers.set('ru-zodiac', [require('./latest/ru-zodiac')])
-
+crawlers.set('ru-joker', [require('./latest/ru-joker')])
+crawlers.set('ru-top3', [require('./latest/ru-top3')])
+crawlers.set('ru-rapido', [require('./latest/ru-rapido')])
+crawlers.set('ru-rapido2', [require('./latest/ru-rapido2')])
+crawlers.set('ru-duel', [require('./latest/ru-duel')])
+crawlers.set('ru-keno', [require('./latest/ru-keno')])
+crawlers.set('ru-12x24', [require('./latest/ru-12x24')])
 module.exports = crawlers

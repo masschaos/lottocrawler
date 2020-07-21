@@ -8,7 +8,7 @@ const detailWaitfor = '#content > div.col.prizes > div.results_table.with_bottom
 const lotteryID = 'ru-gosloto-4-out-of-20'
 const name = 'Гослото «4 из 20'
 
-const { MONTH } = require('./country')
+const { MONTH } = require('../country')
 const { newPage } = require('../../../pptr')
 const VError = require('verror')
 

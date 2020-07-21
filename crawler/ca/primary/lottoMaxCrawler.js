@@ -2,7 +2,7 @@ const Crawler = require('./crawler')
 const VError = require('verror')
 
 const lotteryID = 'ca-lotto-max'
-const lotteryName = 'lotto max'
+const lotteryName = 'LOTTO MAX'
 const url = 'https://lottery.olg.ca/en-ca/winning-numbers/lotto-max/winning-numbers'
 const enFrMap = {}
 

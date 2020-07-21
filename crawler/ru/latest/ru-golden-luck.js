@@ -8,7 +8,7 @@ const detailWaitfor = '#content > div.col.drawing_results > div > table'
 const lotteryID = 'ru-golden-luck'
 const name = 'Золотая подкова'
 const { newPage } = require('../../../pptr')
-const { MONTH } = require('./country')
+const { MONTH } = require('../country')
 const VError = require('verror')
 
 const Craw = async (url, selectorAll) => {
