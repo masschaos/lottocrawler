@@ -1,5 +1,6 @@
 const crawlers = new Map()
 crawlers.set('ru-6-out-of-36', [require('./latest/ru-6-out-of-36')])
+crawlers.set('ru-5-out-of-36', [require('./latest/ru-5-out-of-36')])
 crawlers.set('ru-bingo-75', [require('./latest/ru-bingo-75')])
 crawlers.set('ru-golden-luck', [require('./latest/ru-golden-luck')])
 crawlers.set('ru-gosloto-4-out-of-20', [require('./latest/ru-gosloto-4-out-of-20')])

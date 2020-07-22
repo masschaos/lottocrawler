@@ -10,6 +10,7 @@ const IrishLotto = require('./latest/uk-irish-lotto')
 const HealthLottery = require('./latest/uk-health-lottery')
 const LocalLottery = require('./latest/uk-local-lottery')
 const FreeLottery = require('./latest/uk-free-lottery')
+const UkPick3 = require('./latest/uk-pick3')
 // const FreeMonthLottery = require('./latest/uk-free-month-lottery')
 
 const crawlers = new Map()
@@ -25,6 +26,7 @@ crawlers.set('uk-irish-lotto', [IrishLotto])
 crawlers.set('uk-health-lottery', [HealthLottery])
 crawlers.set('uk-local-lottery', [LocalLottery])
 crawlers.set('uk-free-lottery', [FreeLottery])
+crawlers.set('uk-pick3', [UkPick3])
 // crawlers.set('uk-free-month-lottery', [FreeMonthLottery])
 
 module.exports = crawlers
