@@ -86,13 +86,15 @@ const Craw2 = async (dataObj) => {
 const crawl = async () => {
   const endDate = moment().tz(tz)
   const [hour, minute] = [endDate.hours(), endDate.minutes()]
-  // const [hour, minute] = [14, 20]
+  // const [hour, minute] = [20, 20]
 
   if ((hour >= 14 && hour < 19) || (hour === 19 && minute < 30)) {
     // crawWeek()
-    const numberSelector = '#siteContainer > div.main > div:nth-child(8) > div.paddedLight'
-    const dateSelector = '#siteContainer > div.main > div:nth-child(8) > div.latestHeader.free > span'
-    const issueSelector = '#siteContainer > div.main > div:nth-child(8) > div.resultsBottom.latest > span.draw-no > strong'
+
+    const numberSelector = '#siteContainer > div.main .resultBox div.paddedLight'
+    const dateSelector = '#siteContainer > div.main .resultBox .latestHeader span'
+    const issueSelector = '#siteContainer > div.main .resultBox div.resultsBottom.latest > span.draw-no > strong'
+
     const dataObj = { url, numberSelector, dateSelector, issueSelector }
     const mainData = await Craw1(dataObj)
     const results = { ...mainData, name, lotteryID }
@@ -100,10 +102,11 @@ const crawl = async () => {
     return results
   } else if ((hour === 19 && minute >= 30) || (hour > 19 && hour < 24)) {
     // crawDay()
-    const numberSelector = '#siteContainer > div.main > div:nth-child(4) > div.padded'
-    const dateSelector = '#siteContainer > div.main > div:nth-child(4) > div.sideHeader.free.floatLeft > span'
-    const issueSelector = '#siteContainer > div.main > div:nth-child(4) > div.padded > div.extra > div > strong'
-    const jackpotSelector = '#siteContainer > div.main > div:nth-child(4) > div.padded > div.floatRight.centred.padded > span'
+
+    const numberSelector = '#siteContainer > div.main .resultBox.withSide.lottoResults > div.padded'
+    const dateSelector = '#siteContainer > div.main .resultBox.withSide.lottoResults > div.sideHeader.free.floatLeft > span'
+    const issueSelector = '#siteContainer > div.main .resultBox.withSide.lottoResults > div.padded > div.extra > div > strong'
+    const jackpotSelector = '#siteContainer > div.main .resultBox.withSide.lottoResults > div.padded > div.floatRight.centred.padded > span'
     const dataObj = { url, numberSelector, dateSelector, issueSelector, jackpotSelector }
     const mainData = await Craw2(dataObj)
     const results = { ...mainData, name, lotteryID }
@@ -113,4 +116,6 @@ const crawl = async () => {
     throw new Error('非调度时间不可执行爬虫')
   }
 }
+
+// crawl()
 module.exports = { crawl }
