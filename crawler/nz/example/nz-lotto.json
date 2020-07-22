@@ -1,0 +1,130 @@
+{
+  "lotteryID": "za-lotto",
+  "name": "Lotto, Powerball and Strike",
+  "issue": "1979",
+  "drawTime": "20200722000000",
+  "numbers": "04,10,18,20,30,40#25|07|30,40,20,18",
+  "nextJackpot": [
+    "$1,000,000","$23,000,000","$200,000"
+  ],
+  "poolSize": [
+    "$3,638,405","$20,480,244","$636,964"
+  ],
+  "breakdown": [
+    {
+      "name": "Lotto",
+      "detail": [
+        {
+          "name": "Division 1",
+          "count": 1,
+          "prize": "$1,000,000"
+        },
+        {
+          "name": "Division 2",
+          "count": 21,
+          "prize": "$14,412"
+        },
+        {
+          "name": "Division 3",
+          "count": 719,
+          "prize": "$417"
+        },
+        {
+          "name": "Division 4",
+          "count": 1639,
+          "prize": "$42"
+        },
+        {
+          "name": "Division 5",
+          "count": 23287,
+          "prize": "$26"
+        },
+        {
+          "name": "Division 6",
+          "count": 30136,
+          "prize": "$19"
+        },
+        {
+          "name": "Division 7",
+          "count": 281802,
+          "prize": "Bonus Ticket"
+        }
+      ]
+    },
+    {
+      "name": "Powerball",
+      "detail": [
+        {
+          "name": "Division 1",
+          "count": 0,
+          "prize": "Powerball Rollover"
+        },
+        {
+          "name": "Division 2",
+          "count": 0,
+          "prize": "No Powerball Winners"
+        },
+        {
+          "name": "Division 3",
+          "count": 52,
+          "prize": "$1,229"
+        },
+        {
+          "name": "Division 4",
+          "count": 124,
+          "prize": "$83"
+        },
+        {
+          "name": "Division 5",
+          "count": 1938,
+          "prize": "$48"
+        },
+        {
+          "name": "Division 6",
+          "count": 2517,
+          "prize": "$34"
+        },
+        {
+          "name": "Division 7",
+          "count": 23503,
+          "prize": "Bonus Ticket + $15"
+        }
+      ]
+    },
+    {
+      "name": "Strike",
+      "detail": [
+        {
+          "name": "Strike 4",
+          "count": 1,
+          "prize": "$200,000"
+        },
+        {
+          "name": "Strike 3",
+          "count": 93,
+          "prize": "$542"
+        },
+        {
+          "name": "Strike 2",
+          "count": 4316,
+          "prize": "$65"
+        },
+        {
+          "name": "Strike 1",
+          "count": 106018,
+          "prize": "Bonus Ticket"
+        }
+      ]
+    }
+  ],
+  "other": [
+    {
+      "Total Lotto winners": "337,605",
+      "Total Lotto prize pool": "$3,638,405",
+      "Total Powerball winners": "28,134",
+      "Total Powerball prize pool": "$20,480,244",
+      "Total Strike winners": "110,428",
+      "Total Strike prize pool": "$636,964"
+    }
+  ]
+}
