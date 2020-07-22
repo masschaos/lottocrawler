@@ -5,7 +5,7 @@ const url = 'https://stoloto.ru/5x36plus/archive'
 // const selectorAll = '#content > div.data.drawings_data .elem'
 // const detailTotal = '#content > div.col.prizes > div.results_table.with_bottom_shadow > div > table > tbody > tr'
 // const detailWaitfor = '#content > div.col.prizes > div.results_table.with_bottom_shadow > div > table'
-const lotteryID = 'ru-gosloto-5-out-of-36'
+const lotteryID = 'ru-5-out-of-36'
 const name = '5 из 36'
 
 const selector = '#content > div.data.drawings_data'
