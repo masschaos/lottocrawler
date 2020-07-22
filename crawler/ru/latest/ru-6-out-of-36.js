@@ -7,7 +7,7 @@ const lotteryID = 'ru-6-out-of-36'
 const name = '6 из 36'
 
 const { newPage } = require('../../../pptr')
-const { MONTH } = require('./country')
+const { MONTH } = require('../country')
 const VError = require('verror')
 
 const Craw = async (url, selectorAll) => {

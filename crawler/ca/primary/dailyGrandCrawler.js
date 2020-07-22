@@ -2,7 +2,7 @@ const Crawler = require('./crawler')
 const VError = require('verror')
 
 const lotteryID = 'ca-daily-grand'
-const lotteryName = 'daily grand'
+const lotteryName = 'DAILY GRAND'
 const url = 'https://lottery.olg.ca/en-ca/winning-numbers/daily-grand/winning-numbers'
 const enFrMap = {}
 

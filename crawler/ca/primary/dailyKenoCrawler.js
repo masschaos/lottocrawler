@@ -2,7 +2,7 @@ const Crawler = require('./crawler')
 const VError = require('verror')
 
 const lotteryID = 'ca-daily-keno'
-const lotteryName = 'daily keno'
+const lotteryName = 'DAILY KENO'
 const url = 'https://lottery.olg.ca/en-ca/winning-numbers/daily-keno/winning-numbers'
 const enFrMap = {}
 
