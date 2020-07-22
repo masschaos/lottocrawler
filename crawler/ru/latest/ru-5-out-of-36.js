@@ -1,6 +1,6 @@
 // const puppeteer = require('puppeteer')
 
-const url = 'https://stoloto.ru/5x36/archive'
+const url = 'https://stoloto.ru/5x36plus/archive'
 // const selector = '#content > div.data.drawings_data'
 // const selectorAll = '#content > div.data.drawings_data .elem'
 // const detailTotal = '#content > div.col.prizes > div.results_table.with_bottom_shadow > div > table > tbody > tr'
@@ -49,7 +49,9 @@ const Craw = async (url, selectorAll, lotteryID) => {
       // data.numbers = numbers.split(' ').map(item => item.slice(0, item.length - 1))
       console.log(data.numbers, 'data number')
       //   console.log(element.querySelector('.prize').outerHTML)
-      data.super_prize = element.querySelector('.prize').innerText
+      const [superPrize, prize] = element.querySelector('.prize').innerText.split('\n')
+      data.super_prize = superPrize
+      data.prize = prize
       return data
     }
     const results = document.querySelector(selectorAll)
@@ -105,8 +107,6 @@ const crawl = async () => {
   console.log(newData)
   return newData
 }
-
-crawl()
 
 module.exports = {
   crawl
