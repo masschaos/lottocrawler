@@ -1,0 +1,47 @@
+{
+  "lotteryID": "za-bullseye",
+  "name": "Bullseye",
+  "issue": "3919",
+  "drawTime": "20200722000000",
+  "numbers": "021588",
+  "poolSize": [
+    "$112,610"
+  ],
+  "breakdown": [
+    {
+      "name": "default",
+      "detail": [
+        {
+          "name": "Division 1",
+          "count": 0,
+          "prize": "ROLLOVER"
+        },
+        {
+          "name": "Division 2",
+          "count": 0,
+          "prize": "$10000"
+        },
+        {
+          "name": "Division 3",
+          "count": 1,
+          "prize": "$1115"
+        },
+        {
+          "name": "Division 4",
+          "count": 26,
+          "prize": "$86"
+        },
+        {
+          "name": "Division 5",
+          "count": 171,
+          "prize": "$33"
+        },
+        {
+          "name": "Division 6",
+          "count": 1808,
+          "prize": "Bonus Ticket"
+        }
+      ]
+    }
+  ]
+}
