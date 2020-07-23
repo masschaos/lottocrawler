@@ -1,36 +1,20 @@
+const log = require('../../../util/log')
+const { DrawingError } = require('../../../util/error')
+const { newPage } = require('../../../pptr')
+const { MONTH } = require('../country')
+
 const name = 'joker'
 const lotteryID = 'ru-joker'
-// const other = []
-// const jackpot = []
-// const drawTime = ''
-// const issue = ''
-// const number = ''
-// const detail = []
-// const breakdown = [{"name":"main", "detail":[{"name": "", "count": "", "prize": ""}]}]
 const url = 'https://www.stoloto.ru/joker/archive'
 const selector = '#content > div.data.drawings_data'
 const selectorAll = '#content > div.data.drawings_data .month'
 const detailTotal = '#content > div.col.prizes > div.results_table.with_bottom_shadow > div > table > tbody > tr'
-const detailWaitfor = '#content > div.col.prizes > div.results_table.with_bottom_shadow > div > table'
-
+const detailWaitFor = '#content > div.col.prizes > div.results_table.with_bottom_shadow > div > table'
 const moreDetail = '#content > div.col.drawing_details > div > div > table > tbody > tr'
 
-const { DrawingError } = require('../../../util/error')
-const { newPage } = require('../../../pptr')
-const { MONTH } = require('../country')
-const Craw = async (url, selectorAll, lotteryID) => {
-  const page = await newPage()
-  page.setRequestInterception(true)
-  page.on('request', request => {
-    if (['image', 'stylesheet'].includes(request.resourceType())) {
-      request.abort()
-    } else {
-      request.continue()
-    }
-  })
-  const waitfor = selector
+const craw = async (page, url, selectorAll, lotteryID) => {
   await page.goto(url)
-  await page.waitForSelector(waitfor)
+  await page.waitForSelector(selector)
   const CrawResult = await page.evaluate((selectorAll, MONTH, lotteryID) => {
     const mapFunction = (element) => {
       const data = {}
@@ -52,18 +36,14 @@ const Craw = async (url, selectorAll, lotteryID) => {
       return data
     }
     const results = document.querySelector(selectorAll)
-    // console.log(results)
-    const TotalData = mapFunction(results)
-    return TotalData
+    return mapFunction(results)
   }, selectorAll, MONTH, lotteryID)
-  page.close()
-  console.log(CrawResult, 'CrawResult')
+  log.debug({ CrawResult }, 'CrawResult')
   return CrawResult
 }
-const CrawDetail = async (url, selector) => {
-  const page = await newPage()
+const crawDetail = async (page, url, selector) => {
   await page.goto(url)
-  await page.waitForSelector(detailWaitfor)
+  await page.waitForSelector(detailWaitFor)
 
   const Crawdetail = await page.evaluate((selector, moreDetail) => {
     const mapFunction = (element) => {
@@ -88,24 +68,33 @@ const CrawDetail = async (url, selector) => {
     const otherData = moreDetailData.map(moreDetailFunction)
     return [dataList, otherData]
   }, selector, moreDetail)
-  page.close()
   return Crawdetail
 }
 
 const crawl = async () => {
-  const mainData = await Craw(url, selectorAll, lotteryID)
+  const page = await newPage()
+  await page.setRequestInterception(true)
+  page.on('request', request => {
+    if (['image', 'stylesheet'].includes(request.resourceType())) {
+      request.abort()
+    } else {
+      request.continue()
+    }
+  })
+  const mainData = await craw(page, url, selectorAll, lotteryID)
   if (mainData.numbers.length === 0) {
-    // throw new Error('DrawingError', `正在开奖中，无法获取结果。彩种: ${lotteryID}`)
     throw new DrawingError(lotteryID)
   }
-  const detail = await CrawDetail(mainData.drawUrl, detailTotal, moreDetail).then(data => { return data })
+  const detail = await crawDetail(page, mainData.drawUrl, detailTotal, moreDetail)
   const numbers = mainData.numbers
   const details = detail[0].map(item => { return { level: item.level, total_winner: item.winners, wininrub: item.wininrub, numbersOfWinners: item.numbersOfWinners } })
   const newData = { ...mainData, numbers, detail: details, lotteryID, name, jackpot: [mainData.super_prize] }
   newData.other = detail[1]
   delete newData.drawUrl
   delete newData.super_prize
-  console.log(newData)
+  log.debug({ newData }, 'newData')
+  // TODO: 前边异常page就关不掉了
+  await page.close()
   return newData
 }
 
