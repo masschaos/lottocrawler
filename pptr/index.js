@@ -14,7 +14,7 @@ const getBrowserInstance = async () => {
         })
         break
       default:
-        instance = await pptr.launch()
+        instance = await pptr.launch({ headless: false })
         break
     }
   }

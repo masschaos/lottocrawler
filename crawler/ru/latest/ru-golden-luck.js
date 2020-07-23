@@ -10,7 +10,7 @@ const name = 'Золотая подкова'
 const { newPage } = require('../../../pptr')
 const { MONTH } = require('../country')
 const VError = require('verror')
-const { DrawingError } = require("../../../util/error")
+const { DrawingError } = require('../../../util/error')
 
 const Craw = async (url, selectorAll) => {
   const page = await newPage()

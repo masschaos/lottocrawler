@@ -20,7 +20,7 @@ const moreDetail = '#content > div.col.drawing_details > div > div > table > tbo
 const url = 'https://www.stoloto.ru/duel/archive'
 const { newPage } = require('../../../pptr')
 const { MONTH } = require('../country')
-const { DrawingError } = require("../../../util/error")
+const { DrawingError } = require('../../../util/error')
 const Craw = async (url, selectorAll, lotteryID) => {
   const page = await newPage()
   const waitfor = selector

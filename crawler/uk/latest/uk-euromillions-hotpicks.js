@@ -9,6 +9,7 @@ const numberSelector = '#siteContainer > div.main > div:nth-child(5) > div.padde
 const dateSelector = '#siteContainer > div.main > div:nth-child(5) > div.latestHeader.euromillions > span'
 const detailUrlSelector = '#siteContainer > div.main > div:nth-child(5) > div.resultsBottom.latest > a'
 const detailTableSelector = '#siteContainer > div.main > table.table.euromillions.mobFormat > tbody'
+const { SiteClosedError, DrawingError } = require("../../../util/error")
 
 const MonthOrDayProcess = (numberString) => {
   const number = parseInt(numberString).toString()
@@ -31,14 +32,14 @@ const Craw = async (dataObj) => {
     // get number and jackpot
     const numberStr = await page.$eval(numberSelector, el => el.innerText)
     const numberList = numberStr.split('\n')
-    console.log(numberList, 'numberList')
+    // console.log(numberList, 'numberList')
     const jackpot = numberList.slice(-1)
     const numbers = numberList.slice(0, 5).join(',')
-    console.log(jackpot, numbers)
+    // console.log(jackpot, numbers)
 
     // get detail url
     const detailUrl = await page.$eval(detailUrlSelector, url => url.href)
-    console.log(detailUrl, 'detailUrl')
+    // console.log(detailUrl, 'detailUrl')
 
     // open index page
     await page.goto(detailUrl)
@@ -51,6 +52,9 @@ const Craw = async (dataObj) => {
       const [name, count, prizePerWinner, prize] = line.split('\t')
       return { name, count, prizePerWinner, prize }
     })
+    if (detail.slice(-1)[0].prize.length === 1) {
+      throw new DrawingError(lotteryID)
+    }
     return { detail, drawTime, numbers, issue: '', jackpot: jackpot, other: [] }
   } catch (error) {
     throw new VError(error, '爬虫发生预期外错误')

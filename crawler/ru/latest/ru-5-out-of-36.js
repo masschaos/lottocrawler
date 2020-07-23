@@ -16,7 +16,7 @@ const detailWaitfor = '#content > div.col.prizes > div.results_table.with_bottom
 
 const moreDetail = '#content > div.col.drawing_details > div > div > table > tbody > tr'
 
-const { DrawingError } = require("../../../util/error")
+const { DrawingError } = require('../../../util/error')
 const { newPage } = require('../../../pptr')
 const { MONTH } = require('../country')
 const Craw = async (url, selectorAll, lotteryID) => {
@@ -96,7 +96,7 @@ const crawl = async () => {
     throw new DrawingError(lotteryID)
     // throw new Error('DrawingError', `正在开奖中，无法获取结果。彩种: ${lotteryID}`)
   }
-  const detail = await CrawDetail(mainData.drawUrl, detailTotal, moreDetail).then(data => { return data })
+  const detail = await CrawDetail(mainData.drawUrl, detailTotal, moreDetail)
   const numbers = mainData.numbers
   const details = detail[0].map(item => { return { level: item.level, total_winner: item.winners, wininrub: item.wininrub, numbersOfWinners: item.numbersOfWinners } })
   const newData = { ...mainData, numbers, detail: details, lotteryID, name, jackpot: [mainData.super_prize] }

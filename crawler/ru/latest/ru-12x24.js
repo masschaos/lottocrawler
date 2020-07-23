@@ -11,7 +11,7 @@ const lotteryID = 'ru-12x24'
 
 // 开奖
 // 1-24 开出20个数字按照顺序 小于10 不加0在前面
-const { DrawingError } = require("../../../util/error")
+const { DrawingError } = require('../../../util/error')
 const selector = '#content > div.data.drawings_data'
 const selectorAll = '#content > div.data.drawings_data .month'
 const detailTotal = '#content > div.col.prizes > div.results_table.with_bottom_shadow > div > table > tbody > tr'

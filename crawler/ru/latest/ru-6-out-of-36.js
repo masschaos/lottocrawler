@@ -6,7 +6,7 @@ const detailWaitfor = '#content > div.col.prizes > div.results_table.with_bottom
 const lotteryID = 'ru-6-out-of-36'
 const name = '6 из 36'
 
-const { DrawingError } = require("../../../util/error")
+const { DrawingError } = require('../../../util/error')
 const { newPage } = require('../../../pptr')
 const { MONTH } = require('../country')
 const VError = require('verror')

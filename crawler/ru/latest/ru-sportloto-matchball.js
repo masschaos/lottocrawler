@@ -1,5 +1,4 @@
 // const puppeteer = require('puppeteer')
-
 const url = 'https://www.stoloto.ru/5x50/archive'
 const selector = '#content > div.data.drawings_data'
 const selectorAll = '#content > div.data.drawings_data .month'

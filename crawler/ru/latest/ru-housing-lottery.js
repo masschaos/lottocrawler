@@ -10,7 +10,7 @@ const detailWaitfor = '#content > div.col.drawing_results > div > table'
 const lotteryID = 'ru-housing-lottery'
 const name = 'Жилищной лотереи'
 
-const { DrawingError } = require("../../../util/error")
+const { DrawingError } = require('../../../util/error')
 const { newPage } = require('../../../pptr')
 const { MONTH } = require('../country')
 const VError = require('verror')

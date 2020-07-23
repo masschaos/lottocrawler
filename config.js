@@ -4,7 +4,7 @@ const config = {
   cron: process.env.CRON || '0 5 * * * *',
   env: process.env.DEPLOYMENT_ENV,
   pptrEnv: process.env.PPTR_ENV,
-  pptrTimeout: parseInt(process.env.PPTR_TIMEOUT) * 1000 || 30000,
+  pptrTimeout: parseInt(process.env.PPTR_TIMEOUT) * 1000 || 50000,
   level: process.env.LOG_LEVEL || 'info'
 }
 

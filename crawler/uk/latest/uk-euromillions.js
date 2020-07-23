@@ -7,12 +7,14 @@ const lotteryID = 'uk-euromillions'
 // const number = ''
 // const detail = []
 
+const log = require('../../../util/log')
 const { newPage } = require('../../../pptr')
 const { MONTH } = require('../country')
 const VError = require('verror')
+const { SiteClosedError, DrawingError } = require("../../../util/error")
 
 const url = 'https://www.lottery.co.uk/euromillions/results'
-const numberSelector = '#siteContainer > div.main > div:nth-child(5) > div.paddedLight'
+const numberSelector = '#siteContainer > div.main > div:nth-child(5) > div.paddedLights'
 const dateSelector = '#siteContainer > div.main > div:nth-child(5) > div.latestHeader.euromillions > span'
 const detailUrlSelector = '#siteContainer > div.main > div:nth-child(5) > div.resultsBottom.latest > a'
 const detailTableSelector = '#siteContainer > div.main > table.table.euromillions.mobFormat > tbody'
@@ -59,9 +61,13 @@ const Craw = async (dataObj) => {
       const [name, ukWinner, prizePerWinner, prize, count] = line.split('\t')
       return { name, count, prizePerWinner, prize, ukWinner }
     })
+    if (detail.slice(-1)[0].prize.length === 1) {
+      throw new DrawingError(lotteryID)
+    }
     return { detail, drawTime, numbers, issue: '', jackpot: jackpot, other: [] }
-  } catch (error) {
-    throw new VError(error, '爬虫发生预期外错误')
+  }
+  catch (err) {
+    throw err
   } finally {
     await page.close()
   }
@@ -73,5 +79,5 @@ const crawl = async () => {
   const results = { ...mainData, name, lotteryID }
   return results
 }
-
+crawl()
 module.exports = { crawl }
