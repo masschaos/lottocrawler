@@ -96,7 +96,7 @@ const crawl = async () => {
   const mainData = await Craw(url, selectorAll, lotteryID)
   console.log(mainData, 'mainData')
   if (mainData.numbers.length === 1) {
-    DrawingError(lotteryID)
+    throw new DrawingError(lotteryID)
   }
   const detail = await CrawDetail(mainData.drawUrl, detailTotal, moreDetail).then(data => { return data })
   const numbers = mainData.numbers

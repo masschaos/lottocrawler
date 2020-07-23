@@ -39,12 +39,6 @@ const Craw = async (url, selectorAll, lotteryID) => {
 
       const numbers = [...element.querySelectorAll('#content > div.data.drawings_data > div.month > div:nth-child(2) > div > div.numbers > .numbers_wrapper .container:nth-of-type(1) .zone b')].map(item => item.innerText)
       console.log(JSON.stringify(numbers))
-      if (numbers.length !== 6) {
-        throw new Error('ExtractDataError', `数据异常,请检查抓取代码，彩种: ${lotteryID}`)
-      }
-      if (numbers.length === 0) {
-        throw new Error('DrawingError', `正在开奖中，无法获取结果。彩种: ${lotteryID}`)
-      }
       const number = numbers.map(item => item.trim())
       data.numbers = `${number.slice(0, 5).join(',')}|${number.slice(-1)}`
       // data.numbers = numbers.split(' ').map(item => item.slice(0, item.length - 1))
@@ -99,7 +93,7 @@ const CrawDetail = async (url, selector) => {
 const crawl = async () => {
   const mainData = await Craw(url, selectorAll, lotteryID)
   if (mainData.numbers.length === 0) {
-    throw DrawingError(lotteryID)
+    throw new DrawingError(lotteryID)
     // throw new Error('DrawingError', `正在开奖中，无法获取结果。彩种: ${lotteryID}`)
   }
   const detail = await CrawDetail(mainData.drawUrl, detailTotal, moreDetail).then(data => { return data })
