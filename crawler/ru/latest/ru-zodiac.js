@@ -1,4 +1,4 @@
-const url = 'https://en.stoloto.ru/zodiac/archive'
+const url = 'https://www.stoloto.ru/zodiac/archive'
 const selector = '#content > div.data.drawings_data'
 const selectorAll = '#content > div.data.drawings_data .month'
 const detailTotal = '#content > div.col.prizes > div.results_table.with_bottom_shadow > div > table > tbody > tr'
@@ -9,6 +9,7 @@ const name = 'Зодиак'
 const { newPage } = require('../../../pptr')
 const { MONTH } = require('../country')
 const VError = require('verror')
+const { DrawingError } = require('../../../util/error')
 
 const Craw = async (url, selectorAll) => {
   const page = await newPage()
@@ -81,6 +82,9 @@ const CrawDetail = async (url, selector) => {
 const crawl = async () => {
   const mainData = await Craw(url, selectorAll)
   // console.log(mainData, 'mainData')
+  if (mainData.numbers.length === 1) {
+    throw new DrawingError(lotteryID)
+  }
   const detail = await CrawDetail(mainData.drawUrl, detailTotal).then(data => { return data })
   // console.log(detail, 'detail')
   const numbers = mainData.numbers
@@ -91,7 +95,7 @@ const crawl = async () => {
   // console.log(newData, 'result Data')
   return newData
 }
-
+// crawl()
 module.exports = {
   crawl
 }

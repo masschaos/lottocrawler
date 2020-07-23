@@ -1,4 +1,4 @@
-const url = 'https://en.stoloto.ru/6x45/archive'
+const url = 'https://www.stoloto.ru/6x45/archive'
 const lotteryID = 'ru-gosloto-6-out-of-45'
 const name = 'Гослото «6 из 45'
 
@@ -7,6 +7,7 @@ const selectorAll = '#content > div.data.drawings_data .month'
 const detailTotal = '#content > div.col.prizes > div.results_table.with_bottom_shadow > div > table > tbody > tr'
 const detailWaitfor = '#content > div.col.prizes > div.results_table.with_bottom_shadow > div > table'
 
+const { DrawingError } = require("../../../util/error")
 const { newPage } = require('../../../pptr')
 const { MONTH } = require('../country')
 const VError = require('verror')
@@ -98,7 +99,7 @@ const crawl = async () => {
   // console.log(newData, 'result Data')
   return newData
 }
-
+// crawl()
 module.exports = {
   crawl
 }

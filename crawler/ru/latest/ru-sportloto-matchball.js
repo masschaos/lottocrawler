@@ -1,6 +1,6 @@
 // const puppeteer = require('puppeteer')
 
-const url = 'https://en.stoloto.ru/5x50/archive'
+const url = 'https://www.stoloto.ru/5x50/archive'
 const selector = '#content > div.data.drawings_data'
 const selectorAll = '#content > div.data.drawings_data .month'
 const detailTotal = '#content > div.col.prizes > div.results_table.with_bottom_shadow > div > table > tbody > tr'
@@ -88,9 +88,10 @@ const crawl = async () => {
   const newData = { ...mainData, numbers, detail: details, lotteryID, name, jackpot: [mainData.super_prize] }
   delete newData.drawUrl
   delete newData.super_prize
+  console.log(newData, "newData")
   return newData
 }
-
+// crawl()
 module.exports = {
   crawl
 }

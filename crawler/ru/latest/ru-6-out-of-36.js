@@ -1,4 +1,4 @@
-const url = 'https://en.stoloto.ru/6x36/archive'
+const url = 'https://www.stoloto.ru/6x36/archive'
 const selector = '#content > div.data.drawings_data'
 const selectorAll = '#content > div.data.drawings_data .month'
 const detailTotal = '#content > div.col.prizes > div.results_table.with_bottom_shadow > div > table > tbody > tr'
@@ -6,6 +6,7 @@ const detailWaitfor = '#content > div.col.prizes > div.results_table.with_bottom
 const lotteryID = 'ru-6-out-of-36'
 const name = '6 из 36'
 
+const { DrawingError } = require("../../../util/error")
 const { newPage } = require('../../../pptr')
 const { MONTH } = require('../country')
 const VError = require('verror')
@@ -75,6 +76,10 @@ const CrawDetail = async (url, selector) => {
 const crawl = async () => {
   const mainData = await Craw(url, selectorAll)
   // console.log(mainData, "maindata")
+  if (mainData.numbers.length === 0) {
+    throw new DrawingError(lotteryID)
+    // throw new Error('DrawingError', `正在开奖中，无法获取结果。彩种: ${lotteryID}`)
+  }
   const detail = await CrawDetail(mainData.drawUrl, detailTotal).then(data => { return data })
   const numbers = mainData.numbers
   const details = [...detail.map(item => { return { level: item.level, total_winner: item.winners } })]
@@ -85,7 +90,7 @@ const crawl = async () => {
   // console.log(newData, 'result Data')
   return newData
 }
-
+// crawl()
 module.exports = {
   crawl
 }

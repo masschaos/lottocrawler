@@ -7,8 +7,7 @@ const lotteryID = 'ru-joker'
 // const number = ''
 // const detail = []
 // const breakdown = [{"name":"main", "detail":[{"name": "", "count": "", "prize": ""}]}]
-
-const url = 'https://stoloto.ru/joker/archive'
+const url = 'https://www.stoloto.ru/joker/archive'
 const selector = '#content > div.data.drawings_data'
 const selectorAll = '#content > div.data.drawings_data .month'
 const detailTotal = '#content > div.col.prizes > div.results_table.with_bottom_shadow > div > table > tbody > tr'
@@ -16,6 +15,7 @@ const detailWaitfor = '#content > div.col.prizes > div.results_table.with_bottom
 
 const moreDetail = '#content > div.col.drawing_details > div > div > table > tbody > tr'
 
+const { DrawingError } = require("../../../util/error")
 const { newPage } = require('../../../pptr')
 const { MONTH } = require('../country')
 const Craw = async (url, selectorAll, lotteryID) => {
@@ -38,9 +38,6 @@ const Craw = async (url, selectorAll, lotteryID) => {
 
       let numbers = [...element.querySelectorAll('#content > div.data.drawings_data > div.month > div:nth-child(2) > div > div.numbers > div.numbers_wrapper > div:nth-child(1) > span b sup')].map(item => item.innerText)
       numbers = numbers.map(item => item.trim())
-      if (numbers.length === 0) {
-        throw new Error('DrawingError', `正在开奖中，无法获取结果。彩种: ${lotteryID}`)
-      }
       data.numbers = numbers.map(item => item.trim()).join(',')
       console.log(data.numbers, 'data number')
       data.super_prize = element.querySelector('.prize').innerText
@@ -89,6 +86,10 @@ const CrawDetail = async (url, selector) => {
 
 const crawl = async () => {
   const mainData = await Craw(url, selectorAll, lotteryID)
+  if (mainData.numbers.length === 0) {
+    // throw new Error('DrawingError', `正在开奖中，无法获取结果。彩种: ${lotteryID}`)
+    throw new DrawingError(lotteryID)
+  }
   const detail = await CrawDetail(mainData.drawUrl, detailTotal, moreDetail).then(data => { return data })
   const numbers = mainData.numbers
   const details = detail[0].map(item => { return { level: item.level, total_winner: item.winners, wininrub: item.wininrub, numbersOfWinners: item.numbersOfWinners } })

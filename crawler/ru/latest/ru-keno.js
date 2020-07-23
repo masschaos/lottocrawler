@@ -8,7 +8,7 @@ const lotteryID = 'ru-keno'
 // const detail = []
 // const breakdown = [{"name":"main", "detail":[{"name": "", "count": "", "prize": ""}]}]
 
-const url = 'https://stoloto.ru/keno/archive'
+const url = 'https://www.stoloto.ru/keno/archive'
 const selector = '#content > div.data.drawings_data'
 const selectorAll = '#content > div.data.drawings_data .month'
 const detailTotal = '#content > div.col.prizes > div.results_table.with_bottom_shadow > div > table > tbody > tr'
@@ -16,6 +16,7 @@ const detailWaitfor = '#content > div.col.prizes > div.results_table.with_bottom
 
 const moreDetail = '#content > div.col.drawing_details > div > div > table > tbody > tr'
 
+const { DrawingError } = require("../../../util/error")
 const { newPage } = require('../../../pptr')
 const { MONTH } = require('../country')
 const Craw = async (url, selectorAll, lotteryID) => {
@@ -41,9 +42,9 @@ const Craw = async (url, selectorAll, lotteryID) => {
       numberOne = numberOne.map(item => item.trim())
       numberTwo = numberTwo.map(item => item.trim()).slice(1, numberTwo.length)
 
-      if (numberOne.length === 0 || numberTwo.length === 0) {
-        throw new Error('DrawingError', `正在开奖中，无法获取结果。彩种: ${lotteryID}`)
-      }
+      // if (numberOne.length === 0 || numberTwo.length === 0) {
+      //   throw new Error('DrawingError', `正在开奖中，无法获取结果。彩种: ${lotteryID}`)
+      // }
       // data.numbers = [numbers.slice(0, 2).join(','), numbers.slice(2, 4).join(',')].join('|')
       console.log(JSON.stringify(numberOne), JSON.stringify(numberTwo), 'one, two')
       data.numbers = [numberOne.join(','), numberTwo.join(',')].join('|')
@@ -92,6 +93,10 @@ const CrawDetail = async (url, selector, moreDetail) => {
 const crawl = async () => {
   const mainData = await Craw(url, selectorAll, lotteryID)
   // console.log(mainData, 'mainData')
+  if (mainData.numbers.length === 0) {
+    throw new DrawingError(lotteryID)
+    // throw new Error('DrawingError', `正在开奖中，无法获取结果。彩种: ${lotteryID}`)
+  }
   const detail = await CrawDetail(mainData.drawUrl, detailTotal, moreDetail).then(data => { return data })
   const numbers = mainData.numbers
   const details = detail[0]

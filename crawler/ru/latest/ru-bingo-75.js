@@ -1,6 +1,6 @@
 // const puppeteer = require('puppeteer')
 
-const url = 'https://en.stoloto.ru/bingo75/archive'
+const url = 'https://www.stoloto.ru/bingo75/archive'
 const selector = '#content > div.data.drawings_data'
 const selectorAll = '#content > div.data.drawings_data .month'
 const detailTotal = '#content > div.col.drawing_results > div > table > tbody > tr'
@@ -10,6 +10,7 @@ const name = 'Бинго-75'
 const { newPage } = require('../../../pptr')
 const { MONTH } = require('../country')
 const VError = require('verror')
+const { DrawingError } = require("../../../util/error")
 
 const Craw = async (url, selectorAll) => {
   const page = await newPage()
@@ -103,6 +104,10 @@ const CrawDetail = async (url, selector) => {
 const crawl = async () => {
   const mainData = await Craw(url, selectorAll)
   //   console.log(mainData, 'mainData')
+  if (mainData.numbers.length === 0) {
+    throw new DrawingError(lotteryID)
+    // throw new Error('DrawingError', `正在开奖中，无法获取结果。彩种: ${lotteryID}`)
+  }
   const detail = await CrawDetail(mainData.drawUrl, detailTotal).then(data => { return data })
   const numbers = [mainData.numbers, ...detail.map(item => item.number)].join('#')
   const details = [{ level: '0', prize: mainData.super_prize, number: mainData.numbers }, ...detail.map(item => { return { level: item.level, prize: item.prize, number: item.number } })]
@@ -112,7 +117,7 @@ const crawl = async () => {
   // console.log(newData, 'result Data')
   return newData
 }
-
+// crawl()
 module.exports = {
   crawl
 }

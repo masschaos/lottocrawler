@@ -1,6 +1,6 @@
 // const puppeteer = require('puppeteer')
 
-const url = 'https://en.stoloto.ru/4x20/archive'
+const url = 'https://www.stoloto.ru/4x20/archive'
 const selector = '#content > div.data.drawings_data'
 const selectorAll = '#content > div.data.drawings_data .month'
 const detailTotal = '#content > div.col.prizes > div.results_table.with_bottom_shadow > div > table > tbody > tr'
@@ -8,6 +8,7 @@ const detailWaitfor = '#content > div.col.prizes > div.results_table.with_bottom
 const lotteryID = 'ru-gosloto-4-out-of-20'
 const name = 'Гослото «4 из 20'
 
+const { DrawingError } = require("../../../util/error")
 const { MONTH } = require('../country')
 const { newPage } = require('../../../pptr')
 const VError = require('verror')
@@ -99,7 +100,7 @@ const crawl = async () => {
   // console.log(newData, 'result Data')
   return newData
 }
-
+// crawl()
 module.exports = {
   crawl
 }

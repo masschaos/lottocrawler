@@ -1,6 +1,6 @@
 // const puppeteer = require('puppeteer')
 
-const url = 'https://en.stoloto.ru/zp/archive'
+const url = 'https://www.stoloto.ru/zp/archive'
 const selector = '#content > div.data.drawings_data'
 const selectorAll = '#content > div.data.drawings_data .month'
 const detailTotal = '#content > div.col.drawing_results > div > table > tbody > tr'
@@ -10,6 +10,7 @@ const name = 'Золотая подкова'
 const { newPage } = require('../../../pptr')
 const { MONTH } = require('../country')
 const VError = require('verror')
+const { DrawingError } = require("../../../util/error")
 
 const Craw = async (url, selectorAll) => {
   const page = await newPage()
@@ -56,50 +57,47 @@ const Craw = async (url, selectorAll) => {
 
 const CrawDetail = async (url, selector) => {
   const page = await newPage()
-  try {
-    await page.goto(url)
-    await page.waitForSelector(detailWaitfor)
+  await page.goto(url)
+  await page.waitForSelector(detailWaitfor)
 
-    const Crawdetail = await page.evaluate((selector) => {
-      const mapFunction = (element) => {
-        const data = {}
-        const elementList = [...element.querySelectorAll('td')]
-        //   console.log(elementList[0].outerHTML, 'elementList')
-        data.level = elementList[0].textContent
-        let number = elementList[1].textContent.split('\n').join(',').split('\t').join('')
-        //   console.log(number, 'number')
-        if (number[0] === ',') {
-          number = number.slice(1, number.length)
-        }
-        if (number[number.length - 1] === ',') {
-          number = number.slice(0, number.length - 1)
-        }
-        if (number === 'Кубышка') {
-          data.level = '-1'
-          number = ''
-        }
-        data.number = number
-        //   data.winner = elementList[2].textContent
-        //   console.log(elementList[3].textContent)
-        data.prize = elementList[3].textContent.replace('\n', '').split('\t').join('').replace('\n', '')
-        return data
+  const Crawdetail = await page.evaluate((selector) => {
+    const mapFunction = (element) => {
+      const data = {}
+      const elementList = [...element.querySelectorAll('td')]
+      //   console.log(elementList[0].outerHTML, 'elementList')
+      data.level = elementList[0].textContent
+      let number = elementList[1].textContent.split('\n').join(',').split('\t').join('')
+      //   console.log(number, 'number')
+      if (number[0] === ',') {
+        number = number.slice(1, number.length)
       }
-      const results = [...document.querySelectorAll(selector)]
-      const dataList = results.map(mapFunction)
-      return dataList
-    }, selector)
-    // page.close()
-    return Crawdetail
-  } catch (error) {
-    throw new VError(error, '爬虫出现未预期错误')
-  } finally {
-    await page.close()
-  }
+      if (number[number.length - 1] === ',') {
+        number = number.slice(0, number.length - 1)
+      }
+      if (number === 'Кубышка') {
+        data.level = '-1'
+        number = ''
+      }
+      data.number = number
+      //   data.winner = elementList[2].textContent
+      //   console.log(elementList[3].textContent)
+      data.prize = elementList[3].textContent.replace('\n', '').split('\t').join('').replace('\n', '')
+      return data
+    }
+    const results = [...document.querySelectorAll(selector)]
+    const dataList = results.map(mapFunction)
+    return dataList
+  }, selector)
+  page.close()
+  return Crawdetail
 }
 
 const crawl = async () => {
   const mainData = await Craw(url, selectorAll)
   //   console.log(mainData, 'mainData')
+  if (mainData.numbers.length === 0) {
+    throw new DrawingError(lotteryID)
+  }
   const detail = await CrawDetail(mainData.drawUrl, detailTotal).then(data => { return data })
   const numbers = [mainData.numbers, ...detail.map(item => item.number)].join('#')
   const details = [{ level: '0', prize: mainData.super_prize, number: mainData.numbers }, ...detail.map(item => { return { level: item.level, prize: item.prize, number: item.number } })]
@@ -109,7 +107,7 @@ const crawl = async () => {
   // console.log(newData, 'result Data')
   return newData
 }
-
+// crawl()
 module.exports = {
   crawl
 }

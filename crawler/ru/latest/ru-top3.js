@@ -8,8 +8,8 @@ const lotteryID = 'ru-top3'
 // const detail = []
 // const breakdown = [{"name":"main", "detail":[{"name": "", "count": "", "prize": ""}]}]
 
-const url = 'https://stoloto.ru/top3/archive'
-const { drawingError } = require('../../../util/error')
+const url = 'https://www.stoloto.ru/top3/archive'
+const { DrawingError } = require("../../../util/error")
 const selector = '#content > div.data.drawings_data'
 const selectorAll = '#content > div.data.drawings_data .month'
 const detailTotal = '#content > div.col.prizes > div.results_table.with_bottom_shadow > div > table > tbody > tr'
@@ -21,7 +21,7 @@ const { newPage } = require('../../../pptr')
 const { MONTH } = require('../country')
 const Craw = async (url, selectorAll, lotteryID) => {
   const page = await newPage()
-  await page.exposeFunction('drawingError', drawingError)
+  // await page.exposeFunction('drawingError', drawingError)
   const waitfor = selector
   await page.goto(url)
   await page.waitForSelector(waitfor)
@@ -42,11 +42,6 @@ const Craw = async (url, selectorAll, lotteryID) => {
       let numberTwo = [...element.querySelectorAll('#content > div.data.drawings_data > div.month > div:nth-child(2) > div > div.numbers > div.numbers_wrapper.sub > div > span > b')].map(item => item.innerText)
       numberOne = numberOne.map(item => item.trim())
       numberTwo = numberTwo.map(item => item.trim()).slice(1, numberTwo.length)
-
-      if (numberOne.length === 0 || numberTwo.length === 0) {
-        // throw new drawingError(lotteryID)
-        throw new Error('DrawingError', `正在开奖中，无法获取结果。彩种: ${lotteryID}`)
-      }
       // data.numbers = [numbers.slice(0, 2).join(','), numbers.slice(2, 4).join(',')].join('|')
       console.log(JSON.stringify(numberOne), JSON.stringify(numberTwo), 'one, two')
       data.numbers = [numberOne.join(','), numberTwo.join(',')].join('|')
@@ -99,7 +94,10 @@ const CrawDetail = async (url, selector) => {
 
 const crawl = async () => {
   const mainData = await Craw(url, selectorAll, lotteryID)
-  // console.log(mainData, 'mainData')
+  console.log(mainData, 'mainData')
+  if (mainData.numbers.length === 1) {
+    throw new DrawingError(lotteryID)
+  }
   const detail = await CrawDetail(mainData.drawUrl, detailTotal, moreDetail).then(data => { return data })
   const numbers = mainData.numbers
   const details = detail[0].map(item => { return { level: item.level, total_winner: item.winners, wininrub: item.wininrub, numbersOfWinners: item.numbersOfWinners } })
