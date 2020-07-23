@@ -54,19 +54,21 @@ async function saveLatestResult (data) {
   try {
     await api.post('results', data)
   } catch (err) {
-    if (err.response) {
-      if (err.response.error === 'DuplicatedResult') {
+    if (err.response && err.response.status === 400 && err.response.data) {
+      if (err.response.data.error === 'DuplicatedResult') {
         im.error('向服务端发送了一个重复结果，请检查爬虫策略' + '\n```' + data + '```')
         return
       }
-      if (err.response.error === 'InvalidRequestBody') {
+      if (err.response.data.error === 'InvalidRequestBody') {
         im.error('提交了一个错误的结果，请检查爬虫实现' + '\n```' + data + '```')
         return
       }
-      if (err.response.error === 'InvalidRequestBody') {
+      if (err.response.data.error === 'InvalidRequestBody') {
         im.error('提交了一个未知彩种，请检查爬虫' + '\n```' + data + '```')
         return
       }
+      im.error('保存结果时触发了未知错误，data:' + '\n```' + data + '```' +
+        '\nresponse:\n```' + err.response + '```')
     }
     throw new VError(err, '向服务端提交结果数据出错')
   }
