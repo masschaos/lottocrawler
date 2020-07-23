@@ -1,6 +1,6 @@
 const log = require('../../../util/log')
 const { DrawingError } = require('../../../util/error')
-const { newPage } = require('../../../pptr')
+const { newPage, ignoreImage } = require('../../../pptr')
 const { MONTH } = require('../country')
 
 const name = 'joker'
@@ -73,29 +73,24 @@ const crawDetail = async (page, url, selector) => {
 
 const crawl = async () => {
   const page = await newPage()
-  await page.setRequestInterception(true)
-  page.on('request', request => {
-    if (['image', 'stylesheet'].includes(request.resourceType())) {
-      request.abort()
-    } else {
-      request.continue()
+  try {
+    await ignoreImage(page)
+    const mainData = await craw(page, url, selectorAll, lotteryID)
+    if (mainData.numbers.length === 0) {
+      throw new DrawingError(lotteryID)
     }
-  })
-  const mainData = await craw(page, url, selectorAll, lotteryID)
-  if (mainData.numbers.length === 0) {
-    throw new DrawingError(lotteryID)
+    const detail = await crawDetail(page, mainData.drawUrl, detailTotal, moreDetail)
+    const numbers = mainData.numbers
+    const details = detail[0].map(item => { return { level: item.level, total_winner: item.winners, wininrub: item.wininrub, numbersOfWinners: item.numbersOfWinners } })
+    const newData = { ...mainData, numbers, detail: details, lotteryID, name, jackpot: [mainData.super_prize] }
+    newData.other = detail[1]
+    delete newData.drawUrl
+    delete newData.super_prize
+    log.debug({ newData }, 'newData')
+    return newData
+  } finally {
+    await page.close()
   }
-  const detail = await crawDetail(page, mainData.drawUrl, detailTotal, moreDetail)
-  const numbers = mainData.numbers
-  const details = detail[0].map(item => { return { level: item.level, total_winner: item.winners, wininrub: item.wininrub, numbersOfWinners: item.numbersOfWinners } })
-  const newData = { ...mainData, numbers, detail: details, lotteryID, name, jackpot: [mainData.super_prize] }
-  newData.other = detail[1]
-  delete newData.drawUrl
-  delete newData.super_prize
-  log.debug({ newData }, 'newData')
-  // TODO: 前边异常page就关不掉了
-  await page.close()
-  return newData
 }
 
 module.exports = {
