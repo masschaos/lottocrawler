@@ -20,12 +20,16 @@ const { newPage } = require('../../../pptr')
 const { MONTH } = require('../country')
 const Craw = async (url, selectorAll, lotteryID) => {
   const page = await newPage()
-  const waitfor = selector
-  await page.goto('https://www.stoloto.ru/?lang=ru')
-  await page.goto(url, {
-    waitUntil: 'networkidle0',
-    timeout: 120000
+  page.setRequestInterception(true)
+  page.on('request', request => {
+    if (['image', 'stylesheet'].includes(request.resourceType())) {
+      request.abort()
+    } else {
+      request.continue()
+    }
   })
+  const waitfor = selector
+  await page.goto(url)
   await page.waitForSelector(waitfor)
   const CrawResult = await page.evaluate((selectorAll, MONTH, lotteryID) => {
     const mapFunction = (element) => {
