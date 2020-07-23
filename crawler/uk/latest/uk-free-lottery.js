@@ -17,6 +17,7 @@ const MonthOrDayProcess = (numberString) => {
 }
 
 const Craw1 = async (dataObj) => {
+  // crawWeek()
   const { url, numberSelector, dateSelector, issueSelector } = dataObj
   const page = await newPage()
   try {
@@ -28,7 +29,7 @@ const Craw1 = async (dataObj) => {
     const dateStr = await page.$eval(dateSelector, el => el.innerText)
     console.log(dateStr)
     const [day, month, year] = dateStr.split(' ')
-    const drawTime = `${year}${MonthOrDayProcess(MONTH[month.slice(0, -1)])}${MonthOrDayProcess(day)}193000`
+    const drawTime = `${year}${MonthOrDayProcess(MONTH[month.slice(0, -1)])}${MonthOrDayProcess(day)}140000`
 
     // get number and jackpot
     const numberStr = await page.$eval(numberSelector, el => el.innerText)
@@ -63,7 +64,7 @@ const Craw2 = async (dataObj) => {
     let [day, month, year] = dateStr.split(' ')
     month = month.slice(0, -1)
     console.log(month)
-    const drawTime = `${year}${MonthOrDayProcess(MONTH[month])}${MonthOrDayProcess(day)}140000`
+    const drawTime = `${year}${MonthOrDayProcess(MONTH[month])}${MonthOrDayProcess(day)}193000`
 
     // get number and jackpot
     const numberStr = await page.$eval(numberSelector, el => el.innerText)
