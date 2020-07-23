@@ -7,16 +7,13 @@ const lotteryID = 'ru-6-out-of-36'
 const name = '6 из 36'
 
 const { DrawingError } = require('../../../util/error')
-const { newPage } = require('../../../pptr')
 const { MONTH } = require('../country')
 const VError = require('verror')
-
-const Craw = async (url, selectorAll) => {
-  const page = await newPage()
+const { newPage, ignoreImage } = require('../../../pptr')
+const Craw = async (page, url, selectorAll) => {
   try {
-    const waitfor = selector
     await page.goto(url)
-    await page.waitForSelector(waitfor)
+    await page.waitForSelector(selector)
     const CrawResult = await page.evaluate((selectorAll, MONTH) => {
       const mapFunction = (element) => {
         const data = {}
@@ -42,13 +39,10 @@ const Craw = async (url, selectorAll) => {
     return CrawResult
   } catch (err) {
     throw new VError(err, '爬虫发生预期外错误')
-  } finally {
-    await page.close()
   }
 }
 
-const CrawDetail = async (url, selector) => {
-  const page = await newPage()
+const CrawDetail = async (page, url, selector) => {
   try {
     await page.goto(url)
     await page.waitForSelector(detailWaitfor)
@@ -68,27 +62,31 @@ const CrawDetail = async (url, selector) => {
     return Crawdetail
   } catch (err) {
     throw new VError(err, '爬虫发生预期外错误')
-  } finally {
-    await page.close()
   }
 }
 
 const crawl = async () => {
-  const mainData = await Craw(url, selectorAll)
-  // console.log(mainData, "maindata")
-  if (mainData.numbers.length === 0) {
-    throw new DrawingError(lotteryID)
+  const page = await newPage()
+  try {
+    await ignoreImage(page)
+    const mainData = await Craw(page, url, selectorAll)
+    // console.log(mainData, "maindata")
+    if (mainData.numbers.length === 0) {
+      throw new DrawingError(lotteryID)
     // throw new Error('DrawingError', `正在开奖中，无法获取结果。彩种: ${lotteryID}`)
-  }
-  const detail = await CrawDetail(mainData.drawUrl, detailTotal).then(data => { return data })
-  const numbers = mainData.numbers
-  const details = [...detail.map(item => { return { level: item.level, total_winner: item.winners } })]
-  const newData = { ...mainData, numbers, detail: details, lotteryID, name, jackpot: [mainData.super_prize] }
+    }
+    const detail = await CrawDetail(page, mainData.drawUrl, detailTotal).then(data => { return data })
+    const numbers = mainData.numbers
+    const details = [...detail.map(item => { return { level: item.level, total_winner: item.winners } })]
+    const newData = { ...mainData, numbers, detail: details, lotteryID, name, jackpot: [mainData.super_prize] }
 
-  delete newData.drawUrl
-  delete newData.super_prize
-  // console.log(newData, 'result Data')
-  return newData
+    delete newData.drawUrl
+    delete newData.super_prize
+    // console.log(newData, 'result Data')
+    return newData
+  } finally {
+    await page.close()
+  }
 }
 // crawl()
 module.exports = {
