@@ -8,7 +8,7 @@ const lotteryID = 'ru-joker'
 // const detail = []
 // const breakdown = [{"name":"main", "detail":[{"name": "", "count": "", "prize": ""}]}]
 
-const url = 'https://www.stoloto.ru/joker/archive'
+const url = 'https://stoloto.ru/joker/archive'
 const selector = '#content > div.data.drawings_data'
 const selectorAll = '#content > div.data.drawings_data .month'
 const detailTotal = '#content > div.col.prizes > div.results_table.with_bottom_shadow > div > table > tbody > tr'
