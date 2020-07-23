@@ -1,7 +1,7 @@
 // const puppeteer = require('puppeteer')
 // 朝后放
 
-const url = 'https://en.stoloto.ru/7x49/archive'
+const url = 'https://www.stoloto.ru/7x49/archive'
 const lotteryID = 'ru-gosloto-7-out-of-49'
 const name = 'Гослото «7 из 49'
 
@@ -10,6 +10,7 @@ const selectorAll = '#content > div.data.drawings_data .month'
 const detailTotal = '#content > div.col.prizes > div.results_table.with_bottom_shadow > div > table > tbody > tr'
 const detailWaitfor = '#content > div.col.prizes > div.results_table.with_bottom_shadow > div > table'
 
+const { DrawingError } = require("../../../util/error")
 const { newPage } = require('../../../pptr')
 const { MONTH } = require('../country')
 const VError = require('verror')
@@ -90,7 +91,7 @@ const crawl = async () => {
   // console.log(newData, 'result Data')
   return newData
 }
-
+// crawl()
 module.exports = {
   crawl
 }

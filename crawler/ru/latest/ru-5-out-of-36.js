@@ -1,6 +1,6 @@
 // const puppeteer = require('puppeteer')
 
-const url = 'https://stoloto.ru/5x36plus/archive'
+const url = 'https://www.stoloto.ru/5x36plus/archive'
 // const selector = '#content > div.data.drawings_data'
 // const selectorAll = '#content > div.data.drawings_data .elem'
 // const detailTotal = '#content > div.col.prizes > div.results_table.with_bottom_shadow > div > table > tbody > tr'
@@ -16,6 +16,7 @@ const detailWaitfor = '#content > div.col.prizes > div.results_table.with_bottom
 
 const moreDetail = '#content > div.col.drawing_details > div > div > table > tbody > tr'
 
+const { DrawingError } = require("../../../util/error")
 const { newPage } = require('../../../pptr')
 const { MONTH } = require('../country')
 const Craw = async (url, selectorAll, lotteryID) => {
@@ -97,6 +98,10 @@ const CrawDetail = async (url, selector) => {
 
 const crawl = async () => {
   const mainData = await Craw(url, selectorAll, lotteryID)
+  if (mainData.numbers.length === 0) {
+    throw DrawingError(lotteryID)
+    // throw new Error('DrawingError', `正在开奖中，无法获取结果。彩种: ${lotteryID}`)
+  }
   const detail = await CrawDetail(mainData.drawUrl, detailTotal, moreDetail).then(data => { return data })
   const numbers = mainData.numbers
   const details = detail[0].map(item => { return { level: item.level, total_winner: item.winners, wininrub: item.wininrub, numbersOfWinners: item.numbersOfWinners } })
@@ -104,10 +109,10 @@ const crawl = async () => {
   newData.other = detail[1]
   delete newData.drawUrl
   delete newData.super_prize
-  console.log(newData)
+  // console.log(newData)
   return newData
 }
-
+// crawl()
 module.exports = {
   crawl
 }

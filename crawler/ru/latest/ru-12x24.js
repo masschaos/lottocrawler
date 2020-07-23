@@ -11,6 +11,7 @@ const lotteryID = 'ru-12x24'
 
 // 开奖
 // 1-24 开出20个数字按照顺序 小于10 不加0在前面
+const { DrawingError } = require("../../../util/error")
 const selector = '#content > div.data.drawings_data'
 const selectorAll = '#content > div.data.drawings_data .month'
 const detailTotal = '#content > div.col.prizes > div.results_table.with_bottom_shadow > div > table > tbody > tr'
@@ -18,7 +19,7 @@ const detailWaitfor = '#content > div.col.prizes > div.results_table.with_bottom
 
 const moreDetail = '#content > div.col.drawing_details > div > div > table > tbody > tr'
 
-const url = 'https://stoloto.ru/12x24/archive'
+const url = 'https://www.stoloto.ru/12x24/archive'
 const { newPage } = require('../../../pptr')
 const { MONTH } = require('../country')
 const Craw = async (url, selectorAll, lotteryID) => {
@@ -41,9 +42,7 @@ const Craw = async (url, selectorAll, lotteryID) => {
 
       const numbers = [...element.querySelectorAll('#content > div.data.drawings_data > div.month > div:nth-child(2) > div > div.numbers > div.numbers_wrapper > div:nth-child(1) > span b')].map(item => item.innerText)
       console.log(numbers)
-      if (numbers.length === 0) {
-        throw new Error('DrawingError', `正在开奖中，无法获取结果。彩种: ${lotteryID}`)
-      }
+
       data.numbers = numbers.map(item => item.trim()).join(',')
       // data.numbers = numbers.split(' ').map(item => item.slice(0, item.length - 1))
 
@@ -95,6 +94,10 @@ const CrawDetail = async (url, selector) => {
 
 const crawl = async () => {
   const mainData = await Craw(url, selectorAll, lotteryID)
+  if (mainData.numbers.length === 0) {
+    throw DrawingError(lotteryID)
+    // throw new Error('DrawingError', `正在开奖中，无法获取结果。彩种: ${lotteryID}`)
+  }
   const detail = await CrawDetail(mainData.drawUrl, detailTotal, moreDetail).then(data => { return data })
   const numbers = mainData.numbers
   const details = detail[0].map(item => { return { level: item.level, total_winner: item.winners, wininrub: item.wininrub, numbersOfWinners: item.numbersOfWinners } })

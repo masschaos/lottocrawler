@@ -1,7 +1,7 @@
 // const puppeteer = require('puppeteer')
 // 朝后放
 
-const url = 'https://en.stoloto.ru/gzhl/archive'
+const url = 'https://www.stoloto.ru/gzhl/archive'
 
 const selector = '#content > div.data.drawings_data'
 const selectorAll = '#content > div.data.drawings_data .month'
@@ -10,6 +10,7 @@ const detailWaitfor = '#content > div.col.drawing_results > div > table'
 const lotteryID = 'ru-housing-lottery'
 const name = 'Жилищной лотереи'
 
+const { DrawingError } = require("../../../util/error")
 const { newPage } = require('../../../pptr')
 const { MONTH } = require('../country')
 const VError = require('verror')
@@ -104,7 +105,7 @@ const crawl = async () => {
   // console.log(newData, 'result Data')
   return newData
 }
-
+// crawl()
 module.exports = {
   crawl
 }

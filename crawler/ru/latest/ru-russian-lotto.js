@@ -1,11 +1,11 @@
 // const puppeteer = require('puppeteer')
 
-const url = 'https://en.stoloto.ru/ruslotto/archive'
+const url = 'https://www.stoloto.ru/ruslotto/archive'
 
 const selector = '#content > div.data.drawings_data'
 const selectorAll = '#content > div.data.drawings_data .month'
-const detailTotal = '#content > div.col.drawing_results > div > table > tbody > tr'
-const detailWaitfor = '#content > div.col.drawing_results > div > table'
+const detailTotal = '#content > div.results_table > table.data > tbody > tr'
+const detailWaitfor = '#content > div.results_table > table.data > tbody'
 
 const lotteryID = 'ru-russian-lotto'
 const name = 'Русское лото'
@@ -16,45 +16,40 @@ const VError = require('verror')
 
 const Craw = async (url, selectorAll) => {
   const page = await newPage()
-  try {
-    const waitfor = selector
-    await page.goto(url)
-    await page.waitForSelector(waitfor)
-    const CrawResult = await page.evaluate((selectorAll, MONTH) => {
-      const mapFunction = (element) => {
-        const data = {}
-        const monthyear = element.querySelector('.date').innerText
-        let [month, year] = monthyear.split(', ')
-        const drawDate = element.querySelector('.draw_date').innerText
-        let day = drawDate.split(' ')[0]
-        day = day.length < 2 ? '0' + day : day
-        month = MONTH[month].toString().length < 2 ? '0' + MONTH[month] : MONTH[month]
-        // 对drawDate做处理。
-        data.drawTime = `${year}${month}${day}000000`
-        data.issue = element.querySelector('.draw').innerText
-        data.drawUrl = element.querySelector('.draw a').href
-        data.other = []
-        data.jackpot = []
-        //   console.log(element.querySelector('.numbers_wrapper').outerHTML)
-        let numbers = element.querySelector('.numbers_wrapper').innerText
-        numbers = numbers.split(' ').join(',')
-        data.numbers = numbers
-        //   console.log(element.querySelector('.prize').outerHTML)
-        data.super_prize = element.querySelector('.prize').innerText
-        return data
-      }
-      const results = document.querySelector(selectorAll)
-      // console.log(results)
-      const TotalData = mapFunction(results)
-      return TotalData
-    }, selectorAll, MONTH)
-    // page.close()
-    return CrawResult
-  } catch (error) {
-    throw new VError(error, '爬虫出现未预期错误')
-  } finally {
-    await page.close()
-  }
+  const waitfor = selector
+  await page.goto(url)
+  await page.waitForSelector(waitfor)
+  const CrawResult = await page.evaluate((selectorAll, MONTH) => {
+    const mapFunction = (element) => {
+      const data = {}
+      const monthyear = element.querySelector('.date').innerText
+      let [month, year] = monthyear.split(', ')
+      const drawDate = element.querySelector('.draw_date').innerText
+      let day = drawDate.split(' ')[0]
+      day = day.length < 2 ? '0' + day : day
+      month = MONTH[month].toString().length < 2 ? '0' + MONTH[month] : MONTH[month]
+      // 对drawDate做处理。
+      data.drawTime = `${year}${month}${day}000000`
+      data.issue = element.querySelector('.draw').innerText
+      data.drawUrl = element.querySelector('.draw a').href
+      data.other = []
+      data.jackpot = []
+      //   console.log(element.querySelector('.numbers_wrapper').outerHTML)
+      let numbers = element.querySelector('.numbers_wrapper').innerText
+      console.log(numbers)
+      numbers = numbers.split(' ').join(',')
+      data.numbers = numbers
+      data.super_prize = element.querySelector('.super_prize').innerText
+      // console.log(element.querySelector('.prize').outerHTML)
+      return data
+    }
+    const results = document.querySelector(selectorAll)
+    // console.log(results)
+    const TotalData = mapFunction(results)
+    return TotalData
+  }, selectorAll, MONTH)
+  page.close()
+  return CrawResult
 }
 
 const CrawDetail = async (url, selector) => {
@@ -91,7 +86,7 @@ const CrawDetail = async (url, selector) => {
       const dataList = results.map(mapFunction)
       return dataList
     }, selector)
-    // page.close()
+    page.close()
     return Crawdetail
   } catch (error) {
     throw new VError(error, '爬虫出现未预期错误')
@@ -102,15 +97,18 @@ const CrawDetail = async (url, selector) => {
 
 const crawl = async () => {
   const mainData = await Craw(url, selectorAll)
+  console.log(mainData)
   const detail = await CrawDetail(mainData.drawUrl, detailTotal).then(data => { return data })
+  console.log(detail)
   const numbers = [mainData.numbers, ...detail.map(item => item.number)].join('#')
   const details = [{ level: '0', prize: mainData.super_prize, number: mainData.numbers }, ...detail.map(item => { return { level: item.level, prize: item.prize, number: item.number } })]
   const newData = { ...mainData, numbers, detail: details, lotteryID, name }
   delete newData.drawUrl
   delete newData.super_prize
+  console.log(newData)
   return newData
 }
-
+// crawl()
 module.exports = {
   crawl
 }
