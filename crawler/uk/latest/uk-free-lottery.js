@@ -75,7 +75,7 @@ const Craw2 = async (dataObj) => {
     const issue = await page.$eval(issueSelector, el => el.innerText)
 
     // console.log(jackpot, numbers, issue)
-    return { detail: [], drawTime, numbers, issue, jackpot, other: [{ type: 'day' }] }
+    return { detail: [], drawTime, numbers, issue, jackpot: [jackpot], other: [{ type: 'day' }] }
   } catch (error) {
     throw new VError(error, '爬虫发生预期外错误')
   } finally {
@@ -98,7 +98,7 @@ const crawl = async () => {
     const dataObj = { url, numberSelector, dateSelector, issueSelector }
     const mainData = await Craw1(dataObj)
     const results = { ...mainData, name, lotteryID }
-    // console.log(results, 'results')
+    console.log(results, 'results')
     return results
   } else if ((hour === 19 && minute >= 30) || (hour > 19 && hour < 24)) {
     // crawDay()
@@ -110,7 +110,7 @@ const crawl = async () => {
     const dataObj = { url, numberSelector, dateSelector, issueSelector, jackpotSelector }
     const mainData = await Craw2(dataObj)
     const results = { ...mainData, name, lotteryID }
-    // console.log(results, 'results')
+    console.log(results, 'results')
     return results
   } else {
     throw new Error('非调度时间不可执行爬虫')
