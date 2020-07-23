@@ -21,6 +21,7 @@ const { MONTH } = require('../country')
 const Craw = async (url, selectorAll, lotteryID) => {
   const page = await newPage()
   const waitfor = selector
+  await page.goto('https://www.stoloto.ru/?lang=ru')
   await page.goto(url, {
     waitUntil: 'networkidle0',
     timeout: 120000
