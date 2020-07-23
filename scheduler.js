@@ -72,12 +72,19 @@ async function run () {
                 })
               }
               bak = true
-              // 保存数据
+              // 保存数据 快开只写日志不通知im
               await saveLatestResult(data)
-              im.info('彩票爬虫更新数据成功', {
-                彩票: id,
-                期次: data.drawTime
-              })
+              if (isQuickDraw) {
+                log.info({
+                  lottery: id,
+                  drawTime: data.drawTime
+                }, '保存成功')
+              } else {
+                im.info('彩票爬虫更新数据成功', {
+                  彩票: id,
+                  期次: data.drawTime
+                })
+              }
               // 如果导入成功，则不再使用备用源抓取数据
               break
             } catch (err) {
