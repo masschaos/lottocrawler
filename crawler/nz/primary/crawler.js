@@ -19,10 +19,8 @@ class Crawler {
     // 得到的结果是元素数量不少于6个的对象
     if (data && Object.keys(data).length >=6) {
       if (this.lotteryId === 'lotto') {
-        console.log('=====', this.lotteryId)
         const url = 'https://apigw.mylotto.co.nz/api/content/v1/jackpotdata'
         const jackpot_data = await getLastestResult(url, this.lotteryId, '')
-        console.log('jackpot==', jackpot_data)
         data['jackpot'] = jackpot_data
       }
       return this.parse(data)
