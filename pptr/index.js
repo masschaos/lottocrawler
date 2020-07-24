@@ -1,24 +1,36 @@
 const pptr = require('puppeteer')
+const { Mutex } = require('async-mutex')
 const { pptrEnv, pptrTimeout } = require('../config')
+
+const mutex = new Mutex()
 let instance = null
 
 // 使用单例模式只用一个浏览器
 async function getBrowserInstance () {
-  if (!instance) {
-    // instance = chrome ? await pptr.launch({ headless: true }) : await pptr.launch()
-    switch (pptrEnv) {
-      case 'docker':
-        instance = await pptr.launch({
-          executablePath: '/usr/bin/chromium-browser',
-          args: ['--no-sandbox', '--headless', '--disable-gpu']
-        })
-        break
-      default:
-        instance = await pptr.launch()
-        break
+  const release = await mutex.acquire()
+  try {
+    if (!instance) {
+      switch (pptrEnv) {
+        case 'docker':
+          instance = await pptr.launch({
+            executablePath: '/usr/bin/chromium-browser',
+            args: ['--no-sandbox', '--headless', '--disable-gpu']
+          })
+          break
+        case 'dev':
+          instance = await pptr.launch({
+            devtools: true
+          })
+          break
+        default:
+          instance = await pptr.launch()
+          break
+      }
     }
+    return instance
+  } finally {
+    release()
   }
-  return instance
 }
 
 async function closeBrowser () {
