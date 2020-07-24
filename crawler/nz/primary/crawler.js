@@ -1,4 +1,4 @@
-const { getLastestResult } = require('./api')
+const { getLatestResult } = require('./api')
 const VError = require('verror')
 
 const baseURL = 'https://apigw.mylotto.co.nz/api/results/v1/results/'
@@ -8,22 +8,21 @@ class Crawler {
     this.lotteryId = lotteryId
   }
 
-  parse (data) {
-    return ''
+  static parse (data) {
+    return data
   }
 
   async crawl () {
-    let data = await getLastestResult(baseURL + this.lotteryId, this.lotteryId, "")
+    let data = await getLatestResult(baseURL + this.lotteryId, this.lotteryId, "")
     data["jackpot"] = {}
 
     // 得到的结果是元素数量不少于6个的对象
     if (data && Object.keys(data).length >=6) {
       if (this.lotteryId === 'lotto') {
         const url = 'https://apigw.mylotto.co.nz/api/content/v1/jackpotdata'
-        const jackpot_data = await getLastestResult(url, this.lotteryId, '')
-        data['jackpot'] = jackpot_data
+        data['jackpot'] = await getLatestResult(url, this.lotteryId, '')
       }
-      return this.parse(data)
+      return Crawler.parse(data)
     }
     throw new VError(`抓取 ${this.lotteryId} 虽未出错,但结果不符合预期:${data}`)
   }

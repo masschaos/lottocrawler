@@ -1,12 +1,10 @@
 const VError = require('verror')
 const axios = require('axios')
 
-
-async function getLastestResult (url, lotteryId, params) {
+async function getLatestResult (url, lotteryId, params) {
   try {
-    console.log("url==", url)
     const resp = await axios.get(url, {params:params})
-    if (resp.data ) {
+    if (resp.data) {
       return resp.data
     }
   } catch (err) {
@@ -15,5 +13,5 @@ async function getLastestResult (url, lotteryId, params) {
 }
 
 module.exports = {
-  getLastestResult,
+  getLatestResult,
 }

@@ -6,32 +6,6 @@ class LottoCrawler extends crawler {
   constructor () {
     super('lotto')
   }
-/*
-    {
-  "lotteryID": "za-lotto",
-  "name": "Lotto, Powerball and Strike",
-  "issue": "1979",
-  "drawTime": "20200722000000",
-  "numbers": "04,10,18,20,30,40#25|07|30,40,20,18",
-  "nextJackpot": [
-    "$1,000,000","$23,000,000","$200,000"
-  ],
-  "poolSize": [
-    "$3,638,405","$20,480,244","$636,964"
-  ],
-  "breakdown": [""],
-  "other": [
-    {
-      "Total Lotto winners": "337,605",
-      "Total Lotto prize pool": "$3,638,405",
-      "Total Powerball winners": "28,134",
-      "Total Powerball prize pool": "$20,480,244",
-      "Total Strike winners": "110,428",
-      "Total Strike prize pool": "$636,964"
-    }
-  ]
-}
-*/
 
   parse (data) {
     const lotto = data.lotto, strike = data.strike, power_ball = data.powerBall;
@@ -49,10 +23,11 @@ class LottoCrawler extends crawler {
         ]
     }
 
-    const item = {
-      drawTime: moment(lotto.drawDate + " " + lotto.drawTime).format('YYYYMMDDHHmmss'),
+    let item
+    item = {
+      drawTime: moment(lotto.drawDate + ' ' + lotto.drawTime).format('YYYYMMDDHHmmss'),
       nextJackpot: next_jackpot,
-      poolSize: [lotto.totalLottoPrizes, power_ball.totalPowerballPrizes, strike.totalStrikePrizes, ],
+      poolSize: [lotto.totalLottoPrizes, power_ball.totalPowerballPrizes, strike.totalStrikePrizes,],
       breakdown: [
         {
           name: 'Lotto',

@@ -7,28 +7,15 @@ class MonWedLottoCrawler extends crawler {
     super('bullseye')
   }
 
-  /*
-    {
-    "lotteryID": "za-bullseye",
-    "name": "Bullseye",
-    "issue": "3919",
-    "drawTime": "20200722000000",
-    "numbers": "021588",
-    "poolSize": [
-      "$112,610"
-    ],
-    "breakdown":[]
-  }
-    */
   parse (data) {
-    const item = {
+    return {
       drawTime: moment(data.drawDate + " " + data.drawTime).format('YYYYMMDDHHmmss'),
       poolSize: [data.bullseyePrizePool],
       breakdown: [{
         name: "default",
         detail: data.bullseyeWinners.map(winner => {
           return {
-            name: 'Division ' + winner.division ,
+            name: 'Division ' + winner.division,
             count: winner.numberOfWinners,
             prize: winner.prizeValue > 0 ? moneyFormat(winner.prizeValue, 2, ".", ",", "$") : winner.prizeValue,
           }
@@ -39,7 +26,6 @@ class MonWedLottoCrawler extends crawler {
       name: 'Bullseye',
       lotteryID: 'nz-bullseye'
     }
-    return item
   }
 }
 
