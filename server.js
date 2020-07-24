@@ -16,8 +16,8 @@ process.on('SIGINT', () => {
   // eslint-disable-next-line no-unmodified-loop-condition
   while (go) {
     await run()
-    im.info('一个循环运行结束，等待开始下个循环')
     if (go) {
+      im.info('一个循环运行结束，等待开始下个循环')
       sleep(1000 * restTime)
     }
   }
