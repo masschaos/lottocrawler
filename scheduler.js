@@ -30,6 +30,10 @@ async function run () {
         }
         // 开始检查每个彩票
         for (const lottery of lotteries) {
+          if (lottery.closed) {
+            // 忽略关闭的彩票
+            continue
+          }
           const { drawConfig: { timeRules }, delay, tz, id, isQuickDraw } = lottery
           // 找到对应的结果
           const result = results.find(x => {
