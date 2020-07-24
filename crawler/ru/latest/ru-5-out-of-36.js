@@ -32,6 +32,7 @@ const Craw = async (page, url, selectorAll, lotteryID) => {
       data.drawTime = `${year}${month}${day}${time}00`
       data.issue = element.querySelector('.draw').innerText
       data.drawUrl = element.querySelector('.draw a').href
+      console.log(data.drawUrl, 'drawUrl')
       // data.other = []
       data.jackpot = []
 

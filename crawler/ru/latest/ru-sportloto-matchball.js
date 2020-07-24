@@ -24,10 +24,12 @@ const craw = async (page, url, selectorAll) => {
       data.drawTime = `${year}${month}${day}${time}00`
       data.issue = element.querySelector('.draw').innerText
       data.drawUrl = element.querySelector('.draw a').href
+      // console.log(data.drawUrl, 'drawUrl')
       data.other = []
       data.jackpot = []
       let numbers = element.querySelector('.numbers_wrapper').innerText
-      const tmp = numbers.split(' ')
+      // console.log(numbers, 'number')
+      const tmp = numbers.split('\n')[0].split(' ')
       numbers = [tmp.slice(0, tmp.length - 1).join(','), tmp[tmp.length - 1]].join('|')
       data.numbers = numbers
       data.super_prize = element.querySelector('.prize').innerText
@@ -75,7 +77,7 @@ const crawl = async () => {
     const newData = { ...mainData, numbers, detail: details, lotteryID, name, jackpot: [mainData.super_prize] }
     delete newData.drawUrl
     delete newData.super_prize
-    console.log(newData, 'newData')
+    // console.log(newData, 'newData')
     return newData
   } finally {
     await page.close()
