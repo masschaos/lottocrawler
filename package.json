@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@masschaos/im": "^0.3.5",
+    "async-mutex": "^0.2.4",
     "axios": "^0.19.2",
     "bufferutil": "^4.0.1",
     "cron": "^1.8.2",

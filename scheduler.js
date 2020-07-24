@@ -1,10 +1,15 @@
 const VError = require('verror')
+const Semaphore = require('async-mutex').Semaphore
 const im = require('./util/im')
 const log = require('./util/log')
 const route = require('./router')
+const { parallel } = require('./config')
 const { hasNewDraw } = require('./util/time')
 const { fetchLotteries, fetchLatestResult, fetchSystemConfig, saveLatestResult } = require('./inner/api')
 const { closeBrowser } = require('./pptr')
+
+// global semaphore, limit parallel job count
+const semaphore = new Semaphore(parallel)
 
 // 每个 cron 周期，从这里开始执行
 async function run () {
@@ -29,10 +34,10 @@ async function run () {
           im.info('运行爬虫时，国家最新结果为空，这只应在首次出现', { country: country.name, level: level.code })
         }
         // 开始检查每个彩票
-        for (const lottery of lotteries) {
+        await Promise.all(lotteries.map(async (lottery) => {
           if (lottery.closed) {
             // 忽略关闭的彩票
-            continue
+            return
           }
           const { drawConfig: { timeRules }, delay, tz, id, isQuickDraw } = lottery
           // 找到对应的结果
@@ -42,18 +47,22 @@ async function run () {
           // 根据预计开奖时间规则(lottery.drawConfig.timeRule)判断是否到了抓取数据的时间 ,
           if (result && !hasNewDraw(timeRules, isQuickDraw, delay, result.drawTime, tz)) {
             log.info(`还未开奖，跳过${id}`)
-            continue
+            return
           }
           const crawlers = route(lottery.country, id)
           if (!crawlers || crawlers.length === 0) {
             im.info('预期外情况，未找到彩票爬虫，请关注。', { country: country.name, lottery: id })
-            continue
+            return
           }
           // 一个彩票会有多个爬虫，调用到成功为止
           let bak = false
           for (const crawler of crawlers) {
+            // 信号量限制并行度
+            const [, release] = await semaphore.acquire()
             // 捕获单个彩票爬虫的异常，如果出问题了就继续下一个
             try {
+              // 启动爬虫
+              log.info(`启动爬虫 ${id}`)
               const data = await crawler.crawl()
               log.debug({ data })
               // 和已经存在的对比一下
@@ -112,9 +121,12 @@ async function run () {
                   })
               }
               // 将继续尝试该彩票下一个爬虫
+            } finally {
+              // 释放信号量
+              release()
             }
           }
-        }
+        }))
       }
     }
   } catch (err) {
