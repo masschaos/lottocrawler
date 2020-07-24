@@ -56,19 +56,20 @@ async function saveLatestResult (data) {
   } catch (err) {
     if (err.response && err.response.status === 400 && err.response.data) {
       if (err.response.data.error === 'DuplicatedResult') {
-        im.error('向服务端发送了一个重复结果，请检查爬虫策略' + '\n```' + data + '```')
+        im.error('向服务端发送了一个重复结果，请检查爬虫策略' + '\n```' + JSON.stringify(data) + '```')
         return
       }
       if (err.response.data.error === 'InvalidRequestBody') {
-        im.error('提交了一个错误的结果，请检查爬虫实现' + '\n```' + data + '```')
+        im.error('提交了一个错误的结果，请检查爬虫实现' + '\n```' + JSON.stringify(data) + '```')
         return
       }
       if (err.response.data.error === 'InvalidRequestBody') {
-        im.error('提交了一个未知彩种，请检查爬虫' + '\n```' + data + '```')
+        im.error('提交了一个未知彩种，请检查爬虫' + '\n```' + JSON.stringify(data) + '```')
         return
       }
-      im.error('保存结果时触发了未知错误，data:' + '\n```' + data + '```' +
-        '\nresponse:\n```' + err.response + '```')
+      im.error('保存结果时触发了未知错误，data:' + '\n```' + JSON.stringify(data) + '```' +
+        '\nresponse:\n```' + JSON.stringify(err.response.data) + '```')
+      return
     }
     throw new VError(err, '向服务端提交结果数据出错')
   }
