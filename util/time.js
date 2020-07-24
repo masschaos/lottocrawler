@@ -3,9 +3,7 @@ const cronParser = require('cron-parser')
 const VError = require('verror')
 
 function sleep (ms) {
-  return new Promise((resolve, reject) => {
-    setTimeout(resolve, ms)
-  })
+  Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms)
 }
 
 // convert 20201231000000 format to Date

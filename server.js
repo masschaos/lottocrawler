@@ -1,9 +1,26 @@
-const CronJob = require('cron').CronJob
 const run = require('./scheduler')
-const { cron } = require('./config')
+const { restTime } = require('./config')
 const im = require('./util/im')
+const { sleep } = require('./util/time')
 
-// 根据环境变量指定的 cron 循环爬取
-var job = new CronJob(cron, run)
 im.info('服务端重新启动')
-job.start()
+
+let go = true
+
+process.on('SIGINT', () => {
+  im.info('服务端收到停止信号，完成剩余任务中')
+  go = false
+})
+
+;(async () => {
+  // eslint-disable-next-line no-unmodified-loop-condition
+  while (go) {
+    await run()
+    im.info('一个循环运行结束，等待开始下个循环')
+    if (go) {
+      sleep(1000 * restTime)
+    }
+  }
+  im.info('服务端安全退出')
+  process.exit()
+})()

@@ -1,6 +1,6 @@
 const axios = require('axios')
 const lotteryIdProductCodeConfig = require('../../../config/const').lotteryIdProductCodeConfig
-const sleep = require('../../../util').sleep
+const { sleep } = require('../../../util/time')
 const fs = require('fs')
 const path = require('path')
 const { max } = require('moment')
@@ -13,7 +13,7 @@ class crawler {
     }
 
     parse(data){
-        
+
     }
 
     async crawl(){
@@ -26,7 +26,7 @@ class crawler {
             this.ws = fs.createWriteStream(filePath, {encoding: "utf-8"})
 
             const drawNo = await this.getDrawNo() //4065//await this.getDrawNo()
-            
+
             console.log(drawNo)
             const finalDrawNo = 1
             await this.ws.write("[")
@@ -36,7 +36,7 @@ class crawler {
                     const maxDrawNo = i
                     const minDrawNo = i-50 < 0 ? 1 : i-50
                     const draws = await this.getDrawRange(minDrawNo, maxDrawNo)
-                    
+
                     console.log(`drawNo: ${drawNo}, finalDrawNo: ${finalDrawNo}, minDrawNo: ${minDrawNo}, maxDrawNo: ${maxDrawNo}`)
                     // console.log(draws.map(a => a.DrawNumber))
                     const percent = parseInt(((maxDrawNo == drawNo) ? (drawNo-minDrawNo)/(drawNo-finalDrawNo) : (drawNo-minDrawNo-1)/(drawNo-finalDrawNo))*100)
@@ -50,7 +50,7 @@ class crawler {
                         await this.ws.write((maxDrawNo == drawNo ? "" : ",")+json.substring(1, json.length-1))
                     }
                     i--
-                    await sleep(3000)
+                    sleep(3000)
                 }
             }
         } catch (err) {
@@ -59,12 +59,12 @@ class crawler {
             await this.ws.write("]")
             this.ws.close()
         }
-        
+
     }
 
     async getDrawRange(minDrawNo, maxDrawNo){
         return new Promise((resolve, reject) => {
-            axios.post("https://data.api.thelott.com/sales/vmax/web/data/lotto/results/search/drawrange", 
+            axios.post("https://data.api.thelott.com/sales/vmax/web/data/lotto/results/search/drawrange",
             {
                 "MinDrawNo": minDrawNo,
                 "MaxDrawNo": maxDrawNo,
@@ -85,7 +85,7 @@ class crawler {
 
     async getDrawNo(){
         return new Promise((resolve, reject) => {
-            axios.post("https://data.api.thelott.com/sales/vmax/web/data/lotto/latestresults", 
+            axios.post("https://data.api.thelott.com/sales/vmax/web/data/lotto/latestresults",
             {
                 "CompanyId": "NTLotteries",
                 "MaxDrawCountPerProduct": 1,

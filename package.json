@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "node -r dotenv/config dev.js",
     "play": "node -r dotenv/config play.js",
+    "devserver": "node -r dotenv/config server.js",
     "retry": "BASE_URL=https://seaapi.lottowawa.com/staging DRAW_NO=4065 LOTTERY_ID=au-tattslotto node retry.js",
     "history": "BASE_URL=https://seaapi.lottowawa.com/staging LOTTERY_ID=au-tattslotto node history.js",
     "lint": "eslint ./**"
