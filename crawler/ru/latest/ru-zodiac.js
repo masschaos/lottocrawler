@@ -74,9 +74,9 @@ const crawl = async () => {
     if (mainData.numbers.length === 1) {
       throw new DrawingError(lotteryID)
     }
-    console.log(mainData.drawUrl, 'drawUrl')
+    // console.log(mainData.drawUrl, 'drawUrl')
     const detail = await crawDetail(page, mainData.drawUrl, detailTotal)
-    console.log(mainData.numbers, 'number')
+    // console.log(mainData.numbers, 'number')
     const numbers = mainData.numbers.split('\n')[1]
     const details = detail.map(item => { return { level: item.level, total_winner: item.winners } })
     const newData = { ...mainData, numbers, detail: details, lotteryID, name, jackpot: [mainData.super_prize] }

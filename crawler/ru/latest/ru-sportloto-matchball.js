@@ -77,7 +77,7 @@ const crawl = async () => {
     const newData = { ...mainData, numbers, detail: details, lotteryID, name, jackpot: [mainData.super_prize] }
     delete newData.drawUrl
     delete newData.super_prize
-    console.log(newData, 'newData')
+    // console.log(newData, 'newData')
     return newData
   } finally {
     await page.close()
