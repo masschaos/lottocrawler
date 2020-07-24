@@ -24,10 +24,12 @@ const craw = async (page, url, selectorAll) => {
       data.drawTime = `${year}${month}${day}${time}00`
       data.issue = element.querySelector('.draw').innerText
       data.drawUrl = element.querySelector('.draw a').href
+      // console.log(data.drawUrl, 'drawUrl')
       data.other = []
       data.jackpot = []
       let numbers = element.querySelector('.numbers_wrapper').innerText
-      const tmp = numbers.split(' ')
+      // console.log(numbers, 'number')
+      const tmp = numbers.split('\n')[0].split(' ')
       numbers = [tmp.slice(0, tmp.length - 1).join(','), tmp[tmp.length - 1]].join('|')
       data.numbers = numbers
       data.super_prize = element.querySelector('.prize').innerText

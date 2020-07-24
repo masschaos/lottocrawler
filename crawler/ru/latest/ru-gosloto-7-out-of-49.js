@@ -77,12 +77,12 @@ const crawl = async () => {
     // console.log(mainData, 'mainData')
     const detail = await CrawDetail(page, mainData.drawUrl, detailTotal).then(data => { return data })
     // console.log(detail, 'detail')
-    const numbers = mainData.numbers
+    const numbers = mainData.numbers.split('\n')[0].trim()
     const details = detail.map(item => { return { level: item.level, total_winner: item.winners } })
     const newData = { ...mainData, numbers, detail: details, lotteryID, name, jackpot: [mainData.super_prize] }
     delete newData.drawUrl
     delete newData.super_prize
-    // console.log(newData, 'result Data')
+    console.log(newData, 'result Data')
     return newData
   } finally {
     await page.close()
