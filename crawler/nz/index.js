@@ -4,11 +4,11 @@ crawlers.set('nz-keno', [require('./primary/nz-keno')])
 crawlers.set('nz-bullseye', [require('./primary/nz-bullseye')])
 
 module.exports = crawlers
-function getCrawler(lotteryId){
-    if(crawlers.has(lotteryId)){
-       return crawlers.get(lotteryId)
-    }
-    return null
-}
+// function getCrawler(lotteryId){
+//     if(crawlers.has(lotteryId)){
+//        return crawlers.get(lotteryId)
+//     }
+//     return null
+// }
 
 // module.exports = {getCrawler}
