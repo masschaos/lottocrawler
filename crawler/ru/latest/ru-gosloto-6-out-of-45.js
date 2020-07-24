@@ -83,9 +83,9 @@ const crawl = async () => {
   const page = await newPage()
   try {
     await ignoreImage(page)
-    const mainData = await Craw(url, selectorAll)
+    const mainData = await Craw(page, url, selectorAll)
     // console.log(mainData, 'mainData')
-    const detail = await CrawDetail(mainData.drawUrl, detailTotal).then(data => { return data })
+    const detail = await CrawDetail(page, mainData.drawUrl, detailTotal).then(data => { return data })
     // console.log(detail, 'detail')
     const numbers = mainData.numbers
     const details = detail.map(item => { return { level: item.level, total_winner: item.winners } })

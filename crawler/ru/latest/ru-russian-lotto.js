@@ -81,7 +81,7 @@ const CrawDetail = async (page, url, selector) => {
     const dataList = results.map(mapFunction)
     return dataList
   }, selector)
-  page.close()
+  // page.close()
   return Crawdetail
 }
 
