@@ -7,7 +7,7 @@ im.info('服务端重新启动')
 
 let go = true
 
-process.on('SIGINT', () => {
+process.on('SIGTERM', () => {
   im.info('服务端收到停止信号，完成剩余任务中')
   go = false
 })
@@ -17,7 +17,7 @@ process.on('SIGINT', () => {
   while (go) {
     await run()
     if (go) {
-      im.info('一个循环运行结束，等待开始下个循环')
+      im.debug('一个循环运行结束，等待开始下个循环')
       sleep(1000 * restTime)
     }
   }
