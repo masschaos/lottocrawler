@@ -49,7 +49,7 @@ async function crawlByIssue (issue) {
   const result = common.formatDrawResult(lotteryID, drawResult, divNames)
   result.numbers = getNumbers(drawResult)
   result.breakDown = getBreakDown(drawResult)
-  checkDrawResult(result)
+  checkDrawResult(lotteryID, result)
   return result
 }
 

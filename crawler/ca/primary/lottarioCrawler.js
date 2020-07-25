@@ -1,5 +1,4 @@
 const Crawler = require('./crawler')
-const VError = require('verror')
 
 const lotteryID = 'ca-lottario'
 const lotteryName = 'LOTTARIO'
@@ -16,7 +15,7 @@ class LottarioCrawler extends Crawler {
       const earlyBirdSelector = 'li.prize-draw-item'
       const numberItems = Array.from(document.querySelectorAll(numberSelector))
       if (numberItems.length === 0) {
-        throw new VError(`${lotteryID}没有抓到数据，可能数据源不可用或有更改，请检查调度策略。`)
+        return window.vError(`${lotteryID}没有抓到数据，可能数据源不可用或有更改，请检查调度策略。`)
       }
       let numbers = numberItems.map((item) => {
         return item.textContent.trim()
@@ -65,7 +64,7 @@ class LottarioCrawler extends Crawler {
         numbers: numbers,
         breakdown: breakdown
       }
-    })
+    }, lotteryID)
     result.drawTime = super.dateFormatter(result.drawTime)
     result.lotteryID = lotteryID
     result.name = lotteryName
@@ -82,7 +81,7 @@ class LottarioCrawler extends Crawler {
     if (targetDrawTime !== undefined) {
       targetUrl = targetUrl + super.urlParams(targetDrawTime)
     }
-    const res = await super.crawl(targetUrl, this.parse, targetDrawTime)
+    const res = await super.crawl(lotteryID, targetUrl, this.parse, targetDrawTime)
     if (!saveFilePath) {
       return res
     }

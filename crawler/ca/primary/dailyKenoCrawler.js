@@ -1,5 +1,4 @@
 const Crawler = require('./crawler')
-const VError = require('verror')
 
 const lotteryID = 'ca-daily-keno'
 const lotteryName = 'DAILY KENO'
@@ -8,7 +7,7 @@ const enFrMap = {}
 
 class DailyKenoCrawler extends Crawler {
   async parse (page, targetDrawTime) {
-    const result = await page.evaluate((targetDrawTime) => {
+    const result = await page.evaluate((targetDrawTime, lotteryID) => {
       const drawTimeSelector = '#video-wrap > div > div > div.main-content > div.renderContent > div.large-date-container > div:nth-child(2) > p'
       const drawTime = document.querySelector(drawTimeSelector).getAttribute('data-selecteddate')
       let numberSelector = '#dailykeno-eveningdraw > div > div > ul > li'
@@ -25,7 +24,7 @@ class DailyKenoCrawler extends Crawler {
       }
       const numberItems = Array.from(document.querySelectorAll(numberSelector))
       if (numberItems.length === 0) {
-        throw new VError(`${lotteryID}没有抓到数据，可能数据源不可用或有更改，请检查调度策略。`)
+        return window.vError(`${lotteryID}没有抓到数据，可能数据源不可用或有更改，请检查调度策略。`)
       }
       let numbers = numberItems.map((item) => {
         return item.textContent.trim()
@@ -69,7 +68,7 @@ class DailyKenoCrawler extends Crawler {
         breakdown: breakdown,
         timeAt: timeAt
       }
-    }, targetDrawTime)
+    }, targetDrawTime, lotteryID)
     result.drawTime = super.dateFormatter(result.drawTime, result.timeAt)
     delete result.timeAt
     result.lotteryID = lotteryID
@@ -87,7 +86,7 @@ class DailyKenoCrawler extends Crawler {
     if (targetDrawTime !== undefined) {
       targetUrl = targetUrl + super.urlParams(targetDrawTime)
     }
-    const res = await super.crawl(targetUrl, this.parse, targetDrawTime)
+    const res = await super.crawl(lotteryID, targetUrl, this.parse, targetDrawTime)
     if (!saveFilePath) {
       return res
     }

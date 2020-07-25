@@ -36,7 +36,7 @@ async function crawlByIssue (issue) {
   const drawResult = await common.getDrawDetail(lotteryID, issue)
   const result = common.formatDrawResult(lotteryID, drawResult, divNames)
   result.numbers = getNumbers(drawResult)
-  checkDrawResult(result)
+  checkDrawResult(lotteryID, result)
   return result
 }
 

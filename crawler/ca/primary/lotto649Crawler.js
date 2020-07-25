@@ -1,5 +1,4 @@
 const Crawler = require('./crawler')
-const VError = require('verror')
 
 const lotteryID = 'ca-lotto-649'
 const lotteryName = 'LOTTO 6/49'
@@ -8,7 +7,7 @@ const enFrMap = {}
 
 class Lotto649Crawler extends Crawler {
   async parse (page) {
-    const result = await page.evaluate(() => {
+    const result = await page.evaluate((lotteryID) => {
       const drawTimeSelector = '#video-wrap > div > div > div.main-content > div.large-date-container > div:nth-child(2) > p'
       const drawTime = document.querySelector(drawTimeSelector).getAttribute('data-selecteddate')
       const numberSelector = 'ul.winning-numbers-list > li'
@@ -17,7 +16,7 @@ class Lotto649Crawler extends Crawler {
       const specilEventNumberSelector = '#guaranteed-prize-modal > div > div > div:nth-child(4) > div > ul > li'
       const numberItems = Array.from(document.querySelectorAll(numberSelector))
       if (numberItems.length === 0) {
-        throw new VError(`${lotteryID}没有抓到数据，可能数据源不可用或有更改，请检查调度策略。`)
+        return window.vError(`${lotteryID}没有抓到数据，可能数据源不可用或有更改，请检查调度策略。`)
       }
       const guaranteedNumbers = document.querySelector(guaranteedSelector).textContent.trim().replace('-', '#')
       const encore = document.querySelector(encoreSelector).textContent.trim()
@@ -33,20 +32,22 @@ class Lotto649Crawler extends Crawler {
         specialNumbers = specialNumbers.map((item) => {
           return item.textContent.trim()
         })
-        const specialPrizeSelector = '#guaranteed-prize-modal > div > div > div:nth-child(4) > p'
-        let specialPrize = document.querySelector(specialPrizeSelector).textContent.trim()
-        const specialCount = Number(specialPrize.split('X')[0].trim())
-        specialPrize = specialPrize.split('X')[1].trim()
         specialNumbers = specialNumbers.join(',')
-        other.push({
-          name: 'SPECIAL EVENT',
-          nameFr: 'ÉVÉNEMENTS SPÉCIAUX',
-          prize: specialPrize,
-          count: specialCount,
-          number: specialNumbers
-        })
+        const specialPrizeSelector = '#guaranteed-prize-modal > div > div > div:nth-child(4) > p'
+        let specialPrize = document.querySelector(specialPrizeSelector)
+        if (specialPrize !== null) {
+          specialPrize = specialPrize.textContent.trim()
+          const specialCount = Number(specialPrize.split('X')[0].trim())
+          specialPrize = specialPrize.split('X')[1].trim()
+          other.push({
+            name: 'SPECIAL EVENT',
+            nameFr: 'ÉVÉNEMENTS SPÉCIAUX',
+            prize: specialPrize,
+            count: specialCount,
+            number: specialNumbers
+          })
+        }
       }
-
       const mainPrizeDrawSelector = '#lotto-649-game1collapse > div > div > div > div > div.game-prize-table.game-prize-3col-table > div > table > tbody > tr'
       const encoreDrawSelector = '#lotto-649-game3collapse > div > div > div > div > div > div > table > tbody > tr'
       const guaranteedDrawSelector = '#lotto-649-game2collapse > div > div > div > div > div > div > table > tbody > tr'
@@ -100,7 +101,7 @@ class Lotto649Crawler extends Crawler {
         breakdown: breakdown,
         other: other
       }
-    })
+    }, lotteryID)
     result.drawTime = super.dateFormatter(result.drawTime)
     result.lotteryID = lotteryID
     result.name = lotteryName
@@ -116,7 +117,7 @@ class Lotto649Crawler extends Crawler {
     if (targetDrawTime !== undefined) {
       targetUrl = targetUrl + super.urlParams(targetDrawTime)
     }
-    const res = await super.crawl(targetUrl, this.parse, targetDrawTime)
+    const res = await super.crawl(lotteryID, targetUrl, this.parse, targetDrawTime)
     if (!saveFilePath) {
       return res
     }

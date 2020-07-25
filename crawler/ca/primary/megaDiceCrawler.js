@@ -1,5 +1,4 @@
 const Crawler = require('./crawler')
-const VError = require('verror')
 
 const lotteryID = 'ca-mega-dice'
 const lotteryName = 'mega dice'
@@ -18,13 +17,13 @@ const enFrMap = {
 
 class MegaDiceCrawler extends Crawler {
   async parse (page) {
-    const result = await page.evaluate(() => {
+    const result = await page.evaluate((lotteryID) => {
       const drawTimeSelector = '#video-wrap > div > div > div.main-content > div.renderContent > div.large-date-container > div:nth-child(2) > p'
       const drawTime = document.querySelector(drawTimeSelector).getAttribute('data-selecteddate')
       const numberSelector = 'ul.winning-numbers-list > li'
       const numberItems = Array.from(document.querySelectorAll(numberSelector))
       if (numberItems.length === 0) {
-        throw new VError(`${lotteryID}没有抓到数据，可能数据源不可用或有更改，请检查调度策略。`)
+        return window.vError(`${lotteryID}没有抓到数据，可能数据源不可用或有更改，请检查调度策略。`)
       }
       let numbers = numberItems.map((item) => {
         return item.textContent.trim()
@@ -72,7 +71,7 @@ class MegaDiceCrawler extends Crawler {
         numbers: numbers,
         breakdown: breakdown
       }
-    })
+    }, lotteryID)
     result.drawTime = super.dateFormatter(result.drawTime)
     result.lotteryID = lotteryID
     result.name = lotteryName
@@ -89,7 +88,7 @@ class MegaDiceCrawler extends Crawler {
     if (targetDrawTime !== undefined) {
       targetUrl = targetUrl + super.urlParams(targetDrawTime)
     }
-    const res = await super.crawl(targetUrl, this.parse, targetDrawTime)
+    const res = await super.crawl(lotteryID, targetUrl, this.parse, targetDrawTime)
     if (!saveFilePath) {
       return res
     }
