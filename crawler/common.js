@@ -1,13 +1,13 @@
-const { DrawingError } = require("../util/error")
+const { DrawingError } = require('../util/error')
 
-function checkDrawResult (drawResult) {
-  for (let item of drawResult.breakdown) {
+function checkDrawResult (lotteryID, drawResult) {
+  for (const item of drawResult.breakdown) {
     if (item.detail.length === 0) {
-      throw new DrawingError()
+      throw new DrawingError(lotteryID)
     }
   }
 }
 
 module.exports = {
-    checkDrawResult
+  checkDrawResult
 }

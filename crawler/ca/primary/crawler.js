@@ -2,7 +2,6 @@ const { newPage } = require('../../../pptr')
 const moment = require('moment-timezone')
 const fs = require('fs')
 const VError = require('verror')
-const { DrawingError } = require('../../../util/error')
 const { checkDrawResult } = require('../../common')
 
 class Crawler {
@@ -47,7 +46,6 @@ class Crawler {
       }
     })
     let result = null
-    await page.exposeFunction('drawingError', lotteryID => { throw new DrawingError(lotteryID) })
     await page.exposeFunction('vError', text => { throw new VError(text) })
     try {
       await page.goto(url)

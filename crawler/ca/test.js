@@ -1,5 +1,4 @@
 const crawlerMap = require('./index')
-const { time } = require('cron')
 
 const lotteryIds = [
   'ca-daily-grand',
@@ -35,7 +34,7 @@ function run (crawler) {
   setTimeout(() => {
     crawler.crawl().then((res) => {
       console.log(res)
-      //run(crawler)
+      // run(crawler)
     })
   }, 6)
 }
