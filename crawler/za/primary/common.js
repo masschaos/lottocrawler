@@ -110,11 +110,9 @@ function getOther (data) {
   }
   drawMachine = drawMachine === undefined ? 'RNG2' : drawMachine
   return [
-    {
-      'ROLLOVER AMOUNT': formatMoney(data.rolloverAmount),
-      'ROLLOVER NO': formatMoney(data.rolloverNumber),
-      'DRAW MACHINE': drawMachine
-    }
+    { name: 'ROLLOVER AMOUNT', value: formatMoney(data.rolloverAmount) },
+    { name: 'ROLLOVER NO', value: formatMoney(data.rolloverNumber) },
+    { name: 'DRAW MACHINE', value: drawMachine }
   ]
 }
 
