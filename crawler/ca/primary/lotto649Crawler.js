@@ -1,4 +1,5 @@
 const Crawler = require('./crawler')
+const { DrawingError } = require('../../../util/error')
 
 const lotteryID = 'ca-lotto-649'
 const lotteryName = 'LOTTO 6/49'
@@ -18,8 +19,14 @@ class Lotto649Crawler extends Crawler {
       if (numberItems.length === 0) {
         return window.vError(`${lotteryID}没有抓到数据，可能数据源不可用或有更改，请检查调度策略。`)
       }
-      const guaranteedNumbers = document.querySelector(guaranteedSelector).textContent.trim().replace('-', '#')
-      const encore = document.querySelector(encoreSelector).textContent.trim()
+      const guaranteedNumbersItem = document.querySelector(guaranteedSelector)
+      const encoreItem = document.querySelector(encoreSelector)
+      if (guaranteedNumbersItem === null || encoreItem === null) {
+        return 'DrawingError'
+      }
+      const guaranteedNumbers = guaranteedNumbersItem.textContent.trim().replace('-', '#')
+      const encore = encoreItem.textContent.trim()
+
       let numbers = numberItems.map((item) => {
         return item.textContent.trim()
       })
@@ -102,6 +109,9 @@ class Lotto649Crawler extends Crawler {
         other: other
       }
     }, lotteryID)
+    if (result === 'DrawingError') {
+      throw new DrawingError(lotteryID)
+    }
     result.drawTime = super.dateFormatter(result.drawTime)
     result.lotteryID = lotteryID
     result.name = lotteryName
