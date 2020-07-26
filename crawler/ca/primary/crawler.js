@@ -51,6 +51,9 @@ class Crawler {
       await page.goto(url)
       result = await parseFunction(page, targetDrawTime)
     } catch (err) {
+      if (err.name === 'DrawingError') {
+        throw err
+      }
       throw VError(err, '加拿大爬虫出错')
     } finally {
       await page.close()
