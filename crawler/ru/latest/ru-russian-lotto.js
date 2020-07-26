@@ -9,6 +9,7 @@ const detailWaitfor = '#content > div.results_table > table.data > tbody'
 
 const lotteryID = 'ru-russian-lotto'
 const name = 'Русское лото'
+const { DrawingError } = require('../../../util/error')
 
 const { MONTH } = require('../country')
 const VError = require('verror')
@@ -34,7 +35,7 @@ const Craw = async (page, url, selectorAll) => {
       data.jackpot = []
       //   console.log(element.querySelector('.numbers_wrapper').outerHTML)
       let numbers = element.querySelector('.numbers_wrapper').innerText
-      console.log(numbers)
+      // console.log(numbers, 'numbers')
       numbers = numbers.split(' ').join(',')
       data.numbers = numbers
       data.super_prize = element.querySelector('.super_prize').innerText
@@ -57,10 +58,8 @@ const CrawDetail = async (page, url, selector) => {
     const mapFunction = (element) => {
       const data = {}
       const elementList = [...element.querySelectorAll('td')]
-      //   console.log(elementList[0].outerHTML, 'elementList')
       data.level = elementList[0].textContent
       let number = elementList[1].textContent.split('\n').join(',').split('\t').join('')
-      //   console.log(number, 'number')
       if (number[0] === ',') {
         number = number.slice(1, number.length)
       }
@@ -90,6 +89,9 @@ const crawl = async () => {
   try {
     await ignoreImage(page)
     const mainData = await Craw(page, url, selectorAll)
+    if (mainData.numbers.length === 0) {
+      throw new DrawingError(lotteryID)
+    }
     console.log(mainData)
     const detail = await CrawDetail(page, mainData.drawUrl, detailTotal).then(data => { return data })
     console.log(detail)

@@ -10,6 +10,7 @@ const name = 'Спортлото Матчбол'
 const { MONTH } = require('../country')
 const VError = require('verror')
 const { newPage, ignoreImage } = require('../../../pptr')
+const { DrawingError } = require('../../../util/error')
 
 const craw = async (page, url, selectorAll) => {
   await page.goto(url)
@@ -27,7 +28,7 @@ const craw = async (page, url, selectorAll) => {
       // console.log(data.drawUrl, 'drawUrl')
       data.other = []
       data.jackpot = []
-      let numbers = element.querySelector('.numbers_wrapper').innerText
+      let numbers = element.querySelector('.numbers_wrapper .zone').innerText
       // console.log(numbers, 'number')
       const tmp = numbers.split('\n')[0].split(' ')
       numbers = [tmp.slice(0, tmp.length - 1).join(','), tmp[tmp.length - 1]].join('|')
@@ -70,6 +71,9 @@ const crawl = async () => {
     await ignoreImage(page)
     const mainData = await craw(page, url, selectorAll)
     // console.log(mainData, 'mainData')
+    if (mainData.numbers.length === 1) {
+      throw new DrawingError(lotteryID)
+    }
     const detail = await CrawDetail(page, mainData.drawUrl, detailTotal).then(data => { return data })
     // console.log(detail, 'detail')
     const numbers = mainData.numbers

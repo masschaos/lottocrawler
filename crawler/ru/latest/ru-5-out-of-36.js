@@ -32,16 +32,16 @@ const Craw = async (page, url, selectorAll, lotteryID) => {
       data.drawTime = `${year}${month}${day}${time}00`
       data.issue = element.querySelector('.draw').innerText
       data.drawUrl = element.querySelector('.draw a').href
-      console.log(data.drawUrl, 'drawUrl')
+      // console.log(data.drawUrl, 'drawUrl')
       // data.other = []
       data.jackpot = []
 
       const numbers = [...element.querySelectorAll('#content > div.data.drawings_data > div.month > div:nth-child(2) > div > div.numbers > .numbers_wrapper .container:nth-of-type(1) .zone b')].map(item => item.innerText)
-      console.log(JSON.stringify(numbers))
+      // console.log(JSON.stringify(numbers))
       const number = numbers.map(item => item.trim())
       data.numbers = `${number.slice(0, 5).join(',')}|${number.slice(-1)}`
       // data.numbers = numbers.split(' ').map(item => item.slice(0, item.length - 1))
-      console.log(data.numbers, 'data number')
+      // console.log(data.numbers, 'data number')
       //   console.log(element.querySelector('.prize').outerHTML)
       const [superPrize, prize] = element.querySelector('.prize').innerText.split('\n')
       data.super_prize = superPrize
@@ -54,7 +54,7 @@ const Craw = async (page, url, selectorAll, lotteryID) => {
     return TotalData
   }, selectorAll, MONTH, lotteryID)
   //   page.close()
-  console.log(CrawResult, 'CrawResult')
+  // console.log(CrawResult, 'CrawResult')
   return CrawResult
 }
 const CrawDetail = async (page, url, selector) => {

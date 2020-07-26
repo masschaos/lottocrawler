@@ -89,6 +89,9 @@ const crawl = async () => {
   try {
     await ignoreImage(page)
     const mainData = await Craw(page, url, selectorAll)
+    if (mainData.numbers.length === 0) {
+      throw new DrawingError(lotteryID)
+    }
     //   console.log(mainData, 'mainData')
     const detail = await CrawDetail(page, mainData.drawUrl, detailTotal).then(data => { return data })
     const numbers = [mainData.numbers, ...detail.map(item => item.number)].join('#')

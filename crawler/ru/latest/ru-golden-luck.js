@@ -31,7 +31,7 @@ const Craw = async (page, url, selectorAll) => {
         data.other = []
         data.jackpot = []
         //   console.log(element.querySelector('.numbers_wrapper').outerHTML)
-        let numbers = element.querySelector('.numbers_wrapper').innerText
+        let numbers = element.querySelector('.numbers_wrapper .zone').innerText
         numbers = numbers.split(' ').join(',')
         data.numbers = numbers
         //   console.log(element.querySelector('.prize').outerHTML)
@@ -100,7 +100,7 @@ const crawl = async () => {
     const newData = { ...mainData, numbers, detail: details, lotteryID, name }
     delete newData.drawUrl
     delete newData.super_prize
-    // console.log(newData, 'result Data')
+    console.log(newData, 'result Data')
     return newData
   } finally {
     await page.close()

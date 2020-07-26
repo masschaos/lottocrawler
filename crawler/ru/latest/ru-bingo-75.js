@@ -34,7 +34,7 @@ const Craw = async (page, url, selectorAll) => {
         data.other = []
         data.jackpot = []
         //   console.log(element.querySelector('.numbers_wrapper').outerHTML)
-        let numbers = element.querySelector('.numbers_wrapper').innerText
+        let numbers = element.querySelector('.numbers_wrapper .zone').innerText
         numbers = numbers.split(' ').join(',')
         data.numbers = numbers
         //   console.log(element.querySelector('.prize').outerHTML)
@@ -101,7 +101,6 @@ const crawl = async () => {
     //   console.log(mainData, 'mainData')
     if (mainData.numbers.length === 0) {
       throw new DrawingError(lotteryID)
-    // throw new Error('DrawingError', `正在开奖中，无法获取结果。彩种: ${lotteryID}`)
     }
     const detail = await CrawDetail(page, mainData.drawUrl, detailTotal).then(data => { return data })
     const numbers = [mainData.numbers, ...detail.map(item => item.number)].join('#')

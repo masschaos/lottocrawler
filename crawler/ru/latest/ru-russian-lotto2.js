@@ -11,6 +11,7 @@ const name = 'Русского лото экспресс'
 
 const { MONTH } = require('../country')
 const VError = require('verror')
+const { DrawingError } = require('../../../util/error')
 const { newPage, ignoreImage } = require('../../../pptr')
 
 const craw = async (page, url, selectorAll) => {
@@ -88,6 +89,9 @@ const crawl = async () => {
   try {
     await ignoreImage(page)
     const mainData = await craw(page, url, selectorAll)
+    if (mainData.numbers.length === 0) {
+      throw new DrawingError(lotteryID)
+    }
     // console.log(mainData, 'mainData')
     const detail = await CrawDetail(page, mainData.drawUrl, detailTotal).then(data => { return data })
     // console.log(detail, 'detail')
