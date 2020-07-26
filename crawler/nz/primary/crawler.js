@@ -13,14 +13,14 @@ class Crawler {
   }
 
   async crawl () {
-    let data = await getLatestResult(baseURL + this.lotteryId, this.lotteryId, "")
-    data["jackpot"] = {}
+    const data = await getLatestResult(baseURL + this.lotteryId, this.lotteryId, '')
+    data.jackpot = {}
 
     // 得到的结果是元素数量不少于6个的对象
-    if (data && Object.keys(data).length >=6) {
+    if (data && Object.keys(data).length >= 6) {
       if (this.lotteryId === 'lotto') {
         const url = 'https://apigw.mylotto.co.nz/api/content/v1/jackpotdata'
-        data['jackpot'] = await getLatestResult(url, this.lotteryId, '')
+        data.jackpot = await getLatestResult(url, this.lotteryId, '')
       }
       return Crawler.parse(data)
     }

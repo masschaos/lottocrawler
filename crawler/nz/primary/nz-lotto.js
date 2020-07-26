@@ -8,26 +8,27 @@ class LottoCrawler extends crawler {
   }
 
   parse (data) {
-    const lotto = data.lotto, strike = data.strike, power_ball = data.powerBall;
-    const lotto_number = lotto.lottoWinningNumbers.numbers.join(',')
-    const bonus_number = lotto.lottoWinningNumbers.bonusBalls
-    const strike_number = strike.strikeWinningNumbers.join(",")
-    const powerball_number = power_ball.powerballWinningNumber
-    const numbers = `${lotto_number}#${bonus_number}|${powerball_number}|${strike_number}`
-    let next_jackpot = ["", "", ""], jackpot = data.jackpot;
-    if(Object.keys(jackpot).length>2){// jackpot 对象元素少于3个表明出错
-        next_jackpot = [
-          jackpot.lotto_jackpot > 0 ? moneyFormat(jackpot.lotto_jackpot, 2, '.', ',', '$') : jackpot.lotto_jackpot,
-          jackpot.powerball_jackpot > 0 ? moneyFormat(jackpot.powerball_jackpot, 2, '.', ',', '$') : jackpot.powerball_jackpot,
-          jackpot.strike_jackpot > 0 ? moneyFormat(jackpot.strike_jackpot, 2, '.', ',', '$') : jackpot.strike_jackpot,
-        ]
+    const lotto = data.lotto
+    const strike = data.strike
+    const powerBall = data.powerBall
+    const lottoNumber = lotto.lottoWinningNumbers.numbers.join(',')
+    const bonusNumber = lotto.lottoWinningNumbers.bonusBalls
+    const strikeNumber = strike.strikeWinningNumbers.join(',')
+    const powerballNumber = powerBall.powerballWinningNumber
+    const numbers = `${lottoNumber}#${bonusNumber}|${powerballNumber}|${strikeNumber}`
+    let nextJackpot = ['', '', '']; const jackpot = data.jackpot
+    if (Object.keys(jackpot).length > 2) { // jackpot 对象元素少于3个表明出错
+      nextJackpot = [
+        jackpot.lotto_jackpot > 0 ? moneyFormat(jackpot.lotto_jackpot, 2, '.', ',', '$') : jackpot.lotto_jackpot,
+        jackpot.powerball_jackpot > 0 ? moneyFormat(jackpot.powerball_jackpot, 2, '.', ',', '$') : jackpot.powerball_jackpot,
+        jackpot.strike_jackpot > 0 ? moneyFormat(jackpot.strike_jackpot, 2, '.', ',', '$') : jackpot.strike_jackpot
+      ]
     }
 
-    let item
-    item = {
+    return {
       drawTime: moment(lotto.drawDate + ' ' + lotto.drawTime).format('YYYYMMDDHHmmss'),
-      nextJackpot: next_jackpot,
-      poolSize: [lotto.totalLottoPrizes, power_ball.totalPowerballPrizes, strike.totalStrikePrizes,],
+      nextJackpot: nextJackpot,
+      poolSize: [lotto.totalLottoPrizes, powerBall.totalPowerballPrizes, strike.totalStrikePrizes],
       breakdown: [
         {
           name: 'Lotto',
@@ -35,19 +36,19 @@ class LottoCrawler extends crawler {
             return {
               name: 'Division ' + winner.division,
               count: winner.numberOfWinners,
-              prize: winner.prizeValue > 0 ? moneyFormat(winner.prizeValue, 2, '.', ',', '$') : winner.prizeValue,
+              prize: winner.prizeValue > 0 ? moneyFormat(winner.prizeValue, 2, '.', ',', '$') : winner.prizeValue
             }
-          }),
+          })
         },
         {
           name: 'Powerball',
-          detail: power_ball.powerballWinners.map(winner => {
+          detail: powerBall.powerballWinners.map(winner => {
             return {
               name: 'Division ' + winner.division,
               count: winner.numberOfWinners,
-              prize: winner.combinedPrizeValue > 0 ? moneyFormat(winner.combinedPrizeValue, 2, '.', ',', '$') : winner.prizeValue,
+              prize: winner.combinedPrizeValue > 0 ? moneyFormat(winner.combinedPrizeValue, 2, '.', ',', '$') : winner.prizeValue
             }
-          }),
+          })
         },
         {
           name: 'Strike',
@@ -55,17 +56,17 @@ class LottoCrawler extends crawler {
             return {
               name: 'Division ' + winner.division,
               count: winner.numberOfWinners,
-              prize: winner.prizeValue > 0 ? moneyFormat(winner.prizeValue, 2, '.', ',', '$') : winner.prizeValue,
+              prize: winner.prizeValue > 0 ? moneyFormat(winner.prizeValue, 2, '.', ',', '$') : winner.prizeValue
             }
-          }),
+          })
         }
       ],
       other: [
         {
           'Total Lotto winners': lotto.lottoTotalWinners > 0 ? moneyFormat(lotto.lottoTotalWinners, 0, '', ',', '') : lotto.lottoTotalWinners,
           'Total Lotto prize pool': lotto.lottoPrizePool > 0 ? moneyFormat(lotto.lottoPrizePool, 2, '.', ',', '$') : lotto.lottoPrizePool,
-          'Total Powerball winners': power_ball.powerballTotalWinners > 0 ? moneyFormat(power_ball.powerballTotalWinners, 0, '', ',', '') : power_ball.powerballTotalWinners,
-          'Total Powerball prize pool': power_ball.powerballPrizePool > 0 ? moneyFormat(power_ball.powerballPrizePool, 2, '.', ',', '$') : power_ball.powerballPrizePool,
+          'Total Powerball winners': powerBall.powerballTotalWinners > 0 ? moneyFormat(powerBall.powerballTotalWinners, 0, '', ',', '') : powerBall.powerballTotalWinners,
+          'Total Powerball prize pool': powerBall.powerballPrizePool > 0 ? moneyFormat(powerBall.powerballPrizePool, 2, '.', ',', '$') : powerBall.powerballPrizePool,
           'Total Strike winners': strike.strikeTotalWinners > 0 ? moneyFormat(strike.strikeTotalWinners, 0, '', ',', '') : strike.strikeTotalWinners,
           'Total Strike prize pool': strike.strikePrizePool > 0 ? moneyFormat(strike.strikePrizePool, 2, '.', ',', '$') : strike.strikePrizePool
         }
@@ -75,7 +76,6 @@ class LottoCrawler extends crawler {
       name: '"Lotto, Powerball and Strike"',
       lotteryID: 'nz-lotto'
     }
-    return item
   }
 }
 

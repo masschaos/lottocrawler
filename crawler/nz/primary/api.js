@@ -3,7 +3,7 @@ const axios = require('axios')
 
 async function getLatestResult (url, lotteryId, params) {
   try {
-    const resp = await axios.get(url, {params:params})
+    const resp = await axios.get(url, { params: params })
     if (resp.data) {
       return resp.data
     }
@@ -13,5 +13,5 @@ async function getLatestResult (url, lotteryId, params) {
 }
 
 module.exports = {
-  getLatestResult,
+  getLatestResult
 }

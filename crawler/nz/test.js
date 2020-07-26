@@ -10,7 +10,7 @@ function testCrawlLatestDraw () {
   lotteryIds.forEach((lotteryId) => {
     const crawlers = getCrawler(lotteryId)
     crawlers.forEach(async crawler => {
-      console.log("lotteryId res==", JSON.stringify(await crawler.crawl()))
+      console.log('lotteryId res==', JSON.stringify(await crawler.crawl()))
     })
   })
 }

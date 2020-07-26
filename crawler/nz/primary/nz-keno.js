@@ -5,10 +5,10 @@ class KenoCrawler extends crawler {
   constructor () {
     super('keno')
   }
-  
+
   parse (data) {
     return {
-      drawTime: moment(data.drawDate + " " + data.drawTime).format('YYYYMMDDHHmmss'),
+      drawTime: moment(data.drawDate + ' ' + data.drawTime).format('YYYYMMDDHHmmss'),
       other: [{ multiplier: data.multiplier }],
       issue: data.drawNumber,
       numbers: data.winningNumbersDrawOrder.join(','),

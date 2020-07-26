@@ -9,17 +9,17 @@ class MonWedLottoCrawler extends crawler {
 
   parse (data) {
     return {
-      drawTime: moment(data.drawDate + " " + data.drawTime).format('YYYYMMDDHHmmss'),
+      drawTime: moment(data.drawDate + ' ' + data.drawTime).format('YYYYMMDDHHmmss'),
       poolSize: [data.bullseyePrizePool],
       breakdown: [{
-        name: "default",
+        name: 'default',
         detail: data.bullseyeWinners.map(winner => {
           return {
             name: 'Division ' + winner.division,
             count: winner.numberOfWinners,
-            prize: winner.prizeValue > 0 ? moneyFormat(winner.prizeValue, 2, ".", ",", "$") : winner.prizeValue,
+            prize: winner.prizeValue > 0 ? moneyFormat(winner.prizeValue, 2, '.', ',', '$') : winner.prizeValue
           }
-        }),
+        })
       }],
       issue: data.drawNumber,
       numbers: data.bullseyeWinningNumbers.numbers,
