@@ -1,4 +1,5 @@
 const Crawler = require('./crawler')
+const { DrawingError } = require('../../../util/error')
 
 const lotteryID = 'ca-ontario-49'
 const lotteryName = 'ONTARIO 49'
@@ -19,7 +20,11 @@ class Ontario49Crawler extends Crawler {
       let numbers = numberItems.map((item) => {
         return item.textContent.trim()
       })
-      const encore = document.querySelector(encoreSelector).textContent.trim()
+      const encoreItem = document.querySelector(encoreSelector)
+      if (encoreItem === null) {
+        return 'DrawingError'
+      }
+      const encore = encoreItem.textContent.trim()
       const index = numbers.indexOf('+')
       numbers = numbers.slice(0, index).join(',') + '#' + numbers.slice(index + 1, numbers.length).join(',').replace('Bonus', '') + '|' + encore
       const mainPrizeDrawSelector = '#ontario49-game1collapse > div > div > div > div > div.game-prize-table.game-prize-3col-table > div > table > tbody > tr'
@@ -71,6 +76,9 @@ class Ontario49Crawler extends Crawler {
         breakdown: breakdown
       }
     }, lotteryID)
+    if (result === 'DrawingError') {
+      throw new DrawingError(lotteryID)
+    }
     result.drawTime = super.dateFormatter(result.drawTime)
     result.lotteryID = lotteryID
     result.name = lotteryName

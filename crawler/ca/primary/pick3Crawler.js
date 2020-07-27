@@ -1,4 +1,5 @@
 const Crawler = require('./crawler')
+const { DrawingError } = require('../../../util/error')
 
 const lotteryID = 'ca-pick-3'
 const lotteryName = 'PICK-3'
@@ -32,7 +33,11 @@ class Pick3Crawler extends Crawler {
       let numbers = numberItems.map((item) => {
         return item.textContent.trim()
       })
-      const encore = document.querySelector(encoreSelector).textContent.trim()
+      const encoreItem = document.querySelector(encoreSelector)
+      if (encoreItem === null) {
+        return 'DrawingError'
+      }
+      const encore = encoreItem.textContent.trim()
       numbers = numbers.join(',') + '|' + encore
 
       let mainPrizes = Array.from(document.querySelectorAll(mainPrizeSelector))
@@ -73,6 +78,9 @@ class Pick3Crawler extends Crawler {
         timeAt: timeAt
       }
     }, targetDrawTime, lotteryID)
+    if (result === 'DrawingError') {
+      throw new DrawingError(lotteryID)
+    }
     result.drawTime = super.dateFormatter(result.drawTime, result.timeAt)
     delete result.timeAt
     result.lotteryID = lotteryID

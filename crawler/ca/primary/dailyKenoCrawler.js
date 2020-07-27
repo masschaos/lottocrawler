@@ -1,4 +1,5 @@
 const Crawler = require('./crawler')
+const { DrawingError } = require('../../../util/error')
 
 const lotteryID = 'ca-daily-keno'
 const lotteryName = 'DAILY KENO'
@@ -29,7 +30,11 @@ class DailyKenoCrawler extends Crawler {
       let numbers = numberItems.map((item) => {
         return item.textContent.trim()
       })
-      const encore = document.querySelector(encoreSelector).textContent.trim()
+      const encoreItem = document.querySelector(encoreSelector)
+      if (encoreItem === null) {
+        return 'DrawingError'
+      }
+      const encore = encoreItem.textContent.trim()
       numbers = numbers.join(',') + '|' + encore
 
       const breakdown = Array.from(document.querySelectorAll(betSelector)).map((item, index) => {
@@ -69,6 +74,9 @@ class DailyKenoCrawler extends Crawler {
         timeAt: timeAt
       }
     }, targetDrawTime, lotteryID)
+    if (result === 'DrawingError') {
+      throw new DrawingError(lotteryID)
+    }
     result.drawTime = super.dateFormatter(result.drawTime, result.timeAt)
     delete result.timeAt
     result.lotteryID = lotteryID
