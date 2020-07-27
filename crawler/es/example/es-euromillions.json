@@ -1,0 +1,123 @@
+{
+    "drawTime": "20200721000000",
+    "numbers": "14,15,24,29,42|2,4",
+    "jackpot": [
+        "50,000,000.00 €"
+    ],
+    "breakdown": [
+        {
+            "name": "main",
+            "detail": [
+                {
+                    "name": "5+2",
+                    "count": 0,
+                    "prize": "0.00€",
+                    "europeWinner": 0
+                },
+                {
+                    "name": "5+1",
+                    "count": 0,
+                    "prize": "205,961.34€",
+                    "europeWinner": 3
+                },
+                {
+                    "name": "5+0",
+                    "count": 1,
+                    "prize": "20,629.95€",
+                    "europeWinner": 7
+                },
+                {
+                    "name": "4+2",
+                    "count": 4,
+                    "prize": "1,955.65€",
+                    "europeWinner": 23
+                },
+                {
+                    "name": "4+1",
+                    "count": 108,
+                    "prize": "149.29€",
+                    "europeWinner": 555
+                },
+                {
+                    "name": "3+2",
+                    "count": 218,
+                    "prize": "82.79€",
+                    "europeWinner": 1058
+                },
+                {
+                    "name": "4+0",
+                    "count": 314,
+                    "prize": "38.59€",
+                    "europeWinner": 1595
+                },
+                {
+                    "name": "2+2",
+                    "count": 3202,
+                    "prize": "18.46€",
+                    "europeWinner": 16672
+                },
+                {
+                    "name": "3+1",
+                    "count": 5245,
+                    "prize": "12.58€",
+                    "europeWinner": 27279
+                },
+                {
+                    "name": "3+0",
+                    "count": 14421,
+                    "prize": "8.78€",
+                    "europeWinner": 72778
+                },
+                {
+                    "name": "1+2",
+                    "count": 16544,
+                    "prize": "9.11€",
+                    "europeWinner": 84996
+                },
+                {
+                    "name": "2+1",
+                    "count": 80872,
+                    "prize": "5.86€",
+                    "europeWinner": 416403
+                },
+                {
+                    "name": "2+0",
+                    "count": 222446,
+                    "prize": "3.49€",
+                    "europeWinner": 1125472
+                }
+            ]
+        },
+        {
+            "name": "million",
+            "detail": [
+                {
+                    "name": "Winner",
+                    "count": 1,
+                    "prize": "1,000,000.00 €"
+                }
+            ]
+        }
+    ],
+    "other": [
+        {
+            "name": "Bets received",
+            "value": "4,544,876"
+        },
+        {
+            "name": "Jackpot offered",
+            "value": "17,000,000 €"
+        },
+        {
+            "name": "Collected",
+            "value": "9,998,727.20 €"
+        },
+        {
+            "name": "Prizes",
+            "value": "4999,363.60 €"
+        }
+    ],
+    "name": "Euromillions",
+    "lotteryID": "es-euromillions",
+    "issue": ""
+}

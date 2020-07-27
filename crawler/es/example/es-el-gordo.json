@@ -1,0 +1,80 @@
+{
+    "drawTime": "20200719000000",
+    "numbers": "24,30,43,49,50|9",
+    "jackpot": [
+        "5,800,000.00 €"
+    ],
+    "breakdown": [
+        {
+            "name": "main",
+            "detail": [
+                {
+                    "name": "5+1",
+                    "count": 0,
+                    "prize": "0.00 €"
+                },
+                {
+                    "name": "5+0",
+                    "count": 0,
+                    "prize": "0.00 €"
+                },
+                {
+                    "name": "4+1",
+                    "count": 12,
+                    "prize": "16,120.17 €"
+                },
+                {
+                    "name": "4+0",
+                    "count": 135,
+                    "prize": "257.19 €"
+                },
+                {
+                    "name": "3+1",
+                    "count": 696,
+                    "prize": "57.01 €"
+                },
+                {
+                    "name": "3+0",
+                    "count": 6744,
+                    "prize": "19.12 €"
+                },
+                {
+                    "name": "2+1",
+                    "count": 12242,
+                    "prize": "8.10 €"
+                },
+                {
+                    "name": "2+0",
+                    "count": 114702,
+                    "prize": "3.00 €"
+                },
+                {
+                    "name": "0+1",
+                    "count": 231277,
+                    "prize": "1.50 €"
+                }
+            ]
+        }
+    ],
+    "other": [
+        {
+            "name": "Bets received",
+            "value": "4,234,836"
+        },
+        {
+            "name": "Jackpot offered",
+            "value": "5,800,000 €"
+        },
+        {
+            "name": "Collected",
+            "value": "2,117,418.00 €"
+        },
+        {
+            "name": "Prizes",
+            "value": "1,164,579.90 €"
+        }
+    ],
+    "name": "El Gordo",
+    "lotteryID": "es-el-gordo",
+    "issue": ""
+}

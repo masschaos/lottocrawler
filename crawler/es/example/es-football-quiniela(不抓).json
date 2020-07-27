@@ -1,0 +1,20 @@
+{
+    "drawTime": "",
+    "numbers": "1|1|2|2|2|1|1|X|2|1|2|X|2|1|1:2",
+    "jackpot": ["1,900,000.00 €"],
+    "breakdown":[{"name":"main", "detail":[{"name":"14+P", "count":0, "prize":"0.00 €"},
+                 {"name":"14", "count":1, "prize":"454,097.16 €"},
+                 {"name":"13", "count":21, "prize":"10,136.10 €"},
+                 {"name":"12", "count":313, "prize":"680.06 €"},
+                 {"name":"11", "count":2621, "prize":"81.21 €"},
+                 {"name":"10", "count":15554, "prize":"16.42 €"}
+]}],
+    "other": [{
+        "name":"Collection",
+        "value":"2,838,107.25 €"
+    }],
+    "name": "Football Quiniela",
+    "lotteryID": "es-football-quiniela",
+    "issue": ""
+}
+

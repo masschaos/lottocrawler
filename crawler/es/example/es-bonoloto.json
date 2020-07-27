@@ -1,0 +1,60 @@
+{
+    "drawTime": "20200723000000",
+    "numbers": "10,12,19,23,33,47#45|1",
+    "jackpot": [
+        "2,900,000.00 €"
+    ],
+    "breakdown": [
+        {
+            "name": "main",
+            "detail": [
+                {
+                    "name": "6",
+                    "count": 1,
+                    "prize": "2,945,183.25 €"
+                },
+                {
+                    "name": "5+C",
+                    "count": 1,
+                    "prize": "186,251.66 €"
+                },
+                {
+                    "name": "5",
+                    "count": 95,
+                    "prize": "980.27 €"
+                },
+                {
+                    "name": "4",
+                    "count": 5169,
+                    "prize": "28.53 €"
+                },
+                {
+                    "name": "3",
+                    "count": 94328,
+                    "prize": "4.00 €"
+                }
+            ]
+        }
+    ],
+    "other": [
+        {
+            "name": "Bets received",
+            "value": "4,234,836"
+        },
+        {
+            "name": "Jackpot offered",
+            "value": "-"
+        },
+        {
+            "name": "Collected",
+            "value": "2,117,418.00 €"
+        },
+        {
+            "name": "Prizes",
+            "value": "1,164,579.90 €"
+        }
+    ],
+    "name": "Bonoloto",
+    "lotteryID": "es-bonoloto",
+    "issue": ""
+}
