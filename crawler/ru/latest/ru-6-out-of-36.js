@@ -26,7 +26,7 @@ const Craw = async (page, url, selectorAll) => {
         data.drawUrl = element.querySelector('.draw a').href
         data.other = []
         data.jackpot = []
-        const numberText = element.querySelector('.numbers_wrapper').innerText
+        const numberText = element.querySelector('.numbers_wrapper .zone').innerText
         data.numbers = numberText.split(' ').map((item) => item.slice(0, -1)).join(',')
         data.super_prize = element.querySelector('.prize').innerText
         return data

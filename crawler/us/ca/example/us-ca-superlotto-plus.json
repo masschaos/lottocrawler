@@ -1,0 +1,62 @@
+{
+    "drawTime": "20200725195700",
+    "numbers": "8,10,12,35,39|26",
+    "jackpot": [],
+    "breakdown": [
+        {
+            "name": "main",
+            "detail": [
+                {
+                    "name": "5 + Mega",
+                    "count": 0,
+                    "prize": "$8,000,000"
+                },
+                {
+                    "name": "5",
+                    "count": 1,
+                    "prize": "$29,212"
+                },
+                {
+                    "name": "4 + Mega",
+                    "count": 11,
+                    "prize": "$1,327"
+                },
+                {
+                    "name": "4",
+                    "count": 298,
+                    "prize": "$81"
+                },
+                {
+                    "name": "3 + Mega",
+                    "count": 398,
+                    "prize": "$55"
+                },
+                {
+                    "name": "3",
+                    "count": 11343,
+                    "prize": "$9"
+                },
+                {
+                    "name": "2 + Mega",
+                    "count": 5190,
+                    "prize": "$11"
+                },
+                {
+                    "name": "1 + Mega",
+                    "count": 24159,
+                    "prize": "$2"
+                },
+                {
+                    "name": "Mega",
+                    "count": 35461,
+                    "prize": "$1"
+                }
+            ]
+        }
+    ],
+    "other": [],
+    "name": "Superlotto Plus",
+    "lotteryID": "us-ca-superlotto-plus",
+    "issue": "3476",
+    "winnerCount": 76861
+}

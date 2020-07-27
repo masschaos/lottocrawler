@@ -1,0 +1,62 @@
+{
+    "drawTime": "20200724200000",
+    "numbers": "8,33,39,54,58|17",
+    "jackpot": [],
+    "breakdown": [
+        {
+            "name": "main",
+            "detail": [
+                {
+                    "name": "5 + Mega",
+                    "count": 0,
+                    "prize": "$124,000,000"
+                },
+                {
+                    "name": "5",
+                    "count": 0,
+                    "prize": "$250,399"
+                },
+                {
+                    "name": "4 + Mega",
+                    "count": 3,
+                    "prize": "$5,798"
+                },
+                {
+                    "name": "4",
+                    "count": 30,
+                    "prize": "$652"
+                },
+                {
+                    "name": "3 + Mega",
+                    "count": 100,
+                    "prize": "$222"
+                },
+                {
+                    "name": "3",
+                    "count": 2430,
+                    "prize": "$10"
+                },
+                {
+                    "name": "2 + Mega",
+                    "count": 2216,
+                    "prize": "$10"
+                },
+                {
+                    "name": "1 + Mega",
+                    "count": 17287,
+                    "prize": "$4"
+                },
+                {
+                    "name": "Mega",
+                    "count": 41759,
+                    "prize": "$2"
+                }
+            ]
+        }
+    ],
+    "other": [],
+    "name": "Mega Millions",
+    "lotteryID": "us-ca-mega-millions",
+    "issue": "1575",
+    "winnerCount": 63825
+}

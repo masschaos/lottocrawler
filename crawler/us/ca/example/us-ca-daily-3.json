@@ -1,0 +1,77 @@
+// 这里还是抓列表里面的一个json, 只不过一天开两次，就把时间给列了一下
+[
+    {
+        "drawTime": "20200726130000",
+        "numbers": "8|1|0",
+        "jackpot": [],
+        "breakdown": [
+            {
+                "name": "main",
+                "detail": [
+                    {
+                        "name": "Straight",
+                        "count": 74,
+                        "prize": "$380"
+                    },
+                    {
+                        "name": "Box",
+                        "count": 126,
+                        "prize": "$60"
+                    },
+                    {
+                        "name": "Straight and Box",
+                        "count": 238,
+                        "prize": "$220"
+                    },
+                    {
+                        "name": "Box Only",
+                        "count": 994,
+                        "prize": "$30"
+                    }
+                ]
+            }
+        ],
+        "other": [],
+        "name": "Daily 3",
+        "lotteryID": "us-ca-daily-3",
+        "issue": "16807",
+        "winner": 1432
+    },
+    {
+        "drawTime": "20200726183000",
+        "numbers": "4|6|8",
+        "jackpot": [],
+        "breakdown": [
+            {
+                "name": "main",
+                "detail": [
+                    {
+                        "name": "Straight",
+                        "count": 66,
+                        "prize": "$425"
+                    },
+                    {
+                        "name": "Box",
+                        "count": 117,
+                        "prize": "$68"
+                    },
+                    {
+                        "name": "Straight and Box",
+                        "count": 208,
+                        "prize": "$246"
+                    },
+                    {
+                        "name": "Box Only",
+                        "count": 979,
+                        "prize": "$34"
+                    }
+                ]
+            }
+        ],
+        "other": [],
+        "name": "Daily 3",
+        "lotteryID": "us-ca-daily-3",
+        "issue": "16806",
+        "winnerCount": 1370
+    }
+]

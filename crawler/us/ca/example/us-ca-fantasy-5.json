@@ -1,0 +1,37 @@
+{
+    "drawTime": "20200726183000",
+    "numbers": "9,10,17,30,39",
+    "jackpot": [],
+    "breakdown": [
+        {
+            "name": "main",
+            "detail": [
+                {
+                    "name": "Matched 5 of 5 numbers",
+                    "count": 1,
+                    "prize": "$66,250"
+                },
+                {
+                    "name": "Matched 4 of 5 numbers",
+                    "count": 97,
+                    "prize": "$402"
+                },
+                {
+                    "name": "Matched 3 of 5 numbers",
+                    "count": 3391,
+                    "prize": "$14"
+                },
+                {
+                    "name": "Matched 2 of 5 numbers",
+                    "count": 37425,
+                    "prize": "Free play"
+                }
+            ]
+        }
+    ],
+    "other": [],
+    "name": "Fantasy 5",
+    "lotteryID": "us-ca-fantasy-5",
+    "issue": "",
+    "winnerCount": 40914
+}

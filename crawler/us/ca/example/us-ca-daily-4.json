@@ -1,0 +1,37 @@
+{
+    "drawTime": "20200726183000",
+    "numbers": "6|2|3|9",
+    "jackpot": [],
+    "breakdown": [
+        {
+            "name": "main",
+            "detail": [
+                {
+                    "name": "Straight",
+                    "count": 3,
+                    "prize": "$4,249"
+                },
+                {
+                    "name": "Box",
+                    "count": 26,
+                    "prize": "$168"
+                },
+                {
+                    "name": "Straight and Box",
+                    "count": 8,
+                    "prize": "$2,209"
+                },
+                {
+                    "name": "Box Only",
+                    "count": 124,
+                    "prize": "$84"
+                }
+            ]
+        }
+    ],
+    "other": [],
+    "name": "Daily 4",
+    "lotteryID": "us-ca-daily-4",
+    "issue": "4452",
+    "winnerCount": 161
+}

@@ -1,0 +1,62 @@
+{
+    "drawTime": "20200725195900",
+    "numbers": "5,21,36,61,62|18",
+    "jackpot": [],
+    "breakdown": [
+        {
+            "name": "main",
+            "detail": [
+                {
+                    "name": "5 + Powerball",
+                    "count": 0,
+                    "prize": "$117,000,000"
+                },
+                {
+                    "name": "5",
+                    "count": 0,
+                    "prize": "$312,925"
+                },
+                {
+                    "name": "4 + Powerball",
+                    "count": 4,
+                    "prize": "$7,274"
+                },
+                {
+                    "name": "4",
+                    "count": 35,
+                    "prize": "$415"
+                },
+                {
+                    "name": "3 + Powerball",
+                    "count": 91,
+                    "prize": "$166"
+                },
+                {
+                    "name": "3",
+                    "count": 2116,
+                    "prize": "$8"
+                },
+                {
+                    "name": "2 + Powerball",
+                    "count": 1804,
+                    "prize": "$9"
+                },
+                {
+                    "name": "1 + Powerball",
+                    "count": 14371,
+                    "prize": "$5"
+                },
+                {
+                    "name": "Powerball",
+                    "count": 34111,
+                    "prize": "$4"
+                }
+            ]
+        }
+    ],
+    "other": [],
+    "name": "Powerball",
+    "lotteryID": "us-ca-powerball",
+    "issue": "762",
+    "winnerCount": 52532
+}
