@@ -3,7 +3,9 @@
     {
         "drawTime": "20200726130000",
         "numbers": "8|1|0",
-        "jackpot": [],
+        "jackpot": [
+            "$380"
+        ],
         "breakdown": [
             {
                 "name": "main",
@@ -35,12 +37,15 @@
         "name": "Daily 3",
         "lotteryID": "us-ca-daily-3",
         "issue": "16807",
-        "winner": 1432
+        "winner": 1432,
+        "nextDrawTime": "20200727183000"
     },
     {
         "drawTime": "20200726183000",
         "numbers": "4|6|8",
-        "jackpot": [],
+        "jackpot": [
+            "$380"
+        ],
         "breakdown": [
             {
                 "name": "main",
@@ -72,6 +77,7 @@
         "name": "Daily 3",
         "lotteryID": "us-ca-daily-3",
         "issue": "16806",
-        "winnerCount": 1370
+        "winnerCount": 1370,
+        "nextDrawTime": "20200727183000"
     }
 ]

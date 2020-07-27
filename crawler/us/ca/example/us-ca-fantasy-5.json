@@ -1,7 +1,10 @@
 {
     "drawTime": "20200726183000",
+    "nextDrawTime": "20200727183000",
     "numbers": "9,10,17,30,39",
-    "jackpot": [],
+    "jackpot": [
+        "$67,000*"
+    ],
     "breakdown": [
         {
             "name": "main",

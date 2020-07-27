@@ -1,7 +1,7 @@
 {
     "drawTime": "20200726183000",
     "numbers": "6|2|3|9",
-    "jackpot": [],
+    "jackpot": ["$4,249"],
     "breakdown": [
         {
             "name": "main",
@@ -33,5 +33,6 @@
     "name": "Daily 4",
     "lotteryID": "us-ca-daily-4",
     "issue": "4452",
-    "winnerCount": 161
+    "winnerCount": 161,
+    "nextDrawTime":"20200729183000"
 }
