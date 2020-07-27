@@ -105,13 +105,17 @@ async function run () {
                 case 'SiteClosedError':
                   im.error('网站在停业时间，将检查调度配置。', {
                     彩票: id,
-                    国家: country.name
+                    规则: timeRules,
+                    延迟: delay,
+                    快开: isQuickDraw
                   })
                   break
                 case 'DrawingError':
                   im.info('网站正在开奖中，请适当修正调度延迟规则。', {
                     彩票: id,
-                    国家: country.name
+                    规则: timeRules,
+                    延迟: delay,
+                    快开: isQuickDraw
                   })
                   break
                 default:
