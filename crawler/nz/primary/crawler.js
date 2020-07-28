@@ -8,7 +8,7 @@ class Crawler {
     this.lotteryId = lotteryId
   }
 
-  static parse (data) {
+  parse (data) {
     return data
   }
 
@@ -22,7 +22,7 @@ class Crawler {
         const url = 'https://apigw.mylotto.co.nz/api/content/v1/jackpotdata'
         data.jackpot = await getLatestResult(url, this.lotteryId, '')
       }
-      return Crawler.parse(data)
+      return this.parse(data)
     }
     throw new VError(`抓取 ${this.lotteryId} 虽未出错,但结果不符合预期:${data}`)
   }
