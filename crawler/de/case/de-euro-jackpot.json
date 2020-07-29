@@ -1,0 +1,80 @@
+{
+    "lotteryID":"de-euro-jackpot",
+    "name":"EuroJackpot",
+    "drawtime":"20200724000000",
+    "nextDrawtime":"20200731210000",
+    "numbers":"7,11,19,32,43#2,8",
+    "breakdown":[
+        {
+            "name":"prizes-odds",
+            "detail":[
+                {
+                    "name":"Match 5 of 5 + 2 Bonus Numbers",
+                    "prize":"€45 Million",
+                    "odds":"1 in 95,344,200"
+                },
+                {
+                    "name":"Match 5 of 5 + 1 Bonus Number",
+                    "prize":"€327,074.60",
+                    "odds":"1 in 5,959,013"
+                },
+                {
+                    "name":"Match 5 of 5",
+                    "prize":"€67,338.90",
+                    "odds":"1 in 3,405,150"
+                },
+                {
+                    "name":"Match 4 of 5 + 2 Bonus Numbers",
+                    "prize":"€1,807.70",
+                    "odds":"1 in 423,752"
+                },
+                {
+                    "name":"Match 4 of 5 + 1 Bonus Number",
+                    "prize":"€171.40",
+                    "odds":"1 in 26,485"
+                },
+                {
+                    "name":"Match 4 of 5",
+                    "prize":"€74.10",
+                    "odds":"1 in 15,134"
+                },
+                {
+                    "name":"Match 3 of 5 + 2 Bonus Numbers",
+                    "prize":"€34.70",
+                    "odds":"1 in 9,631"
+                },
+                {
+                    "name":"Match 3 of 5 + 1 Bonus Number",
+                    "prize":"€14.60",
+                    "odds":"1 in 672"
+                },
+                {
+                    "name":"Match 2 of 5 + 2 Bonus Numbers",
+                    "prize":"€14.90",
+                    "odds":"1 in 602"
+                },
+                {
+                    "name":"Match 3 of 5",
+                    "prize":"€12.20",
+                    "odds":"1 in 344"
+                },
+                {
+                    "name":"Match 1 of 5 + 2 Bonus Numbers",
+                    "prize":"€7.90",
+                    "odds":"1 in 128"
+                },
+                {
+                    "name":"Match 2 of 5 + 1 Bonus Number",
+                    "prize":"€7.10",
+                    "odds":"1 in 42"
+                }
+            ]
+        }
+    ],
+    "jackpot":[
+        "€45 Million"
+    ],
+    "nextJackpot":[
+        "€59 Million"
+    ]
+}

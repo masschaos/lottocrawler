@@ -1,0 +1,200 @@
+{
+    "lotteryID":"de-keno",
+    "name":"KENO",
+    "drawtime":"20200729000000",
+    "nextDrawtime":"20200730191000",
+    "numbers":"6,8,16,17,20,23,24,25,26,27,32,34,38,39,42,46,49,53,54,63",
+    "breakdown":[
+        {
+            "name":"prizes-odds",
+            "detail":[
+                {
+                    "name":"Play 10 numbers, Match all 10",
+                    "prize":"€100,000",
+                    "odds":"1 in 2,147,181"
+                },
+                {
+                    "name":"Play 10 numbers, Match 9",
+                    "prize":"€1,000",
+                    "odds":"1 in 47,238"
+                },
+                {
+                    "name":"Play 10 numbers, Match 8",
+                    "prize":"€100",
+                    "odds":"1 in 2,571"
+                },
+                {
+                    "name":"Play 10 numbers, Match 7",
+                    "prize":"€15",
+                    "odds":"1 in 261"
+                },
+                {
+                    "name":"Play 10 numbers, Match 6",
+                    "prize":"€5",
+                    "odds":"1 in 44"
+                },
+                {
+                    "name":"Play 10 numbers, Match 5",
+                    "prize":"€2",
+                    "odds":"1 in 12"
+                },
+                {
+                    "name":"Play 10 numbers, Match 0",
+                    "prize":"€2",
+                    "odds":"1 in 39"
+                },
+                {
+                    "name":"Play 9 numbers, Match all 9",
+                    "prize":"€50,000",
+                    "odds":"1 in 387,197"
+                },
+                {
+                    "name":"Play 9 numbers, Match 8",
+                    "prize":"€1,000",
+                    "odds":"1 in 10,325"
+                },
+                {
+                    "name":"Play 9 numbers, Match 7",
+                    "prize":"€20",
+                    "odds":"1 in 685"
+                },
+                {
+                    "name":"Play 9 numbers, Match 6",
+                    "prize":"€5",
+                    "odds":"1 in 86"
+                },
+                {
+                    "name":"Play 9 numbers, Match 5",
+                    "prize":"€2",
+                    "odds":"1 in 18"
+                },
+                {
+                    "name":"Play 9 numbers, Match 0",
+                    "prize":"€2",
+                    "odds":"1 in 26"
+                },
+                {
+                    "name":"Play 8 numbers, Match all 8",
+                    "prize":"€10,000",
+                    "odds":"1 in 74,941"
+                },
+                {
+                    "name":"Play 8 numbers, Match 7",
+                    "prize":"€100",
+                    "odds":"1 in 2,436"
+                },
+                {
+                    "name":"Play 8 numbers, Match 6",
+                    "prize":"€15",
+                    "odds":"1 in 199"
+                },
+                {
+                    "name":"Play 8 numbers, Match 5",
+                    "prize":"€2",
+                    "odds":"1 in 31"
+                },
+                {
+                    "name":"Play 8 numbers, Match 4",
+                    "prize":"€1",
+                    "odds":"1 in 8"
+                },
+                {
+                    "name":"Play 8 numbers, Match 0",
+                    "prize":"€1",
+                    "odds":"1 in 18"
+                },
+                {
+                    "name":"Play 7 numbers, Match all 7",
+                    "prize":"€1,000",
+                    "odds":"1 in 15,464"
+                },
+                {
+                    "name":"Play 7 numbers, Match 6",
+                    "prize":"€100",
+                    "odds":"1 in 619"
+                },
+                {
+                    "name":"Play 7 numbers, Match 5",
+                    "prize":"€12",
+                    "odds":"1 in 63"
+                },
+                {
+                    "name":"Play 7 numbers, Match 4",
+                    "prize":"€1",
+                    "odds":"1 in 13"
+                },
+                {
+                    "name":"Play 6 numbers, Match all 6",
+                    "prize":"€500",
+                    "odds":"1 in 3,383"
+                },
+                {
+                    "name":"Play 6 numbers, Match 5",
+                    "prize":"€15",
+                    "odds":"1 in 169"
+                },
+                {
+                    "name":"Play 6 numbers, Match 4",
+                    "prize":"€2",
+                    "odds":"1 in 22"
+                },
+                {
+                    "name":"Play 6 numbers, Match 3",
+                    "prize":"€1",
+                    "odds":"1 in 6"
+                },
+                {
+                    "name":"Play 5 numbers, Match all 5",
+                    "prize":"€100",
+                    "odds":"1 in 781"
+                },
+                {
+                    "name":"Play 5 numbers, Match 4",
+                    "prize":"€7",
+                    "odds":"1 in 50"
+                },
+                {
+                    "name":"Play 5 numbers, Match 3",
+                    "prize":"€2",
+                    "odds":"1 in 4"
+                },
+                {
+                    "name":"Play 4 numbers, Match all 4",
+                    "prize":"€22",
+                    "odds":"1 in 189"
+                },
+                {
+                    "name":"Play 4 numbers, Match 3",
+                    "prize":"€2",
+                    "odds":"1 in 16"
+                },
+                {
+                    "name":"Play 4 numbers, Match 2",
+                    "prize":"€1",
+                    "odds":"1 in 4"
+                },
+                {
+                    "name":"Play 3 numbers, Match all 3",
+                    "prize":"€16",
+                    "odds":"1 in 48"
+                },
+                {
+                    "name":"Play 3 numbers, Match 2",
+                    "prize":"€1",
+                    "odds":"1 in 6"
+                },
+                {
+                    "name":"Play 2 numbers, Match alll 2",
+                    "prize":"€6",
+                    "odds":"1 in 13"
+                }
+            ]
+        }
+    ],
+    "jackpot":[
+
+    ],
+    "nextJackpot":[
+
+    ]
+}

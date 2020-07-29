@@ -1,0 +1,26 @@
+{
+    "drawTime": "20200714000000",
+    "numbers": "2,4,10,18,27,37#0",
+    "breakdown": [
+        {
+            "name": "prizes-odds",
+            "detail": [
+                {
+                    "name": "Match 6 + Superzahl",
+                    "prize": "€12.73 Million",
+                    "odds": "1 in 139,838,160"
+                },
+                {
+                    "name": "Match 6",
+                    "prize": "€0",
+                    "odds": "1 in 15,537,573"
+                }
+            ]
+        }
+    ],
+    "name": "Lotto 6aus49",
+    "lotteryID": "de-lotto-6aus49",
+    "nextDrawTime": "20200715000000",
+    "jackpot": ["€12.73 Million"],
+    "nextJackpot": ["€14 Million"]
+}
