@@ -1,7 +1,7 @@
 // const puppeteer = require('puppeteer')
 const url = 'https://www.stoloto.ru/5x50/archive'
 const selector = '#content > div.data.drawings_data'
-const selectorAll = '#content > div.data.drawings_data .month'
+const selectorAll = '#content > div.data.drawings_data .elem'
 const detailTotal = '#content > div.col.prizes > div.results_table.with_bottom_shadow > div > table > tbody > tr'
 const detailWaitfor = '#content > div.col.prizes > div.results_table.with_bottom_shadow > div > table'
 const lotteryID = 'ru-sportloto-matchball'
@@ -28,11 +28,9 @@ const craw = async (page, url, selectorAll) => {
       // console.log(data.drawUrl, 'drawUrl')
       data.other = []
       data.jackpot = []
-      let numbers = element.querySelector('.numbers_wrapper .zone').innerText
-      // console.log(numbers, 'number')
+      const numbers = element.querySelector('.numbers_wrapper').innerText
       const tmp = numbers.split('\n')[0].split(' ')
-      numbers = [tmp.slice(0, tmp.length - 1).join(','), tmp[tmp.length - 1]].join('|')
-      data.numbers = numbers
+      data.numbers = [tmp.slice(0, tmp.length - 1).join(','), tmp[tmp.length - 1]].join('|')
       data.super_prize = element.querySelector('.prize').innerText
       return data
     }
