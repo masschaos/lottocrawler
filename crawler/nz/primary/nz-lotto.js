@@ -73,7 +73,7 @@ class LottoCrawler extends crawler {
       ],
       issue: lotto.drawNumber,
       numbers: numbers,
-      name: '"Lotto, Powerball and Strike"',
+      name: 'Lotto, Powerball and Strike',
       lotteryID: 'nz-lotto'
     }
   }
