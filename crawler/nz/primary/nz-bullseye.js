@@ -9,7 +9,7 @@ class MonWedLottoCrawler extends crawler {
 
   parse (data) {
     return {
-      drawTime: moment(data.drawDate + ' ' + data.drawTime).format('YYYYMMDDHHmmss'),
+      drawTime: moment(data.drawDate + ' ' + data.drawTime).format('YYYYMMDDHH0000'),
       poolSize: [data.bullseyePrizePool],
       breakdown: [{
         name: 'default',

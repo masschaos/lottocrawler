@@ -8,7 +8,7 @@ class KenoCrawler extends crawler {
 
   parse (data) {
     return {
-      drawTime: moment(data.drawDate + ' ' + data.drawTime).format('YYYYMMDDHHmmss'),
+      drawTime: moment(data.drawDate + ' ' + data.drawTime).format('YYYYMMDDHH0000'),
       other: [
         { name: 'multiplier', value: data.multiplier }
       ],

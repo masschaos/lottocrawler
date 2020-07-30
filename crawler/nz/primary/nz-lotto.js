@@ -26,7 +26,7 @@ class LottoCrawler extends crawler {
     }
 
     return {
-      drawTime: moment(lotto.drawDate + ' ' + lotto.drawTime).format('YYYYMMDDHHmmss'),
+      drawTime: moment(lotto.drawDate + ' ' + lotto.drawTime).format('YYYYMMDDHHm000'),
       nextJackpot: nextJackpot,
       poolSize: [lotto.totalLottoPrizes, powerBall.totalPowerballPrizes, strike.totalStrikePrizes],
       breakdown: [
