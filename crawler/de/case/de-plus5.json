@@ -1,0 +1,45 @@
+{
+    "lotteryID":"de-plus5",
+    "name":"Plus 5",
+    "drawtime":"20200729000000",
+    "nextDrawtime":"20200730191000",
+    "numbers":"0,7,7,1,9#",
+    "breakdown":[
+        {
+            "name":"prizes-odds",
+            "detail":[
+                {
+                    "name":"Match all 5 digits in order",
+                    "prize":"€5,000",
+                    "odds":"1 in 100,000"
+                },
+                {
+                    "name":"Match last 4 digits in order",
+                    "prize":"€500",
+                    "odds":"1 in 11,111"
+                },
+                {
+                    "name":"Match last 3 digits in order",
+                    "prize":"€50",
+                    "odds":"1 in 1,111"
+                },
+                {
+                    "name":"Match last 2 digits in order",
+                    "prize":"€5",
+                    "odds":"1 in 111"
+                },
+                {
+                    "name":"Match last digit",
+                    "prize":"€2",
+                    "odds":"1 in 11"
+                }
+            ]
+        }
+    ],
+    "jackpot":[
+
+    ],
+    "nextJackpot":[
+
+    ]
+}

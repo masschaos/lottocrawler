@@ -1,0 +1,50 @@
+{
+    "lotteryID":"de-super6",
+    "name":"SUPER 6",
+    "drawtime":"20200729000000",
+    "nextDrawtime":"20200801184500",
+    "numbers":"5,2,6,2,1,1#",
+    "breakdown":[
+        {
+            "name":"prizes-odds",
+            "detail":[
+                {
+                    "name":"Match all 6 digits in order",
+                    "prize":"€100,000",
+                    "odds":"1 in 1,000,000"
+                },
+                {
+                    "name":"Match last 5 digits in order",
+                    "prize":"€6,666",
+                    "odds":"1 in 111,111"
+                },
+                {
+                    "name":"Match last 4 digits in order",
+                    "prize":"€666",
+                    "odds":"1 in 11,111"
+                },
+                {
+                    "name":"Match last 3 digits in order",
+                    "prize":"€66",
+                    "odds":"1 in 1,111"
+                },
+                {
+                    "name":"Match last 2 digits in order",
+                    "prize":"€6",
+                    "odds":"1 in 111"
+                },
+                {
+                    "name":"Match last digit",
+                    "prize":"€2.50",
+                    "odds":"1 in 11"
+                }
+            ]
+        }
+    ],
+    "jackpot":[
+
+    ],
+    "nextJackpot":[
+
+    ]
+}
