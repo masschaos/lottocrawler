@@ -97,6 +97,7 @@ const crawl = async () => {
       throw new DrawingError(lotteryID)
     // throw new Error('DrawingError', `正在开奖中，无法获取结果。彩种: ${lotteryID}`)
     }
+    console.log(mainData.drawUrl, lotteryID)
     const detail = await CrawDetail(page, mainData.drawUrl, detailTotal, moreDetail)
     const numbers = mainData.numbers
     const details = detail[0].map(item => { return { level: item.level, total_winner: item.winners, wininrub: item.wininrub, numbersOfWinners: item.numbersOfWinners } })

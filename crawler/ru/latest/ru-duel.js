@@ -1,4 +1,4 @@
-const name = 'duel'
+const name = 'Дуэль'
 const lotteryID = 'ru-duel'
 // const other = []
 // const jackpot = []
@@ -9,6 +9,7 @@ const lotteryID = 'ru-duel'
 // const breakdown = [{"name":"main", "detail":[{"name": "", "count": "", "prize": ""}]}]
 
 // 两个箱子，都是1-26 开奖，每个箱子两个号码
+
 
 const selector = '#content > div.data.drawings_data'
 const selectorAll = '#content > div.data.drawings_data .month'

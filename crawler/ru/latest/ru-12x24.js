@@ -1,4 +1,4 @@
-const name = '12x24'
+const name = '12/24'
 const lotteryID = 'ru-12x24'
 // const other = []
 // const jackpot = []

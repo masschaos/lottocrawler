@@ -1,4 +1,4 @@
-const name = 'top3'
+const name = 'Топ-3'
 const lotteryID = 'ru-top3'
 // const other = []
 // const jackpot = []

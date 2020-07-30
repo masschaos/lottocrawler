@@ -3,7 +3,7 @@ const { DrawingError } = require('../../../util/error')
 const { newPage, ignoreImage } = require('../../../pptr')
 const { MONTH } = require('../country')
 
-const name = 'keno'
+const name = 'КЕНО-Спортлото'
 const lotteryID = 'ru-keno'
 const url = 'https://www.stoloto.ru/keno/archive'
 const selector = '#content > div.data.drawings_data'
