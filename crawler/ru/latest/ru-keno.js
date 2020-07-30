@@ -82,7 +82,7 @@ const crawl = async () => {
     }
     const detail = await CrawDetail(page, mainData.drawUrl, detailTotal, moreDetail).then(data => { return data })
     const numbers = mainData.numbers
-    const details = detail[0]
+    const details = [{ twoDimensionalList: detail[0] }]
     const newData = { ...mainData, numbers, detail: details, lotteryID, name, jackpot: [mainData.super_prize] }
     newData.other = detail[1]
     delete newData.drawUrl
