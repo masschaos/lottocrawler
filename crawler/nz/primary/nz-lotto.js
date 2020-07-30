@@ -63,12 +63,28 @@ class LottoCrawler extends crawler {
       ],
       other: [
         {
-          'Total Lotto winners': lotto.lottoTotalWinners > 0 ? moneyFormat(lotto.lottoTotalWinners, 0, '', ',', '') : lotto.lottoTotalWinners,
-          'Total Lotto prize pool': lotto.lottoPrizePool > 0 ? moneyFormat(lotto.lottoPrizePool, 2, '.', ',', '$') : lotto.lottoPrizePool,
-          'Total Powerball winners': powerBall.powerballTotalWinners > 0 ? moneyFormat(powerBall.powerballTotalWinners, 0, '', ',', '') : powerBall.powerballTotalWinners,
-          'Total Powerball prize pool': powerBall.powerballPrizePool > 0 ? moneyFormat(powerBall.powerballPrizePool, 2, '.', ',', '$') : powerBall.powerballPrizePool,
-          'Total Strike winners': strike.strikeTotalWinners > 0 ? moneyFormat(strike.strikeTotalWinners, 0, '', ',', '') : strike.strikeTotalWinners,
-          'Total Strike prize pool': strike.strikePrizePool > 0 ? moneyFormat(strike.strikePrizePool, 2, '.', ',', '$') : strike.strikePrizePool
+          name: 'Total Lotto winners',
+          value: lotto.lottoTotalWinners > 0 ? moneyFormat(lotto.lottoTotalWinners, 0, '', ',', '') : lotto.lottoTotalWinners
+        },
+        {
+          name: 'Total Lotto prize pool',
+          value: lotto.lottoPrizePool > 0 ? moneyFormat(lotto.lottoPrizePool, 2, '.', ',', '$') : lotto.lottoPrizePool
+        },
+        {
+          name: 'Total Powerball winners',
+          value: powerBall.powerballTotalWinners > 0 ? moneyFormat(powerBall.powerballTotalWinners, 0, '', ',', '') : powerBall.powerballTotalWinners
+        },
+        {
+          name: 'Total Powerball prize pool',
+          value: powerBall.powerballPrizePool > 0 ? moneyFormat(powerBall.powerballPrizePool, 2, '.', ',', '$') : powerBall.powerballPrizePool
+        },
+        {
+          name: 'Total Strike winners',
+          value: strike.strikeTotalWinners > 0 ? moneyFormat(strike.strikeTotalWinners, 0, '', ',', '') : strike.strikeTotalWinners
+        },
+        {
+          name: 'Total Strike prize pool',
+          value: strike.strikePrizePool > 0 ? moneyFormat(strike.strikePrizePool, 2, '.', ',', '$') : strike.strikePrizePool
         }
       ],
       issue: lotto.drawNumber,
