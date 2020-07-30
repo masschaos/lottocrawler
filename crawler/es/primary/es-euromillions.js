@@ -23,9 +23,6 @@ async function crawlhistory () {
   const path = 'F:\\lottocrawler\\crawler\\es\\history\\es-euromillions.json'
   return await crawlHistory(parse, path, lotteryID)
 }
-(async () => {
-  crawlhistory()
-})()
 
 module.exports = {
   crawl,

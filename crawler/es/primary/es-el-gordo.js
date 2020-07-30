@@ -21,10 +21,6 @@ async function crawlhistory () {
   return await crawlHistory(parse, path, lotteryID)
 }
 
-// (async () => {
-//   crawlhistory()
-// })()
-
 module.exports = {
   crawl,
   crawlhistory
