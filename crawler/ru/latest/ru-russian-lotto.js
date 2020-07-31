@@ -34,7 +34,11 @@ const Craw = async (page, url, selectorAll) => {
       data.other = []
       data.jackpot = []
       //   console.log(element.querySelector('.numbers_wrapper').outerHTML)
-      let numbers = element.querySelector('.numbers_wrapper').innerText
+      let numbers = ''
+      if (element.querySelector('.elem').querySelector('.numbers_wrapper')) {
+        numbers = element.querySelector('.elem .numbers_wrapper').innerText
+      }
+      // let numbers = element.querySelector('.numbers_wrapper').innerText
       // console.log(numbers, 'numbers')
       numbers = numbers.split(' ').join(',')
       data.numbers = numbers
@@ -92,7 +96,7 @@ const crawl = async () => {
     if (mainData.numbers.length === 0) {
       throw new DrawingError(lotteryID)
     }
-    console.log(mainData)
+    // console.log(mainData)
     const detail = await CrawDetail(page, mainData.drawUrl, detailTotal).then(data => { return data })
     console.log(detail)
     const numbers = [mainData.numbers, ...detail.map(item => item.number)].join('#')

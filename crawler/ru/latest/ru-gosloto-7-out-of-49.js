@@ -6,7 +6,7 @@ const lotteryID = 'ru-gosloto-7-out-of-49'
 const name = 'Гослото «7 из 49'
 
 const selector = '#content > div.data.drawings_data'
-const selectorAll = '#content > div.data.drawings_data .month'
+const selectorAll = '#content > div.data.drawings_data .elem'
 const detailTotal = '#content > div.col.prizes > div.results_table.with_bottom_shadow > div > table > tbody > tr'
 const detailWaitfor = '#content > div.col.prizes > div.results_table.with_bottom_shadow > div > table'
 const { newPage, ignoreImage } = require('../../../pptr')
@@ -29,7 +29,10 @@ const Craw = async (page, url, selectorAll) => {
         data.drawUrl = element.querySelector('.draw a').href
         data.other = []
         data.jackpot = []
-        const numbers = element.querySelector('.numbers_wrapper').innerText.split('\n')[0]
+        let numbers = ''
+        if (element.querySelector('.numbers_wrapper')) {
+          numbers = element.querySelector('.numbers_wrapper').innerText.split('\n')[0]
+        }
         data.numbers = numbers.split(' ').map(item => item.slice(0, item.length - 1)).join(',')
         data.super_prize = element.querySelector('.prize').innerText
         return data
@@ -76,7 +79,6 @@ const crawl = async () => {
     if (mainData.numbers.length === 0) {
       throw new DrawingError(lotteryID)
     }
-    // console.log(mainData, 'mainData')
     const detail = await CrawDetail(page, mainData.drawUrl, detailTotal).then(data => { return data })
     // console.log(detail, 'detail')
     const numbers = mainData.numbers.split('\n')[0].trim()

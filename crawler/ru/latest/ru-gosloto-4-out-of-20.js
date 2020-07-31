@@ -2,7 +2,7 @@
 
 const url = 'https://www.stoloto.ru/4x20/archive'
 const selector = '#content > div.data.drawings_data'
-const selectorAll = '#content > div.data.drawings_data .month'
+const selectorAll = '#content > div.data.drawings_data .elem'
 const detailTotal = '#content > div.col.prizes > div.results_table.with_bottom_shadow > div > table > tbody > tr'
 const detailWaitfor = '#content > div.col.prizes > div.results_table.with_bottom_shadow > div > table'
 const lotteryID = 'ru-gosloto-4-out-of-20'
@@ -35,7 +35,10 @@ const Craw = async (page, url, selectorAll) => {
         data.other = []
         data.jackpot = []
         //   console.log(element.querySelector('.numbers_wrapper').outerHTML)
-        let numbers = element.querySelector('.numbers_wrapper').innerText.split('\n')[0].trim()
+        let numbers = ''
+        if (element.querySelector('.numbers_wrapper')) {
+          numbers = element.querySelector('.numbers_wrapper').innerText.split('\n')[0].trim()
+        }
         const tmp = numbers.split(' ')
         numbers = [tmp.slice(0, tmp.length - 4).join(','), tmp.slice(tmp.length - 4, tmp.length)].join('|')
         data.numbers = numbers
