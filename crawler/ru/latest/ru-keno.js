@@ -77,12 +77,12 @@ const crawl = async () => {
   try {
     await ignoreImage(page)
     const mainData = await craw(page, url, selectorAll, lotteryID)
-    if (mainData.numbers.length === 0) {
+    if (mainData.numbers.length === 1) {
       throw new DrawingError(lotteryID)
     }
     const detail = await CrawDetail(page, mainData.drawUrl, detailTotal, moreDetail).then(data => { return data })
     const numbers = mainData.numbers
-    const details = [{ twoDimensionalList: detail[0] }]
+    const details = [{ twoDimensionalList: detail[0].map(item => { return { value: item } }) }]
     const newData = { ...mainData, numbers, detail: details, lotteryID, name, jackpot: [mainData.super_prize] }
     newData.other = detail[1]
     delete newData.drawUrl
