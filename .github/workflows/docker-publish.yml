@@ -87,7 +87,7 @@ jobs:
           port: 22
           username: ec2-user
           key: ${{ secrets.EC2_WEU_KEY }}
-          script: cd weu && sh restart.sh
+          script: cd weu && nohup sh restart.sh &
       - name: deploy cac
         uses: appleboy/ssh-action@master
         with:
@@ -95,7 +95,7 @@ jobs:
           port: 22
           username: ec2-user
           key: ${{ secrets.EC2_WEU_KEY }}
-          script: cd cac && sh restart.sh
+          script: cd cac && nohup sh restart.sh &
       - name: deploy sea
         uses: appleboy/ssh-action@master
         with:
@@ -103,7 +103,7 @@ jobs:
           port: 22
           username: ec2-user
           key: ${{ secrets.EC2_SEA_KEY }}
-          script: cd crawler && sh restart.sh
+          script: cd crawler && nohup sh restart.sh &
 
       # Slack 通知
       - name: Slack Success Notification
