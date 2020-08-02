@@ -4,7 +4,7 @@ on:
   push:
     # Publish `master` as Docker `latest` image.
     branches:
-      - master
+      - prod
 
     # Publish `v1.2.3` tags as releases.
     tags:
@@ -17,7 +17,7 @@ env:
 jobs:
   # Push image to GitHub Packages.
   # See also https://docs.docker.com/docker-hub/builds/
-  push:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -32,7 +32,7 @@ jobs:
       - name: Push image
         run: |
           IMAGE_ID=docker.pkg.github.com/${{ github.repository }}/$IMAGE_NAME
-          
+
           # Change all uppercase to lowercase
           IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
 
@@ -51,6 +51,9 @@ jobs:
           docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
           docker push $IMAGE_ID:$VERSION
 
+          # Sleep before deploy
+          sleep 5
+
       # Slack 通知
       - name: Slack Success Notification
         if: success()
@@ -68,6 +71,57 @@ jobs:
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_TITLE: 镜像构建失败
+          SLACK_ICON_EMOJI: robot_face
+          SLACK_USERNAME: Lotto Config Bot
+          SLACK_COLOR: "#ff5f52"
+          SLACK_CHANNEL: dev
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: deploy weu
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.EC2_WEU_HOST }}
+          port: 22
+          username: ec2-user
+          key: ${{ secrets.EC2_WEU_KEY }}
+          script: cd weu && sh restart.sh
+      - name: deploy cac
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.EC2_WEU_HOST }}
+          port: 22
+          username: ec2-user
+          key: ${{ secrets.EC2_WEU_KEY }}
+          script: cd cac && sh restart.sh
+      - name: deploy sea
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.EC2_SEA_HOST }}
+          port: 22
+          username: ec2-user
+          key: ${{ secrets.EC2_SEA_KEY }}
+          script: cd crawler && sh restart.sh
+
+      # Slack 通知
+      - name: Slack Success Notification
+        if: success()
+        uses: rtCamp/action-slack-notify@master
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_TITLE: 爬虫重启命令已发送
+          SLACK_ICON_EMOJI: robot_face
+          SLACK_USERNAME: Lotto Config Bot
+          SLACK_CHANNEL: dev
+
+      - name: Slack Failure Notification
+        if: failure()
+        uses: rtCamp/action-slack-notify@master
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_TITLE: 爬虫重启命令发送失败
           SLACK_ICON_EMOJI: robot_face
           SLACK_USERNAME: Lotto Config Bot
           SLACK_COLOR: "#ff5f52"
