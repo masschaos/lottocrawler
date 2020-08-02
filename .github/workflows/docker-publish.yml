@@ -43,7 +43,7 @@ jobs:
           [[ "${{ github.ref }}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
 
           # Use Docker `latest` tag convention
-          [ "$VERSION" == "master" ] && VERSION=latest
+          [ "$VERSION" == "prod" ] && VERSION=latest
 
           echo IMAGE_ID=$IMAGE_ID
           echo VERSION=$VERSION
@@ -52,7 +52,7 @@ jobs:
           docker push $IMAGE_ID:$VERSION
 
           # Sleep before deploy
-          sleep 60
+          sleep 10
 
       # Slack 通知
       - name: Slack Success Notification
