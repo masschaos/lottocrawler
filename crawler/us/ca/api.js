@@ -54,9 +54,15 @@ function parseMostRecentDraw (drawGameData, mostRecentDraw) {
   if (drawGameData.NextDraw.JackpotAmount) {
     jackpot.push('$' + drawGameData.NextDraw.JackpotAmount.toLocaleString())
   }
+  const currentDrawTime = moment(mostRecentDraw.DrawDate)
+  let nextDrawTime = moment(drawGameData.NextDraw.DrawDate)
+  // 处理 us-ca-daily-3 us-ca-daily-4 接口返回 NextDraw.DrawDate 值为异常值的情况
+  if (nextDrawTime.isValid() === false || nextDrawTime.isBefore(currentDrawTime)) {
+    nextDrawTime = currentDrawTime
+  }
   const result = {
-    drawTime: moment(mostRecentDraw.DrawDate).format('YYYYMMDDHHmmss'),
-    nextDrawTime: moment(drawGameData.NextDraw.DrawDate).format('YYYYMMDDHHmmss'),
+    drawTime: currentDrawTime.format('YYYYMMDDHHmmss'),
+    nextDrawTime: nextDrawTime.format('YYYYMMDDHHmmss'),
     jackpot: jackpot,
     numbers: numbers.join(''),
     breakdown: [
