@@ -31,12 +31,12 @@ const CRAWLER_CONFIGS = [
     gameId: '14',
     name: 'Daily 4',
     lotteryID: 'us-ca-daily-4'
-  },
-  {
-    gameId: '11',
-    name: 'Daily Derby',
-    lotteryID: 'us-ca-daily-derby'
   }
+  // {
+  //   gameId: '11',
+  //   name: 'Daily Derby',
+  //   lotteryID: 'us-ca-daily-derby'
+  // }
 ]
 
 for (const config of CRAWLER_CONFIGS) {
