@@ -52,7 +52,7 @@ jobs:
           docker push $IMAGE_ID:$VERSION
 
           # Sleep before deploy
-          sleep 5
+          sleep 60
 
       # Slack 通知
       - name: Slack Success Notification
