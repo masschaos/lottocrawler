@@ -4,7 +4,7 @@
 const url = 'https://www.stoloto.ru/gzhl/archive'
 
 const selector = '#content > div.data.drawings_data'
-const selectorAll = '#content > div.data.drawings_data .month'
+const selectorAll = '#content > div.data.drawings_data .elem'
 const detailTotal = '#content > div.col.drawing_results > div > table > tbody > tr'
 const detailWaitfor = '#content > div.col.drawing_results > div > table'
 const lotteryID = 'ru-housing-lottery'
@@ -30,7 +30,7 @@ const Craw = async (page, url, selectorAll) => {
         data.drawUrl = element.querySelector('.draw a').href
         data.other = []
         data.jackpot = []
-        let numbers = element.querySelector('.numbers_wrapper').innerText
+        let numbers = element.querySelector('.numbers_wrapper').innerText.split('\n')[0]
         numbers = numbers.split(' ').join(',')
         data.numbers = numbers
         data.super_prize = element.querySelector('.prize').innerText

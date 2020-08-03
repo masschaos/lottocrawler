@@ -33,12 +33,10 @@ const Craw = async (page, url, selectorAll) => {
         data.drawUrl = element.querySelector('.draw a').href
         data.other = []
         data.jackpot = []
-        //   console.log(element.querySelector('.numbers_wrapper').outerHTML)
         let numbers = ''
         if (element.querySelector('.elem').querySelector('.numbers_wrapper')) {
           numbers = element.querySelector('.elem .numbers_wrapper .zone').innerText
         }
-        // let numbers = element.querySelector('.numbers_wrapper .zone').innerText
         numbers = numbers.split(' ').join(',')
         data.numbers = numbers
         //   console.log(element.querySelector('.prize').outerHTML)
