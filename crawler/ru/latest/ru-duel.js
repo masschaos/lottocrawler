@@ -10,7 +10,6 @@ const lotteryID = 'ru-duel'
 
 // 两个箱子，都是1-26 开奖，每个箱子两个号码
 
-
 const selector = '#content > div.data.drawings_data'
 const selectorAll = '#content > div.data.drawings_data .month'
 const detailTotal = '#content > div.col.prizes > div.results_table.with_bottom_shadow > div > table > tbody > tr'
@@ -93,7 +92,7 @@ const crawl = async () => {
   try {
     await ignoreImage(page)
     const mainData = await Craw(page, url, selectorAll, lotteryID)
-    if (mainData.numbers.length === 0) {
+    if (mainData.numbers.length === 1) {
       throw new DrawingError(lotteryID)
     // throw new Error('DrawingError', `正在开奖中，无法获取结果。彩种: ${lotteryID}`)
     }
