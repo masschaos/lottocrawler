@@ -25,7 +25,7 @@ const Craw1 = async (page, dataObj) => {
 
   // get time
   const dateStr = await page.$eval(dateSelector, el => el.innerText)
-  console.log(dateStr)
+  // console.log(dateStr)
   let [day, month, year] = dateStr.split(' ')
   month = month.trim().replace(',', '')
   const drawTime = `${year}${MonthOrDayProcess(MONTH[month])}${MonthOrDayProcess(day)}140000`
@@ -55,7 +55,7 @@ const Craw2 = async (page, dataObj) => {
   const dateStr = await page.$eval(dateSelector, el => el.innerText)
   let [day, month, year] = dateStr.split(' ')
   month = month.trim().replace(',', '')
-  console.log(month)
+  // console.log(month)
   const drawTime = `${year}${MonthOrDayProcess(MONTH[month])}${MonthOrDayProcess(day)}193000`
 
   // get number and jackpot
