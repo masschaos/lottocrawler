@@ -7,7 +7,7 @@ const name = 'КЕНО-Спортлото'
 const lotteryID = 'ru-keno'
 const url = 'https://www.stoloto.ru/keno/archive'
 const selector = '#content > div.data.drawings_data'
-const selectorAll = '#content > div.data.drawings_data .month'
+const selectorAll = '#content > div.data.drawings_data .elem'
 const detailTotal = '#content > div.col.prizes > div.results_table.with_bottom_shadow > div > table > tbody > tr'
 const detailWaitfor = '#content > div.col.prizes > div.results_table.with_bottom_shadow > div > table'
 
@@ -28,9 +28,10 @@ const craw = async (page, url, selectorAll, lotteryID) => {
       data.drawUrl = element.querySelector('.draw a').href
       // data.other = []
       data.jackpot = []
-
-      let numberOne = [...element.querySelectorAll('#content > div.data.drawings_data > div.month > div:nth-child(2) > div > div.numbers > div:nth-child(1) > div:nth-child(1) > span> b')].map(item => item.innerText)
-      let numberTwo = [...element.querySelectorAll('#content > div.data.drawings_data > div.month > div:nth-child(2) > div > div.numbers > div.numbers_wrapper.sub > div > span > b')].map(item => item.innerText)
+      const tmp1 = element.querySelector('.numbers_wrapper .container')
+      const tmp2 = element.querySelector('.sub')
+      let numberOne = [...tmp1.querySelectorAll('.zone > b')].map(item => item.innerText)
+      let numberTwo = [...tmp2.querySelectorAll('.zone > b')].map(item => item.innerText)
       numberOne = numberOne.map(item => item.trim())
       numberTwo = numberTwo.map(item => item.trim()).slice(1, numberTwo.length)
       data.numbers = [numberOne.join(','), numberTwo.join(',')].join('|')
@@ -77,12 +78,12 @@ const crawl = async () => {
   try {
     await ignoreImage(page)
     const mainData = await craw(page, url, selectorAll, lotteryID)
-    if (mainData.numbers.length === 0) {
+    if (mainData.numbers.length === 1) {
       throw new DrawingError(lotteryID)
     }
     const detail = await CrawDetail(page, mainData.drawUrl, detailTotal, moreDetail).then(data => { return data })
     const numbers = mainData.numbers
-    const details = [{ twoDimensionalList: detail[0] }]
+    const details = [{ twoDimensionalList: detail[0].map(item => { return { value: item } }) }]
     const newData = { ...mainData, numbers, detail: details, lotteryID, name, jackpot: [mainData.super_prize] }
     newData.other = detail[1]
     delete newData.drawUrl

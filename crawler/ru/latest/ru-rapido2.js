@@ -10,7 +10,7 @@ const lotteryID = 'ru-rapido2'
 
 const url = 'https://www.stoloto.ru/rapido2/archive'
 const selector = '#content > div.data.drawings_data'
-const selectorAll = '#content > div.data.drawings_data .month'
+const selectorAll = '#content > div.data.drawings_data .elem'
 const detailTotal = '#content > div.col.prizes > div.results_table.with_bottom_shadow > div > table > tbody > tr'
 const detailWaitfor = '#content > div.col.prizes > div.results_table.with_bottom_shadow > div > table'
 
@@ -33,11 +33,11 @@ const Craw = async (page, url, selectorAll, lotteryID) => {
       data.issue = element.querySelector('.draw').innerText
       data.drawUrl = element.querySelector('.draw a').href
       data.jackpot = []
-      let numbers = [...element.querySelectorAll('#content > div.data.drawings_data > div.month > div:nth-child(2) > div > div.numbers > div.numbers_wrapper > div:nth-child(1) > span b')].map(item => item.innerText)
-      console.log(JSON.stringify(numbers))
+
+      const tmp = element.querySelector('.numbers_wrapper .container')
+      let numbers = [...tmp.querySelectorAll('b')].map(item => item.innerText)
       numbers = numbers.map(item => item.trim())
       data.numbers = [numbers.slice(0, -1).join(','), numbers.slice(-1)].join('|')
-      console.log(data.numbers, 'data number')
       data.super_prize = element.querySelector('.prize').innerText
       return data
     }

@@ -28,13 +28,14 @@ const Craw = async (page, url, selectorAll, lotteryID) => {
       const [yearPro, dayPro] = drawDate.split(' ')
       const time = dayPro.split(':').join('')
       const [day, month, year] = yearPro.split('.')
-      data.drawTime = `${year}${month}${day}${time}00`
+      data.drawTime = `${year}${month}${day}${time}`
       data.issue = element.querySelector('.draw').innerText
       data.drawUrl = element.querySelector('.draw a').href
       // data.other = []
       data.jackpot = []
 
-      let numbers = [...element.querySelectorAll('#content > div.data.drawings_data > div.month > div:nth-child(2) > div > div.numbers > div.numbers_wrapper > div:nth-child(1) > span b')].map(item => item.innerText)
+      // let numbers = [...element.querySelectorAll('#content > div.data.drawings_data > div.month > div:nth-child(2) > div > div.numbers > div.numbers_wrapper > div:nth-child(1) > span b')].map(item => item.innerText)
+      let numbers = element.querySelector('.numbers .numbers_wrapper .zone').innerText.split(' ').slice(0, -1)
       numbers = numbers.map(item => item.trim())
       if (numbers.length === 0) {
         throw new Error('DrawingError', `正在开奖中，无法获取结果。彩种: ${lotteryID}`)

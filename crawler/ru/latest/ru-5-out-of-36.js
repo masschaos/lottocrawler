@@ -10,7 +10,7 @@ const name = '5 из 36'
 
 const selector = '#content > div.data.drawings_data'
 
-const selectorAll = '#content > div.data.drawings_data .month'
+const selectorAll = '#content > div.data.drawings_data .elem'
 const detailTotal = '#content > div.col.prizes > div.results_table.with_bottom_shadow > div > table > tbody > tr'
 const detailWaitfor = '#content > div.col.prizes > div.results_table.with_bottom_shadow > div > table'
 
@@ -32,17 +32,11 @@ const Craw = async (page, url, selectorAll, lotteryID) => {
       data.drawTime = `${year}${month}${day}${time}00`
       data.issue = element.querySelector('.draw').innerText
       data.drawUrl = element.querySelector('.draw a').href
-      // console.log(data.drawUrl, 'drawUrl')
-      // data.other = []
       data.jackpot = []
-
-      const numbers = [...element.querySelectorAll('#content > div.data.drawings_data > div.month > div:nth-child(2) > div > div.numbers > .numbers_wrapper .container:nth-of-type(1) .zone b')].map(item => item.innerText)
-      // console.log(JSON.stringify(numbers))
+      let numbers = element.querySelector('.numbers_wrapper .container').innerText || ''
+      numbers = numbers.length ? numbers.split(' ') : []
       const number = numbers.map(item => item.trim())
-      data.numbers = `${number.slice(0, 5).join(',')}|${number.slice(-1)}`
-      // data.numbers = numbers.split(' ').map(item => item.slice(0, item.length - 1))
-      // console.log(data.numbers, 'data number')
-      //   console.log(element.querySelector('.prize').outerHTML)
+      data.numbers = `${number.slice(0, 5).join(',')}|${number.slice(-1).join(',')}`
       const [superPrize, prize] = element.querySelector('.prize').innerText.split('\n')
       data.super_prize = superPrize
       data.prize = prize
@@ -93,9 +87,8 @@ const crawl = async () => {
   try {
     await ignoreImage(page)
     const mainData = await Craw(page, url, selectorAll, lotteryID)
-    if (mainData.numbers.length === 0) {
+    if (mainData.numbers.length === 1) {
       throw new DrawingError(lotteryID)
-    // throw new Error('DrawingError', `正在开奖中，无法获取结果。彩种: ${lotteryID}`)
     }
     console.log(mainData.drawUrl, lotteryID)
     const detail = await CrawDetail(page, mainData.drawUrl, detailTotal, moreDetail)
@@ -105,13 +98,11 @@ const crawl = async () => {
     newData.other = detail[1]
     delete newData.drawUrl
     delete newData.super_prize
-    // console.log(newData)
     return newData
   } finally {
     await page.close()
   }
 }
-// crawl()
 module.exports = {
   crawl
 }
