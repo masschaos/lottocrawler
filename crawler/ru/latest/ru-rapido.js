@@ -11,7 +11,7 @@ const lotteryID = 'ru-rapido'
 const url = 'https://www.stoloto.ru/rapido/archive'
 
 const selector = '#content > div.data.drawings_data'
-const selectorAll = '#content > div.data.drawings_data .month'
+const selectorAll = '#content > div.data.drawings_data .elem'
 const detailTotal = '#content > div.col.prizes > div.results_table.with_bottom_shadow > div > table > tbody > tr'
 const detailWaitfor = '#content > div.col.prizes > div.results_table.with_bottom_shadow > div > table'
 const moreDetail = '#content > div.col.drawing_details > div > div > table > tbody > tr'
@@ -34,7 +34,8 @@ const Craw = async (page, url, selectorAll, lotteryID) => {
       // data.other = []
       data.jackpot = []
 
-      let numbers = [...element.querySelectorAll('#content > div.data.drawings_data > div.month > div:nth-child(2) > div > div.numbers > div.numbers_wrapper > div:nth-child(1) > span b')].map(item => item.innerText)
+      const zone = element.querySelector('.zone')
+      let numbers = [...element.querySelectorAll('.numbers_wrapper span b')].map(item => item.innerText)
       numbers = numbers.map(item => item.trim())
       // data.numbers = [numbers.slice(0, 2).join(','), numbers.slice(2, 4).join(',')].join('|')
       data.numbers = [numbers.slice(0, -1).join(','), numbers.slice(-1)].join('|')
