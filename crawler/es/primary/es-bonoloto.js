@@ -7,7 +7,7 @@ const parse = (latestDraw) => {
   if (number.length !== 8) {
     throw new DrawingError(lotteryID)
   }
-  latestDraw.numbers = `${number.slice(0, 5).join(',')}#${number.slice(5, 6)[0]}|${number.slice(6, 7)[0]}`
+  latestDraw.numbers = `${number.slice(0, 6).join(',')}#${number.slice(6, 7)[0]}|${number.slice(7, 8)[0]}`
   latestDraw.drawTime = `${latestDraw.drawTime.slice(0, 10)}3000`
   console.log(latestDraw)
   return latestDraw
