@@ -29,7 +29,7 @@ const getNumbers = async (page) => {
   const superzahlNumbers = await page.$$eval(superzahlSelector, elements => elements.map(element => {
     return element.innerText
   }))
-  return [numbers.join(','), superzahlNumbers.join(',')].join('#')
+  return [numbers.join(','), superzahlNumbers.join(',')].join('|')
 }
 
 const getNextJackpot = async (page) => {

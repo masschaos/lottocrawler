@@ -66,10 +66,11 @@ const crawl = async () => {
         const drawTimeString = trElement.querySelector(drawTiemSelector).innerText
 
         // numbers
-        const numberSelector = 'div.drawWrap > div:nth-child(1) > ul > li'
-        const numberItems = Array.from(trElement.querySelectorAll(numberSelector))
-        let numbers = numberItems.map(item => {
-          return item.innerText.trim()
+        const numberSelector = 'div.resultsRow.resultsPlain'
+        let numbers = trElement.querySelector(numberSelector).innerText
+        const numberList = numbers.split(',')
+        numbers = numberList.map(number => {
+          return number.split(':')[1].trim()
         })
         numbers = numbers.join(',')
 

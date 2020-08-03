@@ -22,9 +22,12 @@ const getNextDrawTime = async (page) => {
 
 const getNumbers = async (page) => {
   const numberSelector = '#game > div > dl > dd:nth-child(2) > table > tbody > tr > td.draw > div.drawWrap > div.resultsRow.resultsPlain'
-  const numbers = await page.$eval(numberSelector, el => el.innerText)
-  const numberList = numbers.split(', ')
-  return numberList.join(',')
+  let numbers = await page.$eval(numberSelector, el => el.innerText)
+  const numberList = numbers.split(',')
+  numbers = numberList.map(number => {
+    return number.split(':')[1].trim()
+  })
+  return numbers.join(',')
 }
 
 const getNextJackpot = async () => {

@@ -22,14 +22,10 @@ const getNextDrawTime = async (page) => {
 
 const getNumbers = async (page) => {
   const numberSelector = '#game > div > dl > dd:nth-child(2) > table > tbody > tr > td.draw > div.drawWrap > div:nth-child(1) > ul > li'
-  const superzahlSelector = '#game > div > dl > dd:nth-child(2) > table > tbody > tr > td.draw > div.drawWrap > div:nth-child(2) > ul > li'
   const numbers = await page.$$eval(numberSelector, elements => elements.map(element => {
     return element.innerText
   }))
-  const superzahlNumbers = await page.$$eval(superzahlSelector, elements => elements.map(element => {
-    return element.innerText
-  }))
-  return [numbers.join(','), superzahlNumbers.join(',')].join('#')
+  return numbers.join(',')
 }
 
 const getNextJackpot = async () => {
