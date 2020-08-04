@@ -1,27 +1,17 @@
-const name = 'Рапидо 2.0'
-const lotteryID = 'ru-rapido2'
-// const other = []
-// const jackpot = []
-// const drawTime = ''
-// const issue = ''
-// const number = ''
-// const detail = []
-// const breakdown = [{"name":"main", "detail":[{"name": "", "count": "", "prize": ""}]}]
+const url = 'https://www.stoloto.ru/5x36plus/archive'
+const lotteryID = 'ru-5-out-of-36'
+const name = '5 из 36'
 
-const url = 'https://www.stoloto.ru/rapido2/archive'
 const selector = '#content > div.data.drawings_data'
 const selectorAll = '#content > div.data.drawings_data .elem'
 const detailTotal = '#content > div.col.prizes > div.results_table.with_bottom_shadow > div > table > tbody > tr'
 const detailWaitfor = '#content > div.col.prizes > div.results_table.with_bottom_shadow > div > table'
 
 const moreDetail = '#content > div.col.drawing_details > div > div > table > tbody > tr'
-
-const { DrawingError } = require('../../../util/error')
-const { newPage, ignoreImage } = require('../../../pptr')
-const { MONTH } = require('../country')
+const { newPage } = require('../../../pptr')
+// const { DrawingError } = require('../../../util/error')
+const { MONTH, TurnPage, writeJsonToFile } = require('../country')
 const Craw = async (page, url, selectorAll, lotteryID) => {
-  await page.goto(url)
-  await page.waitForSelector(selector)
   const CrawResult = await page.evaluate((selectorAll, MONTH, lotteryID) => {
     const mapFunction = (element) => {
       const data = {}
@@ -29,33 +19,37 @@ const Craw = async (page, url, selectorAll, lotteryID) => {
       const [yearPro, dayPro] = drawDate.split(' ')
       const time = dayPro.split(':').join('')
       const [day, month, year] = yearPro.split('.')
-      data.drawTime = `${year}${month}${day}${time}`
+      data.drawTime = `${year}${month}${day}${time}00`
       data.issue = element.querySelector('.draw').innerText
       data.drawUrl = element.querySelector('.draw a').href
       data.jackpot = []
-
-      const tmp = element.querySelector('.numbers_wrapper .container')
-      let numbers = []
-      if (tmp) {
-        numbers = [...tmp.querySelectorAll('b')].map(item => item.innerText.trim())
-      }
-      data.numbers = [numbers.slice(0, -1).join(','), numbers.slice(-1)].join('|')
-      data.super_prize = element.querySelector('.prize').innerText
+      let numbers = element.querySelector('.numbers_wrapper .container').innerText || ''
+      numbers = numbers.length ? numbers.split(' ') : []
+      const number = numbers.map(item => item.trim())
+      // if (number.length === 0) {
+      //   throw new Error('DrawingError', `正在开奖中，无法获取结果。彩种: ${lotteryID}`)
+      // }
+      data.numbers = `${number.slice(0, 5).join(',')}|${number.slice(-1).join(',')}`
+      const [superPrize, prize] = element.querySelector('.prize').innerText.split('\n')
+      data.super_prize = superPrize
+      data.prize = prize
       return data
     }
-    const results = document.querySelector(selectorAll)
+    // const results = document.querySelector(selectorAll)
     // console.log(results)
-    const TotalData = mapFunction(results)
+    // const TotalData = mapFunction(results)
+    const results = [...document.querySelectorAll(selectorAll)]
+    const TotalData = results.map(item => { return mapFunction(item) })
     return TotalData
   }, selectorAll, MONTH, lotteryID)
-  // page.close()
-  console.log(CrawResult, 'CrawResult')
+  //   page.close()
+  // console.log(CrawResult, 'CrawResult')
   return CrawResult
 }
-const CrawDetail = async (page, url, selector) => {
+const CrawDetail = async (url, selector) => {
+  const page = await newPage()
   await page.goto(url)
   await page.waitForSelector(detailWaitfor)
-
   const Crawdetail = await page.evaluate((selector, moreDetail) => {
     const mapFunction = (element) => {
       const data = {}
@@ -79,35 +73,34 @@ const CrawDetail = async (page, url, selector) => {
     const otherData = moreDetailData.map(moreDetailFunction)
     return [dataList, otherData]
   }, selector, moreDetail)
-  // page.close()
+  page.close()
   return Crawdetail
 }
 
 const crawl = async () => {
-  const page = await newPage()
+  const page = await TurnPage(url, selector)
+  const results = []
   try {
-    await ignoreImage(page)
-    const mainData = await Craw(page, url, selectorAll, lotteryID)
-    if (mainData.numbers.length === 1) {
-      throw new DrawingError(lotteryID)
-    // throw new Error('DrawingError', `正在开奖中，无法获取结果。彩种: ${lotteryID}`)
+    const mainDataList = await Craw(page, url, selectorAll, lotteryID)
+    // console.log(mainDataList.drawUrl, lotteryID)
+    for (let i = 0; i < mainDataList.length; i++) {
+      const detail = await CrawDetail(mainDataList[i].drawUrl, detailTotal, moreDetail)
+      const numbers = mainDataList[i].numbers
+      const details = detail[0].map(item => { return { level: item.level, total_winner: item.winners, wininrub: item.wininrub, numbersOfWinners: item.numbersOfWinners } })
+      const newData = { ...mainDataList[i], numbers, detail: details, lotteryID, name, jackpot: [mainDataList[i].super_prize] }
+      newData.other = detail[1]
+      delete newData.drawUrl
+      delete newData.super_prize
+      results.push(newData)
     }
-    const detail = await CrawDetail(page, mainData.drawUrl, detailTotal, moreDetail).then(data => { return data })
-    const numbers = mainData.numbers
-    const details = detail[0].map(item => { return { level: item.level, total_winner: item.winners, wininrub: item.wininrub, numbersOfWinners: item.numbersOfWinners } })
-    const newData = { ...mainData, numbers, detail: details, lotteryID, name, jackpot: [mainData.super_prize] }
-    newData.other = detail[1]
-    delete newData.drawUrl
-    delete newData.super_prize
-    console.log(newData)
-    return newData
+  } catch (err) {
+    console.log(err)
   } finally {
-    await page.close()
+    // await page.close()
+    writeJsonToFile(lotteryID, results)
   }
 }
-
-// crawl()
-
+crawl()
 module.exports = {
   crawl
 }

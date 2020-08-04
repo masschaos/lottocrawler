@@ -7,7 +7,7 @@ const parse = (latestDraw) => {
   if (number.length !== 8) {
     throw new DrawingError(lotteryID)
   }
-  latestDraw.numbers = `${number.slice(0, 6).join(',')}#${number.slice(6, 8).join('|')}|${latestDraw.joker}`
+  latestDraw.numbers = `${number.slice(0, 6).join(',')}|${number.slice(6, 8).join(',')}|${latestDraw.joker}`
   latestDraw.breakdown.push(latestDraw.jokerbreakdown)
   delete latestDraw.jokerbreakdown
   delete latestDraw.joker
