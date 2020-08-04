@@ -33,9 +33,11 @@ const Craw = async (page, url, selectorAll, lotteryID) => {
       data.drawUrl = element.querySelector('.draw a').href
       // data.other = []
       data.jackpot = []
+      let numbers = []
       const tmp = element.querySelector('.numbers_wrapper .container')
-      let numbers = [...tmp.querySelectorAll('b')].map(item => item.innerText)
-      numbers = numbers.map(item => item.trim())
+      if (tmp) {
+        numbers = [...tmp.querySelectorAll('b')].map(item => item.innerText.trim())
+      }
       data.numbers = [numbers.slice(0, -1).join(','), numbers.slice(-1)].join('|')
       data.super_prize = element.querySelector('.prize').innerText
       return data
