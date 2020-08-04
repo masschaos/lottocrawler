@@ -8,7 +8,7 @@ const lotteryName = 'GlücksSpirale'
 const lotteryID = 'de-glucks-spirale'
 const url = 'https://www.lotterypost.com/game/330/results'
 
-const getBreakdown = async (page) => {
+const getBreakdown = async (page, numberList) => {
   const firstLineSelector = '#prizeTable > table > tbody > tr:nth-child(1) > td:nth-child(1)'
   await page.waitForFunction(
     firstLineSelector => document.querySelector(firstLineSelector).innerText.trim().length > 0,
@@ -16,7 +16,7 @@ const getBreakdown = async (page) => {
     firstLineSelector
   )
   const prizeTrSelector = '#prizeTable > table > tbody > tr'
-  const detail = await page.$$eval(prizeTrSelector, trElements => trElements.map(trElement => {
+  let detail = await page.$$eval(prizeTrSelector, trElements => trElements.map(trElement => {
     const tds = Array.from(trElement.querySelectorAll('td'))
     if (tds.length < 3) {
       // 无权限
@@ -34,6 +34,10 @@ const getBreakdown = async (page) => {
   if (detail[0] === null) {
     return null
   }
+  detail = detail.map((item, index) => {
+    item.numbers = numberList[index]
+    return item
+  })
   return [{
     name: 'prizes-odds',
     detail: detail
@@ -68,11 +72,17 @@ const crawl = async () => {
         // numbers
         const numberSelector = 'div.resultsRow.resultsPlain'
         let numbers = trElement.querySelector(numberSelector).innerText
-        const numberList = numbers.split(',')
-        numbers = numberList.map(number => {
-          return number.split(':')[1].trim()
+        let numberList = numbers.split(',')
+        numberList = numberList.map((numberItem, index) => {
+          const items = numberItem.split(':')[1].trim().split('/')
+          const numbers = []
+          for (const item of items) {
+            const number = item.padStart(index + 1, '0').padStart(7, '-')
+            numbers.push(number)
+          }
+          return numbers.join('#')
         })
-        numbers = numbers.join(',')
+        numbers = numberList[6]
 
         // breakdown url
         const prizeUrlSelector = 'div.drawWrap > div.resultsLinks > a:nth-child(1)'
@@ -81,13 +91,14 @@ const crawl = async () => {
         return {
           drawTime: drawTimeString,
           numbers: numbers,
-          breakdownUrl: prizeUrl
+          breakdownUrl: prizeUrl,
+          numberList: numberList
         }
       }))
       firstLineDrawDate = drawElements[0].drawTime
       for (const drawElement of drawElements) {
         await prizePage.goto(drawElement.breakdownUrl)
-        const breakdown = await getBreakdown(prizePage)
+        const breakdown = await getBreakdown(prizePage, drawElement.numberList)
         if (breakdown === null) {
           continue
         }
@@ -99,6 +110,7 @@ const crawl = async () => {
         drawElement.nextDrawtime = ''
         drawElement.nextJackpot = []
         delete drawElement.breakdownUrl
+        delete drawElement.numberList
         results.push(drawElement)
       }
       const preNextSelector = 'a[title^="Next page"]'

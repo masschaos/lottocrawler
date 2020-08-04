@@ -25,16 +25,20 @@ const getNumbers = async (page) => {
   let numbers = await page.$eval(numberSelector, el => el.innerText)
   const numberList = numbers.split(',')
   numbers = numberList.map(number => {
-    return number.split(':')[1].trim()
+    const items = number.split(':')[1].trim().split('/')
+    return items.map((item, index) => {
+      item = item.padStart(index + 1, '0').padStart(7, '-')
+      return item
+    }).join('#')
   })
-  return numbers.join(',')
+  return numbers
 }
 
 const getNextJackpot = async () => {
   return []
 }
 
-const getBreakdown = async (page) => {
+const getBreakdown = async (page, numberList) => {
   const prizeUrlSelector = '#game > div > dl > dd:nth-child(2) > table > tbody > tr > td.draw > div.drawWrap > div:nth-child(2) > a:nth-child(2)'
   const prizeUrl = await page.$eval(prizeUrlSelector, url => url.href)
   await page.goto(prizeUrl)
@@ -45,7 +49,7 @@ const getBreakdown = async (page) => {
     firstLineSelector
   )
   const prizeTrSelector = '#prizeTable > table > tbody > tr'
-  const detail = await page.$$eval(prizeTrSelector, trElements => trElements.map(trElement => {
+  let detail = await page.$$eval(prizeTrSelector, trElements => trElements.map(trElement => {
     const tds = Array.from(trElement.querySelectorAll('td'))
     return {
       name: tds[0].innerText,
@@ -56,6 +60,10 @@ const getBreakdown = async (page) => {
   if (detail.length === 0) {
     throw new DrawingError(lotteryID)
   }
+  detail = detail.map((item, index) => {
+    item.numbers = numberList[index]
+    return item
+  })
   return [{
     name: 'prizes-odds',
     detail: detail
@@ -75,9 +83,10 @@ const crawl = async () => {
     await page.waitForSelector(drawTimeSelecor)
     const drawTime = await getDrawTime(page)
     const nextDrawTime = await getNextDrawTime(page)
-    const numbers = await getNumbers(page)
+    const numberList = await getNumbers(page)
+    const numbers = numberList[6]
     const nextJackpot = await getNextJackpot(page)
-    const breakdown = await getBreakdown(page)
+    const breakdown = await getBreakdown(page, numberList)
     const jackpot = getJackpot(breakdown)
     const result = {
       lotteryID: lotteryID,
