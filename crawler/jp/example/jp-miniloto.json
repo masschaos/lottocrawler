@@ -1,15 +1,42 @@
 {
-    "drawTime": "20200731184500",
-    "numbers": "02,08,14,17,26#04",
-    "jackpot": [],
-    "breakdown":[{"name":"main", "detail":[{"name": "1等", "count": 27, "prize": "5,914,500円"},
-      {"name": "2等", "count": 101, "prize": "113,500円"},
-      {"name": "3等", "count": 2688, "prize": "7,300円"},
-      {"name": "4等", "count": 56893, "prize": "900円"}]}],
-    "other": [{"name":"キャリーオーバー","value":"1,326,515,335円"}],
-    "name": "ミニロト",
-    "lotteryID": "jp-miniloto",
-    "issue": "1088",
-    "saleAmount": "540,145,000円"
+  "drawTime": "20200731184500",
+  "numbers": "02,08,14,17,26#04",
+  "jackpot": [],
+  "breakdown": [
+    {
+      "name": "main",
+      "detail": [
+        {
+          "name": "1等",
+          "count": 27,
+          "prize": "5,914,500円"
+        },
+        {
+          "name": "2等",
+          "count": 101,
+          "prize": "113,500円"
+        },
+        {
+          "name": "3等",
+          "count": 2688,
+          "prize": "7,300円"
+        },
+        {
+          "name": "4等",
+          "count": 56893,
+          "prize": "900円"
+        }
+      ]
+    }
+  ],
+  "other": [
+    {
+      "name": "キャリーオーバー",
+      "value": "1,326,515,335円"
+    }
+  ],
+  "name": "ミニロト",
+  "lotteryID": "jp-miniloto",
+  "issue": "1088",
+  "saleAmount": "540,145,000円"
 }
-

@@ -2,7 +2,8 @@
     "drawTime": "20200804184500",
     "numbers": "1|1|3",
     "jackpot": [],
-    "breakdown":[{"name":"main", "detail": [{"name": "ストレート", "count": 136, "prize": "70,900円"},
+    "breakdown":[{"name":"main", "detail": [
+      {"name": "ストレート", "count": 136, "prize": "70,900円"},
       {"name": "ボックス", "count": 295, "prize": "23,600円"},
       {"name": "セット（ストレート）", "count": 282, "prize": "47,200円"},
       {"name": "セット（ボックス）", "count": 396, "prize": "11,800円"},
