@@ -80,7 +80,7 @@ const crawl = async () => {
         const superzahlNumbers = superzahlNumberItems.map(item => {
           return item.innerText
         })
-        numbers = [numbers.join(','), superzahlNumbers.join(',')].join('#')
+        numbers = [numbers.join(','), superzahlNumbers.join(',')].join('|')
 
         // breakdown url
         const prizeUrlSelector = 'div.drawWrap > div.resultsLinks > a:nth-child(1)'
