@@ -1,9 +1,11 @@
 /**
- * 处理 name.txt 内容，返回 csv 名称数组
+ * 处理 xxx.csv 包含最新的彩票 ID 的文件
+ * lottery ID 需要拼接 A10X 才能作为 CSV 文件名
+ * 可靠性很低，但是没办法
  * @Author: maple
  * @Date: 2020-08-05 21:25:28
  * @LastEditors: maple
- * @LastEditTime: 2020-08-06 00:58:38
+ * @LastEditTime: 2020-08-06 03:32:21
  */
 const log = require('../../../../util/log')
 

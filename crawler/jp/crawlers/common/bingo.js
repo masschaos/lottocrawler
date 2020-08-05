@@ -1,8 +1,10 @@
 /**
+ * Bingo 类别的爬虫
+ * https://www.mizuhobank.co.jp/retail/takarakuji/bingo/index.html
  * @Author: maple
  * @Date: 2020-08-05 21:18:36
  * @LastEditors: maple
- * @LastEditTime: 2020-08-06 01:08:58
+ * @LastEditTime: 2020-08-06 03:27:18
  */
 const crawler = require('./crawler')
 const moment = require('moment')

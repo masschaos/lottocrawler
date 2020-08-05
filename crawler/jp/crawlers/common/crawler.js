@@ -2,7 +2,7 @@
  * @Author: maple
  * @Date: 2020-08-05 21:19:37
  * @LastEditors: maple
- * @LastEditTime: 2020-08-06 02:07:26
+ * @LastEditTime: 2020-08-06 03:31:17
  */
 const VError = require('verror')
 
@@ -12,7 +12,15 @@ const txtNamesFormat = require('./txt_names_format')
 const csvNamesFormat = require('./csv_names_format')
 const fileGet = require('./get_file_text')
 
+/**
+ * 爬取彩票实际数据的文本
+ * 乐透三个彩票可以通过 name.txt 来获取真实 CSV 名称
+ * 而其他彩票没有 name.txt，只能根据 ID 拼接 A10X 来获得 CSV 名称
+ * @param {string} name 彩票名称
+ * @param {string} mainName 彩票类别
+ */
 async function crawler (name, mainName) {
+  // 获得 CSV 文件名
   let lastCsvName
   if (mainName === 'bingo' || mainName === 'numbers' || mainName === 'qoochan') {
     const nameURL = urlsGet.getNameCSVURL(name, mainName)
@@ -54,11 +62,13 @@ async function crawler (name, mainName) {
   if (!lastCsvName) {
     throw new VError('爬取 csv 目录失败')
   }
-
+  // 获得 CSV 文件的 URL
+  // 这里 Numbers3 和 Numbers4 其实是同个文件
   const csvURL = urlsGet.getCSVURL(name, lastCsvName, mainName)
 
   log.info(`爬取 csv url: ${csvURL}`)
 
+  // 真实文件数据
   const csvText = await fileGet(csvURL)
 
   return csvText

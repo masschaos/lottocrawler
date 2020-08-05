@@ -2,7 +2,7 @@
  * @Author: maple
  * @Date: 2020-08-05 21:37:58
  * @LastEditors: maple
- * @LastEditTime: 2020-08-06 03:16:40
+ * @LastEditTime: 2020-08-06 03:34:56
  */
 const axios = require('axios')
 const VError = require('verror')
@@ -30,6 +30,8 @@ async function getFileText (url) {
   let data
   let retryTimes = 3
   let lastError
+
+  // 如果错误或者未获得数据，重新爬取
   while (retryTimes-- && !data) {
     try {
       // 获得 buffer

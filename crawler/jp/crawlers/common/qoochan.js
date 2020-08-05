@@ -1,8 +1,9 @@
 /**
+ * 彩票处理类
 * @Author: maple
 * @Date: 2020-08-05 21:18:36
  * @LastEditors: maple
- * @LastEditTime: 2020-08-06 02:14:15
+ * @LastEditTime: 2020-08-06 03:32:42
 */
 const crawler = require('./crawler')
 const moment = require('moment')

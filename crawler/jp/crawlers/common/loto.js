@@ -1,8 +1,9 @@
 /**
+ * 彩票处理类
  * @Author: maple
  * @Date: 2020-08-05 21:18:36
  * @LastEditors: maple
- * @LastEditTime: 2020-08-06 00:29:31
+ * @LastEditTime: 2020-08-06 03:33:19
  */
 const crawler = require('./crawler')
 const moment = require('moment')
@@ -18,7 +19,7 @@ function formatDetail (lines) {
   return lines.map(line => {
     const tmps = line.split(',')
     return {
-      name: tmps[0], // 确认是否需要额外处理
+      name: tmps[0], // 确认是否需要额外处理，乐透存在无人中奖的可能性
       count: tmps[1] === '該当なし' ? 0 : parseInt(tmps[1]),
       prize: tmps[2] === '該当なし' ? '該当なし' : `${moneyFormat(tmps[2])}円`
     }
