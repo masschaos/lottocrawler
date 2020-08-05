@@ -1,12 +1,28 @@
 const CrawlerMap = require('../index')
-
+/*
+ * node .\crawler\us\ca\tests\test-crawler.js us-ca-daily-3
+ * node .\crawler\us\ca\tests\test-crawler.js us-ca-daily-4
+ * node .\crawler\us\ca\tests\test-crawler.js us-ca-fantasy-5
+ * node .\crawler\us\ca\tests\test-crawler.js us-ca-mega-millions
+ * node .\crawler\us\ca\tests\test-crawler.js us-ca-powerball
+ * node .\crawler\us\ca\tests\test-crawler.js us-ca-superlotto-plus
+*/
 async function test () {
-  CrawlerMap.forEach(async function (crawler, key) {
-    const result = await crawler[0].crawl()
-    console.log(key, JSON.stringify(result, null, 4))
-  })
-  // const result = await CrawlerMap.get('us-ca-daily-3')[0].crawl()
-  // console.log(result)
+  const crawlerId = process.argv[2]
+  if (crawlerId) {
+    const crawler = CrawlerMap.get(crawlerId)
+    if (crawler) {
+      const result = await crawler[0].crawl()
+      console.log(crawlerId, JSON.stringify(result, null, 4))
+    } else {
+      console.log(`${crawlerId} is not exist`)
+    }
+  } else {
+    CrawlerMap.forEach(async function (crawler, key) {
+      const result = await crawler[0].crawl()
+      console.log(key, JSON.stringify(result, null, 4))
+    })
+  }
 }
 
 test()
