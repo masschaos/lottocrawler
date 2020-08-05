@@ -91,8 +91,8 @@ const crawl = async () => {
     const result = {
       lotteryID: lotteryID,
       name: lotteryName,
-      drawtime: drawTime,
-      nextDrawtime: nextDrawTime,
+      drawTime: drawTime,
+      nextDrawTime: nextDrawTime,
       numbers: numbers,
       breakdown: breakdown,
       jackpot: jackpot,
