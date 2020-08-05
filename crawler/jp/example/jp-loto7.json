@@ -1,0 +1,17 @@
+{
+    "drawTime": "20200731184500",
+    "numbers": "03,08,15,22,24,29,35#18,26",
+    "jackpot": [],
+    "breakdown":[{"name":"main", "detail":[{"name": "1等", "count": 0, "prize": "該当なし"},
+       {"name": "2等", "count": 18, "prize": "4,511,300円"},
+       {"name": "3等", "count": 230, "prize": "494,200円"},
+       {"name": "4等", "count": 9310, "prize": "7,100円"},
+       {"name": "5等", "count": 125612, "prize": "1,300円"},
+       {"name": "6等", "count": 200191, "prize": "1,000円"}]}],
+    "other": [{"name":"キャリーオーバー","value":"1,326,515,335円"}],
+    "name": "ロト7",
+    "lotteryID": "jp-loto7",
+    "issue": "379",
+    "saleAmount": "2,460,854,100円"
+}
+

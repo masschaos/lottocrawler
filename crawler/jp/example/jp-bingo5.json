@@ -1,0 +1,18 @@
+{
+    "drawTime": "20200729184500",
+    "numbers": "04|06|12|20|23|27|34|39",
+    "jackpot": [],
+    "breakdown":[{"name":"main", "detail":[
+       {"name": "1等", "count": 3, "prize": "6,225,700円"},
+       {"name": "2等", "count": 36, "prize": "421,200円"},
+       {"name": "3等", "count": 120, "prize": "56,900円"},
+       {"name": "4等", "count": 498, "prize": "22,100円"},
+       {"name": "5等", "count": 3413, "prize": "2,900円"},
+       {"name": "6等", "count": 19402, "prize": "700円"},
+       {"name": "7等", "count": 173596, "prize": "200円"}]}],
+    "other": [],
+    "name": "ビンゴ5",
+    "lotteryID": "jp-bingo5",
+    "issue": "171",
+    "saleAmount": "226,337,200円"
+}

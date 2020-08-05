@@ -1,0 +1,18 @@
+{
+    "drawTime": "20200804184500",
+    "numbers": "6|6|7|9",
+    "jackpot": [],
+    "breakdown":[{"name":"main",
+                  "detail":[{"name": "ストレート", "count": 9, "prize": "1,370,200円"},
+                            {"name": "ボックス", "count": 112, "prize": "114,100円"},
+                            {"name": "セット（ストレート）", "count": 62, "prize": "742,100円"},
+                            {"name": "セット（ボックス）", "count": 538, "prize": "57,000円"}]
+    }],
+    "other": [],
+    "name": "ナンバーズ4",
+    "lotteryID": "jp-numbers4",
+    "issue": "5492",
+    "saleAmount": "226,337,200円"
+}
+
+
