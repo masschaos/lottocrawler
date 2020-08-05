@@ -1,0 +1,17 @@
+{
+    "drawTime": "20200803184500",
+    "numbers": "01,02,14,15,21,34#19",
+    "jackpot": [],
+    "breakdown":[{"name":"main", "detail":[{"name": "1等", "count": 1, "prize": "278,421,000円"},
+       {"name": "2等", "count": 3, "prize": "25,310,100円"},
+       {"name": "3等", "count": 197, "prize": "416,200円"},
+       {"name": "4等", "count": 10296, "prize": "8,400円"},
+       {"name": "5等", "count": 175685, "prize": "1,000円"}]}],
+    "other": [{"name":"キャリーオーバー","value":"0円"}],
+    "name": "ロト6",
+    "lotteryID": "jp-loto6",
+    "issue": "1505",
+    "saleAmount": "1,496,360,000円"
+}
+
+
