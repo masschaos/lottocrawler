@@ -7,17 +7,28 @@ const moment = require('moment')
 const lotteryName = 'Spiel 77'
 const lotteryID = 'de-spiel77'
 const url = 'https://www.lotterypost.com/game/326'
+// 开奖时间和lotto-6aus49一致，周三下午18:25和周六下午19:25
+const wedDrawAt = '182500'
+const satDrawAt = '192500'
 
 const getDrawTime = async (page) => {
   const selector = '#game > div > dl > dd:nth-child(2) > table > tbody > tr > td.draw > div.resultsDrawDate'
   const dateString = await page.$eval(selector, el => el.innerText)
-  return moment.parseZone(new Date(dateString)).format('YYYYMMDDHHmmss')
+  let drawAt = wedDrawAt
+  if (dateString.startsWith('Sat')) {
+    drawAt = satDrawAt
+  }
+  return moment.parseZone(new Date(dateString)).format('YYYYMMDD') + drawAt
 }
 
 const getNextDrawTime = async (page) => {
   const selector = '#game > div > dl > dd:nth-child(2) > table > tbody > tr > td.info > div:nth-child(1) > div > p:nth-child(2)'
   const dateString = await page.$eval(selector, el => el.innerText)
-  return moment.parseZone(new Date(dateString)).format('YYYYMMDDHHmmss')
+  let drawAt = wedDrawAt
+  if (dateString.startsWith('Sat')) {
+    drawAt = satDrawAt
+  }
+  return moment.parseZone(new Date(dateString)).format('YYYYMMDD') + drawAt
 }
 
 const getNumbers = async (page) => {

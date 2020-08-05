@@ -7,6 +7,9 @@ const moment = require('moment')
 const lotteryName = 'Spiel 77'
 const lotteryID = 'de-spiel77'
 const url = 'https://www.lotterypost.com/game/326/results'
+// 开奖时间和lotto-6aus49一致，周三下午18:25和周六下午19:25
+const wedDrawAt = '182500'
+const satDrawAt = '192500'
 
 const getBreakdown = async (page) => {
   const firstLineSelector = '#prizeTable > table > tbody > tr:nth-child(1) > td:nth-child(1)'
@@ -94,7 +97,11 @@ const crawl = async () => {
         drawElement.jackpot = []
         drawElement.lotteryID = lotteryID
         drawElement.name = lotteryName
-        drawElement.drawTime = moment.parseZone(new Date(drawElement.drawTime)).format('YYYYMMDDHHmmss')
+        let drawAt = wedDrawAt
+        if (drawElement.drawTime.startsWith('Sat')) {
+          drawAt = satDrawAt
+        }
+        drawElement.drawTime = moment.parseZone(new Date(drawElement.drawTime)).format('YYYYMMDD') + drawAt
         drawElement.nextDrawtime = ''
         drawElement.nextJackpot = []
         delete drawElement.breakdownUrl
