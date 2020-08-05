@@ -2,7 +2,7 @@
  * @Author: maple
  * @Date: 2020-08-05 21:37:58
  * @LastEditors: maple
- * @LastEditTime: 2020-08-06 00:59:04
+ * @LastEditTime: 2020-08-06 03:16:40
  */
 const axios = require('axios')
 const VError = require('verror')
@@ -42,8 +42,6 @@ async function getFileText (url) {
         from: 'SJIS',
         type: 'arraystrbuffer'
       })).toString()
-
-      console.log()
     } catch (err) {
       lastError = err
       log.warn(`爬虫错误: ${err.messsage || err}`)
@@ -62,11 +60,3 @@ async function getFileText (url) {
 }
 
 module.exports = getFileText
-
-// const url = 'https://www.mizuhobank.co.jp/takarakuji/apl/txt/miniloto/name.txt?1596630168578'
-
-// async function main () {
-//   console.log(await getFileText(url))
-// }
-
-// main()

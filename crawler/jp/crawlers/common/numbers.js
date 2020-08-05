@@ -2,7 +2,7 @@
  * @Author: maple
  * @Date: 2020-08-05 21:18:36
  * @LastEditors: maple
- * @LastEditTime: 2020-08-06 01:58:37
+ * @LastEditTime: 2020-08-06 03:16:47
  */
 const crawler = require('./crawler')
 const moment = require('moment')
@@ -107,7 +107,7 @@ async function main (config = {}) {
   const drawTime = moment().format('YYYYMMDDHHmmss')
   config.drawTime = drawTime
   const text = await crawler(name, mainName)
-  console.log(text)
+
   const result = format(text, config)
 
   return result

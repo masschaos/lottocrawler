@@ -104,8 +104,6 @@ async function main (config = {}) {
   config.drawTime = drawTime
   const text = await crawler(name, mainName)
 
-  console.log(text)
-
   const result = format(text, config)
 
   return result
