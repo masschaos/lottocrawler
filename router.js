@@ -1,11 +1,13 @@
+const log = require('./util/log')
 const VError = require('verror')
 
 function route (country, id) {
   try {
     // 适配国家代码是 us-ca 这种国家的州的情况
-    if (country.includes('-')) {
-      country = country.split('-').join('/')
+    if (country.includes('_')) {
+      country = country.split('_').join('/')
     }
+    log.debug(country)
     const crawlerMap = require('./crawler/' + country)
     const crawlers = crawlerMap.get(id)
     if (crawlers) {

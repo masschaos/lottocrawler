@@ -12,13 +12,19 @@ const { closeBrowser } = require('./pptr')
 const semaphore = new Semaphore(parallel)
 
 // 每个 cron 周期，从这里开始执行
-async function run () {
+// 参数为调试时使用，可以只运行一个国家或者一个彩票
+// 不传参则会运行所有的爬虫
+async function run (region, lotto) {
   try {
     // 取得部署区域系统配置
     const resp = await fetchSystemConfig()
     log.debug(resp)
     // 遍历该区域所有需要爬的国家
     for (const country of resp.countries.filter(x => { return x.upstream && x.upstream === 'crawler' })) {
+      if (region && country.code !== region) {
+        log.info(`跳过${country.name}`)
+        continue
+      }
       // 一个国家有多个level
       for (const level of country.levels) {
         log.info(`check ${country.name} level ${level.code}`)
@@ -35,6 +41,11 @@ async function run () {
         }
         // 开始检查每个彩票
         await Promise.all(lotteries.map(async (lottery) => {
+          if (lotto && lottery.id !== lotto) {
+            // 如果传参只运行指定的
+            log.info(`跳过${lottery.id}`)
+            return
+          }
           if (lottery.closed) {
             // 忽略关闭的彩票
             return
