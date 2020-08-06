@@ -5,7 +5,7 @@ const CRAWLER_CONFIGS = [
   {
     gameId: '12',
     name: 'Powerball',
-    lotteryID: 'us-ca-powerball',
+    lotteryID: 'us_ca-powerball',
     drawTime: '195900',
     specialChar: '|',
     noSpecialChar: ','
@@ -13,7 +13,7 @@ const CRAWLER_CONFIGS = [
   {
     gameId: '10',
     name: 'Fantasy 5',
-    lotteryID: 'us-ca-fantasy-5',
+    lotteryID: 'us_ca-fantasy-5',
     drawTime: '183000',
     specialChar: '|',
     noSpecialChar: ','
@@ -21,7 +21,7 @@ const CRAWLER_CONFIGS = [
   {
     gameId: '15',
     name: 'Mega Millions',
-    lotteryID: 'us-ca-mega-millions',
+    lotteryID: 'us_ca-mega-millions',
     drawTime: '200000',
     specialChar: '|',
     noSpecialChar: ','
@@ -29,7 +29,7 @@ const CRAWLER_CONFIGS = [
   {
     gameId: '8',
     name: 'Superlotto Plus',
-    lotteryID: 'us-ca-superlotto-plus',
+    lotteryID: 'us_ca-superlotto-plus',
     drawTime: '195700',
     specialChar: '|',
     noSpecialChar: ','
@@ -37,7 +37,7 @@ const CRAWLER_CONFIGS = [
   {
     gameId: '9',
     name: 'Daily 3',
-    lotteryID: 'us-ca-daily-3',
+    lotteryID: 'us_ca-daily-3',
     drawTime: ['130000', '183000'],
     specialChar: '|',
     noSpecialChar: '|'
@@ -45,7 +45,7 @@ const CRAWLER_CONFIGS = [
   {
     gameId: '14',
     name: 'Daily 4',
-    lotteryID: 'us-ca-daily-4',
+    lotteryID: 'us_ca-daily-4',
     drawTime: '183000',
     specialChar: '|',
     noSpecialChar: '|'
