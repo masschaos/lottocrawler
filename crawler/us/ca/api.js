@@ -6,7 +6,7 @@ const API_BASE = 'https://www.calottery.com/api/DrawGameApi'
 function parseMostRecentDraws (config, drawGameData) {
   const timeData = parseDrawTime(config, drawGameData)
   const mostRecentDraw = drawGameData.MostRecentDraw
-  const detailsAndWinnerCount = parseDetailAndWinnerCount(config, drawGameData)
+  const detailsAndWinnerCount = parseDetailAndWinnerCount(config, drawGameData.MostRecentDraw)
   let jackpot = []
   if (drawGameData.NextDraw.JackpotAmount) {
     jackpot = ['$' + drawGameData.NextDraw.JackpotAmount.toLocaleString() + '*']
@@ -18,7 +18,7 @@ function parseMostRecentDraws (config, drawGameData) {
     drawTime: timeData.currentDrawTime,
     nextDrawTime: timeData.nextDrawTime,
     jackpot: jackpot,
-    numbers: parseWinningNumbers(config, drawGameData),
+    numbers: parseWinningNumbers(config, drawGameData.MostRecentDraw),
     breakdown: [
       {
         name: 'main',
@@ -29,6 +29,52 @@ function parseMostRecentDraws (config, drawGameData) {
     name: config.name,
     lotteryID: config.lotteryID,
     issue: `${mostRecentDraw.DrawNumber}`,
+    winnerCount: detailsAndWinnerCount.winnerCount
+  }
+  return result
+}
+
+function parseHistoryDraws (config, previousDrawData, prevData, nextData) {
+  const timeData = moment(previousDrawData.DrawDate)
+  let currentDrawTime = null
+  if (config.lotteryID === 'us_ca-daily-3') {
+    let prevTime = null
+    let nextTime = null
+    if (prevData) {
+      prevTime = moment(prevData.DrawDate)
+      if (timeData.format('YYYYMMDD') === prevTime.format('YYYYMMDD')) {
+        currentDrawTime = timeData.format('YYYYMMDD') + config.drawTime[0]
+      } else {
+        currentDrawTime = timeData.format('YYYYMMDD') + config.drawTime[1]
+      }
+    }
+    if (nextData) {
+      nextTime = moment(nextData.DrawDate)
+      if (timeData.format('YYYYMMDD') === nextTime.format('YYYYMMDD')) {
+        currentDrawTime = timeData.format('YYYYMMDD') + config.drawTime[1]
+      } else {
+        currentDrawTime = timeData.format('YYYYMMDD') + config.drawTime[0]
+      }
+    }
+  } else {
+    currentDrawTime = timeData.format('YYYYMMDD') + config.drawTime
+  }
+  const detailsAndWinnerCount = parseDetailAndWinnerCount(config, previousDrawData)
+  const jackpot = [detailsAndWinnerCount.details[0].prize]
+  const result = {
+    drawTime: currentDrawTime,
+    jackpot: jackpot,
+    numbers: parseWinningNumbers(config, previousDrawData),
+    breakdown: [
+      {
+        name: 'main',
+        detail: detailsAndWinnerCount.details
+      }
+    ],
+    other: [],
+    name: config.name,
+    lotteryID: config.lotteryID,
+    issue: `${previousDrawData.DrawNumber}`,
     winnerCount: detailsAndWinnerCount.winnerCount
   }
   return result
@@ -68,10 +114,10 @@ function parseDrawTime (config, drawGameData) {
   }
 }
 
-function parseDetailAndWinnerCount (config, drawGameData) {
+function parseDetailAndWinnerCount (config, drawData) {
   let winnerCount = 0
   const details = []
-  const mostRecentDraw = drawGameData.MostRecentDraw
+  const mostRecentDraw = drawData
   for (const key in mostRecentDraw.Prizes) {
     const item = mostRecentDraw.Prizes[key]
     const detailItem = {
@@ -91,10 +137,10 @@ function parseDetailAndWinnerCount (config, drawGameData) {
   }
 }
 
-function parseWinningNumbers (config, drawGameData) {
+function parseWinningNumbers (config, drawData) {
   let index = 0
   const numbers = []
-  const winningNumbers = drawGameData.MostRecentDraw.WinningNumbers
+  const winningNumbers = drawData.WinningNumbers
   for (const key in winningNumbers) {
     if (index === 0) {
       numbers.push(winningNumbers[key].Number)
@@ -142,7 +188,70 @@ async function getDrawGamePastDrawResults (config, pageNumber = 1, pageSize = 20
   }
 }
 
+async function getDrawGameHistoryDrawResults (config) {
+  const pageSize = 20
+  const result = []
+  try {
+    let pageNumber = 1
+    let errorCount = 0
+    let historyDatas = []
+    while (true) {
+      const response = await axios.get(`${API_BASE}/DrawGamePastDrawResults/${config.gameId}/${pageNumber}/${pageSize}`)
+      if (response.status === 200) {
+        if (response.data.PreviousDraws.length === 0) {
+          for (let i = 0; i < historyDatas.length; i++) {
+            const item = historyDatas[i]
+            const prev = historyDatas[i - 1]
+            const next = historyDatas[i + 1]
+            result.push(parseHistoryDraws(config, item, prev, next))
+          }
+          return {
+            error: null,
+            data: result
+          }
+        } else {
+          console.log(`${config.lotteryID}|page|${pageNumber}|complete`)
+          historyDatas = historyDatas.concat(response.data.PreviousDraws)
+          pageNumber++
+          errorCount = 0
+        }
+      } else {
+        errorCount++
+      }
+      if (errorCount > 5) {
+        // 抓取某页数据错误次数超过5次，则认为出现异常，直接返回
+        return {
+          error: response.status,
+          data: []
+        }
+      }
+      await wait(5000) // 加入延迟，防止破坏对方网站
+    }
+  } catch (error) {
+    return {
+      error: error,
+      data: []
+    }
+  }
+}
+async function retry (func, retryCount) {
+  let count = 0
+  while (true) {
+    const result = await func()
+    if (result.error) {
+      await wait(5000)
+    } else {
+      return result
+    }
+    count++
+    if (count >= retryCount) {
+      return result
+    }
+  }
+}
 module.exports = {
   getDrawGamePastDrawResults,
-  wait
+  getDrawGameHistoryDrawResults,
+  wait,
+  retry
 }
