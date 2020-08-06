@@ -7,17 +7,19 @@ const moment = require('moment')
 const lotteryName = 'EuroJackpot'
 const lotteryID = 'de-euro-jackpot'
 const url = 'https://www.lotterypost.com/game/408'
+// 开奖时间为每周五21:00
+const drawAt = '210000'
 
 const getDrawTime = async (page) => {
   const selector = '#game > div > dl > dd:nth-child(2) > table > tbody > tr > td.draw > div.resultsDrawDate'
   const dateString = await page.$eval(selector, el => el.innerText)
-  return moment.parseZone(new Date(dateString)).format('YYYYMMDDHHmmss')
+  return moment.parseZone(new Date(dateString)).format('YYYYMMDD') + drawAt
 }
 
 const getNextDrawTime = async (page) => {
   const selector = '#game > div > dl > dd:nth-child(2) > table > tbody > tr > td.info > div:nth-child(1) > div > p:nth-child(2)'
   const dateString = await page.$eval(selector, el => el.innerText)
-  return moment.parseZone(new Date(dateString)).format('YYYYMMDDHHmmss')
+  return moment.parseZone(new Date(dateString)).format('YYYYMMDD') + drawAt
 }
 
 const getNumbers = async (page) => {

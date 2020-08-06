@@ -7,17 +7,19 @@ const moment = require('moment')
 const lotteryName = 'GlücksSpirale'
 const lotteryID = 'de-glucks-spirale'
 const url = 'https://www.lotterypost.com/game/330'
+// 开奖时间为每周六19:15开奖，19:57公布于互联网，
+const drawAt = '191500'
 
 const getDrawTime = async (page) => {
   const selector = '#game > div > dl > dd:nth-child(2) > table > tbody > tr > td.draw > div.resultsDrawDate'
   const dateString = await page.$eval(selector, el => el.innerText)
-  return moment.parseZone(new Date(dateString)).format('YYYYMMDDHHmmss')
+  return moment.parseZone(new Date(dateString)).format('YYYYMMDD') + drawAt
 }
 
 const getNextDrawTime = async (page) => {
   const selector = '#game > div > dl > dd:nth-child(2) > table > tbody > tr > td.info > div:nth-child(1) > div > p:nth-child(2)'
   const dateString = await page.$eval(selector, el => el.innerText)
-  return moment.parseZone(new Date(dateString)).format('YYYYMMDDHHmmss')
+  return moment.parseZone(new Date(dateString)).format('YYYYMMDD') + drawAt
 }
 
 const getNumbers = async (page) => {

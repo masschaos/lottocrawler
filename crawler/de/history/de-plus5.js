@@ -7,6 +7,8 @@ const moment = require('moment')
 const lotteryName = 'Plus 5'
 const lotteryID = 'de-plus5'
 const url = 'https://www.lotterypost.com/game/329/results'
+// 和Keno一致，开奖时间为每天19:10
+const drawAt = '191000'
 
 const getBreakdown = async (page) => {
   const firstLineSelector = '#prizeTable > table > tbody > tr:nth-child(1) > td:nth-child(1)'
@@ -94,7 +96,7 @@ const crawl = async () => {
         drawElement.jackpot = []
         drawElement.lotteryID = lotteryID
         drawElement.name = lotteryName
-        drawElement.drawTime = moment.parseZone(new Date(drawElement.drawTime)).format('YYYYMMDDHHmmss')
+        drawElement.drawTime = moment.parseZone(new Date(drawElement.drawTime)).format('YYYYMMDD') + drawAt
         drawElement.nextDrawtime = ''
         drawElement.nextJackpot = []
         delete drawElement.breakdownUrl

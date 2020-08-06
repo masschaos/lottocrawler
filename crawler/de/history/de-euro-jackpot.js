@@ -7,6 +7,8 @@ const moment = require('moment')
 const lotteryName = 'EuroJackpot'
 const lotteryID = 'de-euro-jackpot'
 const url = 'https://www.lotterypost.com/game/408/results'
+// 开奖时间为每周五21:00
+const drawAt = '210000'
 
 const getBreakdown = async (page) => {
   const firstLineSelector = '#prizeTable > table > tbody > tr:nth-child(1) > td:nth-child(1)'
@@ -102,7 +104,7 @@ const crawl = async () => {
         drawElement.jackpot = getJackpot(breakdown)
         drawElement.lotteryID = lotteryID
         drawElement.name = lotteryName
-        drawElement.drawTime = moment.parseZone(new Date(drawElement.drawTime)).format('YYYYMMDDHHmmss')
+        drawElement.drawTime = moment.parseZone(new Date(drawElement.drawTime)).format('YYYYMMDD') + drawAt
         drawElement.nextDrawtime = ''
         drawElement.nextJackpot = []
         delete drawElement.breakdownUrl

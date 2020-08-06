@@ -7,6 +7,8 @@ const moment = require('moment')
 const lotteryName = 'GlücksSpirale'
 const lotteryID = 'de-glucks-spirale'
 const url = 'https://www.lotterypost.com/game/330/results'
+// 开奖时间为每周六19:15开奖，19:57公布于互联网，
+const drawAt = '191500'
 
 const getBreakdown = async (page, numberList) => {
   const firstLineSelector = '#prizeTable > table > tbody > tr:nth-child(1) > td:nth-child(1)'
@@ -106,7 +108,7 @@ const crawl = async () => {
         drawElement.jackpot = []
         drawElement.lotteryID = lotteryID
         drawElement.name = lotteryName
-        drawElement.drawTime = moment.parseZone(new Date(drawElement.drawTime)).format('YYYYMMDDHHmmss')
+        drawElement.drawTime = moment.parseZone(new Date(drawElement.drawTime)).format('YYYYMMDD') + drawAt
         drawElement.nextDrawtime = ''
         drawElement.nextJackpot = []
         delete drawElement.breakdownUrl
