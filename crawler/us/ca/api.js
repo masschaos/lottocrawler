@@ -11,7 +11,7 @@ function parseMostRecentDraws (config, drawGameData) {
   if (drawGameData.NextDraw.JackpotAmount) {
     jackpot = ['$' + drawGameData.NextDraw.JackpotAmount.toLocaleString() + '*']
   }
-  if (config.lotteryID === 'us-ca-daily-3' || config.lotteryID === 'us-ca-daily-4') {
+  if (config.lotteryID === 'us_ca-daily-3' || config.lotteryID === 'us_ca-daily-4') {
     jackpot = [detailsAndWinnerCount.details[0].prize]
   }
   const result = {
@@ -40,12 +40,12 @@ function parseDrawTime (config, drawGameData) {
   let nextDrawTimeStr = null
   let currentDrawTimeStr = null
   switch (config.lotteryID) {
-    case 'us-ca-daily-4': {
+    case 'us_ca-daily-4': {
       currentDrawTimeStr = currentDrawTime.format('YYYYMMDD') + config.drawTime
       nextDrawTimeStr = currentDrawTime.add(1, 'days').format('YYYYMMDD') + config.drawTime
       break
     }
-    case 'us-ca-daily-3': {
+    case 'us_ca-daily-3': {
       const firstTime = moment(drawGameData.PreviousDraws[0].DrawDate)
       const secondTime = moment(drawGameData.PreviousDraws[1].DrawDate)
       if (firstTime.format('YYYYMMDD') === secondTime.format('YYYYMMDD')) {
