@@ -2,7 +2,7 @@
  * @Author: maple
  * @Date: 2020-08-07 17:40:43
  * @LastEditors: maple
- * @LastEditTime: 2020-08-07 21:47:40
+ * @LastEditTime: 2020-08-07 22:27:23
  */
 const fs = require('fs')
 const util = require('util')
@@ -26,18 +26,32 @@ const crawlerRanges = {
   'jp-miniloto': ['lasted100', 'lasted']
 }
 
+/**
+ * 存储数据到 JSON 文件
+ * @param {string} name 名称
+ * @param {id} id id
+ * @param {object}} data 数据
+ */
 async function saveData (name, id, data) {
-  const filePath = path.join(__dirname, 'history/tmp', name, `${id}.JSON`)
+  const filePath = path.join(__dirname, 'history', 'tmp', name, `${id}.JSON`)
   await writeFile(filePath, JSON.stringify(data))
 }
 
+/**
+ * 存储合集 JSON 文件
+ * @param {string} name name
+ * @param {*} data data
+ */
 async function saveResultData (name, data) {
   const filePath = path.join(__dirname, 'history', `${name}.JSON`)
   await writeFile(filePath, JSON.stringify(data))
 }
 
+/**
+ * 检查对应 lottery 对应的 id 是否已经成功爬取
+ */
 async function tryGetFile (name, id) {
-  const filePath = path.join(__dirname, 'history/tmp', name, `${id}.JSON`)
+  const filePath = path.join(__dirname, 'history', 'tmp', name, `${id}.JSON`)
   try {
     const data = await readFile(filePath, { encoding: 'utf8' })
     return JSON.parse(data)
@@ -74,13 +88,21 @@ async function polymerizeData (name, startId, endId) {
   } catch (err) {
     log.info(`jp 历史数据爬取 LotteryId: ${name} 保存文件失败`, err)
   }
-
-  console.log(datas.map(data => data.issue))
 }
 
 async function mkdirFloder (name) {
   try {
-    await mkdir(path.join(__dirname, 'history/tmp', name))
+    await mkdir(path.join(__dirname, 'history'))
+  } catch (err) {
+    // do nothing
+  }
+  try {
+    await mkdir(path.join(__dirname, 'history', 'tmp'))
+  } catch (err) {
+    // do nothing
+  }
+  try {
+    await mkdir(path.join(__dirname, 'history', 'tmp', name))
   } catch (err) {
     // do nothing
   }
@@ -92,7 +114,7 @@ async function done () {
 
     const crawler = datas[0].crawl
 
-    // 0. 初始化文件
+    // 0. 初始化 lottery 文件夹
     await mkdirFloder(name)
 
     // 1. 检查爬取范围
@@ -100,14 +122,16 @@ async function done () {
     let crawlerStart = crawlerRange[0]
     let crawkerEnd = crawlerRange[1]
 
+    // 默认 lasted 先爬取一次最新的 lottery
     if (crawkerEnd === 'lasted') {
       const lastData = await crawler()
       crawkerEnd = lastData.issue
     }
 
+    // 爬取最近 100 次
     if (crawlerStart === 'lasted100') {
       crawlerStart = crawkerEnd - 99
-    } else if (crawlerStart === 'lasted1') {
+    } else if (crawlerStart === 'lasted1') { // 爬取最近的两次，测试用
       crawlerStart = crawkerEnd - 1
     }
 
