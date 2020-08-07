@@ -1,4 +1,5 @@
 /**
+ * 彩票处理类
  * @Author: maple
  * @Date: 2020-08-05 21:18:36
  * @LastEditors: maple
