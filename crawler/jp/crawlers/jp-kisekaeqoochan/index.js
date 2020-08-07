@@ -2,13 +2,13 @@
  * @Author: maple
  * @Date: 2020-08-05 21:18:26
  * @LastEditors: maple
- * @LastEditTime: 2020-08-06 02:20:50
+ * @LastEditTime: 2020-08-07 19:24:32
  */
 const VError = require('verror')
 
 const qoochanCommon = require('../common/qoochan')
 
-async function crawl () {
+async function crawl (id) {
   const config = {
     mainName: 'qoochan',
     name: 'kisekae-qoochan',
@@ -19,7 +19,7 @@ async function crawl () {
     specialNumber: 0
   }
   try {
-    const result = await qoochanCommon(config)
+    const result = await qoochanCommon(config, id)
     return result
   } catch (err) {
     throw new VError(`${config.lotteryID}没有抓到数据，可能数据源不可用或有更改，请检查调度策略。detail: ${err.name} - ${err.message}`)

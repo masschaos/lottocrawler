@@ -2,7 +2,7 @@
  * @Author: maple
  * @Date: 2020-08-05 20:58:46
  * @LastEditors: maple
- * @LastEditTime: 2020-08-07 13:32:24
+ * @LastEditTime: 2020-08-07 19:35:56
  */
 
 const Bingo5 = require('./crawlers/jp-bingo5')

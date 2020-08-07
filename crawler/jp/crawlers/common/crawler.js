@@ -2,7 +2,7 @@
  * @Author: maple
  * @Date: 2020-08-05 21:19:37
  * @LastEditors: maple
- * @LastEditTime: 2020-08-07 18:49:21
+ * @LastEditTime: 2020-08-07 19:35:48
  */
 const VError = require('verror')
 
@@ -12,6 +12,38 @@ const txtNamesFormat = require('./txt_names_format')
 const csvNamesFormat = require('./csv_names_format')
 const fileGet = require('./get_file_text')
 
+function getCSVNameById (name, id) {
+  let prefix
+  switch (name) {
+    case 'bingo5':
+      prefix = 'A104'
+      break
+    case 'numbers3':
+      prefix = 'A100'
+      break
+    case 'numbers4':
+      prefix = 'A100'
+      break
+    case 'kisekae-qoochan':
+      prefix = 'A105'
+      break
+    case 'loto6':
+      prefix = 'A102'
+      break
+    case 'loto7':
+      prefix = 'A103'
+      break
+    case 'miniloto':
+      prefix = 'A101'
+      break
+    default:
+      prefix = `unknown_name_${name}`
+      break
+  }
+
+  return `${prefix}${('0000' + id).slice(-4, 10)}.CSV`
+}
+
 /**
  * 爬取彩票实际数据的文本
  * 乐透三个彩票可以通过 name.txt 来获取真实 CSV 名称
@@ -19,40 +51,24 @@ const fileGet = require('./get_file_text')
  * @param {string} name 彩票名称
  * @param {string} mainName 彩票类别
  */
-async function crawler (name, mainName) {
+async function crawler (name, mainName, id) {
   // 获得 CSV 文件名
   let lastCsvName
-  if (mainName === 'bingo' || mainName === 'numbers' || mainName === 'qoochan') {
+  if (id !== undefined) {
+    lastCsvName = getCSVNameById(name, id)
+  } else if (mainName === 'bingo' || mainName === 'numbers' || mainName === 'qoochan') {
     const nameURL = urlsGet.getNameCSVURL(name, mainName)
 
-    log.debug(`爬取 name csv url: ${nameURL}`)
+    log.info(`爬取 name csv url: ${nameURL}`)
 
     const nameText = await fileGet(nameURL)
     const csvNames = csvNamesFormat(nameText)
 
-    let prefix
-    switch (name) {
-      case 'bingo5':
-        prefix = 'A104'
-        break
-      case 'numbers3':
-        prefix = 'A100'
-        break
-      case 'numbers4':
-        prefix = 'A100'
-        break
-      case 'kisekae-qoochan':
-        prefix = 'A105'
-        break
-      default:
-        break
-    }
-
-    lastCsvName = `${prefix}${('0000' + csvNames[0]).slice(-4, 10)}.CSV`
+    lastCsvName = getCSVNameById(name, csvNames[0])
   } else {
     const nameURL = urlsGet.getNameTXTURL(name)
 
-    log.debug(`爬取 name url: ${nameURL}`)
+    log.info(`爬取 name url: ${nameURL}`)
 
     const nameText = await fileGet(nameURL)
     const csvNames = txtNamesFormat(nameText)
@@ -66,7 +82,7 @@ async function crawler (name, mainName) {
   // 这里 Numbers3 和 Numbers4 其实是同个文件
   const csvURL = urlsGet.getCSVURL(name, lastCsvName, mainName)
 
-  log.debug(`爬取 csv url: ${csvURL}`)
+  log.info(`爬取 csv url: ${csvURL}`)
 
   // 真实文件数据
   const csvText = await fileGet(csvURL)
