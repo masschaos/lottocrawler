@@ -3,10 +3,10 @@
  * @Author: maple
  * @Date: 2020-08-05 21:18:36
  * @LastEditors: maple
- * @LastEditTime: 2020-08-06 03:33:19
+ * @LastEditTime: 2020-08-07 14:17:28
  */
 const crawler = require('./crawler')
-const moment = require('moment')
+const dateDeal = require('./issue_and_draw_time')
 const { moneyFormat } = require('../../../../util/format')
 
 function formatDetail (lines) {
@@ -28,7 +28,6 @@ function formatDetail (lines) {
 
 function format (text, config = {}) {
   const {
-    drawTime = moment().format('YYYYMMDDHHmmss'),
     realName = 'ロト7',
     lotteryID = 'jp-loto7',
     maxLevel = 6,
@@ -37,7 +36,7 @@ function format (text, config = {}) {
   } = config
 
   const result = {
-    drawTime,
+    drawTime: null,
     numbers: '',
     jackpot: [],
     breakdown: [
@@ -58,11 +57,15 @@ function format (text, config = {}) {
     const line = lines[i]
 
     if (line[0] === '第') {
-      result.issue = parseInt(line.slice(1, 5)).toString()
+      const data = dateDeal(line)
+      result.issue = data.issue
+      result.drawTime = data.drawTime
+      continue
     }
     if (line.indexOf('本数字') === 0) {
       const tmp = line.split(',').filter(num => !isNaN(parseInt(num)))
       result.numbers = `${tmp.slice(0, normalNumber).join(',')}#${tmp.slice(normalNumber, normalNumber + specialNumber).join(',')}`
+      continue
     }
     if (line.indexOf('１等') === 0) {
       const details = formatDetail(lines.slice(i, i + maxLevel))
@@ -101,8 +104,6 @@ async function main (config = {}) {
     name = 'loto7'
   } = config
 
-  const drawTime = moment().format('YYYYMMDDHHmmss')
-  config.drawTime = drawTime
   const text = await crawler(name, mainName)
 
   const result = format(text, config)
