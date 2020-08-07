@@ -3,7 +3,7 @@
 * @Author: maple
 * @Date: 2020-08-05 21:18:36
  * @LastEditors: maple
- * @LastEditTime: 2020-08-07 14:18:51
+ * @LastEditTime: 2020-08-07 19:22:26
 */
 const crawler = require('./crawler')
 const dateDeal = require('./issue_and_draw_time')
@@ -95,13 +95,13 @@ function format (text, config = {}) {
   return result
 }
 
-async function main (config = {}) {
+async function main (config = {}, id) {
   const {
     mainName = 'loto',
     name = 'loto7'
   } = config
 
-  const text = await crawler(name, mainName)
+  const text = await crawler(name, mainName, id)
 
   const result = format(text, config)
 

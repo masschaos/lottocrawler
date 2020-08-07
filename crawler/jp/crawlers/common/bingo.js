@@ -4,7 +4,7 @@
  * @Author: maple
  * @Date: 2020-08-05 21:18:36
  * @LastEditors: maple
- * @LastEditTime: 2020-08-07 14:15:39
+ * @LastEditTime: 2020-08-07 19:14:19
  */
 const crawler = require('./crawler')
 const { moneyFormat } = require('../../../../util/format')
@@ -97,13 +97,13 @@ function format (text, config = {}) {
   return result
 }
 
-async function main (config = {}) {
+async function main (config = {}, id) {
   const {
-    mainName = 'loto',
-    name = 'loto7'
+    mainName = 'bingo',
+    name = 'bingo5'
   } = config
 
-  const text = await crawler(name, mainName)
+  const text = await crawler(name, mainName, id)
   const result = format(text, config)
 
   return result
