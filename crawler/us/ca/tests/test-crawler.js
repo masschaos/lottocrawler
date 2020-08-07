@@ -1,11 +1,11 @@
 const CrawlerMap = require('../index')
 /*
- * node .\crawler\us\ca\tests\test-crawler.js us-ca-daily-3
- * node .\crawler\us\ca\tests\test-crawler.js us-ca-daily-4
- * node .\crawler\us\ca\tests\test-crawler.js us-ca-fantasy-5
- * node .\crawler\us\ca\tests\test-crawler.js us-ca-mega-millions
- * node .\crawler\us\ca\tests\test-crawler.js us-ca-powerball
- * node .\crawler\us\ca\tests\test-crawler.js us-ca-superlotto-plus
+ * node .\crawler\us\ca\tests\test-crawler.js us_ca-daily-3
+ * node .\crawler\us\ca\tests\test-crawler.js us_ca-daily-4
+ * node .\crawler\us\ca\tests\test-crawler.js us_ca-fantasy-5
+ * node .\crawler\us\ca\tests\test-crawler.js us_ca-mega-millions
+ * node .\crawler\us\ca\tests\test-crawler.js us_ca-powerball
+ * node .\crawler\us\ca\tests\test-crawler.js us_ca-superlotto-plus
 */
 async function test () {
   const crawlerId = process.argv[2]
