@@ -108,3 +108,9 @@ data/
 
 # Playground
 /play.js
+
+# jp history file
+/crawler/jp/history/*
+!/crawler/jp/history/tmp
+/crawler/jp/history/tmp/*
+!/crawler/jp/history/tmp/.gitkeep

@@ -2,7 +2,7 @@
  * @Author: maple
  * @Date: 2020-08-05 21:19:37
  * @LastEditors: maple
- * @LastEditTime: 2020-08-06 03:31:17
+ * @LastEditTime: 2020-08-07 18:49:21
  */
 const VError = require('verror')
 
@@ -25,7 +25,7 @@ async function crawler (name, mainName) {
   if (mainName === 'bingo' || mainName === 'numbers' || mainName === 'qoochan') {
     const nameURL = urlsGet.getNameCSVURL(name, mainName)
 
-    log.info(`爬取 name csv url: ${nameURL}`)
+    log.debug(`爬取 name csv url: ${nameURL}`)
 
     const nameText = await fileGet(nameURL)
     const csvNames = csvNamesFormat(nameText)
@@ -52,7 +52,7 @@ async function crawler (name, mainName) {
   } else {
     const nameURL = urlsGet.getNameTXTURL(name)
 
-    log.info(`爬取 name url: ${nameURL}`)
+    log.debug(`爬取 name url: ${nameURL}`)
 
     const nameText = await fileGet(nameURL)
     const csvNames = txtNamesFormat(nameText)
@@ -66,7 +66,7 @@ async function crawler (name, mainName) {
   // 这里 Numbers3 和 Numbers4 其实是同个文件
   const csvURL = urlsGet.getCSVURL(name, lastCsvName, mainName)
 
-  log.info(`爬取 csv url: ${csvURL}`)
+  log.debug(`爬取 csv url: ${csvURL}`)
 
   // 真实文件数据
   const csvText = await fileGet(csvURL)
