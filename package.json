@@ -17,6 +17,7 @@
     "axios": "^0.19.2",
     "bufferutil": "^4.0.1",
     "cron-parser": "^2.15.0",
+    "encoding-japanese": "^1.0.30",
     "moment": "^2.27.0",
     "moment-timezone": "^0.5.31",
     "pino": "^6.4.1",
