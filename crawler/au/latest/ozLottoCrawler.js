@@ -26,7 +26,7 @@ class OzLottoCrawler extends crawler {
     */
   parse (data) {
     const item = {
-      drawTime: moment(data.DrawDate).format('YYYYMMDDHHmmss'),
+      drawTime: moment(data.DrawDate).format('YYYYMMDD') + '193000',
       detail: data.Dividends.map(a => {
         const result = {
           name: a.Division,

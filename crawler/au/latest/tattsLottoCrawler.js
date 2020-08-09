@@ -29,7 +29,7 @@ class TattsLottoCrawler extends crawler {
     */
   parse (data) {
     const item = {
-      drawTime: moment(data.DrawDate).format('YYYYMMDDHHmmss'),
+      drawTime: moment(data.DrawDate).format('YYYYMMDD') + '210000',
       detail: data.Dividends.map(a => {
         const result = {
           name: a.Division,
