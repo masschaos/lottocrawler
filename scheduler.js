@@ -61,7 +61,7 @@ async function run (region, lotto) {
             return x.lotteryID === id
           })
           // 根据预计开奖时间规则(lottery.drawConfig.timeRule)判断是否到了抓取数据的时间 ,
-          if (result && !hasNewDraw(timeRules, isQuickDraw, delay, result.drawTime, tz)) {
+          if (result && !hasNewDraw(timeRules, delay, result.drawTime, tz)) {
             log.info(`还未开奖，跳过${id}`)
             return
           }

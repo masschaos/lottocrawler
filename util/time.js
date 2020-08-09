@@ -12,11 +12,10 @@ function parseDrawTime (drawTime, tz) {
 }
 
 // timeRules 开奖规则 cron 列表
-// isQuickDraw 是否快开 高于1天每次就算
 // delay 结果延迟 分钟
 // lastDrawTime 上次开奖时间
 // tz 时区
-function hasNewDraw (timeRules, isQuickDraw, delay, lastDrawTime, tz) {
+function hasNewDraw (timeRules, delay, lastDrawTime, tz) {
   if (!timeRules || !lastDrawTime || !tz || timeRules.length === 0) {
     throw new VError(`解析开奖时间出错，彩票配置有误请检查。时区：(${tz})，上次开奖：(${lastDrawTime})，开奖规则：(${timeRules})。`)
   }
@@ -24,10 +23,7 @@ function hasNewDraw (timeRules, isQuickDraw, delay, lastDrawTime, tz) {
     if (!delay) {
       delay = 0
     }
-    let currentDate = parseDrawTime(lastDrawTime, tz)
-    if (!isQuickDraw) {
-      currentDate = currentDate.add(1, 'day')
-    }
+    const currentDate = parseDrawTime(lastDrawTime, tz)
     const endDate = moment().tz(tz).add(-delay, 'm')
     const cron = cronParser.parseExpression(timeRule, {
       currentDate,
