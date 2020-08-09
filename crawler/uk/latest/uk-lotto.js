@@ -5,10 +5,11 @@ const { MONTH } = require('../country')
 const VError = require('verror')
 const { newPage, ignoreImage } = require('../../../pptr')
 const { DrawingError } = require('../../../util/error')
+const time = require('../../../util/time')
 const url = 'https://www.lottery.co.uk/lotto/results'
 const numberSelector = '#siteContainer > div.main > div:nth-child(5) > div.paddedLight'
 
-const dateSelector = '#siteContainer > div.main > div:nth-child(5) > div.latestHeader.lotto > span'
+const dateSelector = '#siteContainer > div.main > div:nth-child(5) > div.latestHeader.lotto'
 const detailUrlSelector = '#siteContainer > div.main > div:nth-child(5) > div.resultsBottom.latest > a'
 const detailTableSelector = '#siteContainer > div.main > table.table.lotto.mobFormat > tbody'
 
@@ -25,8 +26,9 @@ const Craw = async (page, dataObj) => {
 
   // get time
   const dateStr = await page.$eval(dateSelector, el => el.innerText)
-  const [day, month, year] = dateStr.split(' ')
-  const drawTime = `${year}${MonthOrDayProcess(MONTH[month])}${MonthOrDayProcess(day)}000000`
+  const [weekday, day, month, year] = dateStr.split(' ')
+  const timestring = weekday === 'Saturday' ? '194500' : '200000'
+  const drawTime = `${year}${MonthOrDayProcess(MONTH[month])}${MonthOrDayProcess(day)}${timestring}`
 
   // get number and jackpot
   const numberStr = await page.$eval(numberSelector, el => el.innerText)

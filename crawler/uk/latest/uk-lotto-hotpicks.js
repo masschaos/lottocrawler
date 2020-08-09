@@ -14,7 +14,7 @@ const VError = require('verror')
 const { newPage, ignoreImage } = require('../../../pptr')
 const { DrawingError } = require('../../../util/error')
 const numberSelector = '#siteContainer > div.main > div:nth-child(5) > div.paddedLight'
-const dateSelector = '#siteContainer > div.main > div:nth-child(5) > div.latestHeader.hotpicks > span'
+const dateSelector = '#siteContainer > div.main > div:nth-child(5) > div.latestHeader.hotpicks'
 const detailUrlSelector = '#siteContainer > div.main > div:nth-child(5) > div.resultsBottom.latest > a'
 const detailTableSelector = '#siteContainer > div.main > table.table.hotpicks.mobFormat > tbody'
 
@@ -31,8 +31,12 @@ const Craw = async (page, dataObj) => {
 
   // get time
   const dateStr = await page.$eval(dateSelector, el => el.innerText)
-  const [day, month, year] = dateStr.split(' ')
-  const drawTime = `${year}${MonthOrDayProcess(MONTH[month])}${MonthOrDayProcess(day)}000000`
+  // const [day, month, year] = dateStr.split(' ')
+  // const drawTime = `${year}${MonthOrDayProcess(MONTH[month])}${MonthOrDayProcess(day)}000000`
+
+  const [weekday, day, month, year] = dateStr.split(' ')
+  const timestring = weekday === 'Saturday' ? '194500' : '200000'
+  const drawTime = `${year}${MonthOrDayProcess(MONTH[month])}${MonthOrDayProcess(day)}${timestring}`
 
   // get number and jackpot
   const numberStr = await page.$eval(numberSelector, el => el.innerText)

@@ -26,7 +26,7 @@ const Craw = async (page, dataObj) => {
   // get time
   const dateStr = await page.$eval(dateSelector, el => el.innerText)
   const [day, month, year] = dateStr.split(' ')
-  const drawTime = `${year}${MonthOrDayProcess(MONTH[month])}${MonthOrDayProcess(day)}000000`
+  const drawTime = `${year}${MonthOrDayProcess(MONTH[month])}${MonthOrDayProcess(day)}210000`
   // console.log(drawTime)
 
   // get number and jackpot

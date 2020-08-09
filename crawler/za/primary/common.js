@@ -149,7 +149,7 @@ function formatMoney (money) {
 }
 
 function formatDateTime (drawDate) {
-  return drawDate.replace(/\//g, '') + '000000'
+  return drawDate.replace(/\//g, '') + '210000'
 }
 
 // 解析并格式化开奖结果
