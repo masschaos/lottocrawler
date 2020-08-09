@@ -111,10 +111,10 @@ const crawl = async () => {
     await page.close()
   }
 }
-(async () => {
-  const result = await crawl()
-  console.log(result)
-})()
+// (async () => {
+//   const result = await crawl()
+//   console.log(result)
+// })()
 module.exports = {
   crawl
 }
