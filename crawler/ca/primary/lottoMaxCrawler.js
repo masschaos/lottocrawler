@@ -79,7 +79,7 @@ class LottoMaxCrawler extends Crawler {
     if (result === 'DrawingError') {
       throw new DrawingError(lotteryID)
     }
-    result.drawTime = super.dateFormatter(result.drawTime)
+    result.drawTime = super.dateFormatter(result.drawTime, '223000')
     result.lotteryID = lotteryID
     result.name = lotteryName
     result.issue = ''
