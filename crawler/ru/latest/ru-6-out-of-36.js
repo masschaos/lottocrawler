@@ -1,6 +1,6 @@
 const url = 'https://www.stoloto.ru/6x36/archive'
 const selector = '#content > div.data.drawings_data'
-const selectorAll = '#content > div.data.drawings_data .month'
+const selectorAll = '#content > div.data.drawings_data .elem'
 const detailTotal = '#content > div.col.prizes > div.results_table.with_bottom_shadow > div > table > tbody > tr'
 const detailWaitfor = '#content > div.col.prizes > div.results_table.with_bottom_shadow > div > table'
 const lotteryID = 'ru-6-out-of-36'
@@ -26,7 +26,11 @@ const Craw = async (page, url, selectorAll) => {
         data.drawUrl = element.querySelector('.draw a').href
         data.other = []
         data.jackpot = []
-        const numberText = element.querySelector('.numbers_wrapper .zone').innerText
+        let numberText = ''
+        if (element.querySelector('.numbers_wrapper .zone')) {
+          numberText = element.querySelector('.numbers_wrapper .zone').innerText
+        }
+        console.log(numberText, 'numberText')
         data.numbers = numberText.split(' ').map((item) => item.slice(0, -1)).join(',')
         data.super_prize = element.querySelector('.prize').innerText
         return data
@@ -70,10 +74,8 @@ const crawl = async () => {
   try {
     await ignoreImage(page)
     const mainData = await Craw(page, url, selectorAll)
-    // console.log(mainData, "maindata")
     if (mainData.numbers.length === 0) {
       throw new DrawingError(lotteryID)
-    // throw new Error('DrawingError', `正在开奖中，无法获取结果。彩种: ${lotteryID}`)
     }
     const detail = await CrawDetail(page, mainData.drawUrl, detailTotal).then(data => { return data })
     const numbers = mainData.numbers
