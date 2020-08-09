@@ -41,13 +41,18 @@ async function run (region, lotto) {
         }
         // 开始检查每个彩票
         await Promise.all(lotteries.map(async (lottery) => {
+          // 如果传参只运行指定的
           if (lotto && lottery.id !== lotto) {
-            // 如果传参只运行指定的
             log.info(`跳过${lottery.id}`)
             return
           }
+          // 忽略关闭的彩票
           if (lottery.closed) {
-            // 忽略关闭的彩票
+            return
+          }
+          // 只运行 cron 模式的爬虫
+          if (lottery.crawlerMode && lottery.crawlerMode !== 'cron') {
+            log.debug(`跳过${lottery.id}`)
             return
           }
           const { drawConfig: { timeRules }, delay, tz, id, isQuickDraw } = lottery
