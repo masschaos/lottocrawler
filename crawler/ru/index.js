@@ -18,4 +18,5 @@ crawlers.set('ru-rapido2', [require('./latest/ru-rapido2')])
 crawlers.set('ru-duel', [require('./latest/ru-duel')])
 crawlers.set('ru-keno', [require('./latest/ru-keno')])
 crawlers.set('ru-12x24', [require('./latest/ru-12x24')])
+crawlers.set('ru-spec', [require('./latest/ru-spec')])
 module.exports = crawlers
