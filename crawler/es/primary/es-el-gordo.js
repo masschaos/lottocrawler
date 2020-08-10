@@ -13,7 +13,9 @@ const parse = (latestDraw) => {
 }
 
 async function crawl () {
-  return crawLatest(parse, lotteryID)
+  const result = await crawLatest(parse, lotteryID)
+  result.drawTime = result.drawTime.slice(0, 8) + '130000'
+  return result
 }
 
 async function crawlhistory () {

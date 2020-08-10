@@ -25,7 +25,7 @@ const Craw = async (page, url, selectorAll) => {
         day = day.length < 2 ? '0' + day : day
         month = MONTH[month].toString().length < 2 ? '0' + MONTH[month] : MONTH[month]
         // 对drawDate做处理。
-        data.drawTime = `${year}${month}${day}000000`
+        data.drawTime = `${year}${month}${day}082000`
         data.issue = element.querySelector('.draw').innerText
         data.drawUrl = element.querySelector('.draw a').href
         data.other = []
