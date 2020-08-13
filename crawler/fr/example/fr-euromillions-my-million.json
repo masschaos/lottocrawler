@@ -1,0 +1,466 @@
+{
+  "drawTime": "20200811210500",
+  "numbers": "8,13,14,42,50|3,9|RO3701123",
+  "jackpot": [],
+  "breakdown": [
+    {
+      "name": "main",
+      "detail": [
+        [
+          {
+            "name": "Bons n°",
+            "value": "5+2"
+          },
+          {
+            "name": "Grilles gagnantes en France",
+            "value": "0"
+          },
+          {
+            "name": "Grilles gagnantes en Europe",
+            "value": "/"
+          },
+          {
+            "name": "Gains EuroMillions®",
+            "value": "/"
+          },
+          {
+            "name": "Grilles gagnantes Etoile+",
+            "value": "/"
+          },
+          {
+            "name": "Gains Etoile+",
+            "value": "/"
+          },
+          {
+            "name": "Gains EuroMillions® Etoile+",
+            "value": "/"
+          }
+        ],
+        [
+          {
+            "name": "Bons n°",
+            "value": "5+1"
+          },
+          {
+            "name": "Grilles gagnantes en France",
+            "value": "0"
+          },
+          {
+            "name": "Grilles gagnantes en Europe",
+            "value": "2"
+          },
+          {
+            "name": "Gains EuroMillions®",
+            "value": "293190,70€"
+          },
+          {
+            "name": "Grilles gagnantes Etoile+",
+            "value": "0"
+          },
+          {
+            "name": "Gains Etoile+",
+            "value": "/"
+          },
+          {
+            "name": "Gains EuroMillions® Etoile+",
+            "value": "/"
+          }
+        ],
+        [
+          {
+            "name": "Bons n°",
+            "value": "5"
+          },
+          {
+            "name": "Grilles gagnantes en France",
+            "value": "0"
+          },
+          {
+            "name": "Grilles gagnantes en Europe",
+            "value": "2"
+          },
+          {
+            "name": "Gains EuroMillions®",
+            "value": "68523,50€"
+          },
+          {
+            "name": "Grilles gagnantes Etoile+",
+            "value": "/"
+          },
+          {
+            "name": "Gains Etoile+",
+            "value": "/"
+          },
+          {
+            "name": "Gains EuroMillions® Etoile+",
+            "value": "/"
+          }
+        ],
+        [
+          {
+            "name": "Bons n°",
+            "value": "4+2"
+          },
+          {
+            "name": "Grilles gagnantes en France",
+            "value": "2"
+          },
+          {
+            "name": "Grilles gagnantes en Europe",
+            "value": "31"
+          },
+          {
+            "name": "Gains EuroMillions®",
+            "value": "1376,90€"
+          },
+          {
+            "name": "Grilles gagnantes Etoile+",
+            "value": "0"
+          },
+          {
+            "name": "Gains Etoile+",
+            "value": "/"
+          },
+          {
+            "name": "Gains EuroMillions® Etoile+",
+            "value": "/"
+          }
+        ],
+        [
+          {
+            "name": "Bons n°",
+            "value": "4+1"
+          },
+          {
+            "name": "Grilles gagnantes en France",
+            "value": "88"
+          },
+          {
+            "name": "Grilles gagnantes en Europe",
+            "value": "530"
+          },
+          {
+            "name": "Gains EuroMillions®",
+            "value": "148,30€"
+          },
+          {
+            "name": "Grilles gagnantes Etoile+",
+            "value": "28"
+          },
+          {
+            "name": "Gains Etoile+",
+            "value": "79,80€"
+          },
+          {
+            "name": "Gains EuroMillions® Etoile+",
+            "value": "228,10€"
+          }
+        ],
+        [
+          {
+            "name": "Bons n°",
+            "value": "3+2"
+          },
+          {
+            "name": "Grilles gagnantes en France",
+            "value": "284"
+          },
+          {
+            "name": "Grilles gagnantes en Europe",
+            "value": "1726"
+          },
+          {
+            "name": "Gains EuroMillions®",
+            "value": "48,10€"
+          },
+          {
+            "name": "Grilles gagnantes Etoile+",
+            "value": "88"
+          },
+          {
+            "name": "Gains Etoile+",
+            "value": "9,00€"
+          },
+          {
+            "name": "Gains EuroMillions® Etoile+",
+            "value": "57,10€"
+          }
+        ],
+        [
+          {
+            "name": "Bons n°",
+            "value": "4"
+          },
+          {
+            "name": "Grilles gagnantes en France",
+            "value": "211"
+          },
+          {
+            "name": "Grilles gagnantes en Europe",
+            "value": "1237"
+          },
+          {
+            "name": "Gains EuroMillions®",
+            "value": "47,20€"
+          },
+          {
+            "name": "Grilles gagnantes Etoile+",
+            "value": "/"
+          },
+          {
+            "name": "Gains Etoile+",
+            "value": "/"
+          },
+          {
+            "name": "Gains EuroMillions® Etoile+",
+            "value": "/"
+          }
+        ],
+        [
+          {
+            "name": "Bons n°",
+            "value": "2+2"
+          },
+          {
+            "name": "Grilles gagnantes en France",
+            "value": "5030"
+          },
+          {
+            "name": "Grilles gagnantes en Europe",
+            "value": "26334"
+          },
+          {
+            "name": "Gains EuroMillions®",
+            "value": "11,00€"
+          },
+          {
+            "name": "Grilles gagnantes Etoile+",
+            "value": "1644"
+          },
+          {
+            "name": "Gains Etoile+",
+            "value": "1,20€"
+          },
+          {
+            "name": "Gains EuroMillions® Etoile+",
+            "value": "12,20€"
+          }
+        ],
+        [
+          {
+            "name": "Bons n°",
+            "value": "3+1"
+          },
+          {
+            "name": "Grilles gagnantes en France",
+            "value": "4797"
+          },
+          {
+            "name": "Grilles gagnantes en Europe",
+            "value": "27592"
+          },
+          {
+            "name": "Gains EuroMillions®",
+            "value": "11,80€"
+          },
+          {
+            "name": "Grilles gagnantes Etoile+",
+            "value": "1670"
+          },
+          {
+            "name": "Gains Etoile+",
+            "value": "3,20€"
+          },
+          {
+            "name": "Gains EuroMillions® Etoile+",
+            "value": "15,00€"
+          }
+        ],
+        [
+          {
+            "name": "Bons n°",
+            "value": "3"
+          },
+          {
+            "name": "Grilles gagnantes en France",
+            "value": "10771"
+          },
+          {
+            "name": "Grilles gagnantes en Europe",
+            "value": "59707"
+          },
+          {
+            "name": "Gains EuroMillions®",
+            "value": "10,10€"
+          },
+          {
+            "name": "Grilles gagnantes Etoile+",
+            "value": "/"
+          },
+          {
+            "name": "Gains Etoile+",
+            "value": "/"
+          },
+          {
+            "name": "Gains EuroMillions® Etoile+",
+            "value": "/"
+          }
+        ],
+        [
+          {
+            "name": "Bons n°",
+            "value": "1+2"
+          },
+          {
+            "name": "Grilles gagnantes en France",
+            "value": "27703"
+          },
+          {
+            "name": "Grilles gagnantes en Europe",
+            "value": "144296"
+          },
+          {
+            "name": "Gains EuroMillions®",
+            "value": "5,00€"
+          },
+          {
+            "name": "Grilles gagnantes Etoile+",
+            "value": "9458"
+          },
+          {
+            "name": "Gains Etoile+",
+            "value": "2,60€"
+          },
+          {
+            "name": "Gains EuroMillions® Etoile+",
+            "value": "7,60€"
+          }
+        ],
+        [
+          {
+            "name": "Bons n°",
+            "value": "0+2"
+          },
+          {
+            "name": "Grilles gagnantes en France",
+            "value": "/"
+          },
+          {
+            "name": "Grilles gagnantes en Europe",
+            "value": "/"
+          },
+          {
+            "name": "Gains EuroMillions®",
+            "value": "/"
+          },
+          {
+            "name": "Grilles gagnantes Etoile+",
+            "value": "14940"
+          },
+          {
+            "name": "Gains Etoile+",
+            "value": "7,80€"
+          },
+          {
+            "name": "Gains EuroMillions® Etoile+",
+            "value": "7,80€"
+          }
+        ],
+        [
+          {
+            "name": "Bons n°",
+            "value": "2+1"
+          },
+          {
+            "name": "Grilles gagnantes en France",
+            "value": "80775"
+          },
+          {
+            "name": "Grilles gagnantes en Europe",
+            "value": "435472"
+          },
+          {
+            "name": "Gains EuroMillions®",
+            "value": "5,30€"
+          },
+          {
+            "name": "Grilles gagnantes Etoile+",
+            "value": "27688"
+          },
+          {
+            "name": "Gains Etoile+",
+            "value": "2,30€"
+          },
+          {
+            "name": "Gains EuroMillions® Etoile+",
+            "value": "7,60€"
+          }
+        ],
+        [
+          {
+            "name": "Bons n°",
+            "value": "2"
+          },
+          {
+            "name": "Grilles gagnantes en France",
+            "value": "173340"
+          },
+          {
+            "name": "Grilles gagnantes en Europe",
+            "value": "916256"
+          },
+          {
+            "name": "Gains EuroMillions®",
+            "value": "4,00€"
+          },
+          {
+            "name": "Grilles gagnantes Etoile+",
+            "value": "/"
+          },
+          {
+            "name": "Gains Etoile+",
+            "value": "/"
+          },
+          {
+            "name": "Gains EuroMillions® Etoile+",
+            "value": "/"
+          }
+        ],
+        [
+          {
+            "name": "Bons n°",
+            "value": "0+1"
+          },
+          {
+            "name": "Grilles gagnantes en France",
+            "value": "/"
+          },
+          {
+            "name": "Grilles gagnantes en Europe",
+            "value": "/"
+          },
+          {
+            "name": "Gains EuroMillions®",
+            "value": "/"
+          },
+          {
+            "name": "Grilles gagnantes Etoile+",
+            "value": "236254"
+          },
+          {
+            "name": "Gains Etoile+",
+            "value": "2,40€"
+          },
+          {
+            "name": "Gains EuroMillions® Etoile+",
+            "value": "2,40€"
+          }
+        ]
+      ]
+    }
+  ],
+  "other": [],
+  "name": "EuroMillions-My million",
+  "lotteryID": "fr-euromillions-my-million",
+  "issue": ""
+}
