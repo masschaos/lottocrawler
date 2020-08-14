@@ -1,0 +1,74 @@
+{
+  "drawTime": "20200808124000",
+  "numbers": "4|7|7|2|3|8|4|1|4|6|2|8|2",
+  "jackpot": [],
+  "breakdown": [
+    {
+      "name": "1등 번호기준",
+      "detail": [
+        {
+          "name": "1등",
+          "count": 1,
+          "prize": "월 700만원x20년",
+          "level": "7자리 일치"
+        },
+        {
+          "name": "2등",
+          "count": 4,
+          "prize": "월 100만원x10년",
+          "level": "6자리 일치"
+        },
+        {
+          "name": "3등",
+          "count": 34,
+          "prize": "1백만원",
+          "level": "5자리 일치"
+        },
+        {
+          "name": "4등",
+          "count": 485,
+          "prize": "1십만원",
+          "level": "4자리 일치"
+        },
+        {
+          "name": "5등",
+          "count": 4673,
+          "prize": "5만원",
+          "level": "3자리 일치"
+        },
+        {
+          "name": "6등",
+          "count": 45967,
+          "prize": "5천원",
+          "level": "2자리 일치"
+        },
+        {
+          "name": "7등",
+          "count": 459484,
+          "prize": "1천원",
+          "level": "1자리 일치"
+        }
+      ]
+    },
+    {
+      "name": "보너스 번호기준",
+      "detail": [
+        {
+          "name": "보너스",
+          "count": 0,
+          "prize": "월 100만원x10년",
+          "level": "6자리 일치"
+        }
+      ]
+    }
+  ],
+  "other": [
+    {
+      "name": "비고",
+      "value": "1등 자동3 수동3"
+    }
+  ],
+  "name": "연금복권720+",
+  "lotteryID": "kr-game720",
+  "issue": "15"
+}

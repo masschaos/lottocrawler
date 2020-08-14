@@ -1,6 +1,6 @@
 {
     "drawTime": "",
-    "numbers": "3,6,10,11,14,17,19,25,30,32,33,40,42,45,52,58,59,63,66,70|2|9070375",
+    "numbers": "3,6,10,11,14,17,19,25,30,32,33,40,42,45,52,58,59,63,66,70|9070375",
     "jackpot": [],
     "breakdown": [
     {
@@ -181,7 +181,9 @@
       ]
     }
   ],
-    "other": [],
+    "other": [
+      {"name":"multiplier", "value":"2"}
+    ],
     "name": "KENO GAGNANTÀVIE",
     "lotteryID": "fr-keno-gagnantavie",
     "issue": ""
