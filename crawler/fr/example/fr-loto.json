@@ -125,25 +125,25 @@
           },
           {
             "name": "Grilles gagnantes* Loto®",
-            "value": "0+1"
+            "value": "370956"
           },
           {
             "name": "Gains par grille gagnantes* Loto®",
-            "value": "370956"
+            "value": "2,20 €"
           }
         ],
         [
           {
             "name": "Bons n°",
-            "value": "2,20€"
+            "value": "0+1"
           },
           {
             "name": "Grilles gagnantes* Loto®",
-            "value": ""
+            "value": "370956"
           },
           {
             "name": "Gains par grille gagnantes* Loto®",
-            "value": ""
+            "value": "2,20 €"
           }
         ]
       ]
@@ -205,20 +205,6 @@
           {
             "name": "Gains par grille gagnantes* Loto®",
             "value": "3,00€"
-          }
-        ],
-        [
-          {
-            "name": "Bons n°",
-            "value": ""
-          },
-          {
-            "name": "Grilles gagnantes* Loto®",
-            "value": ""
-          },
-          {
-            "name": "Gains par grille gagnantes* Loto®",
-            "value": ""
           }
         ]
       ]
