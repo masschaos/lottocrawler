@@ -2,7 +2,7 @@
  * @Author: maple
  * @Date: 2020-08-14 21:29:48
  * @LastEditors: maple
- * @LastEditTime: 2020-08-15 22:40:24
+ * @LastEditTime: 2020-08-16 02:47:21
  */
 const moment = require('moment')
 const VError = require('verror')
@@ -139,7 +139,7 @@ const interpreter = async function (page) {
   date.set('years', year)
   date.set('months', month - 1)
   date.set('date', day)
-  result.drawTime = date.format('YYYYMMDD210500')
+  result.drawTime = date.format('YYYYMMDD203500')
 
   return result
 }
