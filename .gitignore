@@ -114,3 +114,8 @@ data/
 !/crawler/jp/history/tmp
 /crawler/jp/history/tmp/*
 !/crawler/jp/history/tmp/.gitkeep
+
+/crawler/fr/history/csv/*
+!/crawler/fr/history/csv/.gitkeep
+/crawler/fr/history/result/*
+!/crawler/fr/history/result/.gitkeep
