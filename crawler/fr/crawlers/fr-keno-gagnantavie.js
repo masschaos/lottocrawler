@@ -2,7 +2,7 @@
  * @Author: maple
  * @Date: 2020-08-14 21:30:13
  * @LastEditors: maple
- * @LastEditTime: 2020-08-15 21:08:31
+ * @LastEditTime: 2020-08-15 21:38:10
  */
 const VError = require('verror')
 const moment = require('moment')
@@ -10,6 +10,7 @@ const moment = require('moment')
 const crawl = require('./fr-index')
 const { getMonth } = require('./date')
 
+// url 获取
 const urlSelector = async function (page) {
   const f = await page.$('#keno-results')
   const urls = await f.$$eval('.btn-content > a', els => els.map(el => el.href))
@@ -22,11 +23,13 @@ const urlSelector = async function (page) {
   return noSharp[0] || urls[0]
 }
 
+// 默认基础数据
 const data = {
   name: 'KENO GAGNANTÀVIE',
   lotteryID: 'fr-keno-gagnantavie'
 }
 
+// 页面数据整理
 const interpreter = async function (page) {
   const result = {
     drawTime: '',

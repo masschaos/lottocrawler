@@ -2,7 +2,7 @@
  * @Author: maple
  * @Date: 2020-08-14 21:29:48
  * @LastEditors: maple
- * @LastEditTime: 2020-08-15 21:27:48
+ * @LastEditTime: 2020-08-15 21:38:36
  */
 const moment = require('moment')
 const VError = require('verror')
@@ -15,6 +15,7 @@ const data = {
   name: 'Loto'
 }
 
+// 页面数据分析整理
 const interpreter = async function (page) {
   const result = {
     drawTime: '',
@@ -143,6 +144,7 @@ const interpreter = async function (page) {
   return result
 }
 
+// url 获取
 const urlSelector = async function (page) {
   const f = await page.$('#loto-results')
   const urls = await f.$$eval('.btn-content > a', els => els.map(el => el.href))

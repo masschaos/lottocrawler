@@ -2,13 +2,14 @@
  * @Author: maple
  * @Date: 2020-08-14 21:29:57
  * @LastEditors: maple
- * @LastEditTime: 2020-08-15 21:24:53
+ * @LastEditTime: 2020-08-15 21:37:26
  */
 const moment = require('moment')
 const VError = require('verror')
 const crawl = require('./fr-index')
 const { getMonth } = require('./date')
 
+// 处理 URL 爬取
 const urlSelector = async function (page) {
   const f = await page.$('#euromillions-results')
   const urls = await f.$$eval('.btn-content > a', els => els.map(el => el.href))
@@ -21,11 +22,13 @@ const urlSelector = async function (page) {
   return noSharp[0] || urls[0]
 }
 
+// 基础数据
 const data = {
   lotteryID: 'fr-euromillions-my-million',
   name: 'EuroMillions-My million'
 }
 
+// 页面数据整理
 const interpreter = async function (page) {
   const result = {
     drawTime: '',
