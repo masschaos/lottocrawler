@@ -2,13 +2,7 @@
  * @Author: maple
  * @Date: 2020-08-14 23:01:17
  * @LastEditors: maple
- * @LastEditTime: 2020-08-15 21:30:31
- */
-/**
- * @Author: maple
- * @Date: 2020-08-14 21:29:48
- * @LastEditors: maple
- * @LastEditTime: 2020-08-15 11:51:40
+ * @LastEditTime: 2020-08-15 21:35:25
  */
 const VError = require('verror')
 const log = require('../../../util/log')
