@@ -2,7 +2,7 @@
  * @Author: maple
  * @Date: 2020-08-14 21:29:48
  * @LastEditors: maple
- * @LastEditTime: 2020-08-15 21:38:36
+ * @LastEditTime: 2020-08-15 22:40:24
  */
 const moment = require('moment')
 const VError = require('verror')
@@ -73,11 +73,11 @@ const interpreter = async function (page) {
     const tmp1 = await tmps[0].$$eval('span', els => els.map(el => el.innerText).join(''))
     const tmp2 = await tmps[1].evaluate(el => el.innerText)
     const tmp3 = await tmps[2].evaluate(el => el.innerText)
-    tirageLotoData.detail.push({
-      [name1]: tmp1,
-      [name2]: tmp2,
-      [name3]: tmp3
-    })
+    tirageLotoData.detail.push([
+      { name: name1, value: tmp1 },
+      { name: name2, value: tmp2 },
+      { name: name3, value: tmp3 }
+    ])
   }
 
   const tmps = await tirageLotoDataLastItem.$$('div.prizes-table_item')
@@ -87,17 +87,17 @@ const interpreter = async function (page) {
   const tmpName1 = await tmp1[0].$$eval('span', els => els.map(el => el.innerText).join(''))
   const tmpName2 = await tmp1[1].$$eval('span', els => els.map(el => el.innerText).join(''))
 
-  tirageLotoData.detail.push({
-    [name1]: tmpName1,
-    [name2]: tmp2,
-    [name3]: tmp3
-  })
+  tirageLotoData.detail.push([
+    { name: name1, value: tmpName1 },
+    { name: name2, value: tmp2 },
+    { name: name3, value: tmp3 }
+  ])
 
-  tirageLotoData.detail.push({
-    [name1]: tmpName2,
-    [name2]: tmp2,
-    [name3]: tmp3
-  })
+  tirageLotoData.detail.push([
+    { name: name1, value: tmpName2 },
+    { name: name2, value: tmp2 },
+    { name: name3, value: tmp3 }
+  ])
 
   const option2ndDataTable = await items[1].$('.prizes-table')
   const option2ndDataItems = await option2ndDataTable.$$('div > div.prizes-table_content')
