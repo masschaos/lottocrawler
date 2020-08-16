@@ -2,7 +2,7 @@
  * @Author: maple
  * @Date: 2020-08-16 04:27:15
  * @LastEditors: maple
- * @LastEditTime: 2020-08-16 05:39:38
+ * @LastEditTime: 2020-08-16 13:51:19
  */
 const VError = require('verror')
 const log = require('../../../util/log')
@@ -10,7 +10,7 @@ const { newPage, ignoreImage } = require('../../../pptr')
 
 const mainHost = 'https://dhlottery.co.kr/gameResult.do?method='
 
-async function crawl (data = {}, method, interpreter) {
+async function crawl (data = {}, method, interpreter, issue) {
   let page
   const {
     lotteryID
@@ -24,7 +24,14 @@ async function crawl (data = {}, method, interpreter) {
     await ignoreImage(page)
 
     // 打开页面
-    await page.goto(mainHost + method)
+    let URL = mainHost + method
+    if (issue && !isNaN(parseInt(issue))) {
+      URL += `&drwNo=${issue}`
+    }
+
+    log.info(`<${lotteryID}> ${issue ? `issue: ${issue} ` : ''}爬取 URL: ${URL}`)
+
+    await page.goto(URL)
 
     // 爬取
     const result = await interpreter(page) || {}

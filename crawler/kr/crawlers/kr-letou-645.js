@@ -2,7 +2,7 @@
  * @Author: maple
  * @Date: 2020-08-16 05:09:59
  * @LastEditors: maple
- * @LastEditTime: 2020-08-16 05:43:32
+ * @LastEditTime: 2020-08-16 14:40:41
  */
 const crawl = require('./kr-index')
 const moment = require('moment')
@@ -27,7 +27,8 @@ async function interpreter (page) {
     ],
     name: data.name,
     lottoryID: data.lotteryID,
-    issue: null
+    issue: null,
+    saleAmount: null
   }
   const contentWrap = await page.$('.content_wrap')
   const winResult = await contentWrap.$('.win_result')
@@ -82,14 +83,20 @@ async function interpreter (page) {
       result.other[0].value = datas[5].split('\n').filter(s => s).join(' ')
     }
   }
-
   result.breakdown.push(breakdown)
+
+  // saleAmount
+  const ul = await contentWrap.$('ul.list_text_common')
+  const lis = await ul.$$('li')
+  if (lis && lis.length === 2) {
+    result.saleAmount = await lis[1].$eval('strong', el => el.innerText)
+  }
 
   return result
 }
 
-async function main () {
-  const result = await crawl(data, data.method, interpreter)
+async function main (issue) {
+  const result = await crawl(data, data.method, interpreter, issue)
   return result
 }
 

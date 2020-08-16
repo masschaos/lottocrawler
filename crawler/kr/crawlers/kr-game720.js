@@ -104,8 +104,8 @@ async function interpreter (page) {
   return result
 }
 
-async function main () {
-  const result = await crawl(data, data.method, interpreter)
+async function main (issue) {
+  const result = await crawl(data, data.method, interpreter, issue)
   return result
 }
 
