@@ -109,13 +109,20 @@ data/
 # Playground
 /play.js
 
-# jp history file
+# jp history tmp file
 /crawler/jp/history/*
 !/crawler/jp/history/tmp
 /crawler/jp/history/tmp/*
 !/crawler/jp/history/tmp/.gitkeep
 
+# fr hisotry tmp file
 /crawler/fr/history/csv/*
 !/crawler/fr/history/csv/.gitkeep
 /crawler/fr/history/result/*
 !/crawler/fr/history/result/.gitkeep
+
+# kr history tmp file
+/crawler/kr/history/tmp/*
+!/crawler/kr/history/tmp/.gitkeep
+/crawler/kr/history/result/*
+!/crawler/kr/history/result/.gitkeep
