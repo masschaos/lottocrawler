@@ -26,7 +26,7 @@ async function interpreter (page) {
       }
     ],
     name: data.name,
-    lottoryID: data.lotteryID,
+    lotteryID: data.lotteryID,
     issue: null,
     saleAmount: null
   }
