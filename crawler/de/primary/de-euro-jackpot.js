@@ -6,7 +6,7 @@ const moment = require('moment')
 
 const lotteryName = 'EuroJackpot'
 const lotteryID = 'de-euro-jackpot'
-const url = 'https://www.lotterypost.com/game/408'
+const url = 'https://www.lotterypost.com/eurojackpot'
 // 开奖时间为每周五21:00
 const drawAt = '210000'
 
