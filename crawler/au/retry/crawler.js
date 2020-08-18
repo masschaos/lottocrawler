@@ -1,31 +1,24 @@
-const {auCrawlerApi,saveLastestResult}= require('../../../util/api')
+const { auCrawlerApi: AuCrawlerApi, saveLastestResult } = require('../../../util/api')
 
 class auCrawler {
-    constructor(lotteryId){
-        this.lotteryId = lotteryId
-    }
+  constructor (lotteryId) {
+    this.lotteryId = lotteryId
+  }
 
-    parse(data){
-        return ''
-    }
+  parse (data) {
+    return ''
+  }
 
-    crawl(){
-        return new Promise(async (resolve, reject) =>{
-            try {
-                const data = await new auCrawlerApi().fetchDrawRangeResult(this.lotteryId, process.env.DRAW_NO)
-                if(data && data.length > 0){
-                    for(let idx in data){
-                        const item = this.parse(data[idx])
-                        console.log(item)
-                        await saveLastestResult(item)
-                    }
-                }
-                resolve()
-            } catch (error) {
-                reject(error)
-            }
-        })
+  async crawl () {
+    const data = await new AuCrawlerApi().fetchDrawRangeResult(this.lotteryId, process.env.DRAW_NO)
+    if (data && data.length > 0) {
+      for (const idx in data) {
+        const item = this.parse(data[idx])
+        console.log(item)
+        await saveLastestResult(item)
+      }
     }
+  }
 }
 
 module.exports = auCrawler

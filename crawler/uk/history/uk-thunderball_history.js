@@ -1,22 +1,13 @@
-const name = 'Thunderball'
-const lotteryID = 'uk-thunderball'
-const other = []
-const jackpot = []
-const drawTime = ''
-const issue = ''
-const number = ''
-const detail = []
-
-// 'https://www.lottery.co.uk/thunderball/results'
-// #siteContainer > div.main > div:nth-child(5) > div.paddedLight
-
-const { MONTH, MonthOrDayProcess, monthCheck, dayCheck, writeJsonToFile } = require('../country')
+const { MONTH, MonthOrDayProcess, /* monthCheck, dayCheck, */ writeJsonToFile } = require('../country')
 const { newPage } = require('../../../pptr')
 const VError = require('verror')
 
-// const { MONTH, MonthOrDayProcess } = require('../country')
-// const { PuppeteerPage, writeJsonToFile } = require('../pptr')
+const name = 'Thunderball'
+const lotteryID = 'uk-thunderball'
 const [startYear, endYear] = [2020, 1994]
+// 'https://www.lottery.co.uk/thunderball/results'
+// #siteContainer > div.main > div:nth-child(5) > div.paddedLight
+
 const historyNumberPageSelector = '#siteContainer > div.main > table > tbody tr'
 const historyDetailUrlSelector = '#siteContainer > div.main > table > tbody td a'
 const detailTableSelector = '#siteContainer > div.main > table.table.thunderball.mobFormat > tbody'
@@ -42,6 +33,7 @@ const getHistory = async (startYear, endYear, lotteryID) => {
       const dateStr = await page.$$eval(historyNumberPageSelector, (el, MONTH) => {
         return Promise.all(el.map(async item => {
           const [dateString, numberString, jackpotString] = item.innerText.split('\t')
+          // eslint-disable-next-line
           let [weekday, day, month, year] = dateString.split(' ')
           month = await MonthOrDayProcess(MONTH[month])
           day = await MonthOrDayProcess(day)
@@ -72,14 +64,14 @@ const getHistory = async (startYear, endYear, lotteryID) => {
       }
     }
   } catch (err) {
+    console.error(err)
     throw new VError(err, '爬虫发生预期外错误')
-    console.log(err)
   } finally {
     console.log('write to file')
     writeJsonToFile(lotteryID, HISTORY)
   }
 }
 
-// (async () => {
-//     const newData = await getHistory(startYear, endYear, lotteryID)
-// })()
+(async () => {
+  await getHistory(startYear, endYear, lotteryID)
+})()

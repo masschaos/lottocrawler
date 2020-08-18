@@ -1,15 +1,15 @@
+const { MONTH } = require('../country')
+const { newPage, ignoreImage } = require('../../../pptr')
+const { DrawingError } = require('../../../util/error')
+
 const name = 'EuroMillions HotPicks'
 const lotteryID = 'uk-euromillions-hotpicks'
-const { MONTH } = require('../country')
-const VError = require('verror')
-
 const url = 'https://www.lottery.co.uk/euromillions/hot-picks/results'
+
 const numberSelector = '#siteContainer > div.main > div:nth-child(5) > div.paddedLight'
 const dateSelector = '#siteContainer > div.main > div:nth-child(5) > div.latestHeader.euromillions > span'
 const detailUrlSelector = '#siteContainer > div.main > div:nth-child(5) > div.resultsBottom.latest > a'
 const detailTableSelector = '#siteContainer > div.main > table.table.euromillions.mobFormat > tbody'
-const { newPage, ignoreImage } = require('../../../pptr')
-const { DrawingError } = require('../../../util/error')
 
 const MonthOrDayProcess = (numberString) => {
   const number = parseInt(numberString).toString()
@@ -68,7 +68,5 @@ const crawl = async () => {
     await page.close()
   }
 }
-
-// module.exports = EuroMillionsHotPicks
 
 module.exports = { crawl }

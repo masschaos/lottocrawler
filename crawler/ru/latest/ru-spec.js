@@ -1,10 +1,9 @@
 const url = 'https://www.stoloto.ru/spec/archive'
 const name = 'Специгра'
 const lotteryID = 'ru-spec'
-const { newPage, ignoreImage } = require('../../../pptr')
+const { newPage /*, ignoreImage */ } = require('../../../pptr')
 const { DrawingError } = require('../../../util/error')
 // iEokFo
-
 
 const crawl = async () => {
   const page = await newPage()

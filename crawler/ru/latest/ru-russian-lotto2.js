@@ -10,7 +10,7 @@ const lotteryID = 'ru-russian-lotto2'
 const name = 'Русского лото экспресс'
 
 const { MONTH } = require('../country')
-const VError = require('verror')
+
 const { DrawingError } = require('../../../util/error')
 const { newPage, ignoreImage } = require('../../../pptr')
 

@@ -12,7 +12,7 @@ const name = 'Русское лото'
 const { DrawingError } = require('../../../util/error')
 
 const { MONTH } = require('../country')
-const VError = require('verror')
+
 const { newPage, ignoreImage } = require('../../../pptr')
 
 const Craw = async (page, url, selectorAll) => {

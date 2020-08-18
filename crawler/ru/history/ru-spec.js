@@ -4,7 +4,7 @@ const name = 'Специгра'
 const lotteryID = 'ru-spec'
 const { newPage } = require('../../../pptr')
 const { DrawingError } = require('../../../util/error')
-const { MONTH, TurnPage, writeJsonToFile } = require('../country')
+const { /* MONTH, TurnPage, */ writeJsonToFile } = require('../country')
 
 async function autoScroll (page) {
   await page.evaluate(async () => {
