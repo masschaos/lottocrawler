@@ -1,17 +1,11 @@
-const name = 'Lotto'
-const lotteryID = 'uk-lotto'
-// const other = []
-// const jackpot = []
-// const drawTime = ''
-// const issue = ''
-// const number = ''
-// const detail = []
-
 const { MONTH, MonthOrDayProcess, monthCheck, dayCheck, writeJsonToFile } = require('../country')
 const { newPage } = require('../../../pptr')
 const VError = require('verror')
 
+const name = 'Lotto'
+const lotteryID = 'uk-lotto'
 const [startYear, endYear] = [2020, 1994]
+
 const historyNumberPageSelector = '#siteContainer > div.main > table > tbody tr'
 const historyDetailUrlSelector = '#siteContainer > div.main > table > tbody td a'
 const detailTableSelector = '#siteContainer > div.main > table.table.lotto.mobFormat > tbody'
@@ -42,6 +36,7 @@ const getHistory = async (startYear, endYear, lotteryID) => {
           console.log(dateString)
           console.log(numberString)
           console.log(jackpotString)
+          // eslint-disable-next-line
           let [weekday, day, month, year] = dateString.split(' ')
           month = await MonthOrDayProcess(MONTH[month])
           day = await MonthOrDayProcess(day)
@@ -80,14 +75,14 @@ const getHistory = async (startYear, endYear, lotteryID) => {
       }
     }
   } catch (err) {
-    throw new VError(err, '爬虫发生预期外错误')
     console.log(err)
+    throw new VError(err, '爬虫发生预期外错误')
   } finally {
     console.log('write to file')
     writeJsonToFile(lotteryID, HISTORY)
   }
 }
 
-// (async () => {
-//     const newData = await getHistory(startYear, endYear, lotteryID)
-// })()
+(async () => {
+  await getHistory(startYear, endYear, lotteryID)
+})()

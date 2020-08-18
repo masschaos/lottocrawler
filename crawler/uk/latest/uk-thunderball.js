@@ -2,7 +2,6 @@ const name = 'Thunderball'
 const lotteryID = 'uk-thunderball'
 
 const { MONTH } = require('../country')
-const VError = require('verror')
 
 const url = 'https://www.lottery.co.uk/thunderball/results'
 const numberSelector = '#siteContainer > div.main > div:nth-child(5) > div.paddedLight'

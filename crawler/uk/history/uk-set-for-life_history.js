@@ -1,14 +1,9 @@
-const name = 'Set For Life'
-const lotteryID = 'uk-set-for-life'
-// const other = []
-// const jackpot = []
-// const drawTime = ''
-// const issue = ''
-// const number = ''
-// const detail = []
-const { MONTH, MonthOrDayProcess, monthCheck, dayCheck, writeJsonToFile } = require('../country')
+const { MONTH, MonthOrDayProcess /* monthCheck, dayCheck */, writeJsonToFile } = require('../country')
 const { newPage } = require('../../../pptr')
 const VError = require('verror')
+
+const name = 'Set For Life'
+const lotteryID = 'uk-set-for-life'
 
 // const { MONTH, MonthOrDayProcess, monthCheck, dayCheck } = require('../country')
 // const { PuppeteerPage, writeJsonToFile } = require('../pptr')
@@ -39,6 +34,7 @@ const getHistory = async (startYear, endYear, lotteryID) => {
       const dateStr = await page.$$eval(historyNumberPageSelector, (el, MONTH) => {
         return Promise.all(el.map(async item => {
           let [dateString, numberString, WinnerString] = item.innerText.split('\t')
+          // eslint-disable-next-line
           let [weekday, day, month, year] = dateString.split('\n').join(' ').split(' ')
           month = await MonthOrDayProcess(MONTH[month])
           day = await MonthOrDayProcess(day)
@@ -69,14 +65,14 @@ const getHistory = async (startYear, endYear, lotteryID) => {
       }
     }
   } catch (err) {
+    console.error(err)
     throw new VError(err, '爬虫发生预期外错误')
-    console.log(err)
   } finally {
     console.log('write to file')
     writeJsonToFile(lotteryID, HISTORY)
   }
 }
 
-// (async () => {
-//     const newData = await getHistory(startYear, endYear, lotteryID)
-// })()
+(async () => {
+  await getHistory(startYear, endYear, lotteryID)
+})()
