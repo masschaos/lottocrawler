@@ -46,8 +46,6 @@ const crawl = async () => {
       { name: totalTicketName, value: totalTicketValue },
       { name: rewardName, value: rewardValue }]
     return { drawTime, numbers, issue, other, jackpot: [], name, lotteryID, detail: [] }
-  } catch (err) {
-    console.log(err)
   } finally {
     await page.close()
   }
