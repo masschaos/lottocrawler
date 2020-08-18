@@ -1,0 +1,70 @@
+{
+  "drawTime": "20200813215000",
+  "numbers": "11,12,14,26,38,48|9,14,28,31,34,41",
+  "jackpot": [],
+  "breakdown": [
+    {
+      "name": "Lotto",
+      "detail": [
+        {
+          "name": "szóstka",
+          "count": 0,
+          "prize": "0,00 zł"
+        },
+        {
+          "name": "piątka",
+          "count": 58,
+          "prize": "5158,80 zł"
+        },
+        {
+          "name": "czwórka",
+          "count": 2820,
+          "prize": "198,20 zł"
+        },
+        {
+          "name": "trójka",
+          "count": 51522,
+          "prize": "24,00 zł"
+        }
+      ]
+    },
+    {
+      "name": "Lotto Plus",
+      "detail": [
+        {
+          "name": "szóstka",
+          "count": 0,
+          "prize": "0,00 zł"
+        },
+        {
+          "name": "piątka",
+          "count": 43,
+          "prize": "3500,00 zł"
+        },
+        {
+          "name": "czwórka",
+          "count": 1812,
+          "prize": "100,00 zł"
+        },
+        {
+          "name": "trójka",
+          "count": 33181,
+          "prize": "10,00 zł"
+        }
+      ]
+    }
+  ],
+  "other": [
+    {
+      "name": "SuperSzansaIssue",
+      "value": "3058"
+    },
+    {
+      "name": "SuperSzansaDrawTime",
+      "value": "20200814215000"
+    }
+  ],
+  "name": "Loto",
+  "lotteryID": "pl-loto",
+  "issue": "6452"
+}

@@ -1,0 +1,92 @@
+{
+  "drawTime": "20200814200000",
+  "numbers": "9,20,27,35,48|5,9",
+  "jackpot": [],
+  "breakdown": [
+    {
+      "name": "Wygrane w Polsce",
+      "detail": [
+        {
+          "name": "I (5+2)",
+          "count": 0,
+          "prize": "0,00 zł"
+        },
+        {
+          "name": "II (5+1)",
+          "count": 0,
+          "prize": "0,00 zł"
+        },
+        {
+          "name": "III (5+0)",
+          "count": 0,
+          "prize": "0,00 zł"
+        },
+        {
+          "name": "IV (4+2)",
+          "count": 2,
+          "prize": "256206,70 zł"
+        },
+        {
+          "name": "V (4+1)",
+          "count": 24,
+          "prize": "1066,90 zł"
+        },
+        {
+          "name": "VI (4+0)",
+          "count": 36,
+          "prize": "460,80 zł"
+        },
+        {
+          "name": "VII (3+2)",
+          "count": 97,
+          "prize": "219,70 zł"
+        },
+        {
+          "name": "VIII (2+2)",
+          "count": 1193,
+          "prize": "86,30 zł"
+        },
+        {
+          "name": "IX (3+1)",
+          "count": 1139,
+          "prize": "79,30 zł"
+        },
+        {
+          "name": "X (3+0)",
+          "count": 1989,
+          "prize": "66,50 zł"
+        },
+        {
+          "name": "XI (1+2)",
+          "count": 5841,
+          "prize": "43,20 zł"
+        },
+        {
+          "name": "XII (2+1)",
+          "count": 18732,
+          "prize": "34,80 zł"
+        }
+      ]
+    },{
+      "name":"Najwyższe wygrane w losowaniu",
+      "detail":[
+        {
+          "name":"II (5+1)",
+          "count":4,
+          "country":"Niemcy|Niemcy|Niemcy|Niemcy",
+          "prize":"466635,10"
+        },
+        {
+          "name":"II (5+0)",
+          "count":6,
+          "country":"Dania|Niemcy|Norwegia|Norwegia|Szwecja|Szwecja",
+          "prize":"109796,50"
+        }
+      ]
+    }
+  ],
+  "other": [],
+  "name": "Eurojackpot",
+  "lotteryID": "pl-eurojackpot",
+  "issue": "153"
+}

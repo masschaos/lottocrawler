@@ -1,0 +1,40 @@
+{
+  "drawTime": "20200814215000",
+  "numbers": "19,20,27,38,39",
+  "jackpot": [],
+  "breakdown": [
+    {
+      "name": "Mini Lotto",
+      "detail": [
+        {
+          "name": "piątka",
+          "count": 1,
+          "prize": "322903,80 zł"
+        },
+        {
+          "name": "czwórka",
+          "count": 200,
+          "prize": "645,90 zł"
+        },
+        {
+          "name": "trójka",
+          "count": 7682,
+          "prize": "25,30 zł"
+        }
+      ]
+    }
+  ],
+  "other": [
+    {
+      "name": "SuperSzansaIssue",
+      "value": "3060"
+    },
+    {
+      "name":"SuperSzansaDrawTime",
+      "value":"20200814215000"
+    }
+  ],
+  "name": "Mini Lotto",
+  "lotteryID": "pl-mini-lotto",
+  "issue": "5220"
+}

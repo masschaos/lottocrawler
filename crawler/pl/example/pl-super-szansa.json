@@ -1,0 +1,51 @@
+{
+  "drawTime": "20200814215000",
+  "numbers": "5293902",
+  "jackpot": [],
+  "breakdown": [
+    {
+      "name": "main",
+      "detail": [
+        {
+          "name": "1",
+          "prize": "2000000,00 zł",
+          "count": 0
+        },
+        {
+          "name": "2",
+          "prize": "100000,00 zł",
+          "count": 0
+        },
+        {
+          "name": "3",
+          "prize": "10000,00 zł",
+          "count": 0
+        },
+        {
+          "name": "4",
+          "prize": "1000,00 zł",
+          "count": 12
+        },
+        {
+          "name": "5",
+          "prize": "100,00 zł",
+          "count": 77
+        },
+        {
+          "name": "6",
+          "prize": "10,00 zł",
+          "count": 703
+        },
+        {
+          "name": "7",
+          "prize": "2,00 zł",
+          "count": 6927
+        }
+      ]
+    }
+  ],
+  "other": [ ],
+  "name": "Super Szansa",
+  "lotteryID": "pl-super-szansa",
+  "issue": "3066"
+}

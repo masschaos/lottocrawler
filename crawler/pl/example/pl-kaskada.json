@@ -1,0 +1,50 @@
+{
+  "drawTime": "20200814215000",
+  "numbers": "1,2,5,6,7,11,14,16,19,20,22,24",
+  "jackpot": [],
+  "breakdown": [
+    {
+      "name": "Kaskada",
+      "detail": [
+        {
+          "name": "12",
+          "count": 0,
+          "prize": "250000,00 zł"
+        },
+        {
+          "name": "11",
+          "count": 4,
+          "prize": "1000,00 zł"
+        },
+        {
+          "name": "10",
+          "count": 178,
+          "prize": "25,00 zł"
+        },
+        {
+          "name": "9",
+          "count": 1846,
+          "prize": "8,00 zł"
+        },
+        {
+          "name": "8",
+          "count": 9525,
+          "prize": "2,00 zł"
+        }
+      ]
+    }
+  ],
+  "other": [
+    {
+      "name": "SuperSzansaIssue",
+      "value": "3060"
+    },
+    {
+      "name":"SuperSzansaDrawTime",
+      "value":"20200814215000"
+    }
+  ],
+  "name": "Kaskada",
+  "lotteryID": "pl-kaskada",
+  "issue": "4970"
+}
