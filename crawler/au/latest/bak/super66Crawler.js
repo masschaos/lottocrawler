@@ -47,7 +47,8 @@ class supper66Crawler extends crawler {
     await browser.close()
     const data = super.assembleFormatData(result)
     if (data && data.length > 0) {
-      for (const idx in data) {
+      const idxs = Object.keys(data)
+      for (const idx in idxs) {
         const item = data[idx]
         console.log(item)
       }

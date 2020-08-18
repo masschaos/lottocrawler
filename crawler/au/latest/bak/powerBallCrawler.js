@@ -47,7 +47,8 @@ class powerBallCrawler extends crawler {
     const res = await super.crawl(url, this.parse)
     const data = super.assembleFormatData(res)
     if (data && data.length > 0) {
-      for (const idx in data) {
+      const idxs = Object.keys(data)
+      for (const idx in idxs) {
         const item = data[idx]
         console.log(item)
       }
