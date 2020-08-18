@@ -1,4 +1,5 @@
 const VError = require('verror')
+const moment = require('moment')
 const Semaphore = require('async-mutex').Semaphore
 const im = require('./util/im')
 const log = require('./util/log')
@@ -10,6 +11,28 @@ const { closeBrowser } = require('./pptr')
 
 // global semaphore, limit parallel job count
 const semaphore = new Semaphore(parallel)
+
+// 无脑循环模式爬虫执行记录, key 为 id ，值为上次执行时间
+const loopLog = new Map()
+
+// 循环等待中 需要等待返回true
+// 这里不管爬虫是否成功，都会重置循环，防止爬虫出错时过多访问目标
+function waitForLoop (id, loopCycle) {
+  const now = moment()
+  if (!loopLog.has(id)) {
+    // 首次执行，没有记录
+    log.info(`首次执行不进行循环判断：${id}`)
+    loopLog.set(id, now)
+    return false
+  }
+  if (loopLog.get(id).add(loopCycle, 's') < now) {
+    // 到时间了，无需等待
+    loopLog.set(id, now)
+    return false
+  } else {
+    return true
+  }
+}
 
 // 每个 cron 周期，从这里开始执行
 // 参数为调试时使用，可以只运行一个国家或者一个彩票
@@ -50,20 +73,28 @@ async function run (region, lotto) {
           if (lottery.closed) {
             return
           }
-          // 只运行 cron 模式的爬虫
-          if (lottery.crawlerMode && lottery.crawlerMode !== 'cron') {
-            log.debug(`跳过${lottery.id}`)
-            return
-          }
-          const { drawConfig: { timeRules }, delay, tz, id, isQuickDraw } = lottery
+          // 将需要的彩种属性取出到变量
+          const { drawConfig: { timeRules }, delay, tz, id, isQuickDraw, crawlerMode, loopCycle } = lottery
           // 找到对应的结果
           const result = results.find(x => {
             return x.lotteryID === id
           })
-          // 根据预计开奖时间规则(lottery.drawConfig.timeRule)判断是否到了抓取数据的时间 ,
-          if (result && !hasNewDraw(timeRules, delay, result.drawTime, tz)) {
-            log.info(`还未开奖，跳过${id}`)
-            return
+          // 开始根据预设的爬虫模式行动
+          switch (crawlerMode) {
+            // loop 模式 在需要等待时返回
+            case 'loop':
+              if (waitForLoop(id, loopCycle)) {
+                log.info(`未到循环时间，跳过${id}`)
+                return
+              }
+              break
+            // cron 模式 和不存在这个配置，都是默认用cron检查是否要抓取
+            default:
+              // 根据预计开奖时间规则(lottery.drawConfig.timeRule)判断是否到了抓取数据的时间 ,
+              if (result && !hasNewDraw(timeRules, delay, result.drawTime, tz)) {
+                log.info(`还未开奖，跳过${id}`)
+                return
+              }
           }
           const crawlers = route(lottery.country, id)
           if (!crawlers || crawlers.length === 0) {
