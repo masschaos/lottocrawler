@@ -4,7 +4,6 @@ const lotteryID = 'uk-set-for-life'
 const url = 'https://www.lottery.co.uk/set-for-life/results'
 
 const { MONTH } = require('../country')
-const VError = require('verror')
 const { newPage, ignoreImage } = require('../../../pptr')
 const { DrawingError } = require('../../../util/error')
 

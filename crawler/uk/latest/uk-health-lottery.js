@@ -1,11 +1,9 @@
-const name = 'Health Lottery'
-const lotteryID = 'uk-health-lottery'
-
 const { MONTH } = require('../country')
-const VError = require('verror')
 const { newPage, ignoreImage } = require('../../../pptr')
 const { DrawingError } = require('../../../util/error')
 
+const name = 'Health Lottery'
+const lotteryID = 'uk-health-lottery'
 const url = 'https://www.lottery.co.uk/health-lottery/results'
 const numberSelector = '#siteContainer > div.main > div:nth-child(5) > div.paddedLight'
 

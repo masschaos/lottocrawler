@@ -38,6 +38,7 @@ const getHistory = async (startYear, endYear, lotteryID) => {
       const dateStr = await page.$$eval(historyNumberPageSelector, (el, MONTH) => {
         return Promise.all(el.map(async item => {
           const [dateString, numberString] = item.innerText.split('\t')
+          // eslint-disable-next-line
           let [weekday, day, month, year] = dateString.split('\n').join(' ').split(' ')
           // console.log(weekday, day, month, year)
           month = await MonthOrDayProcess(MONTH[month])
@@ -81,6 +82,6 @@ const getHistory = async (startYear, endYear, lotteryID) => {
   }
 }
 
-// (async () => {
-//     const newData = await getHistory(startYear, endYear, lotteryID)
-// })()
+(async () => {
+  await getHistory(startYear, endYear, lotteryID)
+})()

@@ -1,11 +1,11 @@
-const name = 'Irish Lotto'
-const lotteryID = 'uk-irish-lotto'
-
 const { MONTH } = require('../country')
-const VError = require('verror')
 const { newPage, ignoreImage } = require('../../../pptr')
 const { DrawingError } = require('../../../util/error')
+
+const name = 'Irish Lotto'
+const lotteryID = 'uk-irish-lotto'
 const url = 'https://www.lottery.co.uk/irish-lotto/results'
+
 const numberSelector = '#siteContainer > div.main > div:nth-child(5) > div.paddedLight'
 const LottoPlusRaffleResultSelector = '#siteContainer > div.main > table:nth-child(5) > tbody > tr:nth-child(3) > td > div > span'
 const dateSelector = '#siteContainer > div.main > div:nth-child(5) > div.latestHeader.irish > span'

@@ -8,7 +8,6 @@ const lotteryID = 'ru-sportloto-matchball'
 const name = 'Спортлото Матчбол'
 
 const { MONTH } = require('../country')
-const VError = require('verror')
 const { newPage, ignoreImage } = require('../../../pptr')
 const { DrawingError } = require('../../../util/error')
 

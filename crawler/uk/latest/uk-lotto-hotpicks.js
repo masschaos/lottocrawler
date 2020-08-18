@@ -1,18 +1,11 @@
-const name = 'Lotto HotPicks'
-const lotteryID = 'uk-lotto-hotpicks'
-// const other = []
-// const jackpot = []
-// const drawTime = ''
-// const issue = ''
-// const number = ''
-// const detail = []
-
-const url = 'https://www.lottery.co.uk/lotto/hotpicks/results'
-
 const { MONTH } = require('../country')
-const VError = require('verror')
 const { newPage, ignoreImage } = require('../../../pptr')
 const { DrawingError } = require('../../../util/error')
+
+const name = 'Lotto HotPicks'
+const lotteryID = 'uk-lotto-hotpicks'
+const url = 'https://www.lottery.co.uk/lotto/hotpicks/results'
+
 const numberSelector = '#siteContainer > div.main > div:nth-child(5) > div.paddedLight'
 const dateSelector = '#siteContainer > div.main > div:nth-child(5) > div.latestHeader.hotpicks'
 const detailUrlSelector = '#siteContainer > div.main > div:nth-child(5) > div.resultsBottom.latest > a'

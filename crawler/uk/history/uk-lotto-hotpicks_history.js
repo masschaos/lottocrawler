@@ -34,6 +34,7 @@ const getHistory = async (startYear, endYear, lotteryID) => {
       const dateStr = await page.$$eval(historyNumberPageSelector, (el, MONTH) => {
         return Promise.all(el.map(async item => {
           const [dateString, numberString, jackpotString] = item.innerText.split('\t')
+          // eslint-disable-next-line
           let [weekday, day, month, year] = dateString.split('\n').join(' ').split(' ')
           month = await MonthOrDayProcess(MONTH[month])
           day = await MonthOrDayProcess(day)
@@ -64,14 +65,14 @@ const getHistory = async (startYear, endYear, lotteryID) => {
       }
     }
   } catch (err) {
+    console.error(err)
     throw new VError(err, '爬虫发生预期外错误')
-    console.log(err)
   } finally {
     console.log('write to file')
     writeJsonToFile(lotteryID, HISTORY)
   }
 }
 
-// (async () => {
-//     const newData = await getHistory(startYear, endYear, lotteryID)
-// })()
+(async () => {
+  await getHistory(startYear, endYear, lotteryID)
+})()

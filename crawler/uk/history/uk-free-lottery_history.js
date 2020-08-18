@@ -15,7 +15,7 @@ const VError = require('verror')
 
 const [startYear, endYear] = [2020, 1994]
 const historyNumberPageSelector = '#siteContainer > div.main > table > tbody tr'
-const historyDetailUrlSelector = '#siteContainer > div.main > table > tbody td a'
+// const historyDetailUrlSelector = '#siteContainer > div.main > table > tbody td a'
 // const detailTableSelector = '#siteContainer > div.main > table.table.euromillions.mobFormat > tbody'
 
 const getHistory = async (startYear, endYear, lotteryID) => {
@@ -37,6 +37,7 @@ const getHistory = async (startYear, endYear, lotteryID) => {
           console.log(DrawType)
           console.log(numberString)
           console.log(jackpotString)
+          // eslint-disable-next-line
           let [weekday, day, month, year] = dateString.split(' ')
           month = await MonthOrDayProcess(MONTH[month])
           day = await MonthOrDayProcess(day)
@@ -60,6 +61,6 @@ const getHistory = async (startYear, endYear, lotteryID) => {
   }
 }
 
-// (async () => {
-//     const newData = await getHistory(startYear, endYear, lotteryID)
-// })()
+(async () => {
+  await getHistory(startYear, endYear, lotteryID)
+})()

@@ -2,7 +2,6 @@ const log = require('../../../util/log')
 const { DrawingError } = require('../../../util/error')
 const { newPage, ignoreImage } = require('../../../pptr')
 const { MONTH } = require('../country')
-const VError = require('verror')
 
 const url = 'https://www.stoloto.ru/zodiac/archive'
 const selector = '#content > div.data.drawings_data'

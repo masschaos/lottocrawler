@@ -1,11 +1,9 @@
+const { MONTH } = require('../country')
+const { newPage, ignoreImage } = require('../../../pptr')
+const moment = require('moment-timezone')
+
 const name = 'Free Lottery'
 const lotteryID = 'uk-free-lottery'
-
-const { MONTH } = require('../country')
-const VError = require('verror')
-const { newPage, ignoreImage } = require('../../../pptr')
-const { DrawingError } = require('../../../util/error')
-const moment = require('moment-timezone')
 const tz = 'Europe/London'
 const url = 'https://www.lottery.co.uk/free-lottery/results'
 // const tz = 'America/New_York'

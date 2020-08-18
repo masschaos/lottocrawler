@@ -1,11 +1,5 @@
 const name = 'Irish Lotto'
 const lotteryID = 'uk-irish-lotto'
-const other = []
-const jackpot = []
-const drawTime = ''
-const issue = ''
-const number = ''
-const detail = []
 // https://www.lottery.co.uk/irish-lotto/results/archive-2020
 
 const { MONTH, MonthOrDayProcess, monthCheck, dayCheck, writeJsonToFile } = require('../country')
@@ -44,6 +38,7 @@ const getHistory = async (startYear, endYear, lotteryID) => {
       const dateStr = await page.$$eval(historyNumberPageSelector, (el, MONTH) => {
         return Promise.all(el.map(async item => {
           const [dateString, numberString, jackpotString] = item.innerText.split('\t')
+          // eslint-disable-next-line
           let [weekday, day, month, year] = dateString.split(' ')
           month = await MonthOrDayProcess(MONTH[month])
           day = await MonthOrDayProcess(day)
@@ -90,6 +85,7 @@ const getHistory = async (startYear, endYear, lotteryID) => {
   }
 }
 
-// (async () => {
-//     const newData = await getHistory(startYear, endYear, lotteryID)
-// })()
+(async () => {
+  // eslint-disable-next-line
+  await  getHistory(startYear, endYear, lotteryID)
+})()

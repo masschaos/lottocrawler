@@ -2,13 +2,11 @@ const name = 'Lotto'
 const lotteryID = 'uk-lotto'
 
 const { MONTH } = require('../country')
-const VError = require('verror')
 const { newPage, ignoreImage } = require('../../../pptr')
 const { DrawingError } = require('../../../util/error')
-const time = require('../../../util/time')
 const url = 'https://www.lottery.co.uk/lotto/results'
-const numberSelector = '#siteContainer > div.main > div:nth-child(5) > div.paddedLight'
 
+const numberSelector = '#siteContainer > div.main > div:nth-child(5) > div.paddedLight'
 const dateSelector = '#siteContainer > div.main > div:nth-child(5) > div.latestHeader.lotto'
 const detailUrlSelector = '#siteContainer > div.main > div:nth-child(5) > div.resultsBottom.latest > a'
 const detailTableSelector = '#siteContainer > div.main > table.table.lotto.mobFormat > tbody'

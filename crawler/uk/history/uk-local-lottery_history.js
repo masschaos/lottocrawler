@@ -1,4 +1,4 @@
-const name = 'Local Lottery'
+// const name = 'Local Lottery'
 const lotteryID = 'uk-local-lottery'
 // const other = []
 // const jackpot = []
@@ -15,7 +15,7 @@ const VError = require('verror')
 
 const [startYear, endYear] = [2020, 1994]
 const historyNumberPageSelector = '#siteContainer > div.main > table > tbody tr'
-const historyDetailUrlSelector = '#siteContainer > div.main > table > tbody td a'
+// const historyDetailUrlSelector = '#siteContainer > div.main > table > tbody td a'
 // const detailTableSelector = '#siteContainer > div.main > table.table.lotto.mobFormat > tbody'
 
 const getHistory = async (startYear, endYear, lotteryID) => {
@@ -32,16 +32,17 @@ const getHistory = async (startYear, endYear, lotteryID) => {
       await page.goto(url)
       await page.waitForSelector(historyNumberPageSelector)
       // get detail URL
-      const DetailUrlList = await page.$$eval(historyDetailUrlSelector, el => {
-        return el.map(item => {
-          return item.href
-        })
-      })
+      // const DetailUrlList = await page.$$eval(historyDetailUrlSelector, el => {
+      //   return el.map(item => {
+      //     return item.href
+      //   })
+      // })
 
       // get Date Number jackpot
-      const dateStr = await page.$$eval(historyNumberPageSelector, (el, MONTH) => {
+      await page.$$eval(historyNumberPageSelector, (el, MONTH) => {
         return Promise.all(el.map(async item => {
           const [dateString, numberString, jackpotString] = item.innerText.split('\t')
+          // eslint-disable-next-line
           let [weekday, day, month, year] = dateString.split(' ')
           month = await MonthOrDayProcess(MONTH[month])
           day = await MonthOrDayProcess(day)
@@ -66,6 +67,6 @@ const getHistory = async (startYear, endYear, lotteryID) => {
   }
 }
 
-// (async () => {
-//     const newData = await getHistory(startYear, endYear, lotteryID)
-// })()
+(async () => {
+  await getHistory(startYear, endYear, lotteryID)
+})()
