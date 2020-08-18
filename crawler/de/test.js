@@ -17,7 +17,7 @@ async function test () {
     for (const crawler of crawlers) {
       try {
         const res = await crawler.crawl()
-        console.log(JSON.stringify(res).slice(0, 10))
+        console.log(JSON.stringify(res))
       } catch (err) {
         console.log(err.message)
       }

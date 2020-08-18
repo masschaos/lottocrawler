@@ -60,43 +60,33 @@ class crawler {
   }
 
   async getDrawRange (minDrawNo, maxDrawNo) {
-    return new Promise((resolve, reject) => {
-      axios.post('https://data.api.thelott.com/sales/vmax/web/data/lotto/results/search/drawrange',
-        {
-          MinDrawNo: minDrawNo,
-          MaxDrawNo: maxDrawNo,
-          Product: lotteryIdProductCodeConfig[this.lottoryId],
-          CompanyFilter: [
-            'NTLotteries'
-          ]
-        }).then(resp => {
-        if (resp.data.Draws && resp.data.Draws.length > 0) {
-          resolve(resp.data.Draws)
-        }
-        resolve(null)
-      }).catch(err => {
-        reject(err)
-      })
+    const url = 'https://data.api.thelott.com/sales/vmax/web/data/lotto/results/search/drawrange'
+    const resp = await axios.post(url, {
+      MinDrawNo: minDrawNo,
+      MaxDrawNo: maxDrawNo,
+      Product: lotteryIdProductCodeConfig[this.lottoryId],
+      CompanyFilter: [
+        'NTLotteries'
+      ]
     })
+    if (resp.data && resp.data.Draws && resp.data.Draws.length > 0) {
+      return resp.data.Draws
+    }
+    return null
   }
 
   async getDrawNo () {
-    return new Promise((resolve, reject) => {
-      axios.post('https://data.api.thelott.com/sales/vmax/web/data/lotto/latestresults',
-        {
-          CompanyId: 'NTLotteries',
-          MaxDrawCountPerProduct: 1,
-          OptionalProductFilter: [lotteryIdProductCodeConfig[this.lottoryId]]
-        }).then(resp => {
-        // console.log(resp.data)
-        if (resp.data.DrawResults && resp.data.DrawResults.length > 0) {
-          resolve(resp.data.DrawResults[0].DrawNumber)
-        }
-        resolve(null)
-      }).catch(err => {
-        reject(err)
-      })
+    const url = 'https://data.api.thelott.com/sales/vmax/web/data/lotto/latestresults'
+    const resp = await axios.post(url, {
+      CompanyId: 'NTLotteries',
+      MaxDrawCountPerProduct: 1,
+      OptionalProductFilter: [lotteryIdProductCodeConfig[this.lottoryId]]
     })
+
+    if (resp.data.DrawResults && resp.data.DrawResults.length > 0) {
+      return resp.data.DrawResults[0].DrawNumber
+    }
+    return null
   }
 }
 
