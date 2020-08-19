@@ -33,7 +33,8 @@ const Craw = async (page, url, selectorAll, lotteryID) => {
       data.issue = element.querySelector('.draw').innerText
       data.drawUrl = element.querySelector('.draw a').href
       data.jackpot = []
-      let numbers = element.querySelector('.numbers_wrapper .container').innerText || ''
+      const numbersResult = element.querySelector('.numbers_wrapper .container')
+      let numbers = (numbersResult && numbersResult.innerText) || ''
       numbers = numbers.length ? numbers.split(' ') : []
       const number = numbers.map(item => item.trim())
       data.numbers = `${number.slice(0, 5).join(',')}|${number.slice(-1).join(',')}`
