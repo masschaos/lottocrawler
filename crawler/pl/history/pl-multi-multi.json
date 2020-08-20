@@ -1,0 +1,1802 @@
+[
+    {
+        "drawTime": "20200819215000",
+        "jackpot": [],
+        "numbers": "2,9,10,16,19,21,24,26,36,38,40,55,56,60,61,62,68,70,71,73|55",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": null
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200819215000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12591"
+    },
+    {
+        "drawTime": "20200819140000",
+        "jackpot": [],
+        "numbers": "4,6,7,10,14,17,28,29,36,42,46,48,51,52,56,58,62,64,71,73|56",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3069"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200819140000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12590"
+    },
+    {
+        "drawTime": "20200818215000",
+        "jackpot": [],
+        "numbers": "3,7,14,17,20,22,27,39,45,46,47,49,53,54,55,61,63,74,77,79|79",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3068"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200818215000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12589"
+    },
+    {
+        "drawTime": "20200818140000",
+        "jackpot": [],
+        "numbers": "2,4,6,15,17,19,21,23,25,26,35,41,47,50,56,66,67,73,77,80|47",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3067"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200818140000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12588"
+    },
+    {
+        "drawTime": "20200817215000",
+        "jackpot": [],
+        "numbers": "5,7,11,14,17,19,38,41,43,45,50,51,56,61,66,67,69,73,74,76|50",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3066"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200817215000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12587"
+    },
+    {
+        "drawTime": "20200817140000",
+        "jackpot": [],
+        "numbers": "3,8,10,12,14,19,26,29,38,46,47,48,49,58,61,66,67,69,70,76|67",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3065"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200817140000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12586"
+    },
+    {
+        "drawTime": "20200816215000",
+        "jackpot": [],
+        "numbers": "5,11,16,25,31,34,35,37,40,42,44,51,53,55,56,57,68,69,76,79|53",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3064"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200816215000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12585"
+    },
+    {
+        "drawTime": "20200816140000",
+        "jackpot": [],
+        "numbers": "1,3,6,10,11,12,16,17,27,35,43,50,54,57,68,73,74,75,79,80|16",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3063"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200816140000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12584"
+    },
+    {
+        "drawTime": "20200815215000",
+        "jackpot": [],
+        "numbers": "1,2,3,6,8,12,13,19,20,33,37,40,47,48,55,56,65,71,74,77|77",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3062"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200815215000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12583"
+    },
+    {
+        "drawTime": "20200815140000",
+        "jackpot": [],
+        "numbers": "1,6,13,19,21,22,30,33,35,39,41,44,50,51,57,58,65,76,77,79|21",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3061"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200815140000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12582"
+    },
+    {
+        "drawTime": "20200814215000",
+        "jackpot": [],
+        "numbers": "8,17,24,34,37,39,41,42,46,48,53,57,59,60,61,63,69,70,71,72|37",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3060"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200814215000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12581"
+    },
+    {
+        "drawTime": "20200814140000",
+        "jackpot": [],
+        "numbers": "5,10,18,20,26,27,31,33,36,39,42,47,54,58,63,65,66,71,73,77|42",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3059"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200814140000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12580"
+    },
+    {
+        "drawTime": "20200813215000",
+        "jackpot": [],
+        "numbers": "2,5,9,11,12,16,20,21,24,28,31,45,49,53,56,57,61,66,68,72|61",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3058"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200813215000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12579"
+    },
+    {
+        "drawTime": "20200813140000",
+        "jackpot": [],
+        "numbers": "6,14,16,18,28,31,33,34,35,36,42,49,51,53,58,61,62,68,75,79|75",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3057"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200813140000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12578"
+    },
+    {
+        "drawTime": "20200812215000",
+        "jackpot": [],
+        "numbers": "10,19,23,24,30,31,33,37,39,44,50,53,54,57,59,60,70,74,78,79|70",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3056"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200812215000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12577"
+    },
+    {
+        "drawTime": "20200812140000",
+        "jackpot": [],
+        "numbers": "2,10,12,14,18,21,22,26,28,34,36,37,43,44,45,55,58,59,61,69|59",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3055"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200812140000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12576"
+    },
+    {
+        "drawTime": "20200811215000",
+        "jackpot": [],
+        "numbers": "3,4,15,17,21,24,28,30,32,37,39,45,48,49,57,61,66,67,72,76|49",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3054"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200811215000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12575"
+    },
+    {
+        "drawTime": "20200811140000",
+        "jackpot": [],
+        "numbers": "7,11,12,16,20,26,27,39,49,51,52,57,62,63,65,67,68,69,72,80|65",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3053"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200811140000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12574"
+    },
+    {
+        "drawTime": "20200810215000",
+        "jackpot": [],
+        "numbers": "3,10,16,19,20,24,26,27,29,40,43,54,55,58,59,64,66,69,74,79|16",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3052"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200810215000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12573"
+    },
+    {
+        "drawTime": "20200810140000",
+        "jackpot": [],
+        "numbers": "2,6,8,10,17,19,27,33,38,55,57,58,62,63,66,68,71,72,74,76|68",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3051"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200810140000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12572"
+    },
+    {
+        "drawTime": "20200809215000",
+        "jackpot": [],
+        "numbers": "2,5,6,11,16,17,25,34,36,39,40,44,45,46,47,48,54,63,73,80|73",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3050"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200809215000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12571"
+    },
+    {
+        "drawTime": "20200809140000",
+        "jackpot": [],
+        "numbers": "3,10,12,13,14,30,31,38,39,46,50,55,60,61,62,65,66,73,75,77|38",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3049"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200809140000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12570"
+    },
+    {
+        "drawTime": "20200808215000",
+        "jackpot": [],
+        "numbers": "3,4,6,10,11,17,19,20,25,26,30,34,35,40,47,48,50,54,69,78|34",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3048"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200808215000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12569"
+    },
+    {
+        "drawTime": "20200808140000",
+        "jackpot": [],
+        "numbers": "5,6,8,15,16,18,21,24,25,27,35,42,46,48,53,56,57,70,74,79|18",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3047"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200808140000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12568"
+    },
+    {
+        "drawTime": "20200807215000",
+        "jackpot": [],
+        "numbers": "1,13,19,20,23,25,28,36,39,40,43,46,50,57,60,63,64,67,71,74|13",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3046"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200807215000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12567"
+    },
+    {
+        "drawTime": "20200807140000",
+        "jackpot": [],
+        "numbers": "2,5,8,10,14,16,20,28,33,37,42,43,44,45,53,54,55,56,75,78|45",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3045"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200807140000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12566"
+    },
+    {
+        "drawTime": "20200806215000",
+        "jackpot": [],
+        "numbers": "1,3,5,7,8,13,17,18,24,34,37,43,46,55,61,62,64,69,75,78|8",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3044"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200806215000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12565"
+    },
+    {
+        "drawTime": "20200806140000",
+        "jackpot": [],
+        "numbers": "1,2,3,16,18,30,33,35,38,40,43,45,46,50,51,52,53,60,67,72|51",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3043"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200806140000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12564"
+    },
+    {
+        "drawTime": "20200805215000",
+        "jackpot": [],
+        "numbers": "2,9,13,26,30,31,34,35,43,46,47,49,54,58,60,63,65,66,72,76|46",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3042"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200805215000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12563"
+    },
+    {
+        "drawTime": "20200805140000",
+        "jackpot": [],
+        "numbers": "1,7,8,13,14,15,28,29,34,36,38,46,49,52,60,62,68,72,75,78|75",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3041"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200805140000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12562"
+    },
+    {
+        "drawTime": "20200804215000",
+        "jackpot": [],
+        "numbers": "3,14,15,16,22,33,34,36,42,47,55,59,63,66,68,70,71,74,76,78|16",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3040"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200804215000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12561"
+    },
+    {
+        "drawTime": "20200804140000",
+        "jackpot": [],
+        "numbers": "4,9,12,14,16,17,20,22,24,27,28,31,34,37,38,40,62,73,79,80|9",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3039"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200804140000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12560"
+    },
+    {
+        "drawTime": "20200803215000",
+        "jackpot": [],
+        "numbers": "6,16,17,23,24,26,31,32,34,47,49,50,54,58,62,64,65,71,72,76|76",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3038"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200803215000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12559"
+    },
+    {
+        "drawTime": "20200803140000",
+        "jackpot": [],
+        "numbers": "2,7,13,14,23,30,31,33,35,37,38,39,48,50,51,53,58,65,75,77|7",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3037"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200803140000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12558"
+    },
+    {
+        "drawTime": "20200802215000",
+        "jackpot": [],
+        "numbers": "1,17,19,20,21,34,37,42,44,48,50,57,61,63,64,65,70,77,78,79|48",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3036"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200802215000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12557"
+    },
+    {
+        "drawTime": "20200802140000",
+        "jackpot": [],
+        "numbers": "4,14,19,27,28,32,34,36,37,38,42,50,52,55,58,63,66,71,74,80|34",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3035"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200802140000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12556"
+    },
+    {
+        "drawTime": "20200801215000",
+        "jackpot": [],
+        "numbers": "4,5,10,15,17,18,19,31,42,43,49,55,59,60,61,70,71,73,75,79|70",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3034"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200801215000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12555"
+    },
+    {
+        "drawTime": "20200801140000",
+        "jackpot": [],
+        "numbers": "5,10,11,12,17,18,22,24,29,31,44,53,55,59,63,64,65,68,73,74|63",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3033"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200801140000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12554"
+    },
+    {
+        "drawTime": "20200731215000",
+        "jackpot": [],
+        "numbers": "2,4,5,12,18,20,34,37,38,47,49,54,58,59,64,65,70,71,74,80|80",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3032"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200731215000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12553"
+    },
+    {
+        "drawTime": "20200731140000",
+        "jackpot": [],
+        "numbers": "5,6,7,8,16,18,19,21,22,30,35,47,48,49,53,57,61,72,77,80|80",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3031"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200731140000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12552"
+    },
+    {
+        "drawTime": "20200730215000",
+        "jackpot": [],
+        "numbers": "5,6,10,14,15,18,20,23,27,28,30,36,40,43,45,51,67,68,71,74|18",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3030"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200730215000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12551"
+    },
+    {
+        "drawTime": "20200730140000",
+        "jackpot": [],
+        "numbers": "1,5,6,16,18,20,24,26,27,29,30,39,41,44,50,54,59,69,74,75|30",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3029"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200730140000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12550"
+    },
+    {
+        "drawTime": "20200729215000",
+        "jackpot": [],
+        "numbers": "9,10,14,15,20,23,24,29,34,38,45,50,51,56,58,60,62,66,69,74|29",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3028"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200729215000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12549"
+    },
+    {
+        "drawTime": "20200729140000",
+        "jackpot": [],
+        "numbers": "11,12,22,32,35,37,39,40,51,55,60,63,64,65,66,68,72,75,78,80|22",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3027"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200729140000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12548"
+    },
+    {
+        "drawTime": "20200728215000",
+        "jackpot": [],
+        "numbers": "2,3,9,13,14,18,25,27,28,29,34,36,37,42,43,63,65,70,72,79|63",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3026"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200728215000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12547"
+    },
+    {
+        "drawTime": "20200728140000",
+        "jackpot": [],
+        "numbers": "3,4,10,14,22,31,48,52,55,56,58,60,62,65,66,72,75,76,78,80|62",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3025"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200728140000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12546"
+    },
+    {
+        "drawTime": "20200727215000",
+        "jackpot": [],
+        "numbers": "3,9,12,13,16,18,23,29,35,39,40,41,46,50,52,59,66,77,79,80|35",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3024"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200727215000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12545"
+    },
+    {
+        "drawTime": "20200727140000",
+        "jackpot": [],
+        "numbers": "7,11,12,21,23,24,33,38,42,44,46,57,58,61,62,65,66,67,68,73|23",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3023"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200727140000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12544"
+    },
+    {
+        "drawTime": "20200726215000",
+        "jackpot": [],
+        "numbers": "6,10,12,15,16,17,20,22,29,30,39,41,48,54,55,56,59,69,72,79|59",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3022"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200726215000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12543"
+    },
+    {
+        "drawTime": "20200726140000",
+        "jackpot": [],
+        "numbers": "5,6,8,9,10,21,24,26,27,30,33,35,38,40,43,44,47,49,58,61|8",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3021"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200726140000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12542"
+    },
+    {
+        "drawTime": "20200725215000",
+        "jackpot": [],
+        "numbers": "4,6,9,10,15,23,25,29,35,37,49,51,52,54,55,69,70,71,73,80|10",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3020"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200725215000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12541"
+    },
+    {
+        "drawTime": "20200725140000",
+        "jackpot": [],
+        "numbers": "1,5,9,14,16,19,20,21,25,28,29,33,34,39,45,50,52,55,66,73|29",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3019"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200725140000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12540"
+    },
+    {
+        "drawTime": "20200724215000",
+        "jackpot": [],
+        "numbers": "3,15,16,17,30,36,37,39,41,48,50,55,56,57,59,65,67,71,74,76|76",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3018"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200724215000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12539"
+    },
+    {
+        "drawTime": "20200724140000",
+        "jackpot": [],
+        "numbers": "2,3,6,8,10,13,16,19,21,22,26,28,30,36,42,44,48,64,75,80|26",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3017"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200724140000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12538"
+    },
+    {
+        "drawTime": "20200723215000",
+        "jackpot": [],
+        "numbers": "1,7,12,15,24,33,39,41,49,52,53,58,59,62,63,70,73,75,77,79|12",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3016"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200723215000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12537"
+    },
+    {
+        "drawTime": "20200723140000",
+        "jackpot": [],
+        "numbers": "7,10,13,14,17,19,26,34,35,38,45,54,59,65,67,69,74,77,79,80|77",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3015"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200723140000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12536"
+    },
+    {
+        "drawTime": "20200722215000",
+        "jackpot": [],
+        "numbers": "5,10,13,15,16,17,18,25,29,30,36,37,47,49,52,61,64,76,77,78|5",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3014"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200722215000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12535"
+    },
+    {
+        "drawTime": "20200722140000",
+        "jackpot": [],
+        "numbers": "2,5,9,10,18,19,25,27,33,34,35,41,43,45,46,58,60,63,70,75|18",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3013"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200722140000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12534"
+    },
+    {
+        "drawTime": "20200721215000",
+        "jackpot": [],
+        "numbers": "1,4,6,11,17,19,20,28,33,48,50,53,54,63,64,66,71,75,76,77|11",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3012"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200721215000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12533"
+    },
+    {
+        "drawTime": "20200721140000",
+        "jackpot": [],
+        "numbers": "4,7,11,15,28,29,30,35,37,38,40,45,49,50,53,56,59,71,75,76|40",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3011"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200721140000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12532"
+    },
+    {
+        "drawTime": "20200720215000",
+        "jackpot": [],
+        "numbers": "6,8,11,15,16,21,23,26,28,30,31,32,37,43,50,51,57,59,72,80|23",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3010"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200720215000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12531"
+    },
+    {
+        "drawTime": "20200720140000",
+        "jackpot": [],
+        "numbers": "11,12,16,21,22,25,29,35,36,40,42,51,56,58,59,62,70,74,77,80|51",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3009"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200720140000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12530"
+    },
+    {
+        "drawTime": "20200719215000",
+        "jackpot": [],
+        "numbers": "1,6,9,15,16,17,21,24,32,36,38,40,52,53,55,65,70,75,76,77|55",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3008"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200719215000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12529"
+    },
+    {
+        "drawTime": "20200719140000",
+        "jackpot": [],
+        "numbers": "4,7,13,21,22,25,27,30,31,36,45,47,48,51,53,54,57,58,76,78|36",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3007"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200719140000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12528"
+    },
+    {
+        "drawTime": "20200718215000",
+        "jackpot": [],
+        "numbers": "3,5,9,17,19,21,23,24,29,31,43,47,51,58,59,63,67,76,77,79|51",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3006"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200718215000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12527"
+    },
+    {
+        "drawTime": "20200718140000",
+        "jackpot": [],
+        "numbers": "3,4,5,7,9,10,11,14,22,45,47,50,52,53,60,66,76,78,79,80|52",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3005"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200718140000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12526"
+    },
+    {
+        "drawTime": "20200717215000",
+        "jackpot": [],
+        "numbers": "11,15,17,18,19,22,25,27,31,36,38,42,44,46,47,49,56,61,63,64|15",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3004"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200717215000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12525"
+    },
+    {
+        "drawTime": "20200717140000",
+        "jackpot": [],
+        "numbers": "5,8,12,13,15,21,25,26,30,32,36,38,49,50,51,52,59,68,71,79|79",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3003"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200717140000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12524"
+    },
+    {
+        "drawTime": "20200716215000",
+        "jackpot": [],
+        "numbers": "5,6,12,15,19,20,29,32,36,37,51,57,59,63,67,68,69,71,73,77|37",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3002"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200716215000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12523"
+    },
+    {
+        "drawTime": "20200716140000",
+        "jackpot": [],
+        "numbers": "2,14,17,20,21,26,28,31,33,36,42,43,47,48,55,60,61,63,64,77|55",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3001"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200716140000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12522"
+    },
+    {
+        "drawTime": "20200715215000",
+        "jackpot": [],
+        "numbers": "3,4,6,16,19,20,24,29,36,40,43,52,64,67,70,76,77,78,79,80|67",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3000"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200715215000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12521"
+    },
+    {
+        "drawTime": "20200715140000",
+        "jackpot": [],
+        "numbers": "1,7,12,14,19,21,28,42,43,48,49,50,53,55,63,64,68,75,76,78|76",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2999"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200715140000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12520"
+    },
+    {
+        "drawTime": "20200714215000",
+        "jackpot": [],
+        "numbers": "3,4,8,20,25,27,30,33,35,36,39,40,41,45,51,53,56,68,76,79|33",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2998"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200714215000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12519"
+    },
+    {
+        "drawTime": "20200714140000",
+        "jackpot": [],
+        "numbers": "1,3,4,8,9,27,28,32,36,39,42,45,47,48,51,56,62,71,72,78|32",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2997"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200714140000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12518"
+    },
+    {
+        "drawTime": "20200713215000",
+        "jackpot": [],
+        "numbers": "6,8,9,14,15,16,21,24,25,29,37,40,46,61,63,65,68,70,72,74|21",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2996"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200713215000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12517"
+    },
+    {
+        "drawTime": "20200713140000",
+        "jackpot": [],
+        "numbers": "6,7,9,16,21,22,32,35,37,39,44,45,49,58,63,66,68,69,70,74|63",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2995"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200713140000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12516"
+    },
+    {
+        "drawTime": "20200712215000",
+        "jackpot": [],
+        "numbers": "1,3,6,7,11,12,15,28,30,32,38,40,41,46,49,54,62,65,70,76|32",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2994"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200712215000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12515"
+    },
+    {
+        "drawTime": "20200712140000",
+        "jackpot": [],
+        "numbers": "2,3,4,6,10,21,24,29,30,31,36,43,45,48,50,65,73,75,77,78|29",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2993"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200712140000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12514"
+    },
+    {
+        "drawTime": "20200711215000",
+        "jackpot": [],
+        "numbers": "1,7,11,15,17,28,38,43,48,49,52,53,60,63,65,66,68,71,72,78|38",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2992"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200711215000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12513"
+    },
+    {
+        "drawTime": "20200711140000",
+        "jackpot": [],
+        "numbers": "4,14,19,22,26,31,32,36,37,38,41,44,45,51,53,56,57,68,71,77|57",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2991"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200711140000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12512"
+    },
+    {
+        "drawTime": "20200710215000",
+        "jackpot": [],
+        "numbers": "4,6,7,10,19,21,22,24,30,39,41,42,48,53,56,61,67,69,76,80|19",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2990"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200710215000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12511"
+    },
+    {
+        "drawTime": "20200710140000",
+        "jackpot": [],
+        "numbers": "3,4,5,6,11,12,21,22,28,35,40,46,54,57,63,67,73,76,78,80|4",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2989"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200710140000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12510"
+    },
+    {
+        "drawTime": "20200709215000",
+        "jackpot": [],
+        "numbers": "2,3,14,26,29,34,36,39,41,45,47,57,60,62,64,67,69,71,73,74|67",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2988"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200709215000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12509"
+    },
+    {
+        "drawTime": "20200709140000",
+        "jackpot": [],
+        "numbers": "6,12,13,14,15,16,19,24,25,37,39,49,55,56,57,60,62,72,73,76|15",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2987"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200709140000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12508"
+    },
+    {
+        "drawTime": "20200708215000",
+        "jackpot": [],
+        "numbers": "5,6,17,21,22,25,30,31,34,37,40,44,45,49,50,52,53,59,61,63|61",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2986"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200708215000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12507"
+    },
+    {
+        "drawTime": "20200708140000",
+        "jackpot": [],
+        "numbers": "2,3,4,23,25,26,30,32,36,45,48,53,59,61,64,65,66,67,73,79|79",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2985"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200708140000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12506"
+    },
+    {
+        "drawTime": "20200707215000",
+        "jackpot": [],
+        "numbers": "7,8,11,13,23,24,26,29,31,33,34,42,48,52,59,61,66,70,75,79|42",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2984"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200707215000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12505"
+    },
+    {
+        "drawTime": "20200707140000",
+        "jackpot": [],
+        "numbers": "5,6,9,20,21,25,33,34,36,38,39,43,44,50,56,65,66,70,76,80|5",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2983"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200707140000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12504"
+    },
+    {
+        "drawTime": "20200706215000",
+        "jackpot": [],
+        "numbers": "4,5,6,11,16,17,35,36,43,50,52,55,56,57,60,61,70,71,74,79|56",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2982"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200706215000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12503"
+    },
+    {
+        "drawTime": "20200706140000",
+        "jackpot": [],
+        "numbers": "7,8,12,21,23,26,36,39,40,43,46,47,48,54,58,60,61,63,68,71|71",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2981"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200706140000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12502"
+    },
+    {
+        "drawTime": "20200705215000",
+        "jackpot": [],
+        "numbers": "3,4,5,10,15,22,29,30,31,37,41,45,54,55,56,57,58,62,71,77|57",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2980"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200705215000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12501"
+    },
+    {
+        "drawTime": "20200705140000",
+        "jackpot": [],
+        "numbers": "3,4,6,7,10,13,16,22,26,28,31,35,45,49,51,53,55,65,70,76|31",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2979"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200705140000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12500"
+    },
+    {
+        "drawTime": "20200704215000",
+        "jackpot": [],
+        "numbers": "6,11,12,13,15,18,19,22,30,31,37,40,55,56,63,66,68,76,77,80|76",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2978"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200704215000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12499"
+    },
+    {
+        "drawTime": "20200704140000",
+        "jackpot": [],
+        "numbers": "3,16,19,20,21,23,26,27,29,37,39,45,50,51,57,67,70,73,75,77|75",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2977"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200704140000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12498"
+    },
+    {
+        "drawTime": "20200703215000",
+        "jackpot": [],
+        "numbers": "3,10,15,16,26,29,32,33,43,51,56,59,63,65,66,69,71,72,74,75|74",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2976"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200703215000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12497"
+    },
+    {
+        "drawTime": "20200703140000",
+        "jackpot": [],
+        "numbers": "3,7,8,12,16,21,25,26,31,37,45,47,49,62,63,67,69,70,73,78|3",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2975"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200703140000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12496"
+    },
+    {
+        "drawTime": "20200702215000",
+        "jackpot": [],
+        "numbers": "3,5,9,12,17,25,29,30,33,35,36,43,46,51,55,58,64,66,77,79|25",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2974"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200702215000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12495"
+    },
+    {
+        "drawTime": "20200702140000",
+        "jackpot": [],
+        "numbers": "3,5,6,8,18,20,23,25,28,36,42,45,49,50,54,58,62,66,72,78|78",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2973"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200702140000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12494"
+    },
+    {
+        "drawTime": "20200701215000",
+        "jackpot": [],
+        "numbers": "6,8,17,21,25,27,31,32,35,42,44,45,46,51,56,65,67,73,76,78|45",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2972"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200701215000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12493"
+    },
+    {
+        "drawTime": "20200701140000",
+        "jackpot": [],
+        "numbers": "1,3,9,11,18,19,21,22,23,24,36,49,51,66,68,70,72,75,79,80|3",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2971"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200701140000"
+            }
+        ],
+        "name": "Multi Multi",
+        "lotteryID": "pl-multi-multi",
+        "issue": "12492"
+    }
+]

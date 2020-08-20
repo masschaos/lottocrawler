@@ -1,0 +1,902 @@
+[
+    {
+        "drawTime": "20200814200000",
+        "jackpot": [],
+        "numbers": "9,20,27,35,48|5,9",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "153"
+    },
+    {
+        "drawTime": "20200807200000",
+        "jackpot": [],
+        "numbers": "4,9,15,24,28|2,6",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "152"
+    },
+    {
+        "drawTime": "20200731200000",
+        "jackpot": [],
+        "numbers": "3,19,28,43,49|2,3",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "151"
+    },
+    {
+        "drawTime": "20200724200000",
+        "jackpot": [],
+        "numbers": "7,11,19,32,43|2,8",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "150"
+    },
+    {
+        "drawTime": "20200717200000",
+        "jackpot": [],
+        "numbers": "13,21,25,34,35|5,10",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "149"
+    },
+    {
+        "drawTime": "20200710200000",
+        "jackpot": [],
+        "numbers": "5,6,9,15,29|4,9",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "148"
+    },
+    {
+        "drawTime": "20200703200000",
+        "jackpot": [],
+        "numbers": "12,34,36,47,48|5,7",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "147"
+    },
+    {
+        "drawTime": "20200626200000",
+        "jackpot": [],
+        "numbers": "14,16,32,34,47|7,9",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "146"
+    },
+    {
+        "drawTime": "20200619200000",
+        "jackpot": [],
+        "numbers": "2,22,33,38,47|2,9",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "145"
+    },
+    {
+        "drawTime": "20200612200000",
+        "jackpot": [],
+        "numbers": "7,16,22,30,48|2,8",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "144"
+    },
+    {
+        "drawTime": "20200605200000",
+        "jackpot": [],
+        "numbers": "9,16,17,29,39|1,8",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "143"
+    },
+    {
+        "drawTime": "20200529200000",
+        "jackpot": [],
+        "numbers": "8,22,31,32,36|6,10",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "142"
+    },
+    {
+        "drawTime": "20200522200000",
+        "jackpot": [],
+        "numbers": "12,15,32,40,45|7,10",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "141"
+    },
+    {
+        "drawTime": "20200515200000",
+        "jackpot": [],
+        "numbers": "21,27,29,34,49|8,10",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "140"
+    },
+    {
+        "drawTime": "20200508200000",
+        "jackpot": [],
+        "numbers": "9,11,15,36,43|8,9",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "139"
+    },
+    {
+        "drawTime": "20200501200000",
+        "jackpot": [],
+        "numbers": "6,11,12,21,41|1,2",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "138"
+    },
+    {
+        "drawTime": "20200424200000",
+        "jackpot": [],
+        "numbers": "6,13,15,34,35|1,5",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "137"
+    },
+    {
+        "drawTime": "20200417200000",
+        "jackpot": [],
+        "numbers": "1,18,23,33,41|2,6",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "136"
+    },
+    {
+        "drawTime": "20200410200000",
+        "jackpot": [],
+        "numbers": "2,7,8,43,50|2,3",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "135"
+    },
+    {
+        "drawTime": "20200403200000",
+        "jackpot": [],
+        "numbers": "3,21,26,40,41|8,10",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "134"
+    },
+    {
+        "drawTime": "20200327200000",
+        "jackpot": [],
+        "numbers": "13,19,23,34,41|3,8",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "133"
+    },
+    {
+        "drawTime": "20200320200000",
+        "jackpot": [],
+        "numbers": "9,14,28,30,37|3,10",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "132"
+    },
+    {
+        "drawTime": "20200313200000",
+        "jackpot": [],
+        "numbers": "1,17,29,39,42|7,8",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "131"
+    },
+    {
+        "drawTime": "20200306200000",
+        "jackpot": [],
+        "numbers": "15,19,35,36,41|5,10",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "130"
+    },
+    {
+        "drawTime": "20200228200000",
+        "jackpot": [],
+        "numbers": "12,22,24,29,38|5,6",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "129"
+    },
+    {
+        "drawTime": "20200221200000",
+        "jackpot": [],
+        "numbers": "2,13,39,45,47|4,6",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "128"
+    },
+    {
+        "drawTime": "20200214200000",
+        "jackpot": [],
+        "numbers": "2,6,30,32,49|1,4",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "127"
+    },
+    {
+        "drawTime": "20200207200000",
+        "jackpot": [],
+        "numbers": "7,16,22,36,44|3,4",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "126"
+    },
+    {
+        "drawTime": "20200131200000",
+        "jackpot": [],
+        "numbers": "1,7,12,23,39|3,4",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "125"
+    },
+    {
+        "drawTime": "20200124200000",
+        "jackpot": [],
+        "numbers": "5,12,20,29,48|7,9",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "124"
+    },
+    {
+        "drawTime": "20200117200000",
+        "jackpot": [],
+        "numbers": "1,23,32,45,49|5,10",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "123"
+    },
+    {
+        "drawTime": "20200110200000",
+        "jackpot": [],
+        "numbers": "4,14,25,34,49|4,9",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "122"
+    },
+    {
+        "drawTime": "20200103200000",
+        "jackpot": [],
+        "numbers": "6,27,30,35,41|4,5",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "121"
+    },
+    {
+        "drawTime": "20191227200000",
+        "jackpot": [],
+        "numbers": "7,12,28,34,45|3,6",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "120"
+    },
+    {
+        "drawTime": "20191220200000",
+        "jackpot": [],
+        "numbers": "12,20,21,22,35|4,10",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "119"
+    },
+    {
+        "drawTime": "20191213200000",
+        "jackpot": [],
+        "numbers": "25,31,38,49,50|5,10",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "118"
+    },
+    {
+        "drawTime": "20191206200000",
+        "jackpot": [],
+        "numbers": "8,14,23,30,45|1,9",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "117"
+    },
+    {
+        "drawTime": "20191129200000",
+        "jackpot": [],
+        "numbers": "2,3,30,31,45|6,8",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "116"
+    },
+    {
+        "drawTime": "20191122200000",
+        "jackpot": [],
+        "numbers": "3,12,24,37,38|3,7",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "115"
+    },
+    {
+        "drawTime": "20191115200000",
+        "jackpot": [],
+        "numbers": "10,19,24,30,39|2,4",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "114"
+    },
+    {
+        "drawTime": "20191108200000",
+        "jackpot": [],
+        "numbers": "14,20,23,39,49|4,10",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "113"
+    },
+    {
+        "drawTime": "20191101200000",
+        "jackpot": [],
+        "numbers": "3,17,31,34,40|1,2",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "112"
+    },
+    {
+        "drawTime": "20191025200000",
+        "jackpot": [],
+        "numbers": "2,30,34,35,45|1,2",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "111"
+    },
+    {
+        "drawTime": "20191018200000",
+        "jackpot": [],
+        "numbers": "6,9,31,43,44|6,9",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "110"
+    },
+    {
+        "drawTime": "20191011200000",
+        "jackpot": [],
+        "numbers": "8,12,13,39,44|4,9",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "109"
+    },
+    {
+        "drawTime": "20191004200000",
+        "jackpot": [],
+        "numbers": "15,19,20,45,49|7,8",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "108"
+    },
+    {
+        "drawTime": "20190927200000",
+        "jackpot": [],
+        "numbers": "21,24,26,34,47|4,6",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "107"
+    },
+    {
+        "drawTime": "20190920200000",
+        "jackpot": [],
+        "numbers": "17,21,41,48,49|4,8",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "106"
+    },
+    {
+        "drawTime": "20190913200000",
+        "jackpot": [],
+        "numbers": "3,21,22,33,47|2,9",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "105"
+    },
+    {
+        "drawTime": "20190906200000",
+        "jackpot": [],
+        "numbers": "21,24,29,30,50|1,5",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "104"
+    },
+    {
+        "drawTime": "20190830200000",
+        "jackpot": [],
+        "numbers": "10,18,32,35,46|3,10",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "103"
+    },
+    {
+        "drawTime": "20190823200000",
+        "jackpot": [],
+        "numbers": "15,18,19,41,42|4,6",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "102"
+    },
+    {
+        "drawTime": "20190816200000",
+        "jackpot": [],
+        "numbers": "7,20,35,42,44|3,7",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "101"
+    },
+    {
+        "drawTime": "20190809200000",
+        "jackpot": [],
+        "numbers": "2,4,20,21,49|9,10",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "100"
+    },
+    {
+        "drawTime": "20190802200000",
+        "jackpot": [],
+        "numbers": "6,11,38,41,44|9,10",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "99"
+    },
+    {
+        "drawTime": "20190726200000",
+        "jackpot": [],
+        "numbers": "3,8,30,46,48|1,3",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "98"
+    },
+    {
+        "drawTime": "20190719200000",
+        "jackpot": [],
+        "numbers": "31,32,45,47,49|7,9",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "97"
+    },
+    {
+        "drawTime": "20190712200000",
+        "jackpot": [],
+        "numbers": "31,36,40,42,45|7,9",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "96"
+    },
+    {
+        "drawTime": "20190705200000",
+        "jackpot": [],
+        "numbers": "1,15,34,48,50|6,10",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "95"
+    },
+    {
+        "drawTime": "20190628200000",
+        "jackpot": [],
+        "numbers": "18,25,26,35,38|5,6",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "94"
+    },
+    {
+        "drawTime": "20190621200000",
+        "jackpot": [],
+        "numbers": "20,27,37,41,45|1,7",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "93"
+    },
+    {
+        "drawTime": "20190614200000",
+        "jackpot": [],
+        "numbers": "8,23,40,41,42|2,10",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "92"
+    },
+    {
+        "drawTime": "20190607200000",
+        "jackpot": [],
+        "numbers": "7,8,20,35,38|5,9",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "91"
+    },
+    {
+        "drawTime": "20190531200000",
+        "jackpot": [],
+        "numbers": "10,12,35,36,43|2,5",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "90"
+    },
+    {
+        "drawTime": "20190524200000",
+        "jackpot": [],
+        "numbers": "8,26,38,47,50|3,7",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "89"
+    },
+    {
+        "drawTime": "20190517200000",
+        "jackpot": [],
+        "numbers": "20,27,33,35,46|5,9",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "88"
+    },
+    {
+        "drawTime": "20190510200000",
+        "jackpot": [],
+        "numbers": "5,7,15,19,29|3,8",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "87"
+    },
+    {
+        "drawTime": "20190503200000",
+        "jackpot": [],
+        "numbers": "3,9,10,19,42|1,7",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "86"
+    },
+    {
+        "drawTime": "20190426200000",
+        "jackpot": [],
+        "numbers": "1,6,11,17,38|4,8",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "85"
+    },
+    {
+        "drawTime": "20190419200000",
+        "jackpot": [],
+        "numbers": "18,21,37,43,47|1,3",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "84"
+    },
+    {
+        "drawTime": "20190412200000",
+        "jackpot": [],
+        "numbers": "14,16,21,30,37|4,8",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "83"
+    },
+    {
+        "drawTime": "20190405200000",
+        "jackpot": [],
+        "numbers": "22,31,43,44,50|1,9",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "82"
+    },
+    {
+        "drawTime": "20190329200000",
+        "jackpot": [],
+        "numbers": "4,9,15,24,42|8,9",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "81"
+    },
+    {
+        "drawTime": "20190322200000",
+        "jackpot": [],
+        "numbers": "15,20,24,44,49|7,9",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "80"
+    },
+    {
+        "drawTime": "20190315200000",
+        "jackpot": [],
+        "numbers": "1,2,11,19,47|2,7",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "79"
+    },
+    {
+        "drawTime": "20190308200000",
+        "jackpot": [],
+        "numbers": "4,29,30,31,45|1,7",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "78"
+    },
+    {
+        "drawTime": "20190301200000",
+        "jackpot": [],
+        "numbers": "7,16,18,19,24|1,6",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "77"
+    },
+    {
+        "drawTime": "20190222200000",
+        "jackpot": [],
+        "numbers": "14,16,21,25,26|8,10",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "76"
+    },
+    {
+        "drawTime": "20190215200000",
+        "jackpot": [],
+        "numbers": "1,24,30,31,47|7,9",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "75"
+    },
+    {
+        "drawTime": "20190208200000",
+        "jackpot": [],
+        "numbers": "5,8,21,24,26|4,5",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "74"
+    },
+    {
+        "drawTime": "20190201200000",
+        "jackpot": [],
+        "numbers": "6,29,38,45,47|2,3",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "73"
+    },
+    {
+        "drawTime": "20190125200000",
+        "jackpot": [],
+        "numbers": "24,25,28,35,48|4,8",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "72"
+    },
+    {
+        "drawTime": "20190118200000",
+        "jackpot": [],
+        "numbers": "2,9,23,36,47|2,9",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "71"
+    },
+    {
+        "drawTime": "20190111200000",
+        "jackpot": [],
+        "numbers": "6,12,35,39,49|4,9",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "70"
+    },
+    {
+        "drawTime": "20190104200000",
+        "jackpot": [],
+        "numbers": "3,10,25,32,43|1,3",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "69"
+    },
+    {
+        "drawTime": "20181228200000",
+        "jackpot": [],
+        "numbers": "19,24,31,38,40|7,10",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "68"
+    },
+    {
+        "drawTime": "20181221200000",
+        "jackpot": [],
+        "numbers": "3,16,20,34,49|2,10",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "67"
+    },
+    {
+        "drawTime": "20181214200000",
+        "jackpot": [],
+        "numbers": "4,14,24,26,30|9,10",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "66"
+    },
+    {
+        "drawTime": "20181207200000",
+        "jackpot": [],
+        "numbers": "4,16,21,31,42|4,6",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "65"
+    },
+    {
+        "drawTime": "20181130200000",
+        "jackpot": [],
+        "numbers": "18,22,35,36,41|3,4",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "64"
+    },
+    {
+        "drawTime": "20181123200000",
+        "jackpot": [],
+        "numbers": "17,22,28,31,46|5,10",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "63"
+    },
+    {
+        "drawTime": "20181116200000",
+        "jackpot": [],
+        "numbers": "13,15,18,39,45|5,6",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "62"
+    },
+    {
+        "drawTime": "20181109200000",
+        "jackpot": [],
+        "numbers": "8,32,34,46,49|3,5",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "61"
+    },
+    {
+        "drawTime": "20181102200000",
+        "jackpot": [],
+        "numbers": "5,17,27,33,42|9,10",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "60"
+    },
+    {
+        "drawTime": "20181026200000",
+        "jackpot": [],
+        "numbers": "18,19,33,38,44|4,10",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "59"
+    },
+    {
+        "drawTime": "20181019200000",
+        "jackpot": [],
+        "numbers": "9,12,28,32,48|7,8",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "58"
+    },
+    {
+        "drawTime": "20181012200000",
+        "jackpot": [],
+        "numbers": "6,26,31,42,50|2,9",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "57"
+    },
+    {
+        "drawTime": "20181005200000",
+        "jackpot": [],
+        "numbers": "12,15,32,44,49|5,7",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "56"
+    },
+    {
+        "drawTime": "20180928200000",
+        "jackpot": [],
+        "numbers": "3,8,13,18,40|6,10",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "55"
+    },
+    {
+        "drawTime": "20180921200000",
+        "jackpot": [],
+        "numbers": "5,8,16,42,46|2,10",
+        "other": [],
+        "name": "Eurojackpot",
+        "lotteryID": "pl-eurojackpot",
+        "issue": "54"
+    }
+]

@@ -1,0 +1,1802 @@
+[
+    {
+        "drawTime": "20200819215000",
+        "jackpot": [],
+        "numbers": "6,11,15,24,31",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": null
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200819215000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5225"
+    },
+    {
+        "drawTime": "20200818215000",
+        "jackpot": [],
+        "numbers": "2,4,35,36,37",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3068"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200818215000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5224"
+    },
+    {
+        "drawTime": "20200817215000",
+        "jackpot": [],
+        "numbers": "18,30,33,37,39",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3066"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200817215000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5223"
+    },
+    {
+        "drawTime": "20200816215000",
+        "jackpot": [],
+        "numbers": "2,28,33,39,41",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3064"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200816215000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5222"
+    },
+    {
+        "drawTime": "20200815215000",
+        "jackpot": [],
+        "numbers": "1,13,20,27,39",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3062"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200815215000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5221"
+    },
+    {
+        "drawTime": "20200814215000",
+        "jackpot": [],
+        "numbers": "19,20,27,38,39",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3060"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200814215000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5220"
+    },
+    {
+        "drawTime": "20200813215000",
+        "jackpot": [],
+        "numbers": "2,9,26,32,39",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3058"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200813215000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5219"
+    },
+    {
+        "drawTime": "20200812215000",
+        "jackpot": [],
+        "numbers": "2,15,16,18,30",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3056"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200812215000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5218"
+    },
+    {
+        "drawTime": "20200811215000",
+        "jackpot": [],
+        "numbers": "10,25,28,41,42",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3054"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200811215000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5217"
+    },
+    {
+        "drawTime": "20200810215000",
+        "jackpot": [],
+        "numbers": "6,18,19,22,28",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3052"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200810215000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5216"
+    },
+    {
+        "drawTime": "20200809215000",
+        "jackpot": [],
+        "numbers": "6,13,24,31,40",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3050"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200809215000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5215"
+    },
+    {
+        "drawTime": "20200808215000",
+        "jackpot": [],
+        "numbers": "16,27,31,34,42",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3048"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200808215000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5214"
+    },
+    {
+        "drawTime": "20200807215000",
+        "jackpot": [],
+        "numbers": "5,10,24,28,37",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3046"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200807215000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5213"
+    },
+    {
+        "drawTime": "20200806215000",
+        "jackpot": [],
+        "numbers": "14,21,30,33,41",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3044"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200806215000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5212"
+    },
+    {
+        "drawTime": "20200805215000",
+        "jackpot": [],
+        "numbers": "5,21,24,36,42",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3042"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200805215000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5211"
+    },
+    {
+        "drawTime": "20200804215000",
+        "jackpot": [],
+        "numbers": "19,26,30,34,35",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3040"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200804215000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5210"
+    },
+    {
+        "drawTime": "20200803215000",
+        "jackpot": [],
+        "numbers": "1,9,15,17,31",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3038"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200803215000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5209"
+    },
+    {
+        "drawTime": "20200802215000",
+        "jackpot": [],
+        "numbers": "11,15,18,20,27",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3036"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200802215000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5208"
+    },
+    {
+        "drawTime": "20200801215000",
+        "jackpot": [],
+        "numbers": "1,13,15,17,41",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3034"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200801215000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5207"
+    },
+    {
+        "drawTime": "20200731215000",
+        "jackpot": [],
+        "numbers": "14,17,25,27,36",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3032"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200731215000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5206"
+    },
+    {
+        "drawTime": "20200730215000",
+        "jackpot": [],
+        "numbers": "15,18,19,35,42",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3030"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200730215000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5205"
+    },
+    {
+        "drawTime": "20200729215000",
+        "jackpot": [],
+        "numbers": "3,6,14,17,32",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3028"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200729215000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5204"
+    },
+    {
+        "drawTime": "20200728215000",
+        "jackpot": [],
+        "numbers": "9,29,30,33,34",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3026"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200728215000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5203"
+    },
+    {
+        "drawTime": "20200727215000",
+        "jackpot": [],
+        "numbers": "7,14,21,24,29",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3024"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200727215000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5202"
+    },
+    {
+        "drawTime": "20200726215000",
+        "jackpot": [],
+        "numbers": "2,8,17,28,38",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3022"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200726215000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5201"
+    },
+    {
+        "drawTime": "20200725215000",
+        "jackpot": [],
+        "numbers": "6,12,27,40,41",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3020"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200725215000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5200"
+    },
+    {
+        "drawTime": "20200724215000",
+        "jackpot": [],
+        "numbers": "3,8,27,39,40",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3018"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200724215000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5199"
+    },
+    {
+        "drawTime": "20200723215000",
+        "jackpot": [],
+        "numbers": "5,14,23,34,38",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3016"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200723215000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5198"
+    },
+    {
+        "drawTime": "20200722215000",
+        "jackpot": [],
+        "numbers": "10,24,32,34,37",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3014"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200722215000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5197"
+    },
+    {
+        "drawTime": "20200721215000",
+        "jackpot": [],
+        "numbers": "1,10,12,25,28",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3012"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200721215000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5196"
+    },
+    {
+        "drawTime": "20200720215000",
+        "jackpot": [],
+        "numbers": "13,19,27,29,37",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3010"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200720215000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5195"
+    },
+    {
+        "drawTime": "20200719215000",
+        "jackpot": [],
+        "numbers": "4,6,23,26,41",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3008"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200719215000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5194"
+    },
+    {
+        "drawTime": "20200718215000",
+        "jackpot": [],
+        "numbers": "7,16,22,27,42",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3006"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200718215000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5193"
+    },
+    {
+        "drawTime": "20200717215000",
+        "jackpot": [],
+        "numbers": "3,13,15,18,40",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3004"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200717215000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5192"
+    },
+    {
+        "drawTime": "20200716215000",
+        "jackpot": [],
+        "numbers": "9,18,35,38,40",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3002"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200716215000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5191"
+    },
+    {
+        "drawTime": "20200715215000",
+        "jackpot": [],
+        "numbers": "4,17,24,28,42",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3000"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200715215000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5190"
+    },
+    {
+        "drawTime": "20200714215000",
+        "jackpot": [],
+        "numbers": "6,12,22,31,35",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2998"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200714215000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5189"
+    },
+    {
+        "drawTime": "20200713215000",
+        "jackpot": [],
+        "numbers": "8,14,24,28,32",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2996"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200713215000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5188"
+    },
+    {
+        "drawTime": "20200712215000",
+        "jackpot": [],
+        "numbers": "3,6,32,33,36",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2994"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200712215000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5187"
+    },
+    {
+        "drawTime": "20200711215000",
+        "jackpot": [],
+        "numbers": "9,18,22,29,33",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2992"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200711215000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5186"
+    },
+    {
+        "drawTime": "20200710215000",
+        "jackpot": [],
+        "numbers": "7,8,14,35,41",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2990"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200710215000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5185"
+    },
+    {
+        "drawTime": "20200709215000",
+        "jackpot": [],
+        "numbers": "5,21,27,39,40",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2988"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200709215000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5184"
+    },
+    {
+        "drawTime": "20200708215000",
+        "jackpot": [],
+        "numbers": "9,11,23,32,34",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2986"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200708215000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5183"
+    },
+    {
+        "drawTime": "20200707215000",
+        "jackpot": [],
+        "numbers": "7,14,21,34,39",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2984"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200707215000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5182"
+    },
+    {
+        "drawTime": "20200706215000",
+        "jackpot": [],
+        "numbers": "1,2,18,31,39",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2982"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200706215000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5181"
+    },
+    {
+        "drawTime": "20200705215000",
+        "jackpot": [],
+        "numbers": "5,19,30,33,39",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2980"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200705215000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5180"
+    },
+    {
+        "drawTime": "20200704215000",
+        "jackpot": [],
+        "numbers": "1,2,4,29,36",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2978"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200704215000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5179"
+    },
+    {
+        "drawTime": "20200703215000",
+        "jackpot": [],
+        "numbers": "7,9,18,28,31",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2976"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200703215000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5178"
+    },
+    {
+        "drawTime": "20200702215000",
+        "jackpot": [],
+        "numbers": "2,10,15,28,39",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2974"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200702215000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5177"
+    },
+    {
+        "drawTime": "20200701215000",
+        "jackpot": [],
+        "numbers": "7,10,20,28,32",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2972"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200701215000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5176"
+    },
+    {
+        "drawTime": "20200630215000",
+        "jackpot": [],
+        "numbers": "6,7,13,23,40",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2970"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200630215000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5175"
+    },
+    {
+        "drawTime": "20200629215000",
+        "jackpot": [],
+        "numbers": "5,18,25,37,41",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2968"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200629215000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5174"
+    },
+    {
+        "drawTime": "20200628215000",
+        "jackpot": [],
+        "numbers": "11,19,21,33,42",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2966"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200628215000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5173"
+    },
+    {
+        "drawTime": "20200627215000",
+        "jackpot": [],
+        "numbers": "3,5,12,16,24",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2964"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200627215000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5172"
+    },
+    {
+        "drawTime": "20200626215000",
+        "jackpot": [],
+        "numbers": "10,24,25,26,32",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2962"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200626215000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5171"
+    },
+    {
+        "drawTime": "20200625215000",
+        "jackpot": [],
+        "numbers": "7,14,20,28,34",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2960"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200625215000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5170"
+    },
+    {
+        "drawTime": "20200624215000",
+        "jackpot": [],
+        "numbers": "1,2,3,16,27",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2958"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200624215000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5169"
+    },
+    {
+        "drawTime": "20200623215000",
+        "jackpot": [],
+        "numbers": "3,4,13,33,37",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2956"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200623215000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5168"
+    },
+    {
+        "drawTime": "20200622215000",
+        "jackpot": [],
+        "numbers": "5,17,20,27,30",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2954"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200622215000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5167"
+    },
+    {
+        "drawTime": "20200621215000",
+        "jackpot": [],
+        "numbers": "3,10,15,16,26",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2952"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200621215000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5166"
+    },
+    {
+        "drawTime": "20200620215000",
+        "jackpot": [],
+        "numbers": "8,15,26,30,40",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2950"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200620215000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5165"
+    },
+    {
+        "drawTime": "20200619215000",
+        "jackpot": [],
+        "numbers": "1,13,17,20,23",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2948"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200619215000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5164"
+    },
+    {
+        "drawTime": "20200618215000",
+        "jackpot": [],
+        "numbers": "1,4,26,31,41",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2946"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200618215000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5163"
+    },
+    {
+        "drawTime": "20200617214000",
+        "jackpot": [],
+        "numbers": "6,18,28,34,38",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2944"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200617214000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5162"
+    },
+    {
+        "drawTime": "20200616214000",
+        "jackpot": [],
+        "numbers": "3,9,28,31,40",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2942"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200616214000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5161"
+    },
+    {
+        "drawTime": "20200615214000",
+        "jackpot": [],
+        "numbers": "14,18,23,36,42",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2940"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200615214000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5160"
+    },
+    {
+        "drawTime": "20200614214000",
+        "jackpot": [],
+        "numbers": "3,5,9,27,32",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2938"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200614214000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5159"
+    },
+    {
+        "drawTime": "20200613214000",
+        "jackpot": [],
+        "numbers": "1,22,25,36,39",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2936"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200613214000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5158"
+    },
+    {
+        "drawTime": "20200612214000",
+        "jackpot": [],
+        "numbers": "17,20,26,30,40",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2934"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200612214000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5157"
+    },
+    {
+        "drawTime": "20200611214000",
+        "jackpot": [],
+        "numbers": "4,17,23,32,39",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2932"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200611214000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5156"
+    },
+    {
+        "drawTime": "20200610214000",
+        "jackpot": [],
+        "numbers": "2,11,19,36,37",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2930"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200610214000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5155"
+    },
+    {
+        "drawTime": "20200609214000",
+        "jackpot": [],
+        "numbers": "4,12,19,25,31",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2928"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200609214000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5154"
+    },
+    {
+        "drawTime": "20200608214000",
+        "jackpot": [],
+        "numbers": "4,13,14,29,34",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2926"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200608214000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5153"
+    },
+    {
+        "drawTime": "20200607214000",
+        "jackpot": [],
+        "numbers": "15,16,23,35,42",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2924"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200607214000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5152"
+    },
+    {
+        "drawTime": "20200606214000",
+        "jackpot": [],
+        "numbers": "7,18,34,36,42",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2922"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200606214000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5151"
+    },
+    {
+        "drawTime": "20200605214000",
+        "jackpot": [],
+        "numbers": "11,12,28,36,42",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2920"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200605214000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5150"
+    },
+    {
+        "drawTime": "20200604214000",
+        "jackpot": [],
+        "numbers": "1,3,13,32,34",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2918"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200604214000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5149"
+    },
+    {
+        "drawTime": "20200603214000",
+        "jackpot": [],
+        "numbers": "5,8,9,34,38",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2916"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200603214000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5148"
+    },
+    {
+        "drawTime": "20200602214000",
+        "jackpot": [],
+        "numbers": "2,17,22,40,41",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2914"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200602214000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5147"
+    },
+    {
+        "drawTime": "20200601214000",
+        "jackpot": [],
+        "numbers": "14,15,27,31,40",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2912"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200601214000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5146"
+    },
+    {
+        "drawTime": "20200531214000",
+        "jackpot": [],
+        "numbers": "4,11,22,26,35",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2910"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200531214000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5145"
+    },
+    {
+        "drawTime": "20200530214000",
+        "jackpot": [],
+        "numbers": "8,13,20,22,23",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2908"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200530214000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5144"
+    },
+    {
+        "drawTime": "20200529214000",
+        "jackpot": [],
+        "numbers": "7,11,21,27,40",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2906"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200529214000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5143"
+    },
+    {
+        "drawTime": "20200528214000",
+        "jackpot": [],
+        "numbers": "2,6,33,36,40",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2904"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200528214000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5142"
+    },
+    {
+        "drawTime": "20200527214000",
+        "jackpot": [],
+        "numbers": "8,10,26,31,35",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2902"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200527214000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5141"
+    },
+    {
+        "drawTime": "20200526214000",
+        "jackpot": [],
+        "numbers": "7,9,11,21,27",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2900"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200526214000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5140"
+    },
+    {
+        "drawTime": "20200525214000",
+        "jackpot": [],
+        "numbers": "12,14,17,23,35",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2898"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200525214000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5139"
+    },
+    {
+        "drawTime": "20200524214000",
+        "jackpot": [],
+        "numbers": "8,10,14,16,25",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2896"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200524214000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5138"
+    },
+    {
+        "drawTime": "20200523214000",
+        "jackpot": [],
+        "numbers": "7,17,22,25,30",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2894"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200523214000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5137"
+    },
+    {
+        "drawTime": "20200522214000",
+        "jackpot": [],
+        "numbers": "6,9,12,22,35",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2892"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200522214000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5136"
+    },
+    {
+        "drawTime": "20200521214000",
+        "jackpot": [],
+        "numbers": "12,25,26,31,38",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2890"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200521214000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5135"
+    },
+    {
+        "drawTime": "20200520214000",
+        "jackpot": [],
+        "numbers": "8,9,18,40,42",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2888"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200520214000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5134"
+    },
+    {
+        "drawTime": "20200519214000",
+        "jackpot": [],
+        "numbers": "3,5,14,30,31",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2886"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200519214000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5133"
+    },
+    {
+        "drawTime": "20200518214000",
+        "jackpot": [],
+        "numbers": "11,14,30,33,34",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2884"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200518214000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5132"
+    },
+    {
+        "drawTime": "20200517214000",
+        "jackpot": [],
+        "numbers": "4,14,23,35,36",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2882"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200517214000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5131"
+    },
+    {
+        "drawTime": "20200516214000",
+        "jackpot": [],
+        "numbers": "2,6,12,26,38",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2880"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200516214000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5130"
+    },
+    {
+        "drawTime": "20200515214000",
+        "jackpot": [],
+        "numbers": "21,23,32,40,41",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2878"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200515214000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5129"
+    },
+    {
+        "drawTime": "20200514214000",
+        "jackpot": [],
+        "numbers": "13,14,18,35,39",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2876"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200514214000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5128"
+    },
+    {
+        "drawTime": "20200513214000",
+        "jackpot": [],
+        "numbers": "6,15,16,22,36",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2874"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200513214000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5127"
+    },
+    {
+        "drawTime": "20200512214000",
+        "jackpot": [],
+        "numbers": "21,33,35,36,37",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2872"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200512214000"
+            }
+        ],
+        "name": "Mini Lotto",
+        "lotteryID": "pl-mini-lotto",
+        "issue": "5126"
+    }
+]

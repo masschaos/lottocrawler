@@ -1,0 +1,1802 @@
+[
+    {
+        "drawTime": "20200818215000",
+        "jackpot": [],
+        "numbers": "3,10,16,33,38,48|15,19,28,31,46,48",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3068"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200818215000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6454"
+    },
+    {
+        "drawTime": "20200815215000",
+        "jackpot": [],
+        "numbers": "9,17,21,24,27,34|4,6,26,27,30,39",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3062"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200815215000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6453"
+    },
+    {
+        "drawTime": "20200813215000",
+        "jackpot": [],
+        "numbers": "11,12,14,26,38,48|9,14,28,31,34,41",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3058"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200813215000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6452"
+    },
+    {
+        "drawTime": "20200811215000",
+        "jackpot": [],
+        "numbers": "3,12,17,19,25,41|4,13,21,23,31,44",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3054"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200811215000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6451"
+    },
+    {
+        "drawTime": "20200808215000",
+        "jackpot": [],
+        "numbers": "2,4,22,26,31,35|4,6,7,14,28,29",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3048"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200808215000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6450"
+    },
+    {
+        "drawTime": "20200806215000",
+        "jackpot": [],
+        "numbers": "1,5,7,25,28,32|11,16,17,20,31,39",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3044"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200806215000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6449"
+    },
+    {
+        "drawTime": "20200804215000",
+        "jackpot": [],
+        "numbers": "1,7,11,17,22,38|3,10,17,20,35,37",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3040"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200804215000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6448"
+    },
+    {
+        "drawTime": "20200801215000",
+        "jackpot": [],
+        "numbers": "8,29,30,39,44,48|10,34,39,40,46,49",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3034"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200801215000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6447"
+    },
+    {
+        "drawTime": "20200730215000",
+        "jackpot": [],
+        "numbers": "3,4,8,40,43,46|10,16,19,26,36,49",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3030"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200730215000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6446"
+    },
+    {
+        "drawTime": "20200728215000",
+        "jackpot": [],
+        "numbers": "1,11,16,25,28,43|11,14,23,25,34,43",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3026"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200728215000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6445"
+    },
+    {
+        "drawTime": "20200725215000",
+        "jackpot": [],
+        "numbers": "9,12,17,24,45,48|7,10,13,38,41,42",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3020"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200725215000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6444"
+    },
+    {
+        "drawTime": "20200723215000",
+        "jackpot": [],
+        "numbers": "5,6,7,10,36,46|10,18,29,39,40,41",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3016"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200723215000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6443"
+    },
+    {
+        "drawTime": "20200721215000",
+        "jackpot": [],
+        "numbers": "8,10,23,24,25,49|2,8,12,24,28,35",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3012"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200721215000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6442"
+    },
+    {
+        "drawTime": "20200718215000",
+        "jackpot": [],
+        "numbers": "3,6,15,21,32,44|7,19,24,35,37,41",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3006"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200718215000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6441"
+    },
+    {
+        "drawTime": "20200716215000",
+        "jackpot": [],
+        "numbers": "5,9,27,33,39,44|2,10,13,33,39,42",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "3002"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200716215000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6440"
+    },
+    {
+        "drawTime": "20200714215000",
+        "jackpot": [],
+        "numbers": "1,7,17,26,28,46|30,33,34,35,36,47",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2998"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200714215000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6439"
+    },
+    {
+        "drawTime": "20200711215000",
+        "jackpot": [],
+        "numbers": "6,13,31,34,36,40|1,3,13,15,21,45",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2992"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200711215000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6438"
+    },
+    {
+        "drawTime": "20200709215000",
+        "jackpot": [],
+        "numbers": "1,9,12,20,32,45|18,21,24,27,29,35",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2988"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200709215000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6437"
+    },
+    {
+        "drawTime": "20200707215000",
+        "jackpot": [],
+        "numbers": "4,12,18,22,27,28|15,16,30,38,45,49",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2984"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200707215000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6436"
+    },
+    {
+        "drawTime": "20200704215000",
+        "jackpot": [],
+        "numbers": "3,10,17,22,37,40|14,21,27,30,41,45",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2978"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200704215000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6435"
+    },
+    {
+        "drawTime": "20200702215000",
+        "jackpot": [],
+        "numbers": "1,3,4,12,19,40|1,27,28,30,35,38",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2974"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200702215000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6434"
+    },
+    {
+        "drawTime": "20200630215000",
+        "jackpot": [],
+        "numbers": "3,13,19,35,40,43|5,8,10,15,30,37",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2970"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200630215000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6433"
+    },
+    {
+        "drawTime": "20200627215000",
+        "jackpot": [],
+        "numbers": "8,30,32,37,41,43|14,19,27,31,35,38",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2964"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200627215000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6432"
+    },
+    {
+        "drawTime": "20200625215000",
+        "jackpot": [],
+        "numbers": "35,41,42,43,48,49|14,18,20,26,29,42",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2960"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200625215000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6431"
+    },
+    {
+        "drawTime": "20200623215000",
+        "jackpot": [],
+        "numbers": "1,9,25,41,42,48|13,20,22,31,38,49",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2956"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200623215000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6430"
+    },
+    {
+        "drawTime": "20200620215000",
+        "jackpot": [],
+        "numbers": "3,14,37,41,45,49|13,14,16,23,25,44",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2950"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200620215000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6429"
+    },
+    {
+        "drawTime": "20200618215000",
+        "jackpot": [],
+        "numbers": "7,9,10,15,30,46|5,18,27,40,45,48",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2946"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200618215000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6428"
+    },
+    {
+        "drawTime": "20200616214000",
+        "jackpot": [],
+        "numbers": "4,11,17,23,30,36|3,27,28,40,45,49",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2942"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200616214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6427"
+    },
+    {
+        "drawTime": "20200613214000",
+        "jackpot": [],
+        "numbers": "4,16,25,27,31,46|16,18,25,31,35,42",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2936"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200613214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6426"
+    },
+    {
+        "drawTime": "20200611214000",
+        "jackpot": [],
+        "numbers": "6,8,9,23,44,49|16,30,31,32,33,47",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2932"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200611214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6425"
+    },
+    {
+        "drawTime": "20200609214000",
+        "jackpot": [],
+        "numbers": "7,15,23,38,47,49|9,11,36,39,40,44",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2928"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200609214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6424"
+    },
+    {
+        "drawTime": "20200606214000",
+        "jackpot": [],
+        "numbers": "4,17,25,30,43,47|1,6,23,42,44,46",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2922"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200606214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6423"
+    },
+    {
+        "drawTime": "20200604214000",
+        "jackpot": [],
+        "numbers": "2,4,17,19,31,37|2,10,14,17,22,37",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2918"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200604214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6422"
+    },
+    {
+        "drawTime": "20200602214000",
+        "jackpot": [],
+        "numbers": "11,19,39,47,48,49|9,17,20,25,42,44",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2914"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200602214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6421"
+    },
+    {
+        "drawTime": "20200530214000",
+        "jackpot": [],
+        "numbers": "12,15,16,38,39,43|2,7,26,33,39,40",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2908"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200530214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6420"
+    },
+    {
+        "drawTime": "20200528214000",
+        "jackpot": [],
+        "numbers": "4,12,16,26,34,35|22,23,37,38,42,44",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2904"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200528214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6419"
+    },
+    {
+        "drawTime": "20200526214000",
+        "jackpot": [],
+        "numbers": "9,14,20,21,24,27|14,18,20,37,42,46",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2900"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200526214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6418"
+    },
+    {
+        "drawTime": "20200523214000",
+        "jackpot": [],
+        "numbers": "10,15,16,19,27,38|2,5,19,29,31,47",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2894"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200523214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6417"
+    },
+    {
+        "drawTime": "20200521214000",
+        "jackpot": [],
+        "numbers": "3,4,28,37,38,43|2,4,12,30,36,47",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2890"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200521214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6416"
+    },
+    {
+        "drawTime": "20200519214000",
+        "jackpot": [],
+        "numbers": "12,15,19,30,45,47|2,5,22,33,38,44",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2886"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200519214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6415"
+    },
+    {
+        "drawTime": "20200516214000",
+        "jackpot": [],
+        "numbers": "1,9,17,30,31,38|10,15,26,28,37,40",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2880"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200516214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6414"
+    },
+    {
+        "drawTime": "20200514214000",
+        "jackpot": [],
+        "numbers": "6,23,37,41,43,46|3,8,11,12,21,33",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2876"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200514214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6413"
+    },
+    {
+        "drawTime": "20200512214000",
+        "jackpot": [],
+        "numbers": "1,18,27,34,38,46|4,18,27,35,46,49",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2872"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200512214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6412"
+    },
+    {
+        "drawTime": "20200509214000",
+        "jackpot": [],
+        "numbers": "8,28,32,36,37,40|2,6,15,18,28,36",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2866"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200509214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6411"
+    },
+    {
+        "drawTime": "20200507214000",
+        "jackpot": [],
+        "numbers": "1,3,7,17,29,35|16,31,34,36,43,44",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2862"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200507214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6410"
+    },
+    {
+        "drawTime": "20200505214000",
+        "jackpot": [],
+        "numbers": "21,28,29,39,45,49|17,26,30,42,48,49",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2858"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200505214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6409"
+    },
+    {
+        "drawTime": "20200502214000",
+        "jackpot": [],
+        "numbers": "11,16,25,38,42,44|8,18,25,31,32,43",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2852"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200502214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6408"
+    },
+    {
+        "drawTime": "20200430214000",
+        "jackpot": [],
+        "numbers": "10,17,23,26,30,32|15,29,32,43,44,48",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2848"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200430214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6407"
+    },
+    {
+        "drawTime": "20200428214000",
+        "jackpot": [],
+        "numbers": "9,13,23,24,38,44|14,21,25,30,40,48",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2844"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200428214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6406"
+    },
+    {
+        "drawTime": "20200425214000",
+        "jackpot": [],
+        "numbers": "3,13,19,25,40,42|11,20,28,32,33,46",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2838"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200425214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6405"
+    },
+    {
+        "drawTime": "20200423214000",
+        "jackpot": [],
+        "numbers": "1,3,20,39,47,49|3,24,27,42,46,48",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2834"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200423214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6404"
+    },
+    {
+        "drawTime": "20200421214000",
+        "jackpot": [],
+        "numbers": "1,10,11,16,20,21|7,29,42,44,45,49",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2830"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200421214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6403"
+    },
+    {
+        "drawTime": "20200418214000",
+        "jackpot": [],
+        "numbers": "1,22,32,33,38,44|1,2,3,28,36,46",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2824"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200418214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6402"
+    },
+    {
+        "drawTime": "20200416214000",
+        "jackpot": [],
+        "numbers": "2,6,7,23,36,49|19,35,36,43,44,45",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2820"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200416214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6401"
+    },
+    {
+        "drawTime": "20200414214000",
+        "jackpot": [],
+        "numbers": "8,9,15,21,33,43|8,22,23,35,42,49",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2816"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200414214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6400"
+    },
+    {
+        "drawTime": "20200411214000",
+        "jackpot": [],
+        "numbers": "14,19,27,37,41,45|11,18,20,28,39,46",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2810"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200411214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6399"
+    },
+    {
+        "drawTime": "20200409214000",
+        "jackpot": [],
+        "numbers": "3,13,14,26,37,38|24,26,27,39,43,48",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2806"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200409214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6398"
+    },
+    {
+        "drawTime": "20200407214000",
+        "jackpot": [],
+        "numbers": "15,21,26,33,38,43|4,10,15,19,29,35",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2802"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200407214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6397"
+    },
+    {
+        "drawTime": "20200404214000",
+        "jackpot": [],
+        "numbers": "6,8,10,30,33,48|22,25,35,38,39,48",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2796"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200404214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6396"
+    },
+    {
+        "drawTime": "20200402214000",
+        "jackpot": [],
+        "numbers": "1,11,16,22,27,30|4,9,23,35,42,46",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2792"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200402214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6395"
+    },
+    {
+        "drawTime": "20200331214000",
+        "jackpot": [],
+        "numbers": "6,11,17,22,42,49|4,11,18,32,42,43",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2788"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200331214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6394"
+    },
+    {
+        "drawTime": "20200328214000",
+        "jackpot": [],
+        "numbers": "7,21,23,29,33,38|6,16,33,35,38,49",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2782"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200328214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6393"
+    },
+    {
+        "drawTime": "20200326214000",
+        "jackpot": [],
+        "numbers": "2,5,18,19,23,45|6,12,24,43,45,47",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2778"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200326214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6392"
+    },
+    {
+        "drawTime": "20200324214000",
+        "jackpot": [],
+        "numbers": "8,13,14,20,26,40|14,17,28,34,36,48",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2774"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200324214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6391"
+    },
+    {
+        "drawTime": "20200321214000",
+        "jackpot": [],
+        "numbers": "6,13,15,24,28,49|3,16,17,34,35,48",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2768"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200321214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6390"
+    },
+    {
+        "drawTime": "20200319214000",
+        "jackpot": [],
+        "numbers": "1,19,20,24,25,41|4,7,16,21,30,45",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2764"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200319214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6389"
+    },
+    {
+        "drawTime": "20200317214000",
+        "jackpot": [],
+        "numbers": "5,10,17,19,37,47|9,20,35,41,42,46",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2760"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200317214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6388"
+    },
+    {
+        "drawTime": "20200314214000",
+        "jackpot": [],
+        "numbers": "1,11,19,26,34,36|3,17,27,31,38,40",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2754"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200314214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6387"
+    },
+    {
+        "drawTime": "20200312214000",
+        "jackpot": [],
+        "numbers": "1,13,22,32,42,46|3,27,42,43,44,47",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2750"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200312214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6386"
+    },
+    {
+        "drawTime": "20200310214000",
+        "jackpot": [],
+        "numbers": "6,25,32,35,41,44|1,6,11,17,30,46",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2746"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200310214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6385"
+    },
+    {
+        "drawTime": "20200307214000",
+        "jackpot": [],
+        "numbers": "7,27,43,46,47,49|4,22,25,29,32,45",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2740"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200307214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6384"
+    },
+    {
+        "drawTime": "20200305214000",
+        "jackpot": [],
+        "numbers": "4,7,21,34,47,49|15,25,28,37,41,46",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2736"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200305214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6383"
+    },
+    {
+        "drawTime": "20200303214000",
+        "jackpot": [],
+        "numbers": "13,16,17,38,45,46|19,20,23,33,37,45",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2732"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200303214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6382"
+    },
+    {
+        "drawTime": "20200229214000",
+        "jackpot": [],
+        "numbers": "6,12,15,38,39,40|11,13,15,27,38,45",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2726"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200229214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6381"
+    },
+    {
+        "drawTime": "20200227214000",
+        "jackpot": [],
+        "numbers": "1,18,20,24,46,47|1,3,8,20,34,45",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2722"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200227214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6380"
+    },
+    {
+        "drawTime": "20200225214000",
+        "jackpot": [],
+        "numbers": "5,6,16,19,27,49|2,21,32,34,38,45",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2718"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200225214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6379"
+    },
+    {
+        "drawTime": "20200222214000",
+        "jackpot": [],
+        "numbers": "4,6,15,35,43,44|8,29,30,35,38,40",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2712"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200222214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6378"
+    },
+    {
+        "drawTime": "20200220214000",
+        "jackpot": [],
+        "numbers": "2,8,21,30,39,46|17,22,24,31,39,48",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2708"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200220214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6377"
+    },
+    {
+        "drawTime": "20200218214000",
+        "jackpot": [],
+        "numbers": "2,10,19,22,31,38|4,9,14,28,45,49",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2704"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200218214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6376"
+    },
+    {
+        "drawTime": "20200215214000",
+        "jackpot": [],
+        "numbers": "7,10,25,27,35,40|10,21,24,26,34,42",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2698"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200215214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6375"
+    },
+    {
+        "drawTime": "20200213214000",
+        "jackpot": [],
+        "numbers": "2,14,16,22,26,40|8,20,33,35,42,48",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2694"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200213214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6374"
+    },
+    {
+        "drawTime": "20200211214000",
+        "jackpot": [],
+        "numbers": "5,17,23,36,47,49|16,21,30,31,39,42",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2690"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200211214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6373"
+    },
+    {
+        "drawTime": "20200208214000",
+        "jackpot": [],
+        "numbers": "7,16,25,29,46,48|6,9,27,29,41,46",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2684"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200208214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6372"
+    },
+    {
+        "drawTime": "20200206214000",
+        "jackpot": [],
+        "numbers": "6,12,15,27,41,42|2,8,13,17,20,40",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2680"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200206214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6371"
+    },
+    {
+        "drawTime": "20200204214000",
+        "jackpot": [],
+        "numbers": "6,19,20,25,41,43|3,6,16,25,32,38",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2676"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200204214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6370"
+    },
+    {
+        "drawTime": "20200201214000",
+        "jackpot": [],
+        "numbers": "10,11,15,16,24,25|2,12,16,30,48,49",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2670"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200201214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6369"
+    },
+    {
+        "drawTime": "20200130214000",
+        "jackpot": [],
+        "numbers": "4,14,28,40,45,49|5,6,17,20,25,49",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2666"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200130214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6368"
+    },
+    {
+        "drawTime": "20200128214000",
+        "jackpot": [],
+        "numbers": "10,12,20,32,35,37|1,11,16,18,20,40",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2662"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200128214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6367"
+    },
+    {
+        "drawTime": "20200125214000",
+        "jackpot": [],
+        "numbers": "9,11,16,19,30,46|3,5,24,44,45,49",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2656"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200125214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6366"
+    },
+    {
+        "drawTime": "20200123214000",
+        "jackpot": [],
+        "numbers": "22,23,33,40,41,46|24,28,34,36,45,48",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2652"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200123214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6365"
+    },
+    {
+        "drawTime": "20200121214000",
+        "jackpot": [],
+        "numbers": "11,16,19,22,23,39|8,10,17,22,29,49",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2648"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200121214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6364"
+    },
+    {
+        "drawTime": "20200118214000",
+        "jackpot": [],
+        "numbers": "9,15,30,32,38,42|6,10,24,28,31,37",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2642"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200118214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6363"
+    },
+    {
+        "drawTime": "20200116214000",
+        "jackpot": [],
+        "numbers": "1,20,29,43,44,45|2,12,13,23,44,47",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2638"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200116214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6362"
+    },
+    {
+        "drawTime": "20200114214000",
+        "jackpot": [],
+        "numbers": "18,21,36,37,43,44|9,14,29,37,44,46",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2634"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200114214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6361"
+    },
+    {
+        "drawTime": "20200111214000",
+        "jackpot": [],
+        "numbers": "10,33,35,38,39,48|33,34,35,43,44,45",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2628"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200111214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6360"
+    },
+    {
+        "drawTime": "20200109214000",
+        "jackpot": [],
+        "numbers": "7,15,21,23,33,49|7,8,17,26,29,43",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2624"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200109214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6359"
+    },
+    {
+        "drawTime": "20200107214000",
+        "jackpot": [],
+        "numbers": "10,17,19,25,37,38|7,11,12,23,37,44",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2620"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200107214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6358"
+    },
+    {
+        "drawTime": "20200104214000",
+        "jackpot": [],
+        "numbers": "10,15,16,22,26,39|3,4,8,11,14,36",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2614"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200104214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6357"
+    },
+    {
+        "drawTime": "20200102214000",
+        "jackpot": [],
+        "numbers": "7,12,14,15,30,38|10,11,23,34,35,36",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2610"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20200102214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6356"
+    },
+    {
+        "drawTime": "20191231214000",
+        "jackpot": [],
+        "numbers": "10,21,24,35,40,48|12,13,19,20,36,45",
+        "other": [
+            {
+                "name": "SuperSzansaIssue",
+                "value": "2606"
+            },
+            {
+                "name": "SuperSzansaDrawTime",
+                "value": "20191231214000"
+            }
+        ],
+        "name": "Lotto",
+        "lotteryID": "pl-lotto",
+        "issue": "6355"
+    }
+]
