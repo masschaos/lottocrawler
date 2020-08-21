@@ -7,20 +7,18 @@
     "dev": "node -r dotenv/config dev.js",
     "play": "node -r dotenv/config play.js",
     "devserver": "node -r dotenv/config server.js",
-    "retry": "BASE_URL=https://seaapi.lottowawa.com/staging DRAW_NO=4065 LOTTERY_ID=au-tattslotto node retry.js",
-    "history": "BASE_URL=https://seaapi.lottowawa.com/staging LOTTERY_ID=au-tattslotto node history.js",
-    "lint": "eslint ./**"
+    "lint": "eslint crawler inner pptr util *.js"
   },
   "dependencies": {
     "@masschaos/im": "^0.3.5",
     "async-mutex": "^0.2.4",
     "axios": "^0.19.2",
     "bufferutil": "^4.0.1",
-    "cron-parser": "^2.15.0",
+    "cron-parser": "^2.16.3",
     "encoding-japanese": "^1.0.30",
     "moment": "^2.27.0",
     "moment-timezone": "^0.5.31",
-    "pino": "^6.4.1",
+    "pino": "^6.5.1",
     "pino-pretty": "^4.1.0",
     "puppeteer": "^5.2.1",
     "qs": "^6.9.4",
@@ -30,7 +28,7 @@
   "devDependencies": {
     "@types/pino": "^6.3.0",
     "dotenv": "^8.2.0",
-    "eslint": "^7.6.0",
+    "eslint": "^7.7.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-node": "^11.1.0",
