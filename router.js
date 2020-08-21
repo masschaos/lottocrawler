@@ -1,4 +1,3 @@
-const log = require('./util/log')
 const VError = require('verror')
 
 function route (country, id) {
@@ -7,7 +6,6 @@ function route (country, id) {
     if (country.includes('_')) {
       country = country.split('_').join('/')
     }
-    log.debug(country)
     const crawlerMap = require('./crawler/' + country)
     const crawlers = crawlerMap.get(id)
     if (crawlers) {
