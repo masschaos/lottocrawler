@@ -39,12 +39,11 @@ class ozLottoCrawler extends crawler {
 
   async crawl () {
     const res = await super.crawl(url, this.parse)
-    const data = super.assembleFormatData(res)
-    if (data && data.length > 0) {
-      for (const idx in data) {
-        const item = data[idx]
-        console.log(item)
-      }
+    const datas = super.assembleFormatData(res) // 返回 [ data ]
+    if (datas && datas.length > 0 && datas[0]) {
+      console.log(datas[0])
+    } else {
+      console.log('no data')
     }
   }
 }

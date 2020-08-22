@@ -12,7 +12,8 @@ class auCrawler {
   async crawl () {
     const data = await new AuCrawlerApi().fetchDrawRangeResult(this.lotteryId, process.env.DRAW_NO)
     if (data && data.length > 0) {
-      for (const idx in data) {
+      const idxs = Object.keys(data)
+      for (const idx in idxs) {
         const item = this.parse(data[idx])
         console.log(item)
         await saveLastestResult(item)

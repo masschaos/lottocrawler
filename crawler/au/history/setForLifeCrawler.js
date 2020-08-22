@@ -1,9 +1,3 @@
-/**
- * @Author: maple
- * @Date: 2020-08-06 03:16:16
- * @LastEditors: maple
- * @LastEditTime: 2020-08-17 23:23:50
- */
 const crawler = require('./crawler')
 const moment = require('moment')
 const moneyFormat = require('../../../util/format').moneyFormat
