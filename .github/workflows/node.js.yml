@@ -33,7 +33,7 @@ jobs:
       uses: rtCamp/action-slack-notify@master
       env:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-        SLACK_TITLE: 爬虫新的提交检查通过
+        SLACK_TITLE: 爬虫新的提交在 ${{ matrix.node-version }} 检查通过
         SLACK_ICON_EMOJI: robot_face
         SLACK_USERNAME: Lotto Config Bot
         SLACK_CHANNEL: dev
@@ -43,7 +43,7 @@ jobs:
       uses: rtCamp/action-slack-notify@master
       env:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-        SLACK_TITLE: 爬虫新的提交语法检查未通过
+        SLACK_TITLE: 爬虫新的提交在 ${{ matrix.node-version }} 语法检查未通过
         SLACK_ICON_EMOJI: robot_face
         SLACK_USERNAME: Lotto Config Bot
         SLACK_COLOR: "#ff5f52"
