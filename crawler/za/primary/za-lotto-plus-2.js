@@ -1,4 +1,5 @@
 const common = require('./common')
+const log = require('../../../util/log')
 const { checkDrawResult } = require('../../common')
 
 const lotteryID = 'za-lotto-plus-2'

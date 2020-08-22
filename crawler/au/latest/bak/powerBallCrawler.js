@@ -48,9 +48,9 @@ class powerBallCrawler extends crawler {
     const res = await super.crawl(url, this.parse)
     const datas = super.assembleFormatData(res) // 返回 [ data ]
     if (datas && datas.length > 0 && datas[0]) {
-      console.log(datas[0])
+      log.debug(datas[0])
     } else {
-      console.log('no data')
+      log.debug('no data')
     }
   }
 }
