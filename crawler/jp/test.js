@@ -6,11 +6,12 @@
  * @LastEditTime: 2020-08-07 14:20:54
  */
 const crawlers = require('./index')
+const log = require('../../util/log')
 
 async function done () {
   for (const [name, datas] of crawlers) {
-    console.log(`%${name}%`)
-    console.log(JSON.stringify(await datas[0].crawl()))
+    log.debug(`%${name}%`)
+    log.debug(JSON.stringify(await datas[0].crawl()))
   }
 }
 

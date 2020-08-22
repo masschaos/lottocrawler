@@ -1,3 +1,4 @@
+const log = require('../../../util/log')
 const axios = require('axios')
 const lotteryIdProductCodeConfig = require('../../../config/const').lotteryIdProductCodeConfig
 const { sleep } = require('../../../util/time')
@@ -25,7 +26,7 @@ class crawler {
 
       const drawNo = await this.getDrawNo() // 4065//await this.getDrawNo()
 
-      console.log(drawNo)
+      log.debug(drawNo)
       const finalDrawNo = 1
       await this.ws.write('[')
       if (drawNo != null) {
@@ -35,10 +36,10 @@ class crawler {
           const minDrawNo = i - 50 < 0 ? 1 : i - 50
           const draws = await this.getDrawRange(minDrawNo, maxDrawNo)
 
-          console.log(`drawNo: ${drawNo}, finalDrawNo: ${finalDrawNo}, minDrawNo: ${minDrawNo}, maxDrawNo: ${maxDrawNo}`)
-          // console.log(draws.map(a => a.DrawNumber))
+          log.debug(`drawNo: ${drawNo}, finalDrawNo: ${finalDrawNo}, minDrawNo: ${minDrawNo}, maxDrawNo: ${maxDrawNo}`)
+          // log.debug(draws.map(a => a.DrawNumber))
           const percent = parseInt(((maxDrawNo.toString() === drawNo.toString()) ? (drawNo - minDrawNo) / (drawNo - finalDrawNo) : (drawNo - minDrawNo - 1) / (drawNo - finalDrawNo)) * 100)
-          console.log(`${percent > 100 ? 100 : percent}%`)
+          log.debug(`${percent > 100 ? 100 : percent}%`)
           if (draws != null) {
             draws.forEach(draw => {
               const item = this.parse(draw)
@@ -52,7 +53,7 @@ class crawler {
         }
       }
     } catch (err) {
-      console.log(err)
+      log.debug(err)
     } finally {
       await this.ws.write(']')
       this.ws.close()

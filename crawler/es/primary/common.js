@@ -1,5 +1,6 @@
 const VError = require('verror')
 const axios = require('axios')
+const log = require('../../../util/log')
 const baseURL = 'https://www.loteriasyapuestas.es/servicios/buscadorSorteos'
 const fs = require('fs')
 
@@ -15,10 +16,10 @@ const createFile = (fileName, fileContent = '') => {
      * fileName: 文件名
      * fileContent: 文件内容
      */
-  // console.log(fileName, fileContent, "fileContent")
+  // log.debug(fileName, fileContent, "fileContent")
   fs.writeFile(fileName, fileContent, 'utf8', error => {
-    if (error) { console.log(error); return false }
-    console.log(`${fileName}创建成功`)
+    if (error) { log.debug(error); return false }
+    log.debug(`${fileName}创建成功`)
   })
 }
 
@@ -88,9 +89,9 @@ const getBaseData = async (lotteryID, startTime, endTime, isLatest) => {
   if (isLatest) {
     data = data.slice(0, 1)
   }
-  // console.log(JSON.stringify(data, null, 2), 'data')
+  // log.debug(JSON.stringify(data, null, 2), 'data')
   const totalData = []
-  // console.log(JSON.stringify(data), 'getData')
+  // log.debug(JSON.stringify(data), 'getData')
   for (const latestData of data) {
     const resultData = {}
     const detailData = latestData.escrutinio
@@ -158,20 +159,20 @@ async function crawlHistory (parse, path, lotteryID) {
   let endTime = '20200729'
   let latestDraws = await getBaseData(lotteryID, startTime, endTime, false)
   const result = []
-  console.log(startTime, endTime)
+  log.debug(startTime, endTime)
   try {
     while (latestDraws[latestDraws.length - 1].drawTime.slice(0, 8) < endTime) {
       for (const latestDraw of latestDraws) {
         const res = parse(latestDraw)
-        // console.log(res, 'res')
+        // log.debug(res, 'res')
         result.push(res)
       }
       endTime = latestDraws[latestDraws.length - 1].drawTime.slice(0, 8)
       latestDraws = await getBaseData(lotteryID, startTime, endTime, false)
-      console.log(startTime, endTime)
+      log.debug(startTime, endTime)
     }
   } catch (err) {
-    console.log(err)
+    log.debug(err)
   } finally {
     const results = deduplicationSort(result)
     createFile(path, JSON.stringify(results))

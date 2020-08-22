@@ -1,4 +1,5 @@
 const puppeteer = require('puppeteer')
+const log = require('../../../../util/log')
 const dateFormat = require('../../../../util/format').dateFormat
 
 class crawler {
@@ -62,7 +63,7 @@ class crawler {
       const result = await parseFunction(page)
       return result
     } catch (error) {
-      console.log(error)
+      log.debug(error)
       return null
     } finally {
       await browser.close()

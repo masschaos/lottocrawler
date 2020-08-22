@@ -1,4 +1,4 @@
-// const puppeteer = require('puppeteer')
+const log = require('../../../util/log')
 
 const url = 'https://www.stoloto.ru/ruslotto/archive'
 
@@ -33,21 +33,21 @@ const Craw = async (page, url, selectorAll) => {
       data.drawUrl = element.querySelector('.draw a').href
       data.other = []
       data.jackpot = []
-      //   console.log(element.querySelector('.numbers_wrapper').outerHTML)
+      //   log.debug(element.querySelector('.numbers_wrapper').outerHTML)
       let numbers = ''
       if (element.querySelector('.elem').querySelector('.numbers_wrapper')) {
         numbers = element.querySelector('.elem .numbers_wrapper').innerText
       }
       // let numbers = element.querySelector('.numbers_wrapper').innerText
-      // console.log(numbers, 'numbers')
+      // log.debug(numbers, 'numbers')
       numbers = numbers.split(' ').join(',')
       data.numbers = numbers
       data.super_prize = element.querySelector('.super_prize').innerText
-      // console.log(element.querySelector('.prize').outerHTML)
+      // log.debug(element.querySelector('.prize').outerHTML)
       return data
     }
     const results = document.querySelector(selectorAll)
-    // console.log(results)
+    // log.debug(results)
     const TotalData = mapFunction(results)
     return TotalData
   }, selectorAll, MONTH)
@@ -76,7 +76,7 @@ const CrawDetail = async (page, url, selector) => {
       }
       data.number = number
       //   data.winner = elementList[2].textContent
-      //   console.log(elementList[3].textContent)
+      //   log.debug(elementList[3].textContent)
       data.prize = elementList[3].textContent.replace('\n', '').split('\t').join('').replace('\n', '')
       return data
     }
@@ -96,15 +96,15 @@ const crawl = async () => {
     if (mainData.numbers.length === 0) {
       throw new DrawingError(lotteryID)
     }
-    // console.log(mainData)
+    // log.debug(mainData)
     const detail = await CrawDetail(page, mainData.drawUrl, detailTotal).then(data => { return data })
-    console.log(detail)
+    log.debug(detail)
     const numbers = [mainData.numbers, ...detail.map(item => item.number)].join('#')
     const details = [{ level: '0', prize: mainData.super_prize, number: mainData.numbers }, ...detail.map(item => { return { level: item.level, prize: item.prize, number: item.number } })]
     const newData = { ...mainData, numbers, detail: details, lotteryID, name }
     delete newData.drawUrl
     delete newData.super_prize
-    console.log(newData)
+    log.debug(newData)
     return newData
   } finally {
     await page.close()

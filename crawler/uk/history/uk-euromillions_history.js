@@ -1,3 +1,5 @@
+const log = require('../../../util/log')
+
 const { MONTH, MonthOrDayProcess, writeJsonToFile } = require('../country')
 const { newPage } = require('../../../pptr')
 const VError = require('verror')
@@ -13,7 +15,7 @@ const detailTableSelector = '#siteContainer > div.main > table.table.euromillion
 const getHistory = async (startYear, endYear, lotteryID) => {
   const HISTORY = []
   try {
-    console.log(startYear, endYear)
+    log.debug(startYear, endYear)
     for (let year = startYear; year > endYear; year--) {
       const page = await newPage()
       await page.exposeFunction('MonthOrDayProcess', MonthOrDayProcess)
@@ -37,7 +39,7 @@ const getHistory = async (startYear, endYear, lotteryID) => {
           day = await MonthOrDayProcess(day)
           const drawTime = `${year}${month}${day}000000`
           const numbersList = numberString.split(' ')
-          console.log(numbersList, 'numbersList')
+          log.debug(numbersList, 'numbersList')
           const numbers = `${numbersList.slice(0, -2).join(',')}#${numbersList.slice(-2).join(',')}|${MillionaireMakerString}`
           const jackpot = jackpotString.split('\n')[0]
           return { drawTime, numbers, jackpot: [jackpot] }
@@ -47,7 +49,7 @@ const getHistory = async (startYear, endYear, lotteryID) => {
 
       for (let urlIndex = 0; urlIndex < DetailUrlList.length; urlIndex++) {
         const page = await newPage()
-        console.log(`==------go to page ${DetailUrlList[urlIndex]}`)
+        log.debug(`==------go to page ${DetailUrlList[urlIndex]}`)
         await page.goto(DetailUrlList[urlIndex])
         await page.waitForSelector(detailTableSelector)
         const detailTable = await page.$eval(detailTableSelector, el => el.innerText)
@@ -58,14 +60,14 @@ const getHistory = async (startYear, endYear, lotteryID) => {
         })
         await page.close()
         const results = { ...dateStr[urlIndex], detail, other: [], name, lotteryID, issue: '' }
-        console.log(results)
+        log.debug(results)
         HISTORY.push(results)
       }
     }
   } catch (err) {
     throw new VError(err, '爬虫发生预期外错误')
   } finally {
-    console.log('write to file')
+    log.debug('write to file')
     writeJsonToFile(lotteryID, HISTORY)
   }
 }

@@ -23,7 +23,7 @@ const crawl = async () => {
       throw new DrawingError(lotteryID)
     }
     const numbers = number.slice(0, -1).split('').join(',') + '|' + number.slice(-1)[0]
-    // console.log(drawTime, prizeStr, numbers, issue, timeStr.url)
+    // log.debug(drawTime, prizeStr, numbers, issue, timeStr.url)
     await page.goto(timeStr.url)
     const base = '#view > div.sc-164upou-0.jvvtPC > section > div > div.'
     const countSelector = 'sc-13vkecg-0.gXUuIR > ul > li:nth-child(2)'

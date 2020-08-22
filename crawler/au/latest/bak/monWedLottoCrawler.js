@@ -1,4 +1,5 @@
 const crawer = require('./crawler')
+const log = require('../../../../util/log')
 
 const lotteryID = 'au-mon-wed-lotto'
 const monUrl = 'https://australia.national-lottery.com/monday-lotto/results'
@@ -47,10 +48,10 @@ class monWedLottoCrawler extends crawer {
       const data = mon.issue > wed.issue ? mon : wed
 
       if (data) {
-        console.log(data)
+        log.debug(data)
       }
     } catch (err) {
-      console.error(err)
+      log.error(err)
     }
   }
 }

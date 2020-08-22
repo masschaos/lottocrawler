@@ -16,10 +16,10 @@ const readFile = util.promisify(fs.readFile)
 //   const text = await readFile(path.join('csv', filename), 'utf-8')
 //   const lines = text.split('\n')
 //   lines.shift()
-//   // console.log(lines[0], lines[1])
+//   // log.debug(lines[0], lines[1])
 //   for (const line of lines) {
 //     const tmps = line.split(';').map(s => s.trim())
-//     console.log(tmps)
+//     log.debug(tmps)
 //     if (tmps.length < 2) continue
 
 //     const dateTmps = tmps[is2019 ? 2 : 1].split('/')
@@ -54,7 +54,7 @@ async function joker (date) {
 exports.joker = joker
 
 // async function test () {
-//   console.log(await joker('2020-08-12'))
+//   log.debug(await joker('2020-08-12'))
 // }
 
 // test()

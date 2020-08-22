@@ -8,6 +8,7 @@ const fs = require('fs')
 const util = require('util')
 const path = require('path')
 const moment = require('moment')
+const log = require('../../../util/log')
 
 // const jokerGet = require('./jokerplus')
 
@@ -16,12 +17,12 @@ const readFile = util.promisify(fs.readFile)
 
 // const translation = '抽奖年份;抽奖日;开彩日期;在周期中画数字;止赎日期;球1;球2;球3;球4;球5;星1;星2;升序赢球;升序获胜;法国第1亿欧元大赛的获胜者数量;欧洲排名第一的百万欧元获奖者数量;排名报告1百万欧元;百万欧元排名法国排名第二的获胜者;欧洲百万富翁数量在欧洲排名第二;排名报告2百万欧元;法国排名3百万欧元的获奖者人数;欧洲百万富翁数量在欧洲排名第三;排名报告3百万欧元;法国排名第4的欧洲百万大奖获奖人数;欧洲排名第4的欧洲百万大奖获奖人数;排名报告4百万欧元;该行的获奖人数5法国百万欧元;该行中的获奖者数量欧洲5百万欧元;排名报告5百万欧元;欧洲百万富翁排名法国的6位获奖者;欧洲百万富翁数量在欧洲排名第6位获胜者;排名报告6百万欧元;法国排名7百万欧元的获奖者数量;欧洲排名7的欧洲百万富翁中的获胜者数量;排名报告7百万欧元;法国排名第8的欧洲百万大奖获奖人数;欧洲排名第8的欧洲百万大奖获奖人数;排名报告8百万欧元;法国排名第9的欧洲百万大奖获奖人数;欧洲百万富翁数量在欧洲排名第9位获胜者;排名报告9百万欧元;法国排名前10的欧洲百万富翁的获奖人数;欧洲排名前10位的百万欧元获奖者数量;排名报告10百万欧元;法国获奖者排名11百万欧元;欧洲获奖者排名11百万欧元;排名报告11百万欧元;法国获奖者排名12百万欧元;欧洲获奖者排名12百万欧元;排名报告12百万欧元;法国获奖者排名13百万欧元;欧洲获奖者排名13百万欧元;排名报告13百万欧元;1星以上的获胜者数量+;排名报告1星+;2星以上的获胜者数量+;排名报告2星+;3星以上的获胜者数量+;排名报告3星+;4星以上的获胜者数量+;排名报告4星+;5星以上的获胜者数量+;排名报告5星+;6星以上的获胜者数量+;排名报告6星+;Etoile排名7的获胜者数量+;排名报告7星+;8星以上的获胜者数量+;排名报告8星+;9星以上的获胜者数量+;排名报告9星+;10星以上的获胜者数量+;排名报告10星+;我的百万号码;欧元百万特别开奖号码'.split(';')
 // function test (firstline, line) {
-//   console.log(firstline)
+//   log.debug(firstline)
 //   const ts = firstline.split(';')
 //   const tmps = line.split(';')
 
 //   for (let i = 0; i < translation.length; i++) {
-//     console.log(`${i}. [${ts[i]}] - ${translation[i]}: ${tmps[i]}`)
+//     log.debug(`${i}. [${ts[i]}] - ${translation[i]}: ${tmps[i]}`)
 //   }
 // }
 
@@ -494,7 +495,7 @@ async function lineDeal (line) {
   }
 
   result.breakdown[0].detail.forEach(function (value, index) {
-    // console.log(value)
+    // log.debug(value)
     for (let i = 0; i < value.length; i++) {
       if (i === 0) {
         continue
@@ -505,7 +506,7 @@ async function lineDeal (line) {
 
   const tmps = line.split(';')
 
-  // console.log(tmps[2])
+  // log.debug(tmps[2])
   // date
   const dateTmps = tmps[2].split('/')
   const date = moment()
@@ -555,7 +556,7 @@ async function lineDeal (line) {
       b = '/'
     }
     let c = t === '/' ? b : parseFloat(b.replace(',', '.')) + parseFloat(u.replace(',', '.'))
-    // console.log(b, u)
+    // log.debug(b, u)
     if (b === '/') {
       c = '/'
     }
@@ -606,7 +607,7 @@ async function main (filename) {
   const text = await readFile(path.join('csv', filename), 'utf-8')
   const lines = text.split('\n')
 
-  console.log(`文件数量: ${lines.length - 1}`)
+  log.debug(`文件数量: ${lines.length - 1}`)
 
   // test(lines[0], lines[2])
 

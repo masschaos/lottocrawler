@@ -31,7 +31,7 @@ const craw = async (page, url, selectorAll, lotteryID) => {
       let numbers = [...element.querySelectorAll('#content > div.data.drawings_data > div.month > div:nth-child(2) > div > div.numbers > div.numbers_wrapper > div:nth-child(1) > span b sup')].map(item => item.innerText)
       numbers = numbers.map(item => item.trim())
       data.numbers = numbers.map(item => item.trim()).join(',')
-      console.log(data.numbers, 'data number')
+      log.debug(data.numbers, 'data number')
       data.super_prize = element.querySelector('.prize').innerText
       return data
     }

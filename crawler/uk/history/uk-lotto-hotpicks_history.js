@@ -1,3 +1,4 @@
+const log = require('../../../util/log')
 const name = 'Lotto HotPicks'
 const lotteryID = 'uk-lotto-hotpicks'
 
@@ -16,7 +17,7 @@ const detailTableSelector = '#siteContainer > div.main > table.table.hotpicks.mo
 const getHistory = async (startYear, endYear, lotteryID) => {
   const HISTORY = []
   try {
-    console.log(startYear, endYear)
+    log.debug(startYear, endYear)
     for (let year = startYear; year > endYear; year--) {
       const page = await newPage()
       await page.exposeFunction('MonthOrDayProcess', MonthOrDayProcess)
@@ -49,7 +50,7 @@ const getHistory = async (startYear, endYear, lotteryID) => {
 
       for (let urlIndex = 0; urlIndex < DetailUrlList.length; urlIndex++) {
         const page = await newPage()
-        console.log(`==------go to page ${DetailUrlList[urlIndex]}`)
+        log.debug(`==------go to page ${DetailUrlList[urlIndex]}`)
         await page.goto(DetailUrlList[urlIndex])
         await page.waitForSelector(detailTableSelector)
         const detailTable = await page.$eval(detailTableSelector, el => el.innerText)
@@ -60,15 +61,15 @@ const getHistory = async (startYear, endYear, lotteryID) => {
         })
         await page.close()
         const results = { ...dateStr[urlIndex], detail, other: [], name, lotteryID, issue: '' }
-        console.log(results)
+        log.debug(results)
         HISTORY.push(results)
       }
     }
   } catch (err) {
-    console.error(err)
+    log.error(err)
     throw new VError(err, '爬虫发生预期外错误')
   } finally {
-    console.log('write to file')
+    log.debug('write to file')
     writeJsonToFile(lotteryID, HISTORY)
   }
 }

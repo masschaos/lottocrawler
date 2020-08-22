@@ -1,3 +1,5 @@
+const log = require('../../../util/log')
+
 const url = 'https://www.stoloto.ru/6x36/archive'
 const selector = '#content > div.data.drawings_data'
 const selectorAll = '#content > div.data.drawings_data .elem'
@@ -30,14 +32,14 @@ const Craw = async (page, url, selectorAll) => {
         if (element.querySelector('.numbers_wrapper .zone')) {
           numberText = element.querySelector('.numbers_wrapper .zone').innerText
         }
-        console.log(numberText, 'numberText')
+        log.debug(numberText, 'numberText')
         data.numbers = numberText.split(' ').map((item) => item.slice(0, -1)).join(',')
         data.super_prize = element.querySelector('.prize').innerText
         return data
       }
       const results = document.querySelector(selectorAll)
       const TotalData = mapFunction(results)
-      // console.log(TotalData)
+      // log.debug(TotalData)
       return TotalData
     }, selectorAll, MONTH)
     return CrawResult
@@ -84,7 +86,7 @@ const crawl = async () => {
 
     delete newData.drawUrl
     delete newData.super_prize
-    // console.log(newData, 'result Data')
+    // log.debug(newData, 'result Data')
     return newData
   } finally {
     await page.close()

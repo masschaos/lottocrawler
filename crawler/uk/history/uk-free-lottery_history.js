@@ -1,3 +1,5 @@
+const log = require('../../../util/log')
+
 const name = 'Free Lottery'
 const lotteryID = 'uk-free-lottery'
 // const other = []
@@ -21,7 +23,7 @@ const historyNumberPageSelector = '#siteContainer > div.main > table > tbody tr'
 const getHistory = async (startYear, endYear, lotteryID) => {
   const HISTORY = []
   try {
-    console.log(startYear, endYear)
+    log.debug(startYear, endYear)
     for (let year = startYear; year > endYear; year--) {
       const page = await newPage()
       await page.exposeFunction('MonthOrDayProcess', MonthOrDayProcess)
@@ -33,10 +35,10 @@ const getHistory = async (startYear, endYear, lotteryID) => {
       const dateStr = await page.$$eval(historyNumberPageSelector, (el, MONTH, lotteryID, name) => {
         return Promise.all(el.map(async item => {
           const [dateString, DrawType, numberString, jackpotString] = item.innerText.split('\t')
-          console.log(dateString)
-          console.log(DrawType)
-          console.log(numberString)
-          console.log(jackpotString)
+          log.debug(dateString)
+          log.debug(DrawType)
+          log.debug(numberString)
+          log.debug(jackpotString)
           // eslint-disable-next-line
           let [weekday, day, month, year] = dateString.split(' ')
           month = await MonthOrDayProcess(MONTH[month])
@@ -56,7 +58,7 @@ const getHistory = async (startYear, endYear, lotteryID) => {
   } catch (err) {
     throw new VError(err, '爬虫发生预期外错误')
   } finally {
-    console.log('write to file')
+    log.debug('write to file')
     writeJsonToFile(lotteryID, HISTORY)
   }
 }

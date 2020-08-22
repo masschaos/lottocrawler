@@ -1,4 +1,5 @@
 const crawlerMap = require('./index')
+const log = require('../../util/log')
 
 const lotteryIds = [
   'ca-daily-grand',
@@ -33,7 +34,7 @@ function testCrawlDrawByDrawTime () {
 function run (crawler) {
   setTimeout(() => {
     crawler.crawl().then((res) => {
-      console.log(res)
+      log.debug(res)
       // run(crawler)
     })
   }, 6)

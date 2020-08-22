@@ -9,18 +9,19 @@ const util = require('util')
 const path = require('path')
 const moment = require('moment')
 const jokerGet = require('./jokerplus')
+const log = require('../../../util/log')
 
 const writeFile = util.promisify(fs.writeFile)
 const readFile = util.promisify(fs.readFile)
 
 // const translation = '抽奖年份;抽奖日;开彩日期;止赎日期;球1;球2;球3;球4;球5;幸运数字;升序组合;第1行获胜者的数量;排名报告1;排名第2的获胜者数;排名报告2;第3行获奖者人数;排名报告3;第4行获奖者人数;排名报告4;行获奖人数5;排名报告5;行获奖人数6;排名报告6;行优胜者数量7;排名报告7;行优胜者数量8;排名报告8;行优胜者数量9;排名报告9;中奖号码;获奖代码报告;获奖代码;球1秒平局;球2平局;球3秒平局;球4秒平局;球5秒平局;获胜组合第二次抽奖;1秒平局的获胜者数量;行报告1次抽奖;第2次平局的获胜者数量;第二次抽奖Rank2报告;3秒平局中奖人数;等级比率3次抽奖;第4次抽奖中的获胜者数量;排名报告4次抽签;百搭加数字;座右铭'.split(';')
 // function test (firstline, line) {
-//   console.log(firstline)
+//   log.debug(firstline)
 //   const ts = firstline.split(';')
 //   const tmps = line.split(';')
 
 //   for (let i = 0; i < translation.length; i++) {
-//     console.log(`${i}. [${ts[i]}] - ${translation[i]}: ${tmps[i]}`)
+//     log.debug(`${i}. [${ts[i]}] - ${translation[i]}: ${tmps[i]}`)
 //   }
 // }
 
@@ -208,7 +209,7 @@ async function lineDeal (line) {
 
   const tmps = line.split(';')
 
-  console.log(tmps[2])
+  log.debug(tmps[2])
   // date
   const dateTmps = tmps[2].split('/')
   const date = moment()
@@ -260,7 +261,7 @@ async function main (filename) {
   const text = await readFile(path.join('csv', filename), 'utf-8')
   const lines = text.split('\n')
 
-  console.log(`文件数量: ${lines.length - 1}`)
+  log.debug(`文件数量: ${lines.length - 1}`)
   const list = []
   for (const line of lines.slice(1)) {
     if (line.length < 10) continue

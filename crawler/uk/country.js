@@ -1,3 +1,5 @@
+const log = require('../../util/log')
+
 const MONTH = {
   January: 1,
   February: 2,
@@ -55,7 +57,7 @@ const writeJsonToFile = (lotteryID, jsonData) => {
   const fs = require('fs')
   const filename = `${lotteryID}.json`
   fs.writeFileSync(filename, JSON.stringify(jsonData))
-  console.log(`create success ${filename}`)
+  log.debug(`create success ${filename}`)
 }
 
 module.exports = {

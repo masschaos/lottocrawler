@@ -1,3 +1,5 @@
+const log = require('../../../../util/log')
+
 const CrawlerMap = require('../index')
 /*
  * node .\crawler\us\ca\tests\test-crawler.js us_ca-daily-3
@@ -13,14 +15,14 @@ async function test () {
     const crawler = CrawlerMap.get(crawlerId)
     if (crawler) {
       const result = await crawler[0].crawl()
-      console.log(crawlerId, JSON.stringify(result, null, 4))
+      log.debug(crawlerId, JSON.stringify(result, null, 4))
     } else {
-      console.log(`${crawlerId} is not exist`)
+      log.debug(`${crawlerId} is not exist`)
     }
   } else {
     CrawlerMap.forEach(async function (crawler, key) {
       const result = await crawler[0].crawl()
-      console.log(key, JSON.stringify(result, null, 4))
+      log.debug(key, JSON.stringify(result, null, 4))
     })
   }
 }

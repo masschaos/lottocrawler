@@ -24,12 +24,12 @@ const Craw = async (page, dataObj) => {
   let [day, month, year] = dateStr.split(' ')
   month = month.slice(0, -1)
   const drawTime = `${year}${MonthOrDayProcess(MONTH[month])}${MonthOrDayProcess(day)}000000`
-  // console.log(drawTime)
+  // log.debug(drawTime)
 
   // get number and jackpot
   const numberStr = await page.$eval(numberSelector, el => el.innerText)
   const numberList = numberStr.split('\n')
-  // console.log(numberList, 'numberList')
+  // log.debug(numberList, 'numberList')
   const jackpot = [numberList.slice(-3, -2)[0].split(': ')[1]]
   const numbers = `${numberList.slice(0, 6).join('|')}`
   return { detail: [], drawTime, numbers, issue: '', jackpot, other: [] }

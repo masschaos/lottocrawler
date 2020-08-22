@@ -27,19 +27,19 @@ const Craw = async (page, dataObj) => {
   const dateStr = await page.$eval(dateSelector, el => el.innerText)
   const [day, month, year] = dateStr.split(' ')
   const drawTime = `${year}${MonthOrDayProcess(MONTH[month])}${MonthOrDayProcess(day)}210000`
-  // console.log(drawTime)
+  // log.debug(drawTime)
 
   // get number and jackpot
   const numberStr = await page.$eval(numberSelector, el => el.innerText)
   const numberList = numberStr.split('\n')
-  // console.log(numberList, 'numberList')
+  // log.debug(numberList, 'numberList')
   const jackpot = numberList.slice(-1)
   const numbers = `${numberList.slice(0, -4).join(',')}#${numberList.slice(-4, -2).join(',')}`
-  // console.log(jackpot, numbers)
+  // log.debug(jackpot, numbers)
 
   // get detail url
   const detailUrl = await page.$eval(detailUrlSelector, url => url.href)
-  // console.log(detailUrl, 'detailUrl')
+  // log.debug(detailUrl, 'detailUrl')
 
   // open index page
   await page.goto(detailUrl)

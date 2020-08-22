@@ -1,3 +1,4 @@
+const log = require('../../../util/log')
 const { crawlHistory, crawLatest } = require('./common')
 const { DrawingError } = require('../../../util/error')
 const lotteryID = 'es-euromillions'
@@ -5,7 +6,7 @@ const lotteryID = 'es-euromillions'
 const parse = (latestDraw) => {
   const number = latestDraw.numbers.trim().replace(/ - /g, ' ').split(' ').map(item => item.replace(/[^0-9]/ig, ''))
   if (number.length !== 7) {
-    console.log(number, 'number')
+    log.debug(number, 'number')
     throw new DrawingError(lotteryID)
   }
   latestDraw.breakdown.push(latestDraw.millonbreakdown)

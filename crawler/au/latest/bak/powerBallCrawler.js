@@ -1,4 +1,5 @@
 const crawler = require('./crawler')
+const log = require('../../../../util/log')
 
 const lotteryID = 'au-powerball'
 const url = 'https://australia.national-lottery.com/powerball/results'
@@ -39,7 +40,7 @@ class powerBallCrawler extends crawler {
       }
     }, lotteryID)
 
-    console.log(result)
+    log.debug(result)
     return result
   }
 

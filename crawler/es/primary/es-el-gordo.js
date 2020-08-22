@@ -8,7 +8,7 @@ const parse = (latestDraw) => {
     throw new DrawingError(lotteryID)
   }
   latestDraw.numbers = `${number.slice(0, 5).join(',')}|${number.slice(5, 6)[0]}`
-  // console.log(latestDraw)
+  // log.debug(latestDraw)
   return latestDraw
 }
 

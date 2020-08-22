@@ -1,4 +1,4 @@
-// const name = 'Local Lottery'
+const log = require('../../../util/log')
 const lotteryID = 'uk-local-lottery'
 // const other = []
 // const jackpot = []
@@ -21,7 +21,7 @@ const historyNumberPageSelector = '#siteContainer > div.main > table > tbody tr'
 const getHistory = async (startYear, endYear, lotteryID) => {
   const HISTORY = []
   try {
-    console.log(startYear, endYear)
+    log.debug(startYear, endYear)
     for (let year = startYear; year > endYear; year--) {
       const page = await newPage()
       await page.exposeFunction('MonthOrDayProcess', MonthOrDayProcess)
@@ -62,7 +62,7 @@ const getHistory = async (startYear, endYear, lotteryID) => {
   } catch (err) {
     throw new VError(err, '爬虫发生预期外错误')
   } finally {
-    console.log('write to file')
+    log.debug('write to file')
     writeJsonToFile(lotteryID, HISTORY)
   }
 }

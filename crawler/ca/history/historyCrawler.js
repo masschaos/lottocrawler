@@ -1,4 +1,5 @@
 const moment = require('moment')
+const log = require('../../../util/log')
 
 const crawlers = new Map()
 crawlers.set('ca-daily-grand', require('../primary/dailyGrandCrawler'))
@@ -30,7 +31,7 @@ function singleDraw (lotteryId, targetDrawDate) {
       singleDraw(lotteryId, targetDrawDate)
     })
     .catch(error => {
-      console.log(error)
+      log.debug(error)
     })
 }
 
@@ -53,7 +54,7 @@ function multiDraw (lotteryId, targetDrawDate) {
       }, 5000)
     })
     .catch(error => {
-      console.log(error)
+      log.debug(error)
     })
 }
 

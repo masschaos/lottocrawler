@@ -1,4 +1,4 @@
-
+const log = require('../../../util/log')
 const axios = require('axios').default
 const moment = require('moment')
 const API_BASE = 'https://www.calottery.com/api/DrawGameApi'
@@ -210,7 +210,7 @@ async function getDrawGameHistoryDrawResults (config) {
             data: result
           }
         } else {
-          console.log(`${config.lotteryID}|page|${pageNumber}|complete`)
+          log.debug(`${config.lotteryID}|page|${pageNumber}|complete`)
           historyDatas = historyDatas.concat(response.data.PreviousDraws)
           pageNumber++
           errorCount = 0

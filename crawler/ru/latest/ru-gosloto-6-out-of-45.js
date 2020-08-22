@@ -20,7 +20,7 @@ const Craw = async (page, url, selectorAll) => {
       const mapFunction = (element) => {
         const data = {}
         //   const monthyear = element.querySelector('.date').innerText
-        //   console.log(monthyear, 'monthyear')
+        //   log.debug(monthyear, 'monthyear')
         //   let [month, year] = monthyear.split(', ')
         const drawDate = element.querySelector('.draw_date').innerText
         const [yearPro, dayPro] = drawDate.split(' ')
@@ -33,15 +33,15 @@ const Craw = async (page, url, selectorAll) => {
         data.drawUrl = element.querySelector('.draw a').href
         data.other = []
         data.jackpot = []
-        //   console.log(element.querySelector('.numbers_wrapper').outerHTML)
+        //   log.debug(element.querySelector('.numbers_wrapper').outerHTML)
         const numbers = element.querySelector('.numbers_wrapper').innerText
         data.numbers = numbers.split(' ').map(item => item.slice(0, item.length - 1)).join(',')
-        //   console.log(element.querySelector('.prize').outerHTML)
+        //   log.debug(element.querySelector('.prize').outerHTML)
         data.super_prize = element.querySelector('.prize').innerText
         return data
       }
       const results = document.querySelector(selectorAll)
-      // console.log(results)
+      // log.debug(results)
       const TotalData = mapFunction(results)
       return TotalData
     }, selectorAll, MONTH)
@@ -84,15 +84,15 @@ const crawl = async () => {
     if (mainData.numbers.length === 0) {
       throw new DrawingError(lotteryID)
     }
-    // console.log(mainData, 'mainData')
+    // log.debug(mainData, 'mainData')
     const detail = await CrawDetail(page, mainData.drawUrl, detailTotal).then(data => { return data })
-    // console.log(detail, 'detail')
+    // log.debug(detail, 'detail')
     const numbers = mainData.numbers.split('\n')[0].trim()
     const details = detail.map(item => { return { level: item.level, total_winner: item.winners } })
     const newData = { ...mainData, numbers, detail: details, lotteryID, name, jackpot: [mainData.super_prize] }
     delete newData.drawUrl
     delete newData.super_prize
-    // console.log(newData, 'result Data')
+    // log.debug(newData, 'result Data')
     return newData
   } finally {
     await page.close()

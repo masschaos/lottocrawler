@@ -30,14 +30,14 @@ const Craw = async (page, dataObj) => {
   // get number and jackpot
   const numberStr = await page.$eval(numberSelector, el => el.innerText)
   const numberList = numberStr.split('\n')
-  // console.log(numberList, 'numberList')
+  // log.debug(numberList, 'numberList')
   const jackpot = numberList.slice(-1)
   const numbers = numberList.slice(0, 5).join(',')
-  // console.log(jackpot, numbers)
+  // log.debug(jackpot, numbers)
 
   // get detail url
   const detailUrl = await page.$eval(detailUrlSelector, url => url.href)
-  // console.log(detailUrl, 'detailUrl')
+  // log.debug(detailUrl, 'detailUrl')
 
   // open index page
   await page.goto(detailUrl)

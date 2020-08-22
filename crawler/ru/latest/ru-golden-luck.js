@@ -1,4 +1,4 @@
-// const puppeteer = require('puppeteer')
+const log = require('../../../util/log')
 
 const url = 'https://www.stoloto.ru/zp/archive'
 const selector = '#content > div.data.drawings_data'
@@ -30,7 +30,7 @@ const Craw = async (page, url, selectorAll) => {
         data.drawUrl = element.querySelector('.draw a').href
         data.other = []
         data.jackpot = []
-        //   console.log(element.querySelector('.numbers_wrapper').outerHTML)
+        //   log.debug(element.querySelector('.numbers_wrapper').outerHTML)
         let numbers = ''
         const tmp = element.querySelector('.elem')
         if (tmp.querySelector('.numbers_wrapper .zone')) {
@@ -38,12 +38,12 @@ const Craw = async (page, url, selectorAll) => {
         }
         numbers = numbers.split(' ').join(',')
         data.numbers = numbers
-        //   console.log(element.querySelector('.prize').outerHTML)
+        //   log.debug(element.querySelector('.prize').outerHTML)
         data.super_prize = element.querySelector('.prize').innerText
         return data
       }
       const results = document.querySelector(selectorAll)
-      // console.log(results)
+      // log.debug(results)
       const TotalData = mapFunction(results)
       return TotalData
     }, selectorAll, MONTH)
@@ -62,10 +62,10 @@ const CrawDetail = async (page, url, selector) => {
     const mapFunction = (element) => {
       const data = {}
       const elementList = [...element.querySelectorAll('td')]
-      //   console.log(elementList[0].outerHTML, 'elementList')
+      //   log.debug(elementList[0].outerHTML, 'elementList')
       data.level = elementList[0].textContent
       let number = elementList[1].textContent.split('\n').join(',').split('\t').join('')
-      //   console.log(number, 'number')
+      //   log.debug(number, 'number')
       if (number[0] === ',') {
         number = number.slice(1, number.length)
       }
@@ -78,7 +78,7 @@ const CrawDetail = async (page, url, selector) => {
       }
       data.number = number
       //   data.winner = elementList[2].textContent
-      //   console.log(elementList[3].textContent)
+      //   log.debug(elementList[3].textContent)
       data.prize = elementList[3].textContent.replace('\n', '').split('\t').join('').replace('\n', '')
       return data
     }
@@ -94,7 +94,7 @@ const crawl = async () => {
   try {
     await ignoreImage(page)
     const mainData = await Craw(page, url, selectorAll)
-    //   console.log(mainData, 'mainData')
+    //   log.debug(mainData, 'mainData')
     if (mainData.numbers.length === 0) {
       throw new DrawingError(lotteryID)
     }
@@ -104,7 +104,7 @@ const crawl = async () => {
     const newData = { ...mainData, numbers, detail: details, lotteryID, name }
     delete newData.drawUrl
     delete newData.super_prize
-    console.log(newData, 'result Data')
+    log.debug(newData, 'result Data')
     return newData
   } finally {
     await page.close()

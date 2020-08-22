@@ -1,3 +1,4 @@
+const log = require('../../../../util/log')
 const CrawlerMap = require('../index')
 const fs = require('fs')
 const path = require('path')
@@ -17,7 +18,7 @@ async function test () {
       const result = await crawler[0].history()
       fs.writeFileSync(path.join(__dirname, '../history/', `${crawlerId}.json`), JSON.stringify(result, null, 4))
     } else {
-      console.log(`${crawlerId} is not exist`)
+      log.debug(`${crawlerId} is not exist`)
     }
   } else {
     CrawlerMap.forEach(async function (crawler, key) {

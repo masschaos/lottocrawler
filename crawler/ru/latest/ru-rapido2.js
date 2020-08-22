@@ -1,3 +1,5 @@
+const log = require('../../../util/log')
+
 const name = 'Рапидо 2.0'
 const lotteryID = 'ru-rapido2'
 // const other = []
@@ -44,12 +46,12 @@ const Craw = async (page, url, selectorAll, lotteryID) => {
       return data
     }
     const results = document.querySelector(selectorAll)
-    // console.log(results)
+    // log.debug(results)
     const TotalData = mapFunction(results)
     return TotalData
   }, selectorAll, MONTH, lotteryID)
   // page.close()
-  console.log(CrawResult, 'CrawResult')
+  log.debug(CrawResult, 'CrawResult')
   return CrawResult
 }
 const CrawDetail = async (page, url, selector) => {
@@ -99,7 +101,7 @@ const crawl = async () => {
     newData.other = detail[1]
     delete newData.drawUrl
     delete newData.super_prize
-    console.log(newData)
+    log.debug(newData)
     return newData
   } finally {
     await page.close()

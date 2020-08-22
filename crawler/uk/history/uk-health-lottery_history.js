@@ -1,3 +1,5 @@
+const log = require('../../../util/log')
+
 const name = 'Health Lottery'
 const lotteryID = 'uk-health-lottery'
 // const other = []
@@ -21,7 +23,7 @@ const detailTableSelector = '#siteContainer > div.main > table.table.health.mobF
 const getHistory = async (startYear, endYear, lotteryID) => {
   const HISTORY = []
   try {
-    console.log(startYear, endYear)
+    log.debug(startYear, endYear)
     for (let year = startYear; year > endYear; year--) {
       const page = await newPage()
       await page.exposeFunction('MonthOrDayProcess', MonthOrDayProcess)
@@ -43,10 +45,10 @@ const getHistory = async (startYear, endYear, lotteryID) => {
           const [dateString, numberString] = item.innerText.split('\t')
           // eslint-disable-next-line
           let [weekday, day, month, year] = dateString.split('\n').join(' ').split(' ')
-          // console.log(weekday, day, month, year)
+          // log.debug(weekday, day, month, year)
           month = await MonthOrDayProcess(MONTH[month])
           day = await MonthOrDayProcess(day)
-          console.log(month, day, 'month , day')
+          log.debug(month, day, 'month , day')
           if (monthCheck(month) && dayCheck(day)) {
             const drawTime = `${year}${month}${day}000000`
             const numbersList = numberString.split(' ')
@@ -60,7 +62,7 @@ const getHistory = async (startYear, endYear, lotteryID) => {
 
       for (let urlIndex = 1; urlIndex < DetailUrlList.length; urlIndex++) {
         const page = await newPage()
-        console.log(`==------go to page ${DetailUrlList[urlIndex]}`)
+        log.debug(`==------go to page ${DetailUrlList[urlIndex]}`)
         await page.goto(DetailUrlList[urlIndex])
         await page.waitForSelector(detailTableSelector)
         const detailTable = await page.$eval(detailTableSelector, el => el.innerText)
@@ -72,7 +74,7 @@ const getHistory = async (startYear, endYear, lotteryID) => {
         await page.close()
         if (dateStr[urlIndex]) {
           const results = { ...dateStr[urlIndex], detail, other: [], name, lotteryID, issue: '' }
-          console.log(results)
+          log.debug(results)
           HISTORY.push(results)
         }
       }
@@ -80,7 +82,7 @@ const getHistory = async (startYear, endYear, lotteryID) => {
   } catch (err) {
     throw new VError(err, '爬虫发生预期外错误')
   } finally {
-    console.log('write to file')
+    log.debug('write to file')
     writeJsonToFile(lotteryID, HISTORY)
   }
 }

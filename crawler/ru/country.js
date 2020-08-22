@@ -1,3 +1,5 @@
+
+const log = require('../../util/log')
 const { newPage } = require('../../pptr')
 
 const MONTH = {
@@ -61,7 +63,7 @@ const writeJsonToFile = (lotteryID, TotalData) => {
   const fs = require('fs')
   const filename = `${lotteryID}.json`
   fs.writeFileSync(filename, JSON.stringify(TotalData))
-  console.log(`finished save to ${filename}`)
+  log.debug(`finished save to ${filename}`)
 }
 module.exports = {
   MONTH,

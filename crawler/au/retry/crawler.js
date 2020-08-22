@@ -1,5 +1,5 @@
 const { auCrawlerApi: AuCrawlerApi, saveLastestResult } = require('../../../util/api')
-
+const log = require('../../../util/log')
 class auCrawler {
   constructor (lotteryId) {
     this.lotteryId = lotteryId
@@ -15,7 +15,7 @@ class auCrawler {
       const idxs = Object.keys(data)
       for (const idx in idxs) {
         const item = this.parse(data[idx])
-        console.log(item)
+        log.debug(item)
         await saveLastestResult(item)
       }
     }

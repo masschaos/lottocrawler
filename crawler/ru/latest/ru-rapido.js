@@ -1,3 +1,5 @@
+const log = require('../../../util/log')
+
 const name = 'Рапидо'
 const lotteryID = 'ru-rapido'
 // const other = []
@@ -43,11 +45,11 @@ const Craw = async (page, url, selectorAll, lotteryID) => {
       return data
     }
     const results = document.querySelector(selectorAll)
-    // console.log(results)
+    // log.debug(results)
     const TotalData = mapFunction(results)
     return TotalData
   }, selectorAll, MONTH, lotteryID)
-  console.log(CrawResult, 'CrawResult')
+  log.debug(CrawResult, 'CrawResult')
   return CrawResult
 }
 const CrawDetail = async (page, url, selector) => {
@@ -85,7 +87,7 @@ const crawl = async () => {
   try {
     await ignoreImage(page)
     const mainData = await Craw(page, url, selectorAll, lotteryID)
-    console.log(mainData, 'mainData')
+    log.debug(mainData, 'mainData')
     if (mainData.numbers.length === 1) {
       throw new DrawingError(lotteryID)
     // throw new Error('DrawingError', `正在开奖中，无法获取结果。彩种: ${lotteryID}`)
@@ -97,7 +99,7 @@ const crawl = async () => {
     newData.other = detail[1]
     delete newData.drawUrl
     delete newData.super_prize
-    console.log(newData)
+    log.debug(newData)
     return newData
   } finally {
     await page.close()
