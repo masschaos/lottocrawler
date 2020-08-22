@@ -26,3 +26,25 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm ci
     - run: npm run lint
+
+    # Slack 通知
+    - name: Slack Success Notification
+      if: success()
+      uses: rtCamp/action-slack-notify@master
+      env:
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+        SLACK_TITLE: 爬虫新的提交检查通过
+        SLACK_ICON_EMOJI: robot_face
+        SLACK_USERNAME: Lotto Config Bot
+        SLACK_CHANNEL: dev
+
+    - name: Slack Failure Notification
+      if: failure()
+      uses: rtCamp/action-slack-notify@master
+      env:
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+        SLACK_TITLE: 爬虫新的提交语法检查未通过
+        SLACK_ICON_EMOJI: robot_face
+        SLACK_USERNAME: Lotto Config Bot
+        SLACK_COLOR: "#ff5f52"
+        SLACK_CHANNEL: dev
