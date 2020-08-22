@@ -45,13 +45,11 @@ class supper66Crawler extends crawler {
     await page.goto(url)
     const result = await this.parse(page)
     await browser.close()
-    const data = super.assembleFormatData(result)
-    if (data && data.length > 0) {
-      const idxs = Object.keys(data)
-      for (const idx in idxs) {
-        const item = data[idx]
-        console.log(item)
-      }
+    const datas = super.assembleFormatData(result) // 返回 [ data ]
+    if (datas && datas.length > 0 && datas[0]) {
+      console.log(datas[0])
+    } else {
+      console.log('no data')
     }
   }
 }
