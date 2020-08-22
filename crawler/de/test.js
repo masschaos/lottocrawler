@@ -15,7 +15,6 @@ async function test () {
   let i = 1
   for (const id of lotteryIDs) {
     log.debug(`cawler lotteryID: ${id} And No.${i++} start!`)
-    console.time('t')
     const crawlers = getCrawler.get(id)
     for (const crawler of crawlers) {
       try {
@@ -25,8 +24,6 @@ async function test () {
         log.debug(err.message)
       }
     }
-
-    console.timeEnd('t')
   }
 }
 
