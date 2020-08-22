@@ -3,7 +3,7 @@
 // const path = require('path')
 // const log = require('../util/log')
 
-// const basePath = path.resolve('../crawler')
+// const basePath = path.resolve(__dirname, '../crawler')
 // const readdir = util.promisify(fs.readdir)
 // const stat = util.promisify(fs.stat)
 
@@ -40,11 +40,16 @@
 //     } catch (err) {
 //       log.debug = function () {}
 //       log.info = function () {}
+//       if (file.indexOf('/au/') > -1) {
+//         continue
+//       }
 //       const text = fs.readFileSync(file)
+
 //       if (err.message.indexOf('log') > -1 && text.indexOf('const log') > -1) {
 //         console.log(`${m++}\n`, file, `const log = require('${'../'.repeat(file.split('/').length - 8)}util/log')`, err.message)
 //       } else {
 //         console.log(`${m++}\n`, file, err.message)
+//         console.log(err)
 //       }
 //     }
 //   }

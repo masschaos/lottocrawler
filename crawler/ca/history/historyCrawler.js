@@ -22,10 +22,10 @@ function singleDraw (lotteryId, targetDrawDate) {
   if (today.isBefore(targetDrawDate)) {
     return
   }
-  const Crawler = crawlers.get(lotteryId)
+  const crawl = crawlers.get(lotteryId)
   const targetOutput = 'output/' + lotteryId + '.json'
   const targetDrawTime = targetDrawDate.format('YYYYMMDD') + '000000'
-  new Crawler().crawl(targetDrawTime, targetOutput)
+  crawl.crawl(targetDrawTime, targetOutput)
     .then((res) => {
       targetDrawDate.add(1, 'd')
       singleDraw(lotteryId, targetDrawDate)
@@ -40,12 +40,12 @@ function multiDraw (lotteryId, targetDrawDate) {
   if (today.isBefore(targetDrawDate)) {
     return
   }
-  const Crawler = crawlers.get(lotteryId)
+  const crawler = crawlers.get(lotteryId)
   const targetOutput = 'output/' + lotteryId + '.json'
   let targetDrawTime = targetDrawDate.format('YYYYMMDD') + '140000'
-  const midday = new Crawler().crawl(targetDrawTime, targetOutput)
+  const midday = crawler.crawl(targetDrawTime, targetOutput)
   targetDrawTime = targetDrawDate.format('YYYYMMDD') + '223000'
-  const evening = new Crawler().crawl(targetDrawTime, targetOutput)
+  const evening = crawler.crawl(targetDrawTime, targetOutput)
   Promise.all([midday, evening])
     .then((res) => {
       setTimeout(() => {

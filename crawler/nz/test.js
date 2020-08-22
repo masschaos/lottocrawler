@@ -1,6 +1,6 @@
 
 const log = require('../../util/log')
-const getCrawler = require('./index').getCrawler
+const crawlers = require('./index')
 
 const lotteryIds = [
   'nz-lotto',
@@ -10,8 +10,8 @@ const lotteryIds = [
 
 function testCrawlLatestDraw () {
   lotteryIds.forEach((lotteryId) => {
-    const crawlers = getCrawler(lotteryId)
-    crawlers.forEach(async crawler => {
+    const crawlerFuncs = crawlers.get(lotteryId)
+    crawlerFuncs.forEach(async crawler => {
       log.debug('lotteryId res==', JSON.stringify(await crawler.crawl()))
     })
   })
