@@ -1,3 +1,5 @@
+const log = require('../../util/log')
+
 async function start () {
   const country = 'za'
   const lotteryIDs = [
@@ -14,7 +16,7 @@ async function start () {
     const crawlers = getCrawler.get(id)
     for (const crawler of crawlers) {
       const res = await crawler.crawl()
-      console.log(JSON.stringify(res))
+      log.debug(JSON.stringify(res))
     }
   }
 }
@@ -29,7 +31,7 @@ async function history () {
     const crawlers = getCrawler.get(id)
     for (const crawler of crawlers) {
       const res = await crawler.crawlHistory('20200701', '20200710')
-      console.log(JSON.stringify(res))
+      log.debug(JSON.stringify(res))
     }
   }
 }

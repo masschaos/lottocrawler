@@ -1,3 +1,5 @@
+const log = require('../../../util/log')
+
 const url = 'https://www.stoloto.ru/5x36plus/archive'
 const lotteryID = 'ru-5-out-of-36'
 const name = '5 из 36'
@@ -36,14 +38,14 @@ const Craw = async (page, url, selectorAll, lotteryID) => {
       return data
     }
     // const results = document.querySelector(selectorAll)
-    // console.log(results)
+    // log.debug(results)
     // const TotalData = mapFunction(results)
     const results = [...document.querySelectorAll(selectorAll)]
     const TotalData = results.map(item => { return mapFunction(item) })
     return TotalData
   }, selectorAll, MONTH, lotteryID)
   //   page.close()
-  // console.log(CrawResult, 'CrawResult')
+  // log.debug(CrawResult, 'CrawResult')
   return CrawResult
 }
 const CrawDetail = async (url, selector) => {
@@ -82,7 +84,7 @@ const crawl = async () => {
   const results = []
   try {
     const mainDataList = await Craw(page, url, selectorAll, lotteryID)
-    // console.log(mainDataList.drawUrl, lotteryID)
+    // log.debug(mainDataList.drawUrl, lotteryID)
     for (let i = 0; i < mainDataList.length; i++) {
       const detail = await CrawDetail(mainDataList[i].drawUrl, detailTotal, moreDetail)
       const numbers = mainDataList[i].numbers
@@ -94,7 +96,7 @@ const crawl = async () => {
       results.push(newData)
     }
   } catch (err) {
-    console.log(err)
+    log.debug(err)
   } finally {
     // await page.close()
     writeJsonToFile(lotteryID, results)

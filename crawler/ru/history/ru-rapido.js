@@ -1,3 +1,5 @@
+const log = require('../../../util/log')
+
 const name = 'rapido'
 const lotteryID = 'ru-rapido'
 // const other = []
@@ -40,7 +42,7 @@ const Craw = async (page, url, selectorAll, lotteryID) => {
       // data.numbers = [numbers.slice(0, 2).join(','), numbers.slice(2, 4).join(',')].join('|')
       data.numbers = [numbers.slice(0, -1).join(','), numbers.slice(-1)].join('|')
       // data.numbers = numbers.split(' ').map(item => item.slice(0, item.length - 1))
-      //   console.log(element.querySelector('.prize').outerHTML)
+      //   log.debug(element.querySelector('.prize').outerHTML)
       data.super_prize = element.querySelector('.prize').innerText
       return data
     }
@@ -49,7 +51,7 @@ const Craw = async (page, url, selectorAll, lotteryID) => {
     return TotalData
   }, selectorAll, MONTH, lotteryID)
   page.close()
-  console.log(CrawResult, 'CrawResult')
+  log.debug(CrawResult, 'CrawResult')
   return CrawResult
 }
 const CrawDetail = async (url, selector) => {
@@ -89,7 +91,7 @@ const crawl = async () => {
   const results = []
   try {
     const mainDataList = await Craw(page, url, selectorAll, lotteryID)
-    console.log(mainDataList, 'mainData')
+    log.debug(mainDataList, 'mainData')
     for (let i = 0; i < mainDataList.length; i++) {
       const detail = await CrawDetail(mainDataList[i].drawUrl, detailTotal, moreDetail).then(data => { return data })
       const numbers = mainDataList[i].numbers
@@ -101,7 +103,7 @@ const crawl = async () => {
       results.push(newData)
     }
   } catch (err) {
-    console.log(err)
+    log.debug(err)
   } finally {
     writeJsonToFile(lotteryID, results)
   }

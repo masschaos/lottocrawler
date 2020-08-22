@@ -47,7 +47,7 @@ module.exports = async function crawl (data = {}, urlSelector, interpreter) {
     try {
       await page.close()
     } catch (err) {
-      console.error(err)
+      log.error(err)
       // do nothing
     }
   }

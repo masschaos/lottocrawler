@@ -1,3 +1,4 @@
+const log = require('../../../util/log')
 const { MONTH } = require('../country')
 const { newPage, ignoreImage } = require('../../../pptr')
 const moment = require('moment-timezone')
@@ -23,7 +24,7 @@ const Craw1 = async (page, dataObj) => {
 
   // get time
   const dateStr = await page.$eval(dateSelector, el => el.innerText)
-  // console.log(dateStr)
+  // log.debug(dateStr)
   let [day, month, year] = dateStr.split(' ')
   month = month.trim().replace(',', '')
   const drawTime = `${year}${MonthOrDayProcess(MONTH[month])}${MonthOrDayProcess(day)}140000`
@@ -31,7 +32,7 @@ const Craw1 = async (page, dataObj) => {
   // get number and jackpot
   const numberStr = await page.$eval(numberSelector, el => el.innerText)
   const numberList = numberStr.split('\n')
-  console.log(numberList, 'numberList')
+  log.debug(numberList, 'numberList')
   const jackpot = numberList.slice(-1)
   // const numbers = `${numberList.slice(0, 6).join(",")}#${numberList.slice(-3, -2)}`
   const numbers = `${numberList.slice(0, 6).join(',')}`
@@ -39,7 +40,7 @@ const Craw1 = async (page, dataObj) => {
   // draw number
   const issue = await page.$eval(issueSelector, el => el.innerText)
 
-  console.log(jackpot, numbers, issue)
+  log.debug(jackpot, numbers, issue)
   return { detail: [], drawTime, numbers, issue, jackpot, other: [{ type: 'week' }] }
 }
 
@@ -53,7 +54,7 @@ const Craw2 = async (page, dataObj) => {
   const dateStr = await page.$eval(dateSelector, el => el.innerText)
   let [day, month, year] = dateStr.split(' ')
   month = month.trim().replace(',', '')
-  // console.log(month)
+  // log.debug(month)
   const drawTime = `${year}${MonthOrDayProcess(MONTH[month])}${MonthOrDayProcess(day)}193000`
 
   // get number and jackpot
@@ -65,7 +66,7 @@ const Craw2 = async (page, dataObj) => {
   // draw number
   const issue = await page.$eval(issueSelector, el => el.innerText)
 
-  // console.log(jackpot, numbers, issue)
+  // log.debug(jackpot, numbers, issue)
   return { detail: [], drawTime, numbers, issue, jackpot: [jackpot], other: [{ type: 'day' }] }
 }
 
@@ -87,7 +88,7 @@ const crawl = async () => {
       const dataObj = { url, numberSelector, dateSelector, issueSelector }
       const mainData = await Craw1(page, dataObj)
       const results = { ...mainData, name, lotteryID }
-      console.log(results, 'results')
+      log.debug(results, 'results')
       return results
     } else if ((hour === 19 && minute >= 30) || (hour > 19 && hour < 24)) {
     // crawDay()
@@ -99,7 +100,7 @@ const crawl = async () => {
       const dataObj = { url, numberSelector, dateSelector, issueSelector, jackpotSelector }
       const mainData = await Craw2(page, dataObj)
       const results = { ...mainData, name, lotteryID }
-      console.log(results, 'results')
+      log.debug(results, 'results')
       return results
     } else {
       throw new Error('非调度时间不可执行爬虫')

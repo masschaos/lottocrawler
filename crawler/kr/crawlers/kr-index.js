@@ -60,7 +60,7 @@ async function crawl (data = {}, method, interpreter, issue, useButton = false) 
     try {
       await page.close()
     } catch (err) {
-      console.error(err)
+      log.error(err)
       // do nothing
     } finally {
       // process.exit(0)

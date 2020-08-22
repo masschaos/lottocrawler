@@ -1,4 +1,3 @@
-
 const API = require('../api')
 const VError = require('verror')
 function createCrawler (config) {

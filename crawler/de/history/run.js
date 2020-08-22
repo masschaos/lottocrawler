@@ -6,6 +6,7 @@ const Lotto6aus49 = require('./de-lotto-6aus49')
 const Plus5 = require('./de-plus5')
 const Spiel77 = require('./de-spiel77')
 const Super6 = require('./de-super6')
+const log = require('../../../util/log')
 
 async function crawl (lotteryID, crawler) {
   let res = await crawler.crawl()
@@ -13,7 +14,7 @@ async function crawl (lotteryID, crawler) {
   const writeStream = fs.createWriteStream('json/' + lotteryID + '.json', { encoding: 'utf-8' })
   writeStream.write(res)
   writeStream.close()
-  console.log(`${lotteryID} success`)
+  log.debug(`${lotteryID} success`)
 }
 
 async function run () {

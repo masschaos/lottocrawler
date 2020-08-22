@@ -1,3 +1,5 @@
+const log = require('../../../util/log')
+
 const name = 'Irish Lotto'
 const lotteryID = 'uk-irish-lotto'
 // https://www.lottery.co.uk/irish-lotto/results/archive-2020
@@ -17,7 +19,7 @@ const LottoPlusRaffleResultSelector = '#siteContainer > div.main > table:nth-chi
 const getHistory = async (startYear, endYear, lotteryID) => {
   const HISTORY = []
   try {
-    console.log(startYear, endYear)
+    log.debug(startYear, endYear)
     for (let year = startYear; year > endYear; year--) {
       const page = await newPage()
       await page.exposeFunction('MonthOrDayProcess', MonthOrDayProcess)
@@ -57,7 +59,7 @@ const getHistory = async (startYear, endYear, lotteryID) => {
 
       for (let urlIndex = 0; urlIndex < DetailUrlList.length; urlIndex++) {
         const page = await newPage()
-        console.log(`==------go to page ${DetailUrlList[urlIndex]}`)
+        log.debug(`==------go to page ${DetailUrlList[urlIndex]}`)
         await page.goto(DetailUrlList[urlIndex])
         await page.waitForSelector(detailTableSelector)
         const LottoPlusRaffleResult = await page.$eval(LottoPlusRaffleResultSelector, el => el.innerText)
@@ -69,10 +71,10 @@ const getHistory = async (startYear, endYear, lotteryID) => {
         })
         await page.close()
         if (dateStr[urlIndex].error) {
-          console.log(dateStr[urlIndex], 'error')
+          log.debug(dateStr[urlIndex], 'error')
         } else {
           const results = { ...dateStr[urlIndex], detail, other: [], name, lotteryID, issue: '', numbers: `${dateStr[urlIndex].numbers}|${LottoPlusRaffleResult}` }
-          console.log(results)
+          log.debug(results)
           HISTORY.push(results)
         }
       }
@@ -80,7 +82,7 @@ const getHistory = async (startYear, endYear, lotteryID) => {
   } catch (err) {
     throw new VError(err, '爬虫发生预期外错误')
   } finally {
-    console.log('write to file')
+    log.debug('write to file')
     writeJsonToFile(lotteryID, HISTORY)
   }
 }

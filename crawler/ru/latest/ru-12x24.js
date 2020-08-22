@@ -1,3 +1,5 @@
+const log = require('../../../util/log')
+
 const name = '12/24'
 const lotteryID = 'ru-12x24'
 // const other = []
@@ -39,22 +41,22 @@ const Craw = async (page, url, selectorAll, lotteryID) => {
       data.jackpot = []
 
       const numbers = [...element.querySelectorAll('#content > div.data.drawings_data > div.month > div:nth-child(2) > div > div.numbers > div.numbers_wrapper > div:nth-child(1) > span b')].map(item => item.innerText)
-      console.log(numbers)
+      log.debug(numbers)
 
       data.numbers = numbers.map(item => item.trim()).join(',')
       // data.numbers = numbers.split(' ').map(item => item.slice(0, item.length - 1))
 
-      console.log(data.numbers, 'data number')
-      //   console.log(element.querySelector('.prize').outerHTML)
+      log.debug(data.numbers, 'data number')
+      //   log.debug(element.querySelector('.prize').outerHTML)
       data.super_prize = element.querySelector('.prize').innerText
       return data
     }
     const results = document.querySelector(selectorAll)
-    // console.log(results)
+    // log.debug(results)
     const TotalData = mapFunction(results)
     return TotalData
   }, selectorAll, MONTH, lotteryID)
-  console.log(CrawResult, 'CrawResult')
+  log.debug(CrawResult, 'CrawResult')
   return CrawResult
 }
 const CrawDetail = async (page, url, selector) => {
@@ -103,7 +105,7 @@ const crawl = async () => {
     newData.other = detail[1]
     delete newData.drawUrl
     delete newData.super_prize
-    console.log(newData)
+    log.debug(newData)
     return newData
   } finally {
     await page.close()

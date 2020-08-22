@@ -1,4 +1,5 @@
 const common = require('./common')
+const log = require('../../../util/log')
 const { checkDrawResult } = require('../../common')
 
 const lotteryID = 'za-lotto-plus-2'
@@ -54,7 +55,7 @@ async function crawlHistory (startDate, endDate) {
       }
     }
     if (result === null) {
-      console.log('获取本期结果失败，id: ' + lotteryID + ', issue: ' + issues)
+      log.debug('获取本期结果失败，id: ' + lotteryID + ', issue: ' + issues)
       continue
     }
     results.push(result)

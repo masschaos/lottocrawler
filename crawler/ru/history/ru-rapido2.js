@@ -1,3 +1,5 @@
+const log = require('../../../util/log')
+
 const name = 'rapido2'
 const lotteryID = 'ru-rapido2'
 // const other = []
@@ -31,13 +33,13 @@ const Craw = async (page, url, selectorAll, lotteryID) => {
       data.drawUrl = element.querySelector('.draw a').href
       data.jackpot = []
       let numbers = [...element.querySelectorAll('#content > div.data.drawings_data > div.month > div:nth-child(2) > div > div.numbers > div.numbers_wrapper > div:nth-child(1) > span b')].map(item => item.innerText)
-      console.log(JSON.stringify(numbers))
+      log.debug(JSON.stringify(numbers))
       numbers = numbers.map(item => item.trim())
       if (numbers.length === 0) {
         throw new Error('DrawingError', `正在开奖中，无法获取结果。彩种: ${lotteryID}`)
       }
       data.numbers = [numbers.slice(0, -1).join(','), numbers.slice(-1)].join('|')
-      console.log(data.numbers, 'data number')
+      log.debug(data.numbers, 'data number')
       data.super_prize = element.querySelector('.prize').innerText
       return data
     }
@@ -46,7 +48,7 @@ const Craw = async (page, url, selectorAll, lotteryID) => {
     return TotalData
   }, selectorAll, MONTH, lotteryID)
   page.close()
-  console.log(CrawResult, 'CrawResult')
+  log.debug(CrawResult, 'CrawResult')
   return CrawResult
 }
 const CrawDetail = async (url, selector) => {
@@ -94,11 +96,11 @@ const crawl = async () => {
       newData.other = detail[1]
       delete newData.drawUrl
       delete newData.super_prize
-      console.log(newData)
+      log.debug(newData)
       results.push(newData)
     }
   } catch (err) {
-    console.log(err)
+    log.debug(err)
   } finally {
     writeJsonToFile(lotteryID, results)
   }

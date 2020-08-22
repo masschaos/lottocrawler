@@ -1,3 +1,4 @@
+const log = require('../../../util/log')
 const { MONTH, MonthOrDayProcess, monthCheck, dayCheck, writeJsonToFile } = require('../country')
 const { newPage } = require('../../../pptr')
 const VError = require('verror')
@@ -13,7 +14,7 @@ const detailTableSelector = '#siteContainer > div.main > table.table.lotto.mobFo
 const getHistory = async (startYear, endYear, lotteryID) => {
   const HISTORY = []
   try {
-    console.log(startYear, endYear)
+    log.debug(startYear, endYear)
     for (let year = startYear; year > endYear; year--) {
       const page = await newPage()
       await page.exposeFunction('MonthOrDayProcess', MonthOrDayProcess)
@@ -33,9 +34,9 @@ const getHistory = async (startYear, endYear, lotteryID) => {
       const dateStr = await page.$$eval(historyNumberPageSelector, (el, MONTH) => {
         return Promise.all(el.map(async item => {
           const [dateString, numberString, jackpotString] = item.innerText.split('\t')
-          console.log(dateString)
-          console.log(numberString)
-          console.log(jackpotString)
+          log.debug(dateString)
+          log.debug(numberString)
+          log.debug(jackpotString)
           // eslint-disable-next-line
           let [weekday, day, month, year] = dateString.split(' ')
           month = await MonthOrDayProcess(MONTH[month])
@@ -55,7 +56,7 @@ const getHistory = async (startYear, endYear, lotteryID) => {
 
       for (let urlIndex = 0; urlIndex < DetailUrlList.length; urlIndex++) {
         const page = await newPage()
-        console.log(`==------go to page ${DetailUrlList[urlIndex]}`)
+        log.debug(`==------go to page ${DetailUrlList[urlIndex]}`)
         await page.goto(DetailUrlList[urlIndex])
         await page.waitForSelector(detailTableSelector)
         const detailTable = await page.$eval(detailTableSelector, el => el.innerText)
@@ -66,19 +67,19 @@ const getHistory = async (startYear, endYear, lotteryID) => {
         })
         await page.close()
         if (dateStr[urlIndex].error) {
-          console.log(dateStr[urlIndex], 'error')
+          log.debug(dateStr[urlIndex], 'error')
         } else {
           const results = { ...dateStr[urlIndex], detail, other: [], name, lotteryID, issue: '' }
-          console.log(results)
+          log.debug(results)
           HISTORY.push(results)
         }
       }
     }
   } catch (err) {
-    console.log(err)
+    log.debug(err)
     throw new VError(err, '爬虫发生预期外错误')
   } finally {
-    console.log('write to file')
+    log.debug('write to file')
     writeJsonToFile(lotteryID, HISTORY)
   }
 }

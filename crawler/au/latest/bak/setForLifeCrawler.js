@@ -1,4 +1,5 @@
 const crawler = require('./crawler')
+const log = require('../../../../util/log')
 
 const lotteryID = 'au-set-for-life'
 const url = 'https://australia.national-lottery.com/set-for-life/results'
@@ -46,9 +47,9 @@ class setForLifeCrawler extends crawler {
     const res = await super.crawl(url, this.parse)
     const datas = super.assembleFormatData(res) // 返回 [ data ]
     if (datas && datas.length > 0 && datas[0]) {
-      console.log(datas[0])
+      log.debug(datas[0])
     } else {
-      console.log('no data')
+      log.debug('no data')
     }
   }
 }

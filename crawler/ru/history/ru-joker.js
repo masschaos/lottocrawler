@@ -1,3 +1,5 @@
+const log = require('../../../util/log')
+
 const name = 'joker'
 const lotteryID = 'ru-joker'
 // const other = []
@@ -38,7 +40,7 @@ const Craw = async (page, url, selectorAll, lotteryID) => {
         throw new Error('DrawingError', `正在开奖中，无法获取结果。彩种: ${lotteryID}`)
       }
       data.numbers = numbers.map(item => item.trim()).join(',')
-      console.log(data.numbers, 'data number')
+      log.debug(data.numbers, 'data number')
       data.super_prize = element.querySelector('.prize').innerText
       return data
     }
@@ -47,7 +49,7 @@ const Craw = async (page, url, selectorAll, lotteryID) => {
     return TotalData
   }, selectorAll, MONTH, lotteryID)
   page.close()
-  console.log(CrawResult, 'CrawResult')
+  log.debug(CrawResult, 'CrawResult')
   return CrawResult
 }
 const CrawDetail = async (url, selector) => {
@@ -95,11 +97,11 @@ const crawl = async () => {
       newData.other = detail[1]
       delete newData.drawUrl
       delete newData.super_prize
-      console.log(newData)
+      log.debug(newData)
       results.push(newData)
     }
   } catch (err) {
-    console.log(err)
+    log.debug(err)
   } finally {
     writeJsonToFile(lotteryID, results)
   }

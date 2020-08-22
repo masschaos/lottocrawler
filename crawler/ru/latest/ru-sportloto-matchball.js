@@ -24,7 +24,7 @@ const craw = async (page, url, selectorAll) => {
       data.drawTime = `${year}${month}${day}${time}00`
       data.issue = element.querySelector('.draw').innerText
       data.drawUrl = element.querySelector('.draw a').href
-      // console.log(data.drawUrl, 'drawUrl')
+      // log.debug(data.drawUrl, 'drawUrl')
       data.other = []
       data.jackpot = []
       const numbers = element.querySelector('.numbers_wrapper').innerText

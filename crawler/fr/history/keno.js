@@ -2,6 +2,7 @@ const fs = require('fs')
 const util = require('util')
 const path = require('path')
 const moment = require('moment')
+const log = require('../../../util/log')
 
 const writeFile = util.promisify(fs.writeFile)
 const readFile = util.promisify(fs.readFile)
@@ -30,7 +31,7 @@ async function lineDeal (line) {
 
   // for (let i = 0; i < tmps.length; i++) {
   //   if (tmps[i]) {
-  //     console.log(i, tmps[i])
+  //     log.debug(i, tmps[i])
   //   }
   // }
 
@@ -52,13 +53,13 @@ async function main (filename) {
   const text = await readFile(path.join('csv', filename), 'utf-8')
   const lines = text.split('\n')
 
-  console.log(`文件数量: ${lines.length - 1}`)
+  log.debug(`文件数量: ${lines.length - 1}`)
   const list = []
   for (const line of lines.slice(1)) {
     if (line.length < 10) continue
     const data = await lineDeal(line)
-    // console.log(line)
-    // console.log(data)
+    // log.debug(line)
+    // log.debug(data)
     // await writeFile('test.json', JSON.stringify(data, 2, ' '))
     list.push(data)
   }

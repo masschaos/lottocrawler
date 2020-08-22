@@ -1,3 +1,4 @@
+const log = require('../../../util/log')
 const { crawlHistory, crawLatest } = require('./common')
 const { DrawingError } = require('../../../util/error')
 const lotteryID = 'es-bonoloto'
@@ -9,7 +10,7 @@ const parse = (latestDraw) => {
   }
   latestDraw.numbers = `${number.slice(0, 6).join(',')}#${number.slice(6, 7)[0]}|${number.slice(7, 8)[0]}`
   latestDraw.drawTime = `${latestDraw.drawTime.slice(0, 10)}3000`
-  console.log(latestDraw)
+  log.debug(latestDraw)
   return latestDraw
 }
 

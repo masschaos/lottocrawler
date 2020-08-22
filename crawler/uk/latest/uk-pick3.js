@@ -27,19 +27,19 @@ const Craw = async (page, dataObj) => {
   // get time
   const dateStr = await page.$eval(dateSelector, el => el.innerText)
   const [day, month, year] = dateStr.split('\n').slice(-1)[0].split(' ')
-  // console.log(day, month, year)
+  // log.debug(day, month, year)
   const drawTime = `${year}${MonthOrDayProcess(MONTH[month])}${MonthOrDayProcess(day)}${timestamp}`
   // get number and jackpot
   const numberStr = await page.$eval(numberSelector, el => el.innerText)
-  // console.log(numberStr)
+  // log.debug(numberStr)
   const numberList = numberStr.split('\n')[0].split(' ')
-  // console.log(numberList, 'numberList')
+  // log.debug(numberList, 'numberList')
   const jackpot = numberList.slice(-1)
   const numbers = numberList.slice(0, 3).join('|')
   if (numbers.length !== 5) {
     throw new DrawingError(lotteryID)
   }
-  // console.log(jackpot, numbers)
+  // log.debug(jackpot, numbers)
   return { detail: [], drawTime, numbers, issue: '', jackpot: jackpot, other: [] }
 }
 
@@ -64,7 +64,7 @@ const crawl = async () => {
     }
     const mainData = await Craw(page, dataObj)
     const results = { ...mainData, name, lotteryID }
-    // console.log(results)
+    // log.debug(results)
     return results
   } finally {
     await page.close()

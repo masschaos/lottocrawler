@@ -80,13 +80,13 @@ const crawl = async () => {
       throw new DrawingError(lotteryID)
     }
     const detail = await CrawDetail(page, mainData.drawUrl, detailTotal).then(data => { return data })
-    // console.log(detail, 'detail')
+    // log.debug(detail, 'detail')
     const numbers = mainData.numbers.split('\n')[0].trim()
     const details = detail.map(item => { return { level: item.level, total_winner: item.winners } })
     const newData = { ...mainData, numbers, detail: details, lotteryID, name, jackpot: [mainData.super_prize] }
     delete newData.drawUrl
     delete newData.super_prize
-    // console.log(newData, 'result Data')
+    // log.debug(newData, 'result Data')
     return newData
   } finally {
     await page.close()

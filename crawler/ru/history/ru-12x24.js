@@ -1,3 +1,5 @@
+const log = require('../../../util/log')
+
 const name = '12x24'
 const lotteryID = 'ru-12x24'
 // const other = []
@@ -36,15 +38,15 @@ const Craw = async (page, url, selectorAll, lotteryID) => {
       data.jackpot = []
 
       const numbers = [...element.querySelectorAll('.numbers .numbers_wrapper .zone:nth-of-type(1) b')].map(item => item.innerText)
-      console.log(JSON.stringify(numbers), 'number')
+      log.debug(JSON.stringify(numbers), 'number')
       if (numbers.length === 0) {
         throw new Error('DrawingError', `正在开奖中，无法获取结果。彩种: ${lotteryID}`)
       }
       data.numbers = numbers.map(item => item.trim()).join(',')
       // data.numbers = numbers.split(' ').map(item => item.slice(0, item.length - 1))
 
-      console.log(JSON.stringify(data.numbers), 'data number')
-      //   console.log(element.querySelector('.prize').outerHTML)
+      log.debug(JSON.stringify(data.numbers), 'data number')
+      //   log.debug(element.querySelector('.prize').outerHTML)
       data.super_prize = element.querySelector('.prize').innerText
       return data
     }
@@ -94,9 +96,9 @@ const crawl = async () => {
   try {
     const mainDataList = await Craw(page, url, selectorAll, lotteryID)
     for (let i = 0; i < mainDataList.length; i++) {
-      console.log('-----------------------------')
-      console.log(JSON.stringify(mainDataList[i]))
-      console.log('-----------------------------')
+      log.debug('-----------------------------')
+      log.debug(JSON.stringify(mainDataList[i]))
+      log.debug('-----------------------------')
       const detail = await CrawDetail(mainDataList[i].drawUrl, detailTotal, moreDetail).then(data => { return data })
       const numbers = mainDataList[i].numbers
       const details = detail[0].map(item => { return { level: item.level, total_winner: item.winners, wininrub: item.wininrub, numbersOfWinners: item.numbersOfWinners } })
@@ -104,11 +106,11 @@ const crawl = async () => {
       newData.other = detail[1]
       delete newData.drawUrl
       delete newData.super_prize
-      console.log(newData, 'newData')
+      log.debug(newData, 'newData')
       results.push(newData)
     }
   } catch (err) {
-    console.log(err)
+    log.debug(err)
   } finally {
     writeJsonToFile(lotteryID, results)
   }
@@ -117,7 +119,7 @@ const crawl = async () => {
 (async () => {
   const TotalData = await crawl()
   // const data = await postData(newData)
-  console.log(TotalData)
+  log.debug(TotalData)
 })()
 
 module.exports = {

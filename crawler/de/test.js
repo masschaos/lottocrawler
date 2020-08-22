@@ -1,3 +1,6 @@
+
+const log = require('../../util/log')
+
 async function test () {
   const lotteryIDs = [
     'de-euro-jackpot',
@@ -11,19 +14,16 @@ async function test () {
   const getCrawler = require('./index')
   let i = 1
   for (const id of lotteryIDs) {
-    console.log(`cawler lotteryID: ${id} And No.${i++} start!`)
-    console.time('t')
+    log.debug(`cawler lotteryID: ${id} And No.${i++} start!`)
     const crawlers = getCrawler.get(id)
     for (const crawler of crawlers) {
       try {
         const res = await crawler.crawl()
-        console.log(JSON.stringify(res))
+        log.debug(JSON.stringify(res))
       } catch (err) {
-        console.log(err.message)
+        log.debug(err.message)
       }
     }
-
-    console.timeEnd('t')
   }
 }
 

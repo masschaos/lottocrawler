@@ -1,4 +1,4 @@
-// const puppeteer = require('puppeteer')
+const log = require('../../../util/log')
 
 const url = 'https://www.stoloto.ru/5x36plus/archive'
 // const selector = '#content > div.data.drawings_data'
@@ -44,12 +44,12 @@ const Craw = async (page, url, selectorAll, lotteryID) => {
       return data
     }
     const results = document.querySelector(selectorAll)
-    // console.log(results)
+    // log.debug(results)
     const TotalData = mapFunction(results)
     return TotalData
   }, selectorAll, MONTH, lotteryID)
   //   page.close()
-  // console.log(CrawResult, 'CrawResult')
+  // log.debug(CrawResult, 'CrawResult')
   return CrawResult
 }
 const CrawDetail = async (page, url, selector) => {
@@ -91,7 +91,7 @@ const crawl = async () => {
     if (mainData.numbers.length === 1) {
       throw new DrawingError(lotteryID)
     }
-    console.log(mainData.drawUrl, lotteryID)
+    log.debug(mainData.drawUrl, lotteryID)
     const detail = await CrawDetail(page, mainData.drawUrl, detailTotal, moreDetail)
     const numbers = mainData.numbers
     const details = detail[0].map(item => { return { level: item.level, total_winner: item.winners, wininrub: item.wininrub, numbersOfWinners: item.numbersOfWinners } })

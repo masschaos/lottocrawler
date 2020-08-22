@@ -1,4 +1,6 @@
 // iEokFo
+const log = require('../../../util/log')
+
 const url = 'https://www.stoloto.ru/spec/archive'
 const name = 'Специгра'
 const lotteryID = 'ru-spec'
@@ -13,7 +15,7 @@ async function autoScroll (page) {
       var distance = 300
       var timer = setInterval(() => {
         var scrollHeight = document.body.scrollHeight
-        console.log(scrollHeight, totalHeight)
+        log.debug(scrollHeight, totalHeight)
         window.scrollBy(0, distance)
         totalHeight += distance
         if (totalHeight >= scrollHeight) {
@@ -45,7 +47,7 @@ const crawl = async () => {
     }).filter((item) => item.time != null))
 
     const timeProcess = (timeStr) => {
-      console.log(timeStr)
+      log.debug(timeStr)
       const [dayString, timeString, , , issueString] = timeStr.split(' ')
       const [day, month, year] = dayString.split('.')
       const [hour, minute] = timeString.split(':')
@@ -61,7 +63,7 @@ const crawl = async () => {
       const numbers = numberStr.slice(0, -1).split('').join(',') + '|' + numberStr.slice(-1)[0]
       return { numbers }
     }
-    // console.log(totalResult, 'totalResult')
+    // log.debug(totalResult, 'totalResult')
     totalResult = totalResult.map(item => {
       return {
         ...timeProcess(item.time),
@@ -105,7 +107,7 @@ const crawl = async () => {
     }
     return totalResult
   } catch (err) {
-    console.log(err)
+    log.debug(err)
   } finally {
     writeJsonToFile(lotteryID, totalResult)
     await page.close()
@@ -113,7 +115,7 @@ const crawl = async () => {
 }
 // (async () => {
 //   const result = await crawl()
-//   console.log(result)
+//   log.debug(result)
 // })()
 module.exports = {
   crawl

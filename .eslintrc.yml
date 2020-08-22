@@ -6,4 +6,8 @@ extends:
   - standard
 parserOptions:
   ecmaVersion: 11
-rules: {}
+rules:
+  no-console:
+    - error
+  guard-for-in:
+    - error

@@ -20,7 +20,7 @@ const Craw = async (page, url, selectorAll) => {
       const mapFunction = (element) => {
         const data = {}
         //   const monthyear = element.querySelector('.date').innerText
-        //   console.log(monthyear, 'monthyear')
+        //   log.debug(monthyear, 'monthyear')
         //   let [month, year] = monthyear.split(', ')
         const drawDate = element.querySelector('.draw_date').innerText
         const [yearPro, dayPro] = drawDate.split(' ')
@@ -31,10 +31,10 @@ const Craw = async (page, url, selectorAll) => {
         data.drawTime = `${year}${month}${day}${time}00`
         data.issue = element.querySelector('.draw').innerText
         data.drawUrl = element.querySelector('.draw a').href
-        // console.log(data.drawUrl, 'url')
+        // log.debug(data.drawUrl, 'url')
         data.other = []
         data.jackpot = []
-        //   console.log(element.querySelector('.numbers_wrapper').outerHTML)
+        //   log.debug(element.querySelector('.numbers_wrapper').outerHTML)
         let numbers = ''
         if (element.querySelector('.numbers_wrapper')) {
           numbers = element.querySelector('.numbers_wrapper').innerText.split('\n')[0].trim()
@@ -42,12 +42,12 @@ const Craw = async (page, url, selectorAll) => {
         const tmp = numbers.split(' ')
         numbers = [tmp.slice(0, tmp.length - 4).join(','), tmp.slice(tmp.length - 4, tmp.length)].join('|')
         data.numbers = numbers
-        //   console.log(element.querySelector('.prize').outerHTML)
+        //   log.debug(element.querySelector('.prize').outerHTML)
         data.super_prize = element.querySelector('.prize').innerText
         return data
       }
       const results = document.querySelector(selectorAll)
-      // console.log(results)
+      // log.debug(results)
       const TotalData = mapFunction(results)
       return TotalData
     }, selectorAll, MONTH)
@@ -67,7 +67,7 @@ const CrawDetail = async (page, url, selector) => {
       const mapFunction = (element) => {
         const data = {}
         const elementList = [...element.querySelectorAll('td')]
-        //   console.log(elementList[0].outerHTML, 'elementList')
+        //   log.debug(elementList[0].outerHTML, 'elementList')
         data.level = elementList[0].textContent
         data.winners = elementList[4].textContent.replace(/\n/g, '').split('\t').join('')
         return data
@@ -91,15 +91,15 @@ const crawl = async () => {
     if (mainData.numbers.length === 1) {
       throw new DrawingError(lotteryID)
     }
-    // console.log(mainData, 'mainData')
+    // log.debug(mainData, 'mainData')
     const detail = await CrawDetail(page, mainData.drawUrl, detailTotal).then(data => { return data })
-    // console.log(detail, 'detail')
+    // log.debug(detail, 'detail')
     const numbers = mainData.numbers
     const details = [...detail.map(item => { return { level: item.level, total_winner: item.winners } })]
     const newData = { ...mainData, numbers, detail: details, lotteryID, name, jackpot: [mainData.super_prize] }
     delete newData.drawUrl
     delete newData.super_prize
-    // console.log(newData, 'result Data')
+    // log.debug(newData, 'result Data')
     return newData
   } finally {
     await page.close()

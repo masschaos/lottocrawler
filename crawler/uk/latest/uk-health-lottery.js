@@ -1,3 +1,5 @@
+const log = require('../../../util/log')
+
 const { MONTH } = require('../country')
 const { newPage, ignoreImage } = require('../../../pptr')
 const { DrawingError } = require('../../../util/error')
@@ -30,14 +32,14 @@ const Craw = async (page, dataObj) => {
   // get number and jackpot
   const numberStr = await page.$eval(numberSelector, el => el.innerText)
   const numberList = numberStr.split('\n')
-  console.log(numberList, 'numberList')
+  log.debug(numberList, 'numberList')
   const jackpot = []
   const numbers = `${numberList.slice(0, 5).join(',')}#${numberList.slice(5, 6)}`
-  console.log(jackpot, numbers)
+  log.debug(jackpot, numbers)
 
   // get detail url
   const detailUrl = await page.$eval(detailUrlSelector, url => url.href)
-  console.log(detailUrl, 'detailUrl')
+  log.debug(detailUrl, 'detailUrl')
 
   // open index page
   await page.goto(detailUrl)

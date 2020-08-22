@@ -43,12 +43,12 @@ const craw = async (page, url, selectorAll, lotteryID) => {
       return data
     }
     const results = document.querySelector(selectorAll)
-    // console.log(results)
+    // log.debug(results)
     const TotalData = mapFunction(results)
     return TotalData
   }, selectorAll, MONTH, lotteryID)
   // page.close()
-  // console.log(CrawResult, 'CrawResult')
+  // log.debug(CrawResult, 'CrawResult')
   return CrawResult
 }
 const CrawDetail = async (page, url, selector, moreDetail) => {

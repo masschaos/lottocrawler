@@ -1,3 +1,5 @@
+const log = require('../../../util/log')
+
 const name = 'Топ-3'
 const lotteryID = 'ru-top3'
 // const other = []
@@ -41,16 +43,16 @@ const craw = async (page, url, selectorAll, lotteryID) => {
       numberOne = numberOne.map(item => item.trim())
       numberTwo = numberTwo.map(item => item.trim()).slice(1, numberTwo.length)
       // data.numbers = [numbers.slice(0, 2).join(','), numbers.slice(2, 4).join(',')].join('|')
-      console.log(JSON.stringify(numberOne), JSON.stringify(numberTwo), 'one, two')
+      log.debug(JSON.stringify(numberOne), JSON.stringify(numberTwo), 'one, two')
       data.numbers = [numberOne.join(','), numberTwo.join(',')].join('|')
-      console.log(data.numbers, 'numbers')
+      log.debug(data.numbers, 'numbers')
       // data.numbers = numbers.split(' ').map(item => item.slice(0, item.length - 1))
-      //   console.log(element.querySelector('.prize').outerHTML)
+      //   log.debug(element.querySelector('.prize').outerHTML)
       data.super_prize = element.querySelector('.prize').innerText
       return data
     }
     const results = document.querySelector(selectorAll)
-    // console.log(results)
+    // log.debug(results)
     const TotalData = mapFunction(results)
     return TotalData
   }, selectorAll, MONTH)
@@ -91,7 +93,7 @@ const crawl = async () => {
   try {
     await ignoreImage(page)
     const mainData = await craw(page, url, selectorAll, lotteryID)
-    console.log(mainData, 'mainData')
+    log.debug(mainData, 'mainData')
     if (mainData.numbers.length === 1) {
       throw new DrawingError(lotteryID)
     }
@@ -102,7 +104,7 @@ const crawl = async () => {
     newData.other = detail[1]
     delete newData.drawUrl
     delete newData.super_prize
-    console.log(newData)
+    log.debug(newData)
     return newData
   } finally {
     await page.close()

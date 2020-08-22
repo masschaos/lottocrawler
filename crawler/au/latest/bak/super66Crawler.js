@@ -1,5 +1,6 @@
 const puppeteer = require('puppeteer')
 const crawler = require('./crawler')
+const log = require('../../../../util/log')
 
 const lotteryID = 'au-super-66'
 const url = 'https://australia.national-lottery.com/super-66/results'
@@ -47,9 +48,9 @@ class supper66Crawler extends crawler {
     await browser.close()
     const datas = super.assembleFormatData(result) // 返回 [ data ]
     if (datas && datas.length > 0 && datas[0]) {
-      console.log(datas[0])
+      log.debug(datas[0])
     } else {
-      console.log('no data')
+      log.debug('no data')
     }
   }
 }

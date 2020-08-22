@@ -1,3 +1,5 @@
+const log = require('../../../util/log')
+
 const name = 'keno'
 const lotteryID = 'ru-keno'
 // const other = []
@@ -41,11 +43,11 @@ const Craw = async (page, url, selectorAll, lotteryID) => {
         throw new Error('DrawingError', `正在开奖中，无法获取结果。彩种: ${lotteryID}`)
       }
       // data.numbers = [numbers.slice(0, 2).join(','), numbers.slice(2, 4).join(',')].join('|')
-      console.log(JSON.stringify(numberOne), JSON.stringify(numberTwo), 'one, two')
+      log.debug(JSON.stringify(numberOne), JSON.stringify(numberTwo), 'one, two')
       data.numbers = [numberOne.join(','), numberTwo.join(',')].join('|')
-      console.log(data.numbers, 'numbers')
+      log.debug(data.numbers, 'numbers')
       // data.numbers = numbers.split(' ').map(item => item.slice(0, item.length - 1))
-      //   console.log(element.querySelector('.prize').outerHTML)
+      //   log.debug(element.querySelector('.prize').outerHTML)
       data.super_prize = element.querySelector('.prize').innerText
       return data
     }
@@ -54,7 +56,7 @@ const Craw = async (page, url, selectorAll, lotteryID) => {
     return TotalData
   }, selectorAll, MONTH, lotteryID)
   page.close()
-  // console.log(CrawResult, 'CrawResult')
+  // log.debug(CrawResult, 'CrawResult')
   return CrawResult
 }
 const CrawDetail = async (url, selector, moreDetail) => {
@@ -90,7 +92,7 @@ const crawl = async () => {
   try {
     const mainDataList = await Craw(page, url, selectorAll, lotteryID)
     for (let i = 0; i < mainDataList.length; i++) {
-      // console.log(mainData, 'mainData')
+      // log.debug(mainData, 'mainData')
       const detail = await CrawDetail(mainDataList[i].drawUrl, detailTotal, moreDetail).then(data => { return data })
       const numbers = mainDataList[i].numbers
       const details = detail[0]
@@ -101,7 +103,7 @@ const crawl = async () => {
       results.push(newData)
     }
   } catch (err) {
-    console.log(err)
+    log.debug(err)
   } finally {
     writeJsonToFile(lotteryID, results)
   }
