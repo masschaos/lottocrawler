@@ -118,7 +118,8 @@ function parseDetailAndWinnerCount (config, drawData) {
   let winnerCount = 0
   const details = []
   const mostRecentDraw = drawData
-  for (const key in mostRecentDraw.Prizes) {
+  const keys = Object.keys(mostRecentDraw.Prizes)
+  for (const key of keys) {
     const item = mostRecentDraw.Prizes[key]
     const detailItem = {
       name: item.PrizeTypeDescription,
@@ -141,7 +142,8 @@ function parseWinningNumbers (config, drawData) {
   let index = 0
   const numbers = []
   const winningNumbers = drawData.WinningNumbers
-  for (const key in winningNumbers) {
+  const keys = Object.keys(winningNumbers)
+  for (const key of keys) {
     if (index === 0) {
       numbers.push(winningNumbers[key].Number)
     } else {
