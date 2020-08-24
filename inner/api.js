@@ -1,5 +1,6 @@
 const VError = require('verror')
 const axios = require('axios')
+const { DrawingError } = require('../util/error')
 const { baseURL, token } = require('../config')
 const im = require('../util/im')
 
@@ -72,7 +73,8 @@ async function saveLatestResult (data) {
 // 保存额外结果，需要传入 result id
 async function saveExtraResult (id, data) {
   try {
-    await api.post(`results/${id}/extra`, data)
+    const res = await api.post(`results/${id}/extra`, data)
+    return res.data
   } catch (err) {
     if (err.response && err.response.status === 400 && err.response.data) {
       if (err.response.data.error === 'InvalidRequestBody') {
@@ -87,7 +89,7 @@ async function saveExtraResult (id, data) {
 
 // 通过步数定义和当前步，作出一个上报数据结构，并上报。
 // 根据当前步的类型，决定 数据结构的字段。
-// 参数 resultID 只有需要保存 breakdown 或者 other 才需要，result 不需要
+// 参数 result 为从服务端拉来的最新结果
 async function saveStepData (data, steps, stepID, result) {
   // 首先，根据当前步数准备数据
   let step
@@ -100,9 +102,20 @@ async function saveStepData (data, steps, stepID, result) {
       if (st.id === stepID) {
         found = true
         step = st
-        if (i !== 0 && !result) {
+        if (i === 0) {
+          // 第一步检查期号是不是新的
+          if (result && data.drawTime <= result.drawTime) {
+            throw new DrawingError(data.lotteryID)
+          }
+        } else {
           // 不是第一步必须有 result
-          throw new VError('执行后续任务时服务器不存在最新结果')
+          if (!result) {
+            throw new VError('执行后续任务时服务器不存在最新结果')
+          }
+          // 不是第一步期号必须一致
+          if (result.drawTime !== data.drawTime) {
+            throw new VError('执行后续任务时提交数据与服务器最新数据期号不一致')
+          }
         }
       }
       continue
@@ -121,29 +134,27 @@ async function saveStepData (data, steps, stepID, result) {
   }
 
   // 最后，根据数据类型提交数据
+  // TODO: 提交前要检查结果是否符合要求
   switch (step.dataType) {
     case 'result':
       data.stepLeft = stepLeft
       data.isResultOK = isResultOK
       data.isBreakdownOK = isBreakdownOK
-      await saveLatestResult(data)
-      break
+      return await saveLatestResult(data)
     case 'breakdown':
-      await saveExtraResult(result.id, {
+      return await saveExtraResult(result.id, {
         stepLeft,
         isResultOK,
         isBreakdownOK,
-        breakdown: data
+        breakdown: data.breakdown
       })
-      break
     case 'other':
-      await saveExtraResult(result.id, {
+      return await saveExtraResult(result.id, {
         stepLeft,
         isResultOK,
         isBreakdownOK,
-        breakdown: data
+        breakdown: data.other
       })
-      break
     default:
       throw new VError(`解析步骤时碰到错误的数据类型：${step.dataType}`)
   }

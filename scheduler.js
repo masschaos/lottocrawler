@@ -146,7 +146,7 @@ async function runLottery (lottery, result) {
             return
           }
           const data = await crawler(step.id)
-          await saveStepData(data, steps, step.id, result)
+          result = await saveStepData(data, steps, step.id, result)
         }
         // 如果导入成功，则不再使用备用源抓取数据
         break
