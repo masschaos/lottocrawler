@@ -1,7 +1,7 @@
 {
   "drawTime": "20200822213000",
   "numbers": "4|8|4|1|7|S|Q|9|1|1|3|1|G|X|2|1|0|1|0|A|J",
-  "jackpot": [],
+  "jackpot": ["20.000 euro", "10.000 euro", "5.000 euro"],
   "breakdown": [],
   "other": [],
   "name": "Miljoenenspel",
