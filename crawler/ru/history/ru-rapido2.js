@@ -12,7 +12,7 @@ const lotteryID = 'ru-rapido2'
 
 const url = 'https://stoloto.ru/rapido2/archive'
 const selector = '#content > div.data.drawings_data'
-const selectorAll = '#content > div.data.drawings_data .month'
+const selectorAll = '#content > div.data.drawings_data .elem'
 const detailTotal = '#content > div.col.prizes > div.results_table.with_bottom_shadow > div > table > tbody > tr'
 const detailWaitfor = '#content > div.col.prizes > div.results_table.with_bottom_shadow > div > table'
 
@@ -28,11 +28,12 @@ const Craw = async (page, url, selectorAll, lotteryID) => {
       const [yearPro, dayPro] = drawDate.split(' ')
       const time = dayPro.split(':').join('')
       const [day, month, year] = yearPro.split('.')
-      data.drawTime = `${year}${month}${day}${time}00`
+      data.drawTime = `${year}${month}${day}${time}`
       data.issue = element.querySelector('.draw').innerText
       data.drawUrl = element.querySelector('.draw a').href
       data.jackpot = []
-      let numbers = [...element.querySelectorAll('#content > div.data.drawings_data > div.month > div:nth-child(2) > div > div.numbers > div.numbers_wrapper > div:nth-child(1) > span b')].map(item => item.innerText)
+      const tmp = element.querySelector('.numbers_wrapper .container')
+      let numbers = [...tmp.querySelectorAll('b')].map(item => item.innerText)
       log.debug(JSON.stringify(numbers))
       numbers = numbers.map(item => item.trim())
       if (numbers.length === 0) {

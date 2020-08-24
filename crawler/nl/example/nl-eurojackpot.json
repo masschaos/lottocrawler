@@ -1,0 +1,86 @@
+{
+  "drawTime": "20200821220000",
+  "numbers": "26,27,30,46,49|1,2",
+  "jackpot": [],
+  "breakdown": [
+    {
+      "name": "Jackpot",
+      "detail": [
+        {
+          "name": "5 getallen + 2 bonusgetallen goed",
+          "prize": "NIET GEVALLEN",
+          "count": 0
+        }
+      ]
+    },
+    {
+      "name": "Hoge prijzen",
+      "detail": [
+        {
+          "name": "5 getallen + 1 bonusgetal goed",
+          "prize": "NIET GEVALLEN",
+          "count": 0
+        },
+        {
+          "name": "5 getallen + 0 bonusgetallen goed",
+          "prize": "€ 99.482,70",
+          "count": 7
+        }
+      ]
+    },
+    {
+      "name": "Overige winnaars",
+      "detail": [
+        {
+          "name": "4 getallen + 2 bonusgetallen goed",
+          "prize": "€ 5.803,10",
+          "count": 40
+        },
+        {
+          "name": "4 getallen + 1 bonusgetal goed",
+          "prize": "€ 328,40",
+          "count": 636
+        },
+        {
+          "name": "4 getallen + 0 bonusgetallen goed",
+          "prize": "€ 131,80",
+          "count": 1232
+        },
+        {
+          "name": "3 getallen + 2 bonusgetallen goed",
+          "prize": "€ 88,20",
+          "count": 1578
+        },
+        {
+          "name": "2 getallen + 2 bonusgetallen goed",
+          "prize": "€ 27,90",
+          "count": 25749
+        },
+        {
+          "name": "3 getallen + 1 bonusgetal goed",
+          "prize": "€ 22,70",
+          "count": 30645
+        },
+        {
+          "name": "3 getallen + 0 bonusgetallen goed",
+          "prize": "€ 17,50",
+          "count": 56850
+        },
+        {
+          "name": "1 getal + 2 bonusgetallen goed",
+          "prize": "€ 12,60",
+          "count": 142947
+        },
+        {
+          "name": "2 getallen + 1 bonusgetal goed",
+          "prize": "€ 8,90",
+          "count": 493058
+        }
+      ]
+    }
+  ],
+  "other": [],
+  "name": "Eurojackpot",
+  "lotteryID": "nl-eurojackpot",
+  "issue": ""
+}

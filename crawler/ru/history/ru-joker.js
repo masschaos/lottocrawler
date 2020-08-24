@@ -12,7 +12,7 @@ const lotteryID = 'ru-joker'
 
 const url = 'https://www.stoloto.ru/joker/archive'
 const selector = '#content > div.data.drawings_data'
-const selectorAll = '#content > div.data.drawings_data .month'
+const selectorAll = '#content > div.data.drawings_data .elem'
 const detailTotal = '#content > div.col.prizes > div.results_table.with_bottom_shadow > div > table > tbody > tr'
 const detailWaitfor = '#content > div.col.prizes > div.results_table.with_bottom_shadow > div > table'
 
@@ -33,8 +33,8 @@ const Craw = async (page, url, selectorAll, lotteryID) => {
       data.drawUrl = element.querySelector('.draw a').href
       // data.other = []
       data.jackpot = []
-
-      let numbers = [...element.querySelectorAll('#content > div.data.drawings_data > div.month > div:nth-child(2) > div > div.numbers > div.numbers_wrapper > div:nth-child(1) > span b sup')].map(item => item.innerText)
+      const zone = element.querySelector('.zone')
+      let numbers = [...zone.querySelectorAll('b sup')].map(item => item.innerText)
       numbers = numbers.map(item => item.trim())
       if (numbers.length === 0) {
         throw new Error('DrawingError', `正在开奖中，无法获取结果。彩种: ${lotteryID}`)

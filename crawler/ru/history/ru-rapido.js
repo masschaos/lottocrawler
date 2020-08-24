@@ -13,7 +13,7 @@ const lotteryID = 'ru-rapido'
 const url = 'https://stoloto.ru/rapido/archive'
 
 const selector = '#content > div.data.drawings_data'
-const selectorAll = '#content > div.data.drawings_data .month'
+const selectorAll = '#content > div.data.drawings_data .elem'
 const detailTotal = '#content > div.col.prizes > div.results_table.with_bottom_shadow > div > table > tbody > tr'
 const detailWaitfor = '#content > div.col.prizes > div.results_table.with_bottom_shadow > div > table'
 const moreDetail = '#content > div.col.drawing_details > div > div > table > tbody > tr'
@@ -28,14 +28,16 @@ const Craw = async (page, url, selectorAll, lotteryID) => {
       const [yearPro, dayPro] = drawDate.split(' ')
       const time = dayPro.split(':').join('')
       const [day, month, year] = yearPro.split('.')
-      data.drawTime = `${year}${month}${day}${time}00`
+      data.drawTime = `${year}${month}${day}${time}`
       data.issue = element.querySelector('.draw').innerText
       data.drawUrl = element.querySelector('.draw a').href
       // data.other = []
       data.jackpot = []
-
-      let numbers = [...element.querySelectorAll('#content > div.data.drawings_data > div.month > div:nth-child(2) > div > div.numbers > div.numbers_wrapper > div:nth-child(1) > span b')].map(item => item.innerText)
-      numbers = numbers.map(item => item.trim())
+      const tmp = element.querySelector('.numbers_wrapper .container')
+      let numbers = ''
+      if (tmp) {
+        numbers = [...tmp.querySelectorAll('b')].map(item => item.innerText.trim())
+      }
       if (numbers.length === 0) {
         throw new Error('DrawingError', `正在开奖中，无法获取结果。彩种: ${lotteryID}`)
       }
@@ -44,6 +46,7 @@ const Craw = async (page, url, selectorAll, lotteryID) => {
       // data.numbers = numbers.split(' ').map(item => item.slice(0, item.length - 1))
       //   log.debug(element.querySelector('.prize').outerHTML)
       data.super_prize = element.querySelector('.prize').innerText
+      // console.log(data, 'data')
       return data
     }
     const results = [...document.querySelectorAll(selectorAll)]
