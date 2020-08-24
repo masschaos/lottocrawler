@@ -5,7 +5,7 @@ const im = require('./util/im')
 const log = require('./util/log')
 const route = require('./router')
 const { parallel } = require('./config')
-const { hasNewDraw,isExtraReady } = require('./util/time')
+const { hasNewDraw, isExtraReady } = require('./util/time')
 const { fetchLotteries, fetchLatestResult, fetchSystemConfig, saveLatestResult, saveStepData } = require('./inner/api')
 const { closeBrowser } = require('./pptr')
 
