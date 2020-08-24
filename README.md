@@ -82,8 +82,13 @@ for (const crawler of crawlers) {
 
 此种情况下 crawler 要实现 crawler.crawl(id) ，让上面的每个id当参数传入时，返回正确的结果。
 
-目前 dataType 有三种， result 则返回 result 对象。 breakdown 则返回 breakdown 对象，是个列表。
-other 则返回 result 模型中的 other 对象，也是个列表。
+目前 dataType 有三种， result 则返回 result 对象。 breakdown 和 other 返回时放在一个 Object 中加上 drawTime，如：
+```json
+{
+  "drawTime": "20200820183000",
+  "breakdown": []
+}
+```
 
 ### 爬虫中的异常处理
 
