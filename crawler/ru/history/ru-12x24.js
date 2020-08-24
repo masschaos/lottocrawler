@@ -36,14 +36,9 @@ const Craw = async (page, url, selectorAll, lotteryID) => {
       data.drawUrl = element.querySelector('.draw a').href
       // data.other = []
       data.jackpot = []
-<<<<<<< Updated upstream
 
-      const numbers = [...element.querySelectorAll('.numbers .numbers_wrapper .zone:nth-of-type(1) b')].map(item => item.innerText)
-      log.debug(JSON.stringify(numbers), 'number')
-=======
       const numbers = element.querySelector('.numbers .numbers_wrapper .zone').innerText.split(' ').slice(0, -1)
-      console.log(JSON.stringify(numbers), 'number')
->>>>>>> Stashed changes
+      log.debug(JSON.stringify(numbers), 'number')
       if (numbers.length === 0) {
         throw new Error('DrawingError', `正在开奖中，无法获取结果。彩种: ${lotteryID}`)
       }
