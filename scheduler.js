@@ -5,7 +5,7 @@ const im = require('./util/im')
 const log = require('./util/log')
 const route = require('./router')
 const { parallel } = require('./config')
-const { hasNewDraw } = require('./util/time')
+const { hasNewDraw,isExtraReady } = require('./util/time')
 const { fetchLotteries, fetchLatestResult, fetchSystemConfig, saveLatestResult, saveStepData } = require('./inner/api')
 const { closeBrowser } = require('./pptr')
 
@@ -106,7 +106,7 @@ async function runLottery (lottery, result) {
     // cron 模式 和不存在这个配置，都是默认用cron检查是否要抓取
     default:
       // 根据预计开奖时间规则(lottery.drawConfig.timeRule)判断是否到了抓取数据的时间 ,
-      if (result && !hasNewDraw(timeRules, delay, result.drawTime, tz)) {
+      if (result && !result.stepLeft && !hasNewDraw(timeRules, delay, result.drawTime, tz)) {
         log.debug(`还未开奖，跳过${id}`)
         return
       }
@@ -141,7 +141,7 @@ async function runLottery (lottery, result) {
         }
         for (const step of steps) {
           // 先判断本步是不是到执行时间了
-          if (result && !hasNewDraw(timeRules, step.delay, result.drawTime, tz)) {
+          if (result && !isExtraReady(result.drawTime, step.delay, tz)) {
             log.debug(`还未到执行本步时间，跳过${id}`)
             return
           }

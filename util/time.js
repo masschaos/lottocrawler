@@ -24,7 +24,7 @@ function hasNewDraw (timeRules, delay, lastDrawTime, tz) {
       delay = 0
     }
     const currentDate = parseDrawTime(lastDrawTime, tz)
-    const endDate = moment().tz(tz).add(-delay, 'm')
+    const endDate = moment().tz(tz).add(-delay, 's')
     const cron = cronParser.parseExpression(timeRule, {
       currentDate,
       endDate,
@@ -37,7 +37,13 @@ function hasNewDraw (timeRules, delay, lastDrawTime, tz) {
   return false
 }
 
+// 判断额外步骤的延迟条件是否就绪, drawTime 为处理中的结果的开奖时间
+function isExtraReady (drawTime, delay, tz) {
+  return parseDrawTime(drawTime, tz).add(delay, 's').isBefore(moment().tz(tz))
+}
+
 module.exports = {
   sleep,
-  hasNewDraw
+  hasNewDraw,
+  isExtraReady
 }
