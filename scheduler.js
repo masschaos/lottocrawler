@@ -133,7 +133,7 @@ async function runLottery (lottery, result) {
       // 启动爬虫，目前有单步爬虫和分步爬虫两种模式
       log.info(`启动爬虫 ${id}`)
       // 多步爬虫模式
-      if (crawlerSteps && crawlerSteps > 1) {
+      if (crawlerSteps && crawlerSteps.length > 1) {
         let steps = crawlerSteps
         if (result && result.stepLeft) {
           log.info(`开始 ${id} 的剩余任务，还剩 ${result.stepLeft} 步`)
@@ -145,8 +145,10 @@ async function runLottery (lottery, result) {
             log.debug(`还未到执行本步时间，跳过${id}`)
             return
           }
-          const data = await crawler(step.id)
-          result = await saveStepData(data, steps, step.id, result)
+          const data = await crawler.crawl(step.id)
+          // 注意，这里要传入原始 steps ，不是截取后的
+          result = await saveStepData(data, crawlerSteps, step.id, result)
+          log.debug(`${id} 的步骤 ${step.id} 执行成功。`)
         }
         // 如果导入成功，则不再使用备用源抓取数据
         break

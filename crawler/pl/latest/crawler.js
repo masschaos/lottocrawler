@@ -28,13 +28,19 @@ function createCrawler (config) {
               return stepData
             }
             case 'breakdown': {
-              return stepData.breakdown
+              return {
+                drawTime: stepData.drawTime,
+                breakdown: stepData.breakdown
+              }
             }
             case 'other': {
               if (checkSuperSzansaIssueIsNull(stepData)) {
                 throw new VError('SuperSzansaIssue is null', `${config.lotteryID} 获取 SuperSzansaIssue 出错`)
               }
-              return stepData.other
+              return {
+                drawTime: stepData.drawTime,
+                breakdown: stepData.other
+              }
             }
           }
         } else {
