@@ -109,7 +109,7 @@ const crawl = async () => {
   } catch (err) {
     log.debug(err)
   } finally {
-    writeJsonToFile(lotteryID, totalResult)
+    writeJsonToFile(lotteryID + '111111111111', totalResult)
     await page.close()
   }
 }

@@ -13,7 +13,7 @@ const lotteryID = 'ru-duel'
 // 两个箱子，都是1-26 开奖，每个箱子两个号码
 
 const selector = '#content > div.data.drawings_data'
-const selectorAll = '#content > div.data.drawings_data .month'
+const selectorAll = '#content > div.data.drawings_data .elem'
 const detailTotal = '#content > div.col.prizes > div.results_table.with_bottom_shadow > div > table > tbody > tr'
 const detailWaitfor = '#content > div.col.prizes > div.results_table.with_bottom_shadow > div > table'
 
@@ -37,7 +37,7 @@ const Craw = async (page, url, selectorAll, lotteryID) => {
       data.jackpot = []
 
       // let numbers = [...element.querySelectorAll('#content > div.data.drawings_data > div.month > div:nth-child(2) > div > div.numbers > div.numbers_wrapper > div:nth-child(1) > span b')].map(item => item.innerText)
-      let numbers = element.querySelector('.numbers .numbers_wrapper .zone').innerText.split(' ').slice(0, -1)
+      let numbers = element.querySelector('.numbers_wrapper .container').innerText.split(' ').slice(0, -1)
       numbers = numbers.map(item => item.trim())
       if (numbers.length === 0) {
         throw new Error('DrawingError', `正在开奖中，无法获取结果。彩种: ${lotteryID}`)

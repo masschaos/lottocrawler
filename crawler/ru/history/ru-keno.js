@@ -12,7 +12,7 @@ const lotteryID = 'ru-keno'
 
 const url = 'https://stoloto.ru/keno/archive'
 const selector = '#content > div.data.drawings_data'
-const selectorAll = '#content > div.data.drawings_data .month'
+const selectorAll = '#content > div.data.drawings_data .elem'
 const detailTotal = '#content > div.col.prizes > div.results_table.with_bottom_shadow > div > table > tbody > tr'
 const detailWaitfor = '#content > div.col.prizes > div.results_table.with_bottom_shadow > div > table'
 
@@ -28,14 +28,15 @@ const Craw = async (page, url, selectorAll, lotteryID) => {
       const [yearPro, dayPro] = drawDate.split(' ')
       const time = dayPro.split(':').join('')
       const [day, month, year] = yearPro.split('.')
-      data.drawTime = `${year}${month}${day}${time}00`
+      data.drawTime = `${year}${month}${day}${time}`
       data.issue = element.querySelector('.draw').innerText
       data.drawUrl = element.querySelector('.draw a').href
       // data.other = []
       data.jackpot = []
-
-      let numberOne = [...element.querySelectorAll('#content > div.data.drawings_data > div.month > div:nth-child(2) > div > div.numbers > div:nth-child(1) > div:nth-child(1) > span> b')].map(item => item.innerText)
-      let numberTwo = [...element.querySelectorAll('#content > div.data.drawings_data > div.month > div:nth-child(2) > div > div.numbers > div.numbers_wrapper.sub > div > span > b')].map(item => item.innerText)
+      const tmp1 = element.querySelector('.elem .numbers_wrapper .container')
+      const tmp2 = element.querySelector('.elem .sub')
+      let numberOne = [...tmp1.querySelectorAll('.zone > b')].map(item => item.innerText)
+      let numberTwo = [...tmp2.querySelectorAll('.zone > b')].map(item => item.innerText)
       numberOne = numberOne.map(item => item.trim())
       numberTwo = numberTwo.map(item => item.trim()).slice(1, numberTwo.length)
 
@@ -91,11 +92,12 @@ const crawl = async () => {
   const results = []
   try {
     const mainDataList = await Craw(page, url, selectorAll, lotteryID)
+    // console.log(mainDataList, 'mainData')
     for (let i = 0; i < mainDataList.length; i++) {
       // log.debug(mainData, 'mainData')
       const detail = await CrawDetail(mainDataList[i].drawUrl, detailTotal, moreDetail).then(data => { return data })
       const numbers = mainDataList[i].numbers
-      const details = detail[0]
+      const details = [{ twoDimensionalList: detail[0].map(item => { return { value: item } }) }]
       const newData = { ...mainDataList[i], numbers, detail: details, lotteryID, name, jackpot: [mainDataList[i].super_prize] }
       newData.other = detail[1]
       delete newData.drawUrl
