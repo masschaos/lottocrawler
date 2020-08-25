@@ -41,7 +41,7 @@ module.exports = async function crawl (data = {}, urlSelector, interpreter) {
     return result
   } catch (err) {
     log.error(err)
-    throw new VError(`<${lotteryID}> 没有抓到数据，可能数据源不可用或有更改，请检查调度策略
+    throw new VError(err, `<${lotteryID}> 没有抓到数据，可能数据源不可用或有更改，请检查调度策略
     detail: ${err.name} - ${err.message}`)
   } finally {
     try {
