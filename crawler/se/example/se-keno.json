@@ -1,0 +1,35 @@
+{
+    "drawTime": "20200824",
+    "numbers": "51,26,8,39,69,66,2,50,54,13,3,11,10,1,22,63,20,36,40,59|8",
+    "jackpot": [],
+    "breakdown":[
+      {"name":"UTDELNING KENO-Keno 11", "detail":[{"name": "11 rätt", "count": 0, "prize": "5 000 000 kr"}, {"name": "10 rätt", "count": 1, "prize": "80 000 kr"}, {"name": "9 rätt", "count": 5, "prize": "2 000 kr"}, {"name": "8 rätt", "count": 44, "prize": "200 kr"}, {"name": "7 rätt", "count": 410, "prize": "30 kr"}, {"name": "6 rätt", "count": 1876, "prize": "10 kr"}, {"name": "5 rätt", "count": 5792, "prize": "5 kr"}]},
+      {"name":"UTDELNING KENO-Keno 10", "detail":[{"name": "10 rätt", "count": 0, "prize": "1 000 000 kr"}, {"name": "9 rätt", "count": 0, "prize": "15 000 kr"}, {"name": "8 rätt", "count": 13, "prize": "800 kr"}, {"name": "7 rätt", "count": 98, "prize": "100 kr"}, {"name": "6 rätt", "count": 686, "prize": "15 kr"}, {"name": "5 rätt", "count": 2578, "prize": "5 kr"}, {"name": "0 rätt", "count": 909, "prize": "5 kr"}]},
+      {"name":"UTDELNING KENO-Keno 9", "detail":[{"name": "9 rätt", "count": 0, "prize": "250 000 kr"}, {"name": "8 rätt", "count": 0, "prize": "5 000 kr"}, {"name": "7 rätt", "count": 25, "prize": "250 kr"}, {"name": "6 rätt", "count": 158, "prize": "50 kr"}, {"name": "5 rätt", "count": 852, "prize": "5 kr"}]},
+      {"name":"UTDELNING KENO-Keno 8", "detail":[{"name": "8 rätt", "count": 0, "prize": "45 000 kr"}, {"name": "7 rätt", "count": 15, "prize": "1 000 kr"}, {"name": "6 rätt", "count": 213, "prize": "100 kr"}, {"name": "5 rätt", "count": 1319, "prize": "15 kr"}, {"name": "4 rätt", "count": 5126, "prize": "5 kr"}]},
+      {"name":"UTDELNING KENO-Keno 7", "detail":[{"name": "7 rätt", "count": 1, "prize": "10 000 kr"}, {"name": "6 rätt", "count": 42, "prize": "400 kr"}, {"name": "5 rätt", "count": 310, "prize": "50 kr"}, {"name": "4 rätt", "count": 2025, "prize": "5 kr"}]},
+      {"name":"UTDELNING KENO-Keno 6", "detail":[{"name": "6 rätt", "count": 9, "prize": "1 700 kr"}, {"name": "5 rätt", "count": 211, "prize": "90 kr"}, {"name": "4 rätt", "count": 1529, "prize": "15 kr"}, {"name": "3 rätt", "count": 5685, "prize": "5 kr"}]},
+      {"name":"UTDELNING KENO-Keno 5", "detail":[{"name": "5 rätt", "count": 14, "prize": "800 kr"}, {"name": "4 rätt", "count": 345, "prize": "40 kr"}, {"name": "3 rätt", "count": 1635, "prize": "5 kr"}]},
+      {"name":"UTDELNING KENO-Keno 4", "detail":[{"name": "4 rätt", "count": 93, "prize": "120 kr"}, {"name": "3 rätt", "count": 1064, "prize": "10 kr"}, {"name": "2 rätt", "count": 4125, "prize": "5 kr"}]},
+      {"name":"UTDELNING KENO-Keno 3", "detail":[{"name": "3 rätt", "count": 265, "prize": "60 kr"}, {"name": "2 rätt", "count": 1925, "prize": "5 kr"}]},
+      {"name":"UTDELNING KENO-Keno 2", "detail":[{"name": "2 rätt", "count": 218, "prize": "30 kr"}]},
+      {"name":"UTDELNING KENO-Keno 1", "detail":[{"name": "1 rätt", "count": 794, "prize": "10 kr"}]},
+      {"name":"UTDELNING KUNG KENO-Keno 11", "detail":[{"name": "11 rätt", "count": 0, "prize": "20 000 000 kr"}, {"name": "10 rätt", "count": 0, "prize": "160 000 kr"}, {"name": "9 rätt", "count": 4, "prize": "4 000 kr"}, {"name": "8 rätt", "count": 34, "prize": "500 kr"}, {"name": "7 rätt", "count": 207, "prize": "100 kr"}, {"name": "6 rätt", "count": 841, "prize": "15 kr"}, {"name": "5 rätt", "count": 2038, "prize": "15 kr"}, {"name": "4 rätt", "count": 2813, "prize": "10 kr"}, {"name": "3 rätt", "count": 2743, "prize": "10 kr"}, {"name": "2 rätt", "count": 1244, "prize": "10 kr"}, {"name": "1 rätt", "count": 272, "prize": "30 kr"}]},
+      {"name":"UTDELNING KUNG KENO-Keno 10", "detail": [{"name": "10 rätt", "count": 0, "prize": "2 000 000 kr"}, {"name": "9 rätt", "count": 0, "prize": "30 000 kr"}, {"name": "8 rätt", "count": 3, "prize": "1 600 kr"}, {"name": "7 rätt", "count": 42, "prize": "200 kr"}, {"name": "6 rätt", "count": 276, "prize": "50 kr"}, {"name": "5 rätt", "count": 844, "prize": "15 kr"}, {"name": "4 rätt", "count": 1427, "prize": "10 kr"}, {"name": "3 rätt", "count": 1475, "prize": "10 kr"}, {"name": "2 rätt", "count": 772, "prize": "10 kr"}, {"name": "1 rätt", "count": 192, "prize": "30 kr"}] },
+      {"name":"UTDELNING KUNG KENO-Keno 9", "detail":[{"name": "9 rätt", "count": 0, "prize": "600 000 kr"}, {"name": "8 rätt", "count": 1, "prize": "10 000 kr"}, {"name": "7 rätt", "count": 7, "prize": "500 kr"}, {"name": "6 rätt", "count": 84, "prize": "100 kr"}, {"name": "5 rätt", "count": 344, "prize": "15 kr"}, {"name": "4 rätt", "count": 609, "prize": "10 kr"}, {"name": "3 rätt", "count": 771, "prize": "10 kr"}, {"name": "2 rätt", "count": 434, "prize": "10 kr"}, {"name": "1 rätt", "count": 124, "prize": "30 kr"}]},
+      {"name":"UTDELNING KUNG KENO-Keno 8", "detail":[{"name": "8 rätt", "count": 0, "prize": "130 000 kr"}, {"name": "7 rätt", "count": 8, "prize": "2 000 kr"}, {"name": "6 rätt", "count": 92, "prize": "300 kr"}, {"name": "5 rätt", "count": 431, "prize": "30 kr"}, {"name": "4 rätt", "count": 1270, "prize": "15 kr"}, {"name": "3 rätt", "count": 1722, "prize": "10 kr"}, {"name": "2 rätt", "count": 1447, "prize": "10 kr"}, {"name": "1 rätt", "count": 422, "prize": "30 kr"}]},
+      {"name":"UTDELNING KUNG KENO-Keno 7", "detail":[{"name": "7 rätt", "count": 0, "prize": "25 000 kr"}, {"name": "6 rätt", "count": 14, "prize": "1 000 kr"}, {"name": "5 rätt", "count": 94, "prize": "150 kr"}, {"name": "4 rätt", "count": 414, "prize": "30 kr"}, {"name": "3 rätt", "count": 840, "prize": "10 kr"}, {"name": "2 rätt", "count": 782, "prize": "10 kr"}, {"name": "1 rätt", "count": 354, "prize": "30 kr"}]},
+      {"name":"UTDELNING KUNG KENO-Keno 6", "detail":[{"name": "6 rätt", "count": 5, "prize": "10 000 kr"}, {"name": "5 rätt", "count": 60, "prize": "300 kr"}, {"name": "4 rätt", "count": 382, "prize": "50 kr"}, {"name": "3 rätt", "count": 1051, "prize": "15 kr"}, {"name": "2 rätt", "count": 1279, "prize": "10 kr"}, {"name": "1 rätt", "count": 608, "prize": "30 kr"}]},
+      {"name":"UTDELNING KUNG KENO-Keno 5", "detail":[{"name": "5 rätt", "count": 6, "prize": "2 500 kr"}, {"name": "4 rätt", "count": 73, "prize": "150 kr"}, {"name": "3 rätt", "count": 308, "prize": "30 kr"}, {"name": "2 rätt", "count": 365, "prize": "15 kr"}, {"name": "1 rätt", "count": 280, "prize": "30 kr"}]},
+      {"name":"UTDELNING KUNG KENO-Keno 4", "detail":[{"name": "4 rätt", "count": 31, "prize": "800 kr"}, {"name": "3 rätt", "count": 255, "prize": "60 kr"}, {"name": "2 rätt", "count": 465, "prize": "30 kr"}, {"name": "1 rätt", "count": 410, "prize": "30 kr"}]},
+      {"name":"UTDELNING KUNG KENO-Keno 3", "detail":[{"name": "3 rätt", "count": 48, "prize": "400 kr"}, {"name": "2 rätt", "count": 220, "prize": "50 kr"}, {"name": "1 rätt", "count": 257, "prize": "25 kr"}]},
+      {"name":"UTDELNING KUNG KENO-Keno 2", "detail":[{"name": "2 rätt", "count": 49, "prize": "240 kr"}, {"name": "1 rätt", "count": 75, "prize": "40 kr"}]},
+      {"name":"UTDELNING KUNG KENO-Keno 1", "detail":[{"name": "1 rätt", "count": 65, "prize": "170 kr"}]}
+    ],
+    "other": [],
+    "name": "Keno",
+    "lotteryID": "se-keno",
+    "issue": "35",
+    "winnerCount":72193
+}
+

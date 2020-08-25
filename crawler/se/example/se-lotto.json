@@ -1,0 +1,119 @@
+{
+  "drawTime": "20200825195500",
+  "numbers": "5,18,17,26,1,27,29#16,23,19,28|11,9,28,12,27,20,1#26,10,30,22|7|3|4|7|2|3|8",
+  "jackpot": [],
+  "breakdown": [
+    {
+      "name": "Lotto 1",
+      "detail": [
+        {
+          "name": "7 rätt",
+          "count": 1,
+          "prize": "2 206 011 kr"
+        },
+        {
+          "name": "6 rätt + tillägg",
+          "count": 24,
+          "prize": "31 514 kr"
+        },
+        {
+          "name": "6 rätt",
+          "count": 135,
+          "prize": "3 268 kr"
+        },
+        {
+          "name": "5 rätt",
+          "count": 6587,
+          "prize": "114 kr"
+        },
+        {
+          "name": "4 rätt",
+          "count": 99752,
+          "prize": "21 kr"
+        },
+        {
+          "name": "Drömvinsten",
+          "count": 0,
+          "prize": "0 kr"
+        }
+      ]
+    },
+    {
+      "name": "Lotto 2",
+      "detail": [
+        {
+          "name": "7 rätt",
+          "count": 1,
+          "prize": "1 875 814 kr"
+        },
+        {
+          "name": "6 rätt + tillägg",
+          "count": 18,
+          "prize": "35 729 kr"
+        },
+        {
+          "name": "6 rätt",
+          "count": 147,
+          "prize": "2 552 kr"
+        },
+        {
+          "name": "5 rätt",
+          "count": 6320,
+          "prize": "101 kr"
+        },
+        {
+          "name": "4 rätt",
+          "count": 89416,
+          "prize": "20 kr"
+        },
+        {
+          "name": "Drömvinsten",
+          "count": 0,
+          "prize": "0 kr"
+        }
+      ]
+    },
+    {
+      "name": "joker",
+      "detail": [
+        {
+          "name": "7 rätt",
+          "count": 0,
+          "prize": "10 000 000 kr"
+        },
+        {
+          "name": "6 rätt",
+          "count": 1,
+          "prize": "250 000 kr"
+        },
+        {
+          "name": "5 rätt",
+          "count": 21,
+          "prize": "20 000 kr"
+        },
+        {
+          "name": "4 rätt",
+          "count": 180,
+          "prize": "2 000 kr"
+        },
+        {
+          "name": "3 rätt",
+          "count": 1659,
+          "prize": "200 kr"
+        },
+        {
+          "name": "2 rätt",
+          "count": 16645,
+          "prize": "80 kr"
+        }
+      ]
+    }
+  ],
+  "other": [
+    {"name":"Totalt", "value":"6 363 645 kr"},
+    {"name":"Ingen Drömvinst denna dragning", "value":"Nu uppe i ca 88 miljoner kr"}
+  ],
+  "name": "Lotto",
+  "lotteryID": "se-loto",
+  "issue": "34"
+}

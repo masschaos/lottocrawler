@@ -1,0 +1,88 @@
+{
+  "drawTime": "20200821230000",
+  "numbers": "26,27,49,30,46#2,1",
+  "jackpot": ["ca 352 miljoner kr"],
+  "breakdown": [
+    {
+      "name": "eurojackpot",
+      "detail": [
+        {
+          "name": "5 rätt + 2",
+          "count": 0,
+          "prize": "Jackpot",
+          "Internationellt": 0
+        },
+        {
+          "name": "5 rätt + 1",
+          "count": 0,
+          "prize": "0 kr",
+          "Internationellt": 0
+        },
+        {
+          "name": "5 rätt",
+          "count": 0,
+          "prize": "1 030 859 kr",
+          "Internationellt": 7
+        },
+        {
+          "name": "4 rätt + 2",
+          "count": 3,
+          "prize": "156 962 kr",
+          "Internationellt": 40
+        },
+        {
+          "name": "4 rätt + 1",
+          "count": 31,
+          "prize": "20 440 kr",
+          "Internationellt": 636
+        },
+        {
+          "name": "4 rätt",
+          "count": 57,
+          "prize": "9 705 kr",
+          "Internationellt": 1232
+        },
+        {
+          "name": "3 rätt + 2",
+          "count": 101,
+          "prize": "3 790 kr",
+          "Internationellt": 1578
+        },
+        {
+          "name": "2 rätt + 2",
+          "count": 1369,
+          "prize": "289 kr",
+          "Internationellt": 25749
+        },
+        {
+          "name": "3 rätt + 1",
+          "count": 1622,
+          "prize": "235 kr",
+          "Internationellt": 30645
+        },
+        {
+          "name": "3 rätt",
+          "count": 3147,
+          "prize": "181 kr",
+          "Internationellt": 56850
+        },
+        {
+          "name": "1 rätt + 2",
+          "count": 7741,
+          "prize": "130 kr",
+          "Internationellt": 142947
+        },
+        {
+          "name": "2 rätt + 1",
+          "count": 26585,
+          "prize": "92 kr",
+          "Internationellt": 493058
+        }
+      ]
+    }
+  ],
+  "other": [],
+  "name": "Eurojackpot",
+  "lotteryID": "se-eurojackpot",
+  "issue": "34"
+}
