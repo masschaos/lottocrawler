@@ -22,7 +22,7 @@ async function crawl (id) {
     const result = await bingoCommon(config, id)
     return result
   } catch (err) {
-    throw new VError(`${config.lotteryID}没有抓到数据，可能数据源不可用或有更改，请检查调度策略。detail: ${err.name} - ${err.message}`)
+    throw new VError(err, `${config.lotteryID}没有抓到数据，可能数据源不可用或有更改，请检查调度策略。detail: ${err.name} - ${err.message}`)
   }
 }
 
