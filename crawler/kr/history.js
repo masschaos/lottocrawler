@@ -161,7 +161,6 @@ async function done () {
           throw new VError('data is empty')
         }
       } catch (err) {
-        log.error(err)
         log.error(`jp 历史数据爬取 LotteryId: ${name} id: ${i} 错误: ${err.message}`, err)
       }
 
