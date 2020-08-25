@@ -18,4 +18,4 @@ https://www.svenskaspel.se/eurojackpot/spelguide
 
 
 写之前需要确认是通过api还是puppeteer抓取。
-如果是api且breakdown是和result一块给了的，需要群里反馈。
+如果是api并且breakdown是和result一块给了的，需要群里说明一下。
