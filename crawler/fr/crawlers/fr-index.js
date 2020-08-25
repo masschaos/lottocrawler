@@ -2,7 +2,7 @@
  * @Author: maple
  * @Date: 2020-08-14 23:01:17
  * @LastEditors: maple
- * @LastEditTime: 2020-08-15 21:35:25
+ * @LastEditTime: 2020-08-24 22:28:30
  */
 const VError = require('verror')
 const log = require('../../../util/log')
@@ -34,7 +34,7 @@ module.exports = async function crawl (data = {}, urlSelector, interpreter) {
     await page.goto(url)
 
     // 爬取
-    const result = await interpreter(page) || {}
+    const result = await interpreter(page)
     if (!result) {
       throw new VError('result is empty!')
     }
