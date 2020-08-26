@@ -1,0 +1,51 @@
+{
+  "breakdown": [
+    {
+      "name": "Premiação",
+      "detail": [
+        {
+          "name": "Quina - 5 números acertados",
+          "count": 0,
+          "amount": "Acumulado"
+        },
+        {
+          "name": "Quadra - 4 números acertados",
+          "count": 29,
+          "amount": "R$13893.09"
+        },
+        {
+          "name": "Terno - 3 números acertados",
+          "count": 3051,
+          "amount": "R$198.57"
+        },
+        {
+          "name": "Duque - 2 números acertados",
+          "count": 83477,
+          "amount": "R$3.99"
+        }
+      ]
+    }
+  ],
+  "jackpot": [],
+  "other": [
+    {
+      "name": "Acumulado próximo concurso",
+      "value": "R$1435174.09"
+    },
+    {
+      "name": "Acumulado para Sorteio Especial de São João",
+      "value": "R$26055158.89"
+    },
+    {
+      "name": "Arrecadação total",
+      "value": "R$6988054,00"
+    }
+  ],
+  "drawTime": "20200825200000",
+  "issue": "5349",
+  "numbers": "22,29,51,58,63",
+  "name": "Quina",
+  "lotteryID": "br-quina",
+  "nextDrawTime": "20200826200000",
+  "nextPoolSize": "R$2.300.000,00"
+}

@@ -1,0 +1,61 @@
+{
+  "breakdown": [
+    {
+      "name": "Premiação",
+      "detail": [
+        {
+          "name": "7 números acertados",
+          "count": 0,
+          "amount": "Acumulado"
+        },
+        {
+          "name": "6 números acertados",
+          "count": 1,
+          "amount": "R$51481.67"
+        },
+        {
+          "name": "5 números acertados",
+          "count": 41,
+          "amount": "R$1793.78"
+        },
+        {
+          "name": "4 números acertados",
+          "count": 870,
+          "amount": "R$9"
+        },
+        {
+          "name": "3 números acertados",
+          "count": 9225,
+          "amount": "R$3"
+        },
+        {
+          "name": "Time do Coração",
+          "count": 2216,
+          "amount": "R$7.5"
+        }
+      ]
+    }
+  ],
+  "jackpot": [],
+  "other": [
+    {
+      "name": "Acumulado próximo concurso",
+      "value": "R$922691.29"
+    },
+    {
+      "name": "Acumulado próximo concurso final zero",
+      "value": "R$105233.62"
+    },
+    {
+      "name": "Arrecadação total",
+      "value": "R$912720,00"
+    }
+  ],
+  "drawTime": "20200825200000",
+  "issue": "1528",
+  "numbers": "33,34,39,41,48,51,67|42",
+  "name": "Timemania",
+  "lotteryID": "br-timemania",
+  "nextDrawTime": "20200827200000",
+  "nextPoolSize": "R$1,000,000.00"
+}

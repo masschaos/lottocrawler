@@ -1,0 +1,68 @@
+{
+  "breakdown": [
+    {
+      "name": "Premiação",
+      "detail": [
+        {
+          "name": "15 acertos",
+          "count": 4,
+          "amount": "R$932809.46"
+        },
+        {
+          "name": "14 acertos",
+          "count": 214,
+          "amount": "R$1483.19"
+        },
+        {
+          "name": "13 acertos",
+          "count": 8974,
+          "amount": "R$25"
+        },
+        {
+          "name": "12 acertos",
+          "count": 117344,
+          "amount": "R$10"
+        },
+        {
+          "name": "11 acertos",
+          "count": 659053,
+          "amount": "R$5"
+        }
+      ]
+    }
+  ],
+  "jackpot": [],
+  "other": [
+    {
+      "name": "Acumulado para Sorteio Especial da Independência",
+      "value": "R$81.275.452,44"
+    },
+    {
+      "name": "Arrecadação total",
+      "value": "R$18.871.957,50,00"
+    },
+    {
+      "name": "Detalhamento|BRASÍLIA - DF",
+      "value": "1 aposta ganhou o prêmio para 15 acertos"
+    },
+    {
+      "name": "Detalhamento|POSSE - GO",
+      "value": "1 aposta ganhou o prêmio para 15 acertos"
+    },
+    {
+      "name": "Detalhamento|TRÊS RIOS - RJ",
+      "value": "1 aposta ganhou o prêmio para 15 acertos"
+    },
+    {
+      "name": "Detalhamento|GUARATINGUETA - SP",
+      "value": "1 aposta ganhou o prêmio para 15 acertos"
+    }
+  ],
+  "drawTime": "20200825200000",
+  "issue": "2020",
+  "numbers": "02,03,04,05,07,08,09,12,15,16,17,19,20,21,25",
+  "name": "Lotofacil",
+  "lotteryID": "br-lotofacil",
+  "nextDrawTime": "20200826200000",
+  "nextPoolSize": "R$ 1.500.000,00"
+}

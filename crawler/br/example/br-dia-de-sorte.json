@@ -1,0 +1,52 @@
+{
+  "breakdown": [
+    {
+      "name": "main",
+      "detail": [
+        {
+          "name": "7 números acertados",
+          "count": 0,
+          "prize": "Não houve acertador"
+        },
+        {
+          "name": "6 números acertados",
+          "count": 63,
+          "amount": "R$2.362,32"
+        },
+        {
+          "name": "5 números acertados",
+          "count": "2438 apostas ganhadoras",
+          "amount": "R$20,00"
+        },
+        {
+          "name": "4 números acertados",
+          "count": "32925 apostas ganhadoras",
+          "amount": "R$4,00"
+        },
+        {
+          "name": "Mês da Sorte",
+          "count": 152684,
+          "amount": "R$2,00"
+        }
+      ]
+    }
+  ],
+  "jackpot": [],
+  "other": [
+    {
+      "name": "Acumulado próximo concurso",
+      "value": "R$1.590.739,99"
+    },
+    {
+      "name": "Arrecadação total",
+      "value": "R$2.755.536,00"
+    }
+  ],
+  "drawTime": "20200825200000",
+  "issue": "347",
+  "numbers": "06,08,19,20,22,23,29|9",
+  "name": "dia de sorte",
+  "lotteryID": "br-dia-de-sorte",
+  "nextDrawTime": "20200827200000",
+  "nextPoolSize": "R$1.900.000,00"
+}

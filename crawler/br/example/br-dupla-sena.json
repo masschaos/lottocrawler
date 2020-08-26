@@ -1,0 +1,76 @@
+{
+  "breakdown": [
+    {
+      "name": "Premiação - 1º Sorteio",
+      "detail": [
+        {
+          "name": "Sena - 6 números acertados",
+          "count": "0",
+          "prize": "Não Houve ganhadores"
+        },
+        {
+          "name": "Quina - 5 números acertados",
+          "count": 10,
+          "prize": "R$6540.34"
+        },
+        {
+          "name": "Quadra - 4 números acertados",
+          "count": 674,
+          "prize": "R$110.9"
+        },
+        {
+          "name": "Terno - 3 números acertados",
+          "count": 13649,
+          "prize": "R$2.73"
+        }
+      ]
+    },
+    {
+      "name": "Premiação - 2º Sorteio",
+      "detail": [
+        {
+          "name": "Sena - 6 números acertados",
+          "count": 0,
+          "prize": "Acumulado"
+        },
+        {
+          "name": "Quina - 5 números acertados",
+          "count": 11,
+          "prize": "R$5351.19"
+        },
+        {
+          "name": "Quadra - 4 números acertados",
+          "count": 792,
+          "prize": "R$94.37"
+        },
+        {
+          "name": "Terno - 3 números acertados",
+          "count": 14021,
+          "prize": "R$2.66"
+        }
+      ]
+    }
+  ],
+  "jackpot": [],
+  "other": [
+    {
+      "name": "Valor acumulado para a faixa Sena 1º Sorteio",
+      "value": "R$2772951.41"
+    },
+    {
+      "name": "Acumulado para Sorteio Especial de Páscoa",
+      "value": "R$8163194.37"
+    },
+    {
+      "name": "Arrecadação total",
+      "value": "R$2155327.5,00"
+    }
+  ],
+  "drawTime": "20200825200000",
+  "issue": "2122",
+  "numbers": "03,20,23,24,35,39|14,15,43,48,49,50",
+  "name": "Dupla Sena",
+  "lotteryID": "br-dupla-sena",
+  "nextDrawTime": "20200827200000",
+  "nextPoolSize": "R$3.000.000,00"
+}

@@ -1,0 +1,45 @@
+{
+  "breakdown": [
+    {
+      "name": "1º sorteio",
+      "detail": [
+        {
+          "name": "1º",
+          "prize": "R$500.000,00",
+          "lotteryUnit": "FRANCISCO VAZ DE OLIVEIRA",
+          "country": "MANHUACU/MG"
+        },
+        {
+          "name": "2º",
+          "prize": "R$27.000,00",
+          "lotteryUnit": "CLODOMIRO DA SORTE",
+          "country": "SAO PAULO/SP"
+        },
+        {
+          "name": "3º",
+          "prize": "R$24.000,00",
+          "lotteryUnit": "JALUCREI LOTERIAS",
+          "country": "SAO PAULO/SP"
+        },
+        {
+          "name": "4º",
+          "prize": "R$19.000,00",
+          "lotteryUnit": "FLOR DO CAMPO LOTERIAS",
+          "country": "SAO PAULO/SP"
+        },
+        {
+          "name": "5º",
+          "prize": "R$18.329,00",
+          "lotteryUnit": "TREVO DA SORTE",
+          "country": "GRAVATAI/RS"
+        }
+      ]
+    }],
+  "jackpot": [],
+  "other": [],
+  "drawTime": "20200822000000",
+  "issue": "05485",
+  "numbers": "95134|40515|62758|41632|20831",
+  "name": "Loteria Federal",
+  "lotteryID": "br-loteria-federal"
+}
