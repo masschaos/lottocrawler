@@ -1,0 +1,62 @@
+{
+  "breakdown": [
+    {
+      "name": "Premiação",
+      "detail": [
+        {
+          "name": "20 números acertados",
+          "count": 0,
+          "amount": "Acumulado"
+        },
+        {
+          "name": "19 números acertados",
+          "count": 2,
+          "amount": "R$140944.33"
+        },
+        {
+          "name": "18 números acertados",
+          "count": 63,
+          "amount": "R$2796.52"
+        },
+        {
+          "name": "17 números acertados",
+          "count": 659,
+          "amount": "R$267.34"
+        },
+        {
+          "name": "16 números acertados",
+          "count": 4443,
+          "amount": "R$39.65"
+        },
+        {
+          "name": "15 números acertados",
+          "count": 18924,
+          "amount": "R$9.3"
+        },
+        {
+          "name": "0 números acertados",
+          "count": 0,
+          "amount": "Acumulado"
+        }
+      ]
+    }
+  ],
+  "jackpot": [],
+  "other": [
+    {
+      "name": "Acumulado próximo concurso",
+      "value": "R$4390062.1"
+    },
+    {
+      "name": "Arrecadação total",
+      "value": "R$5805912.5,00"
+    }
+  ],
+  "drawTime": "20200825200000",
+  "issue": "2103",
+  "numbers": "02,13,21,32,35,38,39,49,63,65,71,73,77,78,81,88,92,93,94,98",
+  "name": "Lotomania",
+  "lotteryID": "br-lotomania",
+  "nextDrawTime": "20200828200000",
+  "nextPoolSize": "R$5.200.000,00"
+}

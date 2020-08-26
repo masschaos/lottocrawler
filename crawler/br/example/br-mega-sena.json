@@ -1,0 +1,50 @@
+{
+  "breakdown": [
+    {
+      "name": "",
+      "detail": [
+        {
+          "name": "Sena - 6 números acertados",
+          "count": 0,
+          "amount": "Acumulado"
+        },
+        {
+          "name": "Quina - 5 números acertados",
+          "count": 94,
+          "amount": "R$36313.4"
+        },
+        {
+          "name": "Quadra - 4 números acertados",
+          "count": 5865,
+          "amount": "R$831.43"
+        }
+      ]
+    }
+  ],
+  "jackpot": [],
+  "other": [
+    {
+      "name": "Acumulado próximo concurso",
+      "value": "R$39230164.19"
+    },
+    {
+      "name": "Acumulado próximo concurso()",
+      "value": "R$10122392.12"
+    },
+    {
+      "name": "Acumulado para Sorteio",
+      "value": "R$55560605.11"
+    },
+    {
+      "name": "Arrecadação total",
+      "value": "R$59204407.5,00"
+    }
+  ],
+  "drawTime": "20200822000000",
+  "issue": "2292",
+  "numbers": "06,16,18,33,42,57",
+  "name": "Mega-Sena",
+  "lotteryID": "br-mega-sena",
+  "nextDrawTime": "20200826200000",
+  "nextPoolSize": "R$ 47.000.000,00"
+}
