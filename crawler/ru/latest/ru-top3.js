@@ -42,17 +42,11 @@ const craw = async (page, url, selectorAll, lotteryID) => {
       let numberTwo = [...element.querySelectorAll('#content > div.data.drawings_data > div.month > div:nth-child(2) > div > div.numbers > div.numbers_wrapper.sub > div > span > b')].map(item => item.innerText)
       numberOne = numberOne.map(item => item.trim())
       numberTwo = numberTwo.map(item => item.trim()).slice(1, numberTwo.length)
-      // data.numbers = [numbers.slice(0, 2).join(','), numbers.slice(2, 4).join(',')].join('|')
-      log.debug(JSON.stringify(numberOne), JSON.stringify(numberTwo), 'one, two')
       data.numbers = [numberOne.join(','), numberTwo.join(',')].join('|')
-      log.debug(data.numbers, 'numbers')
-      // data.numbers = numbers.split(' ').map(item => item.slice(0, item.length - 1))
-      //   log.debug(element.querySelector('.prize').outerHTML)
       data.super_prize = element.querySelector('.prize').innerText
       return data
     }
     const results = document.querySelector(selectorAll)
-    // log.debug(results)
     const TotalData = mapFunction(results)
     return TotalData
   }, selectorAll, MONTH)
@@ -110,7 +104,6 @@ const crawl = async () => {
     await page.close()
   }
 }
-// crawl()
 module.exports = {
   crawl
 }

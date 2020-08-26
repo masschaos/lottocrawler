@@ -1,4 +1,4 @@
-const log = require('../../../util/log')
+// const log = require('../../../util/log')
 
 const url = 'https://www.stoloto.ru/6x36/archive'
 const selector = '#content > div.data.drawings_data'
@@ -32,7 +32,7 @@ const Craw = async (page, url, selectorAll) => {
         if (element.querySelector('.numbers_wrapper .zone')) {
           numberText = element.querySelector('.numbers_wrapper .zone').innerText
         }
-        log.debug(numberText, 'numberText')
+        // log.debug(numberText, 'numberText')
         data.numbers = numberText.split(' ').map((item) => item.slice(0, -1)).join(',')
         data.super_prize = element.querySelector('.prize').innerText
         return data
