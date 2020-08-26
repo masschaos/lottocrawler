@@ -45,8 +45,10 @@ const Craw = async (page, url, selectorAll, lotteryID) => {
         throw new Error('DrawingError', `正在开奖中，无法获取结果。彩种: ${lotteryID}`)
       }
       // data.numbers = [numbers.slice(0, 2).join(','), numbers.slice(2, 4).join(',')].join('|')
+      // eslint-disable-next-line
       console.log(JSON.stringify(numberOne), JSON.stringify(numberTwo), 'one, two')
       data.numbers = [numberOne.join(','), numberTwo.join(',')].join('|')
+      // eslint-disable-next-line
       console.log(data.numbers, 'numbers')
       // data.numbers = numbers.split(' ').map(item => item.slice(0, item.length - 1))
       //   log.debug(element.querySelector('.prize').outerHTML)
