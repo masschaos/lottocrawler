@@ -2,15 +2,16 @@
  * @Author: maple
  * @Date: 2020-08-24 21:14:22
  * @LastEditors: maple
- * @LastEditTime: 2020-08-24 23:03:24
+ * @LastEditTime: 2020-08-27 03:24:22
  */
 const dateTool = require('./date')
 const crawler = require('./index')
+const VError = require('verror')
 
 const defaultData = {
-  name: 'Lotto',
-  lotteryID: 'nl-lotto',
-  defaultURL: 'https://lotto.nederlandseloterij.nl/trekkingsuitslag',
+  name: 'nl-miljoenenspel',
+  lotteryID: 'Miljoenenspel',
+  defaultURL: 'https://miljoenenspel.nederlandseloterij.nl/miljoen/trekkingen.html',
   initData: function () {
     return {
       drawTime: null,
@@ -20,41 +21,49 @@ const defaultData = {
       other: [],
       name: this.name,
       lotteryID: this.lotteryID,
-      issue: '',
-      winnerCount: null
+      issue: ''
     }
   }
 }
 
 const selector = {
-  selector: null,
+  selector: function (page, date) {
+  },
   date: null
 }
 
 const interpreter = async function (page) {
   const data = defaultData.initData()
 
-  // numbers
-  const drawResultsTable = await page.$('.draw-results-table-cell')
-  const drawReusltsList = await drawResultsTable.$$('.draw-results-row > ul.draw-result')
-  const funcs = drawReusltsList.map(async drawReuslt =>
-    await drawReuslt.$$eval('li > div > span', els => els.map(el => el.innerText)))
-  const numbers1 = await funcs[0]
-  const numbers2 = await funcs[1]
-
-  data.numbers = `${numbers1.slice(0, 6).join(',')}#${numbers1[6]}|${numbers2.slice(0, 6).join(',')}#${numbers2[6]}`
-
-  const contentTitle = await page.$('.content-title')
-  const titleText = await contentTitle.evaluate(el => el.innerText)
-  const winnerText = await contentTitle.$eval('span', el => el.innerText)
-  const dateText = titleText.slice(24, 0 - winnerText.length)
-  const winnerCount = winnerText.split(' ').filter(s => !isNaN(parseInt(s)) && parseInt(s) > 10000) // 基于万一有其他数字被格式化成功
-
-  if (winnerCount.length !== 1) {
-    throw new Error(`winnerCount 解析数量为: ${winnerCount.length}, data: ${winnerCount.join('|')}`)
+  // numbers & jackpot
+  const blocks = await page.$$('.loCol.lo2-4 > .box2')
+  if (blocks.length < 3) {
+    throw new VError(`nl crawler ${defaultData.lotteryID} blocks 数据小于 4`)
   }
-  data.winnerCount = parseInt(winnerCount[0])
-  data.drawTime = dateTool.formatDate(dateText).format('YYYYMMDD210000')
+
+  if (blocks.length === 4) blocks.pop() // 第四个 block 不需要
+  const blockDatas = []
+
+  for (const block of blocks) {
+    const title = await block.$eval('h2 > strong', el => el.innerText)
+    const header = await block.$('.header')
+    const numbers = await header.$$eval('div', els => els.map(el => el.innerText))
+    const luckLetter = await block.$eval('.luckyletter-hilite > .ball.ball-medium.six.inline', el => el.innerText)
+
+    blockDatas.push({
+      numbers: `${numbers.join('|')}|${luckLetter}`,
+      jackpot: `${title.trim()} euro`
+    })
+  }
+
+  data.numbers = `${blockDatas[0].numbers}|${blockDatas[1].numbers}|${blockDatas[2].numbers}`
+  data.jackpot = [blockDatas[0].jackpot, blockDatas[1].jackpot, blockDatas[2].jackpot]
+
+  // drawTime
+  const titleBlock = await page.$('.floatL')
+  const dateText = await titleBlock.$eval('strong', el => el.innerText)
+  const date = dateTool.formatDate(dateText)
+  data.drawTime = date.format('YYYYMMDD213000')
   return data
 }
 
@@ -62,6 +71,7 @@ async function main (date) {
   const result = await crawler(defaultData, { ...selector, date }, interpreter)
   return result
 }
+
 module.exports = {
   crawl: main
 }
