@@ -2,14 +2,6 @@ const log = require('../../../util/log')
 
 const name = 'Дуэль'
 const lotteryID = 'ru-duel'
-// const other = []
-// const jackpot = []
-// const drawTime = ''
-// const issue = ''
-// const number = ''
-// const detail = []
-// const breakdown = [{"name":"main", "detail":[{"name": "", "count": "", "prize": ""}]}]
-
 // 两个箱子，都是1-26 开奖，每个箱子两个号码
 
 const selector = '#content > div.data.drawings_data'
@@ -37,16 +29,11 @@ const Craw = async (page, url, selectorAll, lotteryID) => {
       data.drawTime = `${year}${month}${day}${time}`
       data.issue = element.querySelector('.draw').innerText
       data.drawUrl = element.querySelector('.draw a').href
-      // data.other = []
       data.jackpot = []
 
       let numbers = [...element.querySelectorAll('#content > div.data.drawings_data > div.month > div:nth-child(2) > div > div.numbers > div.numbers_wrapper > div:nth-child(1) > span b')].map(item => item.innerText)
       numbers = numbers.map(item => item.trim())
       data.numbers = [numbers.slice(0, 2).join(','), numbers.slice(2, 4).join(',')].join('|')
-      // data.numbers = numbers.map(item => item.trim()).join(',')
-      // data.numbers = numbers.split(' ').map(item => item.slice(0, item.length - 1))
-      log.debug(data.numbers, 'data number')
-      //   log.debug(element.querySelector('.prize').outerHTML)
       data.super_prize = element.querySelector('.prize').innerText
       return data
     }
@@ -55,7 +42,6 @@ const Craw = async (page, url, selectorAll, lotteryID) => {
     const TotalData = mapFunction(results)
     return TotalData
   }, selectorAll, MONTH, lotteryID)
-  log.debug(CrawResult, 'CrawResult')
   return CrawResult
 }
 const CrawDetail = async (page, url, selector) => {
