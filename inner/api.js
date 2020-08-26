@@ -155,6 +155,7 @@ async function saveStepData (data, steps, stepID, result) {
         stepLeft,
         isResultOK,
         isBreakdownOK,
+        hasBreakdown: true,
         breakdown: data.breakdown
       })
     case 'other':
