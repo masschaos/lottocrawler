@@ -15,7 +15,7 @@ async function autoScroll (page) {
       var distance = 300
       var timer = setInterval(() => {
         var scrollHeight = document.body.scrollHeight
-        log.debug(scrollHeight, totalHeight)
+        console.log(scrollHeight, totalHeight) // eslint-disable-line
         window.scrollBy(0, distance)
         totalHeight += distance
         if (totalHeight >= scrollHeight) {

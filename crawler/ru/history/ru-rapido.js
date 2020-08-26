@@ -44,7 +44,7 @@ const Craw = async (page, url, selectorAll, lotteryID) => {
       // data.numbers = [numbers.slice(0, 2).join(','), numbers.slice(2, 4).join(',')].join('|')
       data.numbers = [numbers.slice(0, -1).join(','), numbers.slice(-1)].join('|')
       // data.numbers = numbers.split(' ').map(item => item.slice(0, item.length - 1))
-      //   log.debug(element.querySelector('.prize').outerHTML)
+      // log.debug(element.querySelector('.prize').outerHTML)
       data.super_prize = element.querySelector('.prize').innerText
       // console.log(data, 'data')
       return data

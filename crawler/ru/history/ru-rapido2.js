@@ -34,13 +34,13 @@ const Craw = async (page, url, selectorAll, lotteryID) => {
       data.jackpot = []
       const tmp = element.querySelector('.numbers_wrapper .container')
       let numbers = [...tmp.querySelectorAll('b')].map(item => item.innerText)
-      log.debug(JSON.stringify(numbers))
+      console.log(JSON.stringify(numbers)) // eslint-disable-line
       numbers = numbers.map(item => item.trim())
       if (numbers.length === 0) {
         throw new Error('DrawingError', `正在开奖中，无法获取结果。彩种: ${lotteryID}`)
       }
       data.numbers = [numbers.slice(0, -1).join(','), numbers.slice(-1)].join('|')
-      log.debug(data.numbers, 'data number')
+      console.log(data.numbers, 'data number') // eslint-disable-line
       data.super_prize = element.querySelector('.prize').innerText
       return data
     }

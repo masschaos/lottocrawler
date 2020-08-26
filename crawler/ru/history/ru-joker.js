@@ -40,7 +40,7 @@ const Craw = async (page, url, selectorAll, lotteryID) => {
         throw new Error('DrawingError', `正在开奖中，无法获取结果。彩种: ${lotteryID}`)
       }
       data.numbers = numbers.map(item => item.trim()).join(',')
-      log.debug(data.numbers, 'data number')
+      console.log(data.numbers, 'data number') // eslint-disable-line
       data.super_prize = element.querySelector('.prize').innerText
       return data
     }
