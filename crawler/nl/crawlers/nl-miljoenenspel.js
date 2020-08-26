@@ -2,11 +2,12 @@
  * @Author: maple
  * @Date: 2020-08-24 21:14:22
  * @LastEditors: maple
- * @LastEditTime: 2020-08-27 03:24:22
+ * @LastEditTime: 2020-08-27 04:54:14
  */
 const dateTool = require('./date')
 const crawler = require('./index')
 const VError = require('verror')
+const log = require('../../../util/log')
 
 const defaultData = {
   name: 'nl-miljoenenspel',
@@ -27,7 +28,24 @@ const defaultData = {
 }
 
 const selector = {
-  selector: function (page, date) {
+  selector: async function (page, date) {
+    const selector = await page.$('#drawNumberGameId')
+
+    // 拿到所有已有的 options
+    const dates = await selector.$$eval('option', els => els.map(el => ({
+      text: el.innerText,
+      value: el.value
+    })))
+    const nlDate = dateTool.formatToNlDate(date)
+    const result = dates.filter(item => item.text === nlDate)
+    if (!result.length) {
+      throw new VError(`selector options 不包含 ${nlDate} 的日期`)
+    }
+    const selectItem = result[0]
+
+    // select
+    await selector.select(selectItem.value)
+    await page.waitFor(2000)
   },
   date: null
 }
@@ -48,10 +66,15 @@ const interpreter = async function (page) {
     const title = await block.$eval('h2 > strong', el => el.innerText)
     const header = await block.$('.header')
     const numbers = await header.$$eval('div', els => els.map(el => el.innerText))
-    const luckLetter = await block.$eval('.luckyletter-hilite > .ball.ball-medium.six.inline', el => el.innerText)
+    let luckLetter
+    try {
+      luckLetter = await block.$eval('.luckyletter-hilite > .ball.ball-medium.six.inline', el => el.innerText)
+    } catch (err) {
+      log.warn(`luckyletter 缺失: ${err.message}`)
+    }
 
     blockDatas.push({
-      numbers: `${numbers.join('|')}|${luckLetter}`,
+      numbers: `${numbers.join('|')}|${luckLetter || ''}`,
       jackpot: `${title.trim()} euro`
     })
   }

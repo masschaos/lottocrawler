@@ -2,7 +2,7 @@
  * @Author: maple
  * @Date: 2020-08-24 21:11:45
  * @LastEditors: maple
- * @LastEditTime: 2020-08-27 03:26:19
+ * @LastEditTime: 2020-08-27 05:18:54
  */
 const lotto = require('./crawlers/nl-lotto')
 const EuroJackpot = require('./crawlers/nl-eurojackpot')

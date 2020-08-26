@@ -2,7 +2,7 @@
  * @Author: maple
  * @Date: 2020-08-24 21:24:59
  * @LastEditors: maple
- * @LastEditTime: 2020-08-27 03:27:50
+ * @LastEditTime: 2020-08-27 05:31:40
  */
 const VError = require('verror')
 const log = require('../../../util/log')
@@ -34,7 +34,7 @@ async function crawl (defaultData = {}, { selector, date }, interpreter) {
     log.info(`nl crawl ${lotteryID} URL: ${url}`)
 
     // 通过 selector 跳转历史页面 -> Miljoenenspel
-    if (selector) {
+    if (date && selector) {
       await selector(page, date) // 跳转到特定的页面
     }
 
@@ -45,7 +45,6 @@ async function crawl (defaultData = {}, { selector, date }, interpreter) {
     }
     return result
   } catch (err) {
-    log.error(err)
     throw new VError(`<${lotteryID}> 没有抓到数据，可能数据源不可用或有更改，请检查调度策略
     detail: ${err.name} - ${err.message}`)
   } finally {
