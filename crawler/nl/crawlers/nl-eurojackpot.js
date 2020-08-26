@@ -2,11 +2,12 @@
  * @Author: maple
  * @Date: 2020-08-24 21:14:16
  * @LastEditors: maple
- * @LastEditTime: 2020-08-27 03:26:50
+ * @LastEditTime: 2020-08-27 05:41:46
  */
 const dateTool = require('./date')
 const crawler = require('./index')
 
+// 默认数据
 const defaultData = {
   name: 'Eurojackpot',
   lotteryID: 'nl-eurojackpot',
@@ -25,11 +26,13 @@ const defaultData = {
   }
 }
 
+// 选择器
 const selector = {
   selector: null,
   date: null
 }
 
+// 处理 tbody
 async function interpreterTbody (body) {
   const trs = await body.$$('tr')
   trs.shift()
@@ -46,6 +49,7 @@ async function interpreterTbody (body) {
   return results
 }
 
+// page 解析器
 const interpreter = async function (page) {
   const data = defaultData.initData()
   await page.waitForSelector('.winning-numbers > ul.numberlist > li.numberlist__item')

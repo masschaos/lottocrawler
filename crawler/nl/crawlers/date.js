@@ -1,12 +1,20 @@
 /**
+ * 用于转换荷兰特有的日期格式
  * @Author: maple
  * @Date: 2020-08-24 21:15:09
  * @LastEditors: maple
- * @LastEditTime: 2020-08-27 05:09:22
+ * @LastEditTime: 2020-08-27 05:41:20
  */
 const VError = require('verror')
 const moment = require('moment')
 
+/**
+ * 根据 drawTime 获取若干天前的 YYYY-MM-DD 格式日期
+ * 一般是七天
+ * lucky day 是 1 天
+ * @param {object} param0 { date, momentObj, drawTime }
+ * @param {*} days 间隔时间，如果寻找之前的日期，必须传入负数
+ */
 exports.getLastDate = function ({ date, momentObj, drawTime }, days) {
   let todayDate = momentObj
   if (date && date.trim()) {
@@ -36,6 +44,7 @@ exports.getLastDate = function ({ date, momentObj, drawTime }, days) {
   return todayDate.format('YYYY-MM-DD')
 }
 
+// 将荷兰特有的日期格式化出 Moment 对象
 exports.formatDate = function (str) {
   const [day, monthStr, year] = str.split(' ')
   let month
@@ -88,6 +97,9 @@ exports.formatDate = function (str) {
   return date
 }
 
+// 将 YYYY-MM-DD 格式化成荷兰日期
+// 并且月份是缩写
+// 用于 Miljoenenspel 的日期选择器
 exports.formatToNlDate = function (str) {
   const [year, monthStr, day] = str.split('-')
   let month
@@ -133,5 +145,6 @@ exports.formatToNlDate = function (str) {
       throw new VError(`转换成荷兰月份信息错误 date: ${str}`)
   }
 
+  // massrt 三月的缩写是 mrt
   return `${day} ${month === 'maart' ? 'mrt' : month.slice(0, 3)} ${year}`
 }

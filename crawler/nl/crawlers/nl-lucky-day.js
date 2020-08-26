@@ -1,12 +1,20 @@
+/**
+ * @Author: maple
+ * @Date: 2020-08-26 22:19:33
+ * @LastEditors: maple
+ * @LastEditTime: 2020-08-27 05:43:08
+ */
 
 const dateTool = require('./date')
 const crawler = require('./index')
 
+// 日期选择器
 const selector = {
   selector: null,
   date: null
 }
 
+// 默认数据
 const defaultData = {
   name: 'Lucky Day',
   lotteryID: 'nl-lucky-day',
@@ -26,6 +34,7 @@ const defaultData = {
   }
 }
 
+// page 解析器
 const interpreter = async function (page) {
   const data = defaultData.initData()
 

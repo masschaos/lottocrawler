@@ -2,11 +2,12 @@
  * @Author: maple
  * @Date: 2020-08-24 21:14:22
  * @LastEditors: maple
- * @LastEditTime: 2020-08-24 23:03:36
+ * @LastEditTime: 2020-08-27 05:43:33
  */
 const dateTool = require('./date')
 const crawler = require('./index')
 
+// 默认数据
 const defaultData = {
   name: 'Lotto',
   lotteryID: 'nl-lotto',
@@ -26,11 +27,13 @@ const defaultData = {
   }
 }
 
+// 日期选择器
 const selector = {
   selector: null,
   date: null
 }
 
+// page 解析器
 const interpreter = async function (page) {
   const data = defaultData.initData()
 

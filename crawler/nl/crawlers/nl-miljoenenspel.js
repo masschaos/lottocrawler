@@ -2,13 +2,14 @@
  * @Author: maple
  * @Date: 2020-08-24 21:14:22
  * @LastEditors: maple
- * @LastEditTime: 2020-08-27 04:54:14
+ * @LastEditTime: 2020-08-27 05:49:47
  */
 const dateTool = require('./date')
 const crawler = require('./index')
 const VError = require('verror')
 const log = require('../../../util/log')
 
+// 默认数据
 const defaultData = {
   name: 'nl-miljoenenspel',
   lotteryID: 'Miljoenenspel',
@@ -27,6 +28,8 @@ const defaultData = {
   }
 }
 
+// 日期选择器
+// 需要通过 selector.select(value) 选择日期后自动跳转
 const selector = {
   selector: async function (page, date) {
     const selector = await page.$('#drawNumberGameId')
@@ -50,6 +53,7 @@ const selector = {
   date: null
 }
 
+// page 解析器
 const interpreter = async function (page) {
   const data = defaultData.initData()
 
@@ -68,13 +72,17 @@ const interpreter = async function (page) {
     const numbers = await header.$$eval('div', els => els.map(el => el.innerText))
     let luckLetter
     try {
+      // 2020-5-16
+      // 2020-5-23
+      // 这两天的数据没有 lucky letter
       luckLetter = await block.$eval('.luckyletter-hilite > .ball.ball-medium.six.inline', el => el.innerText)
     } catch (err) {
+      luckLetter = '' // 先置空字符串，如果需要修改成别的默认参数，在这里修改
       log.warn(`luckyletter 缺失: ${err.message}`)
     }
 
     blockDatas.push({
-      numbers: `${numbers.join('|')}|${luckLetter || ''}`,
+      numbers: `${numbers.join('|')}|${luckLetter}`,
       jackpot: `${title.trim()} euro`
     })
   }
