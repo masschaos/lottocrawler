@@ -11,8 +11,8 @@ const log = require('../../../util/log')
 
 // 默认数据
 const defaultData = {
-  name: 'nl-miljoenenspel',
-  lotteryID: 'Miljoenenspel',
+  name: 'Miljoenenspel',
+  lotteryID: 'nl-miljoenenspel',
   defaultURL: 'https://miljoenenspel.nederlandseloterij.nl/miljoen/trekkingen.html',
   initData: function () {
     return {
