@@ -39,7 +39,7 @@ function createCrawler (config) {
               }
               return {
                 drawTime: stepData.drawTime,
-                breakdown: stepData.other
+                other: stepData.other
               }
             }
           }
