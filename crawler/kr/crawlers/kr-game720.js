@@ -37,6 +37,9 @@ async function interpreter (page) {
   date.set('months', month - 1)
   date.set('date', day)
   result.drawTime = date.format('YYYYMMDD124000')
+  const winMoney1 = (await page.$eval('#after720 > div:nth-child(3) > dl', item => item.innerText)).replace('\n', ' ')
+  const winMoney2 = (await page.$eval('#after720 > div:nth-child(4) > dl', item => item.innerText)).replace('\n', ' ')
+  result.jackpot = [winMoney1, winMoney2]
 
   const winNumWraps = await winResult.$$('.win_num_wrap')
 
