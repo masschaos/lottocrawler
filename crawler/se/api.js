@@ -327,7 +327,7 @@ function parseOther (config, drawData) {
       const distribution = drawData.resultData.result.distribution
       const addonResult = drawData.resultData.addonResult
       other.push({
-        name: 'Totalt', value: ''.concat(formatNum(getTotalPayout(distribution[0].distribution) + getTotalPayout(distribution[1].distribution) + getTotalPayout(addonResult.distribution)), ' kr')
+        name: 'Totalt', value: formatPrizeValue(getTotalPayout(distribution[0].distribution) + getTotalPayout(distribution[1].distribution) + getTotalPayout(addonResult.distribution))
       })
       other.push({
         name: 'Ingen Drömvinst denna dragning', value: `Nu uppe i ${parseJackpot(config, drawData)[0]}`
@@ -337,7 +337,7 @@ function parseOther (config, drawData) {
     case 'vikinglotto': {
       const distribution = drawData.resultData.result.distribution
       other.push({
-        name: 'Totalt', value: ''.concat(formatNum(getTotalPayout(distribution[0].distribution)), ' kr')
+        name: 'Totalt', value: formatPrizeValue(getTotalPayout(distribution[0].distribution))
       })
     }
   }
