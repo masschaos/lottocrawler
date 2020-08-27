@@ -16,8 +16,15 @@ function parseMostRecentDraws (config, drawGameData) {
     lotteryID: config.lotteryID,
     issue: `${drawGameData.resultData.result.drawNumber}`
   }
-  if (config.gameId === 'keno') {
-    result.winnerCount = parseWinnerCountKeno(config, drawGameData)
+  switch (config.gameId) {
+    case 'keno': {
+      result.winnerCount = parseWinnerCountKeno(config, drawGameData)
+      break
+    }
+    case 'lotto': {
+      result.winnerCount = parseWinnerCountLotto(config, drawGameData)
+      break
+    }
   }
   return result
 }
@@ -33,8 +40,15 @@ function parseHistoryDraws (config, drawGameData) {
     lotteryID: config.lotteryID,
     issue: `${drawGameData.resultData.result.drawNumber}`
   }
-  if (config.gameId === 'keno') {
-    result.winnerCount = parseWinnerCountKeno(config, drawGameData)
+  switch (config.gameId) {
+    case 'keno': {
+      result.winnerCount = parseWinnerCountKeno(config, drawGameData)
+      break
+    }
+    case 'lotto': {
+      result.winnerCount = parseWinnerCountLotto(config, drawGameData)
+      break
+    }
   }
   return result
 }
@@ -156,6 +170,22 @@ function parseWinnerCountKeno (config, drawData) {
   return winnerCount
 }
 
+function parseWinnerCountLotto (config, drawData) {
+  let winnerCount = 0
+  const distribution = drawData.resultData.result.distribution
+  const addonResult = drawData.resultData.addonResult
+  for (let i = 0, l = distribution.length; i < l; i++) {
+    const item = distribution[i]
+    for (const detailItem of item.distribution) {
+      winnerCount = winnerCount + detailItem.winners
+    }
+  }
+  for (const detailItem of addonResult.distribution) {
+    winnerCount = winnerCount + detailItem.winners
+  }
+  return winnerCount
+}
+
 function parseBreakdownKeno (config, drawData) {
   const breakdown = []
   const distributionRegular = drawData.resultData.result.distributionRegular
@@ -242,13 +272,15 @@ function parseBreakdownVikinglotto (config, drawData) {
       item = {
         name: distribution.name,
         count: distribution.winners,
-        prize: 'Jackpot'
+        prize: 'Jackpot',
+        Internationellt: '-'
       }
     } else {
       item = {
         name: distribution.name,
         count: distribution.winners,
-        prize: formatPrizeValue(distribution.amount)
+        prize: formatPrizeValue(distribution.amount),
+        Internationellt: '-'
       }
     }
     nameMap[distribution.name] = item
@@ -257,11 +289,7 @@ function parseBreakdownVikinglotto (config, drawData) {
   const internationalDistribution = drawData.resultData.result.distribution[1]
   for (const distribution of internationalDistribution.distribution) {
     if (nameMap[distribution.name]) {
-      if (distribution.winners === 0) {
-        nameMap[distribution.name].Internationellt = '-'
-      } else {
-        nameMap[distribution.name].Internationellt = distribution.winners + ' st'
-      }
+      nameMap[distribution.name].Internationellt = distribution.winners + ' st'
     }
   }
   breakdown.push(breakdownItem)
@@ -328,7 +356,7 @@ function parseWinningNumbers (config, drawData) {
       const drawResult = drawData.resultData.result.drawResult
       const addonResult = drawData.resultData.addonResult.drawResult
       for (const drawItem of drawResult) {
-        numbers.push(`${drawItem.drawNumbers[0].numbers.join(',')}#${drawItem.drawNumbers[1].numbers.join(',')}`)
+        numbers.push(`${drawItem.drawNumbers[0].numbers.join(',')}|${drawItem.drawNumbers[1].numbers.join(',')}`)
       }
       numbers.push(addonResult.numbers.join('|'))
       break
@@ -376,22 +404,15 @@ async function getDrawGamePastDrawResults (config) {
     const url = `${INFO_BASE}/${config.gameId}/resultat`
     const response = await axios.get(url)
     if (response.status === 200) {
-      try {
-        const drawData = parseResponseData(config, response)
-        if (drawData.resultData && drawData.jackpotInfo) {
-          return {
-            error: null,
-            data: parseMostRecentDraws(config, drawData)
-          }
-        } else {
-          return {
-            error: `${config.gameId} parse data error`,
-            data: null
-          }
-        }
-      } catch (error) {
+      const drawData = parseResponseData(config, response)
+      if (drawData.resultData && drawData.jackpotInfo) {
         return {
-          error: `${error}`,
+          error: null,
+          data: parseMostRecentDraws(config, drawData)
+        }
+      } else {
+        return {
+          error: `${config.gameId} parse data error`,
           data: null
         }
       }
