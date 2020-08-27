@@ -26,7 +26,7 @@ function createCrawler (config) {
             case 'other': {
               return {
                 drawTime: stepData.drawTime,
-                breakdown: stepData.other
+                other: stepData.other
               }
             }
           }
