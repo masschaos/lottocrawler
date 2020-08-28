@@ -126,3 +126,7 @@ data/
 !/crawler/kr/history/tmp/.gitkeep
 /crawler/kr/history/result/*
 !/crawler/kr/history/result/.gitkeep
+
+# nl history tmp file
+/crawler/nl/history/*
+!/crawler/nl/history/.gitkeep
