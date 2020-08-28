@@ -27,7 +27,10 @@ const craw = async (page, url, selectorAll) => {
       // log.debug(data.drawUrl, 'drawUrl')
       data.other = []
       data.jackpot = []
-      const numbers = element.querySelector('.numbers_wrapper').innerText
+      let numbers = ''
+      if (element.querySelector('.numbers_wrapper')) {
+        numbers = element.querySelector('.numbers_wrapper').innerText
+      }
       const tmp = numbers.split('\n')[0].split(' ')
       data.numbers = [tmp.slice(0, tmp.length - 1).join(','), tmp[tmp.length - 1]].join('|')
       data.super_prize = element.querySelector('.prize').innerText
