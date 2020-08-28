@@ -351,7 +351,15 @@ function formatPrizeValue (prizeValue) {
 function parseWinningNumbers (config, drawData) {
   const numbers = []
   switch (config.gameId) {
-    case 'lotto':
+    case 'lotto': {
+      const drawResult = drawData.resultData.result.drawResult
+      const addonResult = drawData.resultData.addonResult.drawResult
+      for (const drawItem of drawResult) {
+        numbers.push(`${drawItem.drawNumbers[0].numbers.join(',')}#${drawItem.drawNumbers[1].numbers.join(',')}`)
+      }
+      numbers.push(addonResult.numbers.join('|'))
+      break
+    }
     case 'vikinglotto': {
       const drawResult = drawData.resultData.result.drawResult
       const addonResult = drawData.resultData.addonResult.drawResult
