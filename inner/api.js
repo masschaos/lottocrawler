@@ -163,7 +163,7 @@ async function saveStepData (data, steps, stepID, result) {
         stepLeft,
         isResultOK,
         isBreakdownOK,
-        breakdown: data.other
+        other: data.other
       })
     default:
       throw new VError(`解析步骤时碰到错误的数据类型：${step.dataType}`)
