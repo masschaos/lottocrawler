@@ -26,7 +26,10 @@ class BrLotofacil extends Crawler {
       2: 'qt_ganhador_faixa3',
       3: 'qt_ganhador_faixa4',
       4: 'qt_ganhador_faixa5',
-      5: 'vr_rateio_faixa1',
+      5: {
+        key: 'vr_rateio_faixa1',
+        render: value => this.formatMoney(value)
+      },
       6: {
         key: 'vr_rateio_faixa2',
         render: value => this.formatMoney(value)
@@ -92,17 +95,17 @@ class BrLotofacil extends Crawler {
             },
             {
               "name": "13 acertos",
-              "count": ${values[3]},
+              "count": ${values[2]},
               "amount": "R$${values[7]}"
             },
             {
               "name": "12 acertos",
-              "count": ${values[4]},
+              "count": ${values[3]},
               "amount": "R$${values[8]}"
             },
             {
               "name": "11 acertos",
-              "count": ${values[5]},
+              "count": ${values[4]},
               "amount": "R$${values[9]}"
             }
           ]
