@@ -2,7 +2,7 @@
  * @Author: maple
  * @Date: 2020-08-30 14:43:40
  * @LastEditors: maple
- * @LastEditTime: 2020-08-30 15:56:17
+ * @LastEditTime: 2020-08-31 22:57:03
  */
 const crawlers = require('./index')
 const log = require('../../util/log')
@@ -13,11 +13,21 @@ const path = require('path')
 const writeFile = util.promisify(fs.writeFile)
 
 const max = 100
+const hasCrawled = [
+  // 'br-dia-de-sorte',
+  // 'br-dupla-sena',
+  // 'br-loteria-federal'
+]
 
 async function done () {
   const messages = []
 
   for (const [name, datas] of crawlers) {
+    if (hasCrawled.indexOf(name) > -1) {
+      log.debug(`lotteryID: ${name} has crawled! skip!`)
+      continue
+    }
+
     log.debug(`crawl ${name} history`)
     const crawler = datas[0].crawl
 
