@@ -1,0 +1,87 @@
+{
+  "drawTime": "20200829190000",
+  "numbers": "4,17,19,34,39,41|2|8|812113",
+  "jackpot": [],
+  "nextDrawTime":"20200902190000",
+  "nextJackpot":["CHF 1'500'000", "CHF 1'450'000"],
+  "breakdown": [
+    {
+      "name": "lotto",
+      "detail": [
+        {
+          "name": "6+1",
+          "count": 1,
+          "prize": "CHF 15'483'408.65"
+        },
+        {
+          "name": "6",
+          "count": 0,
+          "prize": "CHF 0.00"
+        },
+        {
+          "name": "5+1",
+          "count": 11,
+          "prize": "CHF 8'035.70"
+        },
+        {
+          "name": "5",
+          "count": 60,
+          "prize": "CHF 1'000.00"
+        },
+        {
+          "name": "4+1",
+          "count": 472,
+          "prize": "CHF 148.55"
+        },
+        {
+          "name": "4",
+          "count": 2527,
+          "prize": "CHF 72.05"
+        },
+        {
+          "name": "3+1",
+          "count": 7649,
+          "prize": "CHF 23.05"
+        },
+        {
+          "name": "3",
+          "count": 27738,
+          "prize": "CHF 9.95"
+        }
+      ]
+    },
+    {
+      "name": "joker",
+      "detail": [
+        {
+          "name": "6",
+          "count": 0,
+          "prize": "CHF 0.00"
+        },
+        {
+          "name": "5",
+          "count": 3,
+          "prize": "CHF 10'000.00"
+        },
+        {
+          "name": "4",
+          "count": 17,
+          "prize": "CHF 1'000.00"
+        },
+        {
+          "name": "3",
+          "count": 212,
+          "prize": "CHF 100.00"
+        },{
+          "name": "2",
+          "count": 1953,
+          "prize": "CHF 10.00"
+        }
+      ]
+    }
+  ],
+  "other": [],
+  "name": "Lotto",
+  "lotteryID": "ch-lotto",
+  "issue": ""
+}

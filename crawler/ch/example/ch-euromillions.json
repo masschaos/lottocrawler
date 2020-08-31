@@ -1,0 +1,97 @@
+{
+  "drawTime": "20200828193000",
+  "numbers": "7,12,16,17,31|7,9|7,19,29,45,46|B057K",
+  "jackpot": [],
+  "nextJackpot":["CHF 168'000'000", "CHF 250'000"],
+  "breakdown": [
+    {
+      "name": "EuroMillions",
+      "detail": [
+        {
+          "name": "5+2",
+          "count": 0,
+          "prize": "0.00"
+        },
+        {
+          "name": "5+1",
+          "count": 9,
+          "prize": "CHF 128'618.35"
+        },
+        {
+          "name": "5",
+          "count": 18,
+          "prize": "CHF 25'882.00"
+        },
+        {
+          "name": "4+2",
+          "count": 104,
+          "prize": "CHF 1'395.30"
+        },
+        {
+          "name": "4+1",
+          "count": 1731,
+          "prize": "CHF 154.40"
+        },
+        {
+          "name": "3+2",
+          "count": 4142,
+          "prize": "CHF 68.20"
+        },
+        {
+          "name": "4",
+          "count": 3228,
+          "prize": "CHF 61.50"
+        },
+        {
+          "name": "2+2",
+          "count": 56369,
+          "prize": "CHF 17.60"
+        },
+        {
+          "name": "3+1",
+          "count": 73247,
+          "prize": "CHF 15.10"
+        },
+        {
+          "name": "3",
+          "count": 132973,
+          "prize": "CHF 15.50"
+        },
+        {
+          "name": "1+2",
+          "count": 261389,
+          "prize": "CHF 9.55"
+        },
+        {
+          "name": "2+1",
+          "count": 974840,
+          "prize": "CHF 8.05"
+        },
+        {
+          "name": "2",
+          "count": 1815616,
+          "prize": "CHF 7.00"
+        }
+      ]
+    },{"name":"2 Chance","detail":[
+      {"name":"5", "count":2, "value":"CHF 98'524.15"},
+      {"name":"4", "count":233, "value":"CHF 531.60"},
+      {"name":"3", "count":10227, "value":"CHF 23.65"}
+    ]},{"name":"Super-Star","detail":[
+      {"name":"B 0 5 7 K", "count":0, "value":"CHF 0.00"},
+      {"name":"B 0 _ 7 K", "count":3, "value":"CHF 5'376.10"},
+      {"name":"B 0 5 _ K / B _ 5 7 K", "count":5, "value":"CHF 2688.05"},
+      {"name":"B 0 5 7 _ / _ 0 5 7 K", "count":18, "value":"CHF 1'045.35"},
+      {"name":"B 0 _ _ K / B _ _ 7 K", "count":65, "value":"CHF 248.15"},
+      {"name":"B 0 5 _ _ / _ _ 5 7 K", "count":160, "value":"CHF 54.70"},
+      {"name":"B _ _ _ K", "count":317, "value":"CHF 19.10"},
+      {"name":"B 0 _ _ _ / _ _ _ 7 K", "count":1646, "value":"CHF 10.60"},
+      {"name":"B _ _ _ _ / _ _ _ _ K", "count":16760, "value":"CHF 4.00"}
+    ]}
+  ],
+  "other": [],
+  "name": "EuroMillions",
+  "lotteryID": "ch-euromillions",
+  "issue": ""
+
+}

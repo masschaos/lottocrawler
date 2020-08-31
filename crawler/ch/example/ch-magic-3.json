@@ -1,0 +1,26 @@
+{
+  "drawTime": "20200829000000",
+  "numbers": "6|5|9",
+  "jackpot": [],
+  "breakdown": [{"name":"Magic 3", "detail":[
+    {
+      "name": "Ordre exact",
+      "nameDe": "Genaue Reihenfolge",
+      "prize": "653.80"
+    },
+    {
+      "name": "Tous les ordres",
+      "nameDe": "Alle Reihenfolgen",
+      "prize": "109.00"
+    },
+    {
+      "name": "Milieu",
+      "nameDe": "Mitte",
+      "prize": "6.50"
+    }
+  ]}],
+  "other": [],
+  "name": "Magic 3",
+  "lotteryID": "ch-magic-3",
+  "issue": ""
+}

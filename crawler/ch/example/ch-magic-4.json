@@ -1,0 +1,31 @@
+{
+  "drawTime": "20200831000000",
+  "numbers": "8|2|8|4",
+  "jackpot": [],
+  "breakdown": [
+    {
+      "name": "Magic 4",
+      "detail": [
+        {
+          "name": "Ordre exact",
+          "nameDe": "Genaue Reihenfolge",
+          "prize": "0.00"
+        },
+        {
+          "name": "Tous les ordres",
+          "nameDe": "Alle Reihenfolgen",
+          "prize": "516.70"
+        },
+        {
+          "name": "1er Chiffre",
+          "nameDe": "1. Ziffer",
+          "prize": "6.20"
+        }
+      ]
+    }
+  ],
+  "other": [],
+  "name": "Magic 4",
+  "lotteryID": "ch-magic-4",
+  "issue": ""
+}
