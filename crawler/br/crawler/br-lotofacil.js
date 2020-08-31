@@ -2,7 +2,7 @@
  * @Author: maple
  * @Date: 2020-08-30 09:05:16
  * @LastEditors: maple
- * @LastEditTime: 2020-08-30 15:52:42
+ * @LastEditTime: 2020-08-31 20:29:39
  */
 const Crawler = require('./index')
 const VError = require('verror')
@@ -47,14 +47,14 @@ class BrLotofacil extends Crawler {
       11: 'vrArrecadado',
       12: {
         key: 'ganhadoresPorUf',
-        render: (items) => items.map(item => {
+        render: (items) => items ? items.map(item => {
           const data = `,
           {
             "name": "Detalhamento|${item.noCidade} - ${item.sgUf}",
             "value": "${item.qtGanhadores} aposta ganhou o prêmio para 15 acertos"
           }`
           return data
-        }).join('\n')
+        }).join('\n') : ''
       },
       13: {
         key: 'dt_apuracao',
