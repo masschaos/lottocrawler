@@ -2,7 +2,7 @@
  * @Author: maple
  * @Date: 2020-08-30 09:05:16
  * @LastEditors: maple
- * @LastEditTime: 2020-08-31 20:29:39
+ * @LastEditTime: 2020-09-01 18:16:21
  */
 const Crawler = require('./index')
 const VError = require('verror')
@@ -61,7 +61,7 @@ class BrLotofacil extends Crawler {
       },
       13: {
         key: 'dt_apuracao',
-        render: (value) => moment(value).format('YYYYMMDD000000')
+        render: (value) => moment(value).format('YYYYMMDD200000')
       },
       14: 'nu_concurso',
       15: {
@@ -70,7 +70,7 @@ class BrLotofacil extends Crawler {
       },
       16: {
         key: 'dtProximoConcurso',
-        render: (value) => moment(value).format('YYYYMMDD000000')
+        render: (value) => moment(value).format('YYYYMMDD200000')
       },
       17: 'vrEstimativa'
     }
