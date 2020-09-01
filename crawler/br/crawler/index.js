@@ -2,7 +2,7 @@
  * @Author: maple
  * @Date: 2020-08-30 08:36:27
  * @LastEditors: maple
- * @LastEditTime: 2020-09-01 22:09:19
+ * @LastEditTime: 2020-09-02 00:01:02
  */
 const axios = require('axios')
 const moment = require('moment')
@@ -52,6 +52,7 @@ class BrCrawler {
     const resp = await axios.request({
       url: url,
       method: 'GET',
+      timeout: 10000,
       jar: cookieJar, // tough.CookieJar or boolean
       withCredentials: true // If true, send cookie stored in jar
     })
