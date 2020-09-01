@@ -2,7 +2,7 @@
  * @Author: maple
  * @Date: 2020-08-30 09:05:16
  * @LastEditors: maple
- * @LastEditTime: 2020-08-30 15:49:26
+ * @LastEditTime: 2020-09-01 12:03:50
  */
 const Crawler = require('./index')
 const VError = require('verror')
@@ -17,13 +17,6 @@ class BrMegaSena extends Crawler {
     super(config)
 
     this.url = 'http://loterias.caixa.gov.br/wps/portal/loterias/landing/megasena/!ut/p/a1/04_Sj9CPykssy0xPLMnMz0vMAfGjzOLNDH0MPAzcDbwMPI0sDBxNXAOMwrzCjA0sjIEKIoEKnN0dPUzMfQwMDEwsjAw8XZw8XMwtfQ0MPM2I02-AAzgaENIfrh-FqsQ9wNnUwNHfxcnSwBgIDUyhCvA5EawAjxsKckMjDDI9FQE-F4ca/dl5/d5/L2dBISEvZ0FBIS9nQSEh/pw/Z7_HGK818G0KO6H80AU71KG7J0072/res/id=buscaResultado/c=cacheLevelPage/=/'
-  }
-
-  getURL (issue) {
-    if (issue === undefined) {
-      return `${this.url}?timestampAjax=${moment().valueOf()}`
-    }
-    return `${this.url}?timestampAjax=${moment().valueOf()}&concurso=${issue}`
   }
 
   render (data) {

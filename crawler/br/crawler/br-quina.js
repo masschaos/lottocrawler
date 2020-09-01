@@ -19,13 +19,6 @@ class BrQuina extends Crawler {
     this.url = 'http://loterias.caixa.gov.br/wps/portal/loterias/landing/quina/!ut/p/a1/jc69DoIwAATgZ_EJepS2wFgoaUswsojYxXQyTfgbjM9vNS4Oordd8l1yxJGBuNnfw9XfwjL78dmduIikhYFGA0tzSFZ3tG_6FCmP4BxBpaVhWQuA5RRWlUZlxR6w4r89vkTi1_5E3CfRXcUhD6osEAHA32Dr4gtsfFin44Bgdw9WWSwj/dl5/d5/L2dBISEvZ0FBIS9nQSEh/pw/Z7_61L0H0G0J0VSC0AC4GLFAD20G6/res/id=buscaResultado/c=cacheLevelPage/=/'
   }
 
-  getURL (issue) {
-    if (issue === undefined) {
-      return `${this.url}?timestampAjax=${moment().valueOf()}`
-    }
-    return `${this.url}?timestampAjax=${moment().valueOf()}&concurso=${issue}`
-  }
-
   render (data) {
     const keys = {
       0: 'ganhadores',

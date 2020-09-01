@@ -2,7 +2,7 @@
  * @Author: maple
  * @Date: 2020-08-30 09:05:16
  * @LastEditors: maple
- * @LastEditTime: 2020-08-30 15:46:36
+ * @LastEditTime: 2020-09-01 12:03:59
  */
 const Crawler = require('./index')
 const VError = require('verror')
@@ -17,13 +17,6 @@ class BrTimemania extends Crawler {
     super(config)
 
     this.url = 'http://loterias.caixa.gov.br/wps/portal/loterias/landing/timemania/!ut/p/a1/04_Sj9CPykssy0xPLMnMz0vMAfGjzOLNDH0MPAzcDbz8vTxNDRy9_Y2NQ13CDA1MzIEKIoEKnN0dPUzMfQwMDEwsjAw8XZw8XMwtfQ0MPM2I02-AAzgaENIfrh-FqsQ9wBmoxN_FydLAGAgNTKEK8DkRrACPGwpyQyMMMj0VASrq9qk!/dl5/d5/L2dBISEvZ0FBIS9nQSEh/pw/Z7_61L0H0G0JGJVA0AKLR5T3K00M4/res/id=buscaResultado/c=cacheLevelPage/=/'
-  }
-
-  getURL (issue) {
-    if (issue === undefined) {
-      return `${this.url}?timestampAjax=${moment().valueOf()}`
-    }
-    return `${this.url}?timestampAjax=${moment().valueOf()}&concurso=${issue}`
   }
 
   render (data) {

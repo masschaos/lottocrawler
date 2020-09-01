@@ -2,7 +2,7 @@
  * @Author: maple
  * @Date: 2020-08-30 08:36:27
  * @LastEditors: maple
- * @LastEditTime: 2020-08-30 15:30:43
+ * @LastEditTime: 2020-09-01 12:02:56
  */
 const axios = require('axios')
 const moment = require('moment')
@@ -97,7 +97,7 @@ class BrCrawler {
   }
 
   getURL (issue) {
-    if (issue === undefined) {
+    if (issue === null || issue === undefined || isNaN(parseInt(issue))) {
       return `${this.url}?timestampAjax=${moment().valueOf()}`
     }
     return `${this.url}?timestampAjax=${moment().valueOf()}&concurso=${issue}`
