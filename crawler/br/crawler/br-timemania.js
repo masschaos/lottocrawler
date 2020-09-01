@@ -2,7 +2,7 @@
  * @Author: maple
  * @Date: 2020-08-30 09:05:16
  * @LastEditors: maple
- * @LastEditTime: 2020-09-01 18:19:13
+ * @LastEditTime: 2020-09-01 22:08:56
  */
 const Crawler = require('./index')
 const VError = require('verror')
@@ -12,7 +12,7 @@ const moment = require('moment')
 class BrTimemania extends Crawler {
   constructor () {
     const config = {
-      lotteryId: 'br-mega-sena'
+      lotteryID: 'br-timemania'
     }
     super(config)
 
@@ -156,7 +156,7 @@ class BrTimemania extends Crawler {
     try {
       return JSON.parse(result)
     } catch (err) {
-      throw new VError(err, `br crawler :${this.lotteryId} parse json result error\n${result}`)
+      throw new VError(err, `br crawler :${this.lotteryID} parse json result error\n${result}`)
     }
   }
 }

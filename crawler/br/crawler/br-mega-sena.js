@@ -12,7 +12,7 @@ const moment = require('moment')
 class BrMegaSena extends Crawler {
   constructor () {
     const config = {
-      lotteryId: 'br-mega-sena'
+      lotteryID: 'br-mega-sena'
     }
     super(config)
 
@@ -128,7 +128,7 @@ class BrMegaSena extends Crawler {
     try {
       return JSON.parse(result)
     } catch (err) {
-      throw new VError(err, `br crawler :${this.lotteryId} parse json result error\n${result}`)
+      throw new VError(err, `br crawler :${this.lotteryID} parse json result error\n${result}`)
     }
   }
 }
