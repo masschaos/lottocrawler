@@ -43,23 +43,23 @@ class BrLoteriaFederal extends Crawler {
       6: 'concursoAnterior',
       7: {
         key: 'premio1',
-        render: value => parseInt(value)
+        render: value => value.slice(1)
       },
       8: {
         key: 'premio2',
-        render: value => parseInt(value)
+        render: value => value.slice(1)
       },
       9: {
         key: 'premio3',
-        render: value => parseInt(value)
+        render: value => value.slice(1)
       },
       10: {
         key: 'premio4',
-        render: value => parseInt(value)
+        render: value => value.slice(1)
       },
       11: {
         key: 'premio5',
-        render: value => parseInt(value)
+        render: value => value.slice(1)
       }
     }
 
