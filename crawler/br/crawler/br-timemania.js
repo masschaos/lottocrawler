@@ -2,7 +2,7 @@
  * @Author: maple
  * @Date: 2020-08-30 09:05:16
  * @LastEditors: maple
- * @LastEditTime: 2020-09-01 12:03:59
+ * @LastEditTime: 2020-09-01 18:19:13
  */
 const Crawler = require('./index')
 const VError = require('verror')
@@ -80,6 +80,10 @@ class BrTimemania extends Crawler {
       20: {
         key: 'vr_ESTIMATIVA_FAIXA_1',
         render: value => this.formatMoney(value)
+      },
+      21: {
+        key: 'timeCoracao',
+        render: value => value ? `,{"name":"timeCoracao","value":"${value}"}` : ''
       }
     }
 
@@ -138,6 +142,7 @@ class BrTimemania extends Crawler {
           "name": "Arrecadação total",
           "value": "R$${values[14]}"
         }
+        ${values[21]}
       ],
       "drawTime": "${values[15]}",
       "issue": "${values[16]}",
