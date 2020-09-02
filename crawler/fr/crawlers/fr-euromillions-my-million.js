@@ -65,13 +65,13 @@ const interpreter = async function (page) {
     detail: []
   }
 
-  const name1 = 'Bons n°'
-  const name2 = 'Grilles gagnantes en France'
-  const name3 = 'Grilles gagnantes en Europe'
-  const name4 = 'Gains EuroMillions®'
-  const name5 = 'Grilles gagnantes Etoile+'
-  const name6 = 'Gains Etoile+'
-  const name7 = 'Gains EuroMillions® Etoile+'
+  // const name1 = 'Bons n°'
+  // const name2 = 'Grilles gagnantes en France'
+  // const name3 = 'Grilles gagnantes en Europe'
+  // const name4 = 'Gains EuroMillions®'
+  // const name5 = 'Grilles gagnantes Etoile+'
+  // const name6 = 'Gains Etoile+'
+  // const name7 = 'Gains EuroMillions® Etoile+'
 
   const prizesTable = await page.$('.prizes-table')
   const prizesContentWraper = await prizesTable.$('.prizes-table_expand-container')
@@ -88,15 +88,17 @@ const interpreter = async function (page) {
     const tmp6 = await tmps[5].evaluate(el => el.innerText)
     const tmp7 = await tmps[6].evaluate(el => el.innerText)
 
-    breakdown.detail.push([
-      { name: name1, value: tmp1 },
-      { name: name2, value: tmp2 },
-      { name: name3, value: tmp3 },
-      { name: name4, value: tmp4 },
-      { name: name5, value: tmp5 },
-      { name: name6, value: tmp6 },
-      { name: name7, value: tmp7 }
-    ])
+    breakdown.detail.push(
+      {
+        name: tmp1,
+        count: parseInt(tmp2.split(' ').join('')) || 0,
+        europeCount: parseInt(tmp3.split(' ').join('')) || 0,
+        prize: tmp4,
+        superCount: parseInt(tmp5.split(' ').join('')) || 0,
+        superPrize: tmp6,
+        europePrize: tmp7
+      }
+    )
   }
 
   result.breakdown.push(breakdown)

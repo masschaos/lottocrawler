@@ -1,0 +1,79 @@
+{
+  "drawTime": "20200831191700",
+  "numbers": "17,22,27,35,36,39#21|8,9,10,11,20,33",
+  "jackpot": [],
+  "breakdown": [
+    {
+      "name": "lotto",
+      "detail": [
+        {
+          "name": "Sechser",
+          "count": 1,
+          "prize": "€ 1.507.513,30"
+        },
+        {
+          "name": "Fünfer+ZZ",
+          "count": 5,
+          "prize": "€ 24.567,30"
+        },
+        {
+          "name": "Fünfer",
+          "count": 124,
+          "prize": "€ 1.080,60"
+        },
+        {
+          "name": "Vierer+ZZ",
+          "count": 273,
+          "prize": "€ 147,20"
+        },
+        {
+          "name": "Vierer",
+          "count": 5160,
+          "prize": "€ 43,20"
+        },
+        {
+          "name": "Dreier+ZZ",
+          "count": 6502,
+          "prize": "€ 15,40"
+        },
+        {
+          "name": "Dreier",
+          "count": 81147,
+          "prize": "€ 4,90"
+        },
+        {
+          "name": "Zusatzzahl allein",
+          "count": 245194,
+          "prize": "€ 1,20"
+        }
+      ]
+    },
+    {
+      "name": "LottoPlus",
+      "detail": [
+        {
+          "name": "Fünfer",
+          "count": 55,
+          "prize": "€ 6.017,80"
+        },
+        {
+          "name": "Vierer",
+          "count": 3474,
+          "prize": "€ 16,10"
+        },
+        {
+          "name": "Dreier",
+          "count": 52615,
+          "prize": "€ 2,00"
+        }
+      ]
+    }
+  ],
+  "other": [{
+      "name":"JokerDrawTime",
+      "value":"20200831191700"
+  }],
+  "name": "Loto 6 aus 45",
+  "lotteryID": "at-loto-6-aus-45",
+  "issue": ""
+}

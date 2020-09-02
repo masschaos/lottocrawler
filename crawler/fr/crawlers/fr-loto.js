@@ -56,9 +56,9 @@ const interpreter = async function (page) {
     name: 'Option 2nd tirage',
     detail: []
   }
-  const name1 = 'Bons n°'
-  const name2 = 'Grilles gagnantes* Loto®'
-  const name3 = 'Gains par grille gagnantes* Loto®'
+  // const name1 = 'Bons n°'
+  // const name2 = 'Grilles gagnantes* Loto®'
+  // const name3 = 'Gains par grille gagnantes* Loto®'
 
   const prizesTable = await page.$('.prizes-table')
   const prizesContentWraper = await prizesTable.$('.tab-content_wrapper')
@@ -73,11 +73,9 @@ const interpreter = async function (page) {
     const tmp1 = await tmps[0].$$eval('span', els => els.map(el => el.innerText).join(''))
     const tmp2 = await tmps[1].evaluate(el => el.innerText)
     const tmp3 = await tmps[2].evaluate(el => el.innerText)
-    tirageLotoData.detail.push([
-      { name: name1, value: tmp1 },
-      { name: name2, value: tmp2 },
-      { name: name3, value: tmp3 }
-    ])
+    tirageLotoData.detail.push(
+      { name: tmp1, count: parseInt(tmp2.split(' ').join('')), prize: tmp3 }
+    )
   }
 
   const tmps = await tirageLotoDataLastItem.$$('div.prizes-table_item')
@@ -87,17 +85,19 @@ const interpreter = async function (page) {
   const tmpName1 = await tmp1[0].$$eval('span', els => els.map(el => el.innerText).join(''))
   const tmpName2 = await tmp1[1].$$eval('span', els => els.map(el => el.innerText).join(''))
 
-  tirageLotoData.detail.push([
-    { name: name1, value: tmpName1 },
-    { name: name2, value: tmp2 },
-    { name: name3, value: tmp3 }
-  ])
+  tirageLotoData.detail.push(
+    { name: tmpName1, count: parseInt(tmp2.split(' ').join('')), prize: tmp3 }
+    // { name: name1, value: tmpName1 },
+    // { name: name2, value: tmp2 },
+    // { name: name3, value: tmp3 }
+  )
 
-  tirageLotoData.detail.push([
-    { name: name1, value: tmpName2 },
-    { name: name2, value: tmp2 },
-    { name: name3, value: tmp3 }
-  ])
+  tirageLotoData.detail.push(
+    { name: tmpName2, count: parseInt(tmp2.split(' ').join('')), prize: tmp3 }
+    // { name: name1, value: tmpName2 },
+    // { name: name2, value: tmp2 },
+    // { name: name3, value: tmp3 }
+  )
 
   const option2ndDataTable = await items[1].$('.prizes-table')
   const option2ndDataItems = await option2ndDataTable.$$('div > div.prizes-table_content')
@@ -107,11 +107,12 @@ const interpreter = async function (page) {
     const tmp1 = await tmps[0].$$eval('span', els => els.map(el => el.innerText).join(''))
     const tmp2 = await tmps[1].evaluate(el => el.innerText)
     const tmp3 = await tmps[2].evaluate(el => el.innerText)
-    option2ndTirageData.detail.push([
-      { name: name1, value: tmp1 },
-      { name: name2, value: tmp2 },
-      { name: name3, value: tmp3 }
-    ])
+    option2ndTirageData.detail.push(
+      { name: tmp1, count: parseInt(tmp2.split(' ').join('')), prize: tmp3 }
+      // { name: name1, value: tmp1 },
+      // { name: name2, value: tmp2 },
+      // { name: name3, value: tmp3 }
+    )
   }
 
   result.breakdown.push(tirageLotoData)
