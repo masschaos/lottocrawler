@@ -87,7 +87,7 @@ jobs:
           port: 22
           username: ec2-user
           key: ${{ secrets.EC2_WEU_KEY }}
-          script: sh deploy.sh
+          script: nohup sh deploy.sh > /dev/null 2>&1 &
       - name: deploy sea
         uses: appleboy/ssh-action@master
         with:
@@ -95,7 +95,7 @@ jobs:
           port: 22
           username: ec2-user
           key: ${{ secrets.EC2_SEA_KEY }}
-          script: sh deploy.sh
+          script: nohup sh deploy.sh > /dev/null 2>&1 &
 
       # Slack 通知
       - name: Slack Success Notification
