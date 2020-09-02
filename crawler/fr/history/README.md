@@ -2,7 +2,7 @@
  * @Author: maple
  * @Date: 2020-08-15 21:43:05
  * @LastEditors: maple
- * @LastEditTime: 2020-08-16 02:35:29
+ * @LastEditTime: 2020-09-02 22:08:48
 -->
 # 法国数据处理
 
@@ -28,3 +28,7 @@ https://media.fdj.fr/static/csv/euromillions/euromillions_201402.zip
 https://media.fdj.fr/static/csv/keno/keno_201811.zip
 https://media.fdj.fr/static/csv/keno/keno_201302.zip
 https://media.fdj.fr/static/csv/keno/keno_199309.zip
+
+## jockerplus
+https://media.fdj.fr/static/csv/jokerplus/jokerplus_200603.zip
+https://media.fdj.fr/static/csv/jokerplus/jokerplus_201902.zip

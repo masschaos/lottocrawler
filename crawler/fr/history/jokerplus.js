@@ -2,7 +2,7 @@
  * @Author: maple
  * @Date: 2020-08-16 01:43:47
  * @LastEditors: maple
- * @LastEditTime: 2020-08-16 02:28:33
+ * @LastEditTime: 2020-09-02 22:07:44
  */
 const fs = require('fs')
 const util = require('util')
@@ -11,6 +11,7 @@ const path = require('path')
 
 // const writeFile = util.promisify(fs.writeFile)
 const readFile = util.promisify(fs.readFile)
+// const mkdir = util.promisify(fs.mkdir)
 
 // async function init (filename, is2019 = true) {
 //   const text = await readFile(path.join('csv', filename), 'utf-8')
@@ -19,7 +20,7 @@ const readFile = util.promisify(fs.readFile)
 //   // log.debug(lines[0], lines[1])
 //   for (const line of lines) {
 //     const tmps = line.split(';').map(s => s.trim())
-//     log.debug(tmps)
+//     // log.debug(tmps)
 //     if (tmps.length < 2) continue
 
 //     const dateTmps = tmps[is2019 ? 2 : 1].split('/')
@@ -42,6 +43,12 @@ const readFile = util.promisify(fs.readFile)
 // }
 
 // (async function () {
+//   try {
+//     await mkdir('csv/jokerplus')
+//   } catch (err) {
+//     // do nothing
+//   }
+
 //   await init('jokerplus_201902.csv')
 //   await init('jokerplus.csv', false)
 // })()
