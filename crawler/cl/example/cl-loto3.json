@@ -1,0 +1,41 @@
+{
+    "drawTime": "20200901210000",
+    "numbers": "9|3|6",
+    "jackpot": [],
+    "breakdown":[{
+      "name": "main",
+      "detail": [
+        {
+          "name": "Exacta",
+          "count": 2,
+          "prize": "$40.000"
+        },
+        {
+          "name": "Trio Par",
+          "count": 0,
+          "prize": "$0"
+        },
+        {
+          "name": "Trio Azar",
+          "count": 29,
+          "prize": "$6.500"
+        },
+        {
+          "name": "Par",
+          "count": 26,
+          "prize": "$2.000"
+        },
+        {
+          "name": "Terminacion",
+          "count": 184,
+          "prize": "$400"
+        }
+      ]
+    }
+],
+    "other": [],
+    "name": "Loto3",
+    "lotteryID": "cl-loto3",
+    "issue": "18108",
+    "nextIssue": "18109"
+}

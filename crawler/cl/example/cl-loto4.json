@@ -1,0 +1,29 @@
+{
+  "drawTime": "20200901210000",
+  "numbers": "1,4,14,20",
+  "jackpot": [],
+  "breakdown": [
+    {
+      "name": "main",
+      "detail": [
+        {
+          "name": "Cuatro Puntos",
+          "count": 0,
+          "prize": "$0"
+        },{
+          "name": "Tres Puntos",
+          "count": 52,
+          "prize": "$2.000"
+        },{
+          "name": "Dos Puntos",
+          "count": 634,
+          "prize": "$250"
+        }
+      ]
+    }
+  ],
+  "other": [],
+  "name": "Loto4",
+  "lotteryID": "cl-loto4",
+  "issue": "7641"
+}

@@ -1,0 +1,164 @@
+{
+  "drawTime": "20200830223000",
+  "numbers": "02,05,06,08,09,10,12,13,14,15,19,20,23,25",
+  "jackpot": [],
+  "breakdown": [
+    {
+      "name": "CATEGORÍA KINO",
+      "detail": [
+        {
+          "name": "14 Aciertos",
+          "count": 0,
+          "prize": "$170.612.558",
+          "average": "-"
+        },
+        {
+          "name": "13 Aciertos",
+          "count": 3,
+          "prize": "$4.133.685",
+          "average": "$1.350.337"
+        },
+        {
+          "name": "12 Aciertos",
+          "count": 190,
+          "prize": "$1.900.000",
+          "average": "$10.000"
+        },
+        {
+          "name": "11 Aciertos",
+          "count": 2727,
+          "prize": "$5.454.000",
+          "average": "$2.000"
+        },
+        {
+          "name": "10 Aciertos",
+          "count": 15962,
+          "prize": "$9.577.200",
+          "average": "$600"
+        }
+      ]
+    },
+    {
+      "name": "PREMIOS AL Nº DE CARTÓN",
+      "detail": [
+        {
+          "name": "PREMIOS AL Nº DE CARTÓN",
+          "count": 5,
+          "prize": "$1.000.000",
+          "totalPrize": "$5.102.041",
+          "average": "$1.000.000",
+          "ganador": [
+            {
+              "name": "BG 86.567",
+              "channel": "Internet"
+            },
+            {
+              "name": "BG 114.727",
+              "channel": "Renca"
+            },
+            {
+              "name": "BG 188.238",
+              "channel": "Internet"
+            },
+            {
+              "name": "BG 211.927",
+              "channel": "Internet"
+            },
+            {
+              "name": "BG 213.217",
+              "channel": "Internet"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CATEGORÍA CHANCHITO REGALÓN",
+      "detail": [
+        {
+          "name": "14 Aciertos",
+          "number": "02,05,06,07,08,09,10,11,12,13,14,22,23,24",
+          "prize": "$280.290.841",
+          "count": 0,
+          "average": "-"
+        }
+      ]
+    },
+    {
+      "name": "CATEGORÍA COMBO MARRAQUETA",
+      "detail": [
+        {
+          "name": "14 Aciertos",
+          "number": "01,03,05,07,09,11,13,16,18,20,21,22,23,25",
+          "prize": "1 casa + 1 auto + sueldo de $500 mil mensuales por 10 años reajustable (1)",
+          "count": 1,
+          "average": "1 casa + 1 auto + sueldo de $500 mil mensuales por 10 años reajustable (1)",
+          "ganador": [
+            {
+              "name": "BG 159.1XX",
+              "channel": "Internet"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "PREMIOS CLUB KINO",
+      "detail": [
+        {
+          "name": "Bono de $1.000.000",
+          "prize": "$1.020.408",
+          "count": 1,
+          "average": "$1.000.000",
+          "ganador": [
+            {
+              "name": "13.818.XXX-X"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CATEGORÍA CHAO JEFE DE POR VIDA $500 Mil",
+      "detail": [
+        {
+          "number": "01,02,04,05,07,09,11,14,15,16,17,18,19,23",
+          "name": "14 Aciertos",
+          "prize": "Sueldo de $500.000 mensuales De Por Vida reajustable. No Heredable (3)",
+          "count": 0,
+          "average": "-"
+        },
+        {
+          "number": "01,03,04,05,07,09,10,12,14,16,17,18,19,23",
+          "name": "14 Aciertos",
+          "prize": "Sueldo de $500.000 mensuales De Por Vida reajustable. No Heredable (3)",
+          "count": 0,
+          "average": "-"
+        }
+      ]
+    },
+    {
+      "name": "CATEGORÍA CHAO JEFE DE POR VIDA $1 Millón",
+      "detail": [
+        {
+          "number": "03,04,05,06,07,10,12,14,16,19,20,21,23,25",
+          "name": "14 Aciertos",
+          "prize": "Sueldo de $1.000.000 mensuales De Por Vida reajustable. No Heredable (4)",
+          "count": 0,
+          "average": "-"
+        },
+        {
+          "number": "02,03,04,05,07,09,10,11,12,13,16,20,24,25",
+          "name": "14 Aciertos",
+          "prize": "Sueldo de $1.000.000 mensuales De Por Vida reajustable. No Heredable (4)",
+          "count": 0,
+          "average": "-"
+        }
+      ]
+    }
+  ],
+  "other": [],
+  "name": "Kino",
+  "lotteryID": "cl-kino",
+  "issue": "2334"
+}

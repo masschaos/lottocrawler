@@ -1,0 +1,107 @@
+{
+  "drawTime": "20200901210000",
+  "numbers": "9,11,12,22,40,41#1",
+  "jackpot": [],
+  "breakdown": [
+    {
+      "name": "main",
+      "detail": [
+        {
+          "name": "LOTO-6 aciertos",
+          "count": 0,
+          "prize": "$0"
+        },
+        {
+          "name": "Súper Quina-5 aciertos + comodín",
+          "count": 0,
+          "prize": "$0"
+        },
+        {
+          "name": "Quina-5 aciertos",
+          "count": 4,
+          "prize": "$375.540"
+        },
+        {
+          "name": "Súper Cuaterna-4 aciertos + comodín",
+          "count": 22,
+          "prize": "$68.280"
+        },
+        {
+          "name": "Cuaterna-4 aciertos",
+          "count": 238,
+          "prize": "$6.310"
+        },
+        {
+          "name": "Súper Terna-3 aciertos + comodín",
+          "count": 502,
+          "prize": "$2.990"
+        },
+        {
+          "name": "Terna-3 aciertos",
+          "count": 4038,
+          "prize": "$1.170"
+        },
+        {
+          "name": "Súper Dupla-2 aciertos + comodín",
+          "count": 4222,
+          "prize": "$1.000"
+        },
+        {
+          "name": "RECARGADO-6 aciertos",
+          "count": 0,
+          "prize": "$0"
+        },
+        {
+          "name": "RECARGADO Terminación",
+          "count": 11809,
+          "prize": "$500"
+        },
+        {
+          "name": "REVANCHA",
+          "count": 0,
+          "prize": "$0"
+        },
+        {
+          "name": "DESQUITE",
+          "count": 0,
+          "prize": "$0"
+        },
+        {
+          "name": "JUBILAZO-$1.000.000",
+          "count": 0,
+          "prize": "$0"
+        },
+        {
+          "name": "JUBILAZO-$1.000.000",
+          "count": 0,
+          "prize": "$0"
+        },
+        {
+          "name": "JUBILAZO-$500.000",
+          "count": 0,
+          "prize": "$0"
+        },
+        {
+          "name": "JUBILAZO-$500.000",
+          "count": 0,
+          "prize": "$0"
+        },
+        {
+          "name": "JUBILAZO-$1.000.000",
+          "count": 0,
+          "prize": "$0"
+        },
+        {
+          "name": "JUBILAZO-$500.000",
+          "count": 0,
+          "prize": "$0"
+        }
+      ]
+    }
+  ],
+  "other": [],
+  "name": "Loto",
+  "lotteryID": "cl-loto",
+  "issue": "4533",
+  "nextDrawTime":"20200901210000"
+}

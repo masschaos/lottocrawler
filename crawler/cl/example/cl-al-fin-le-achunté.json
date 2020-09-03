@@ -1,0 +1,207 @@
+{
+  "drawTime": "20200830230000",
+  "numbers": "05,16,19,20,25,29,30|3",
+  "jackpot": [],
+  "breakdown": [
+    {
+      "name": "CATEGORÍA POZO MILLONARIO",
+      "detail": [
+        {
+          "name": "7 Aciertos",
+          "count": 0,
+          "prize": "$282.383.469",
+          "average": "-"
+        },
+        {
+          "name": "6 Aciertos + N° de la Suerte",
+          "count": 0,
+          "prize": "$299.162",
+          "average": "-"
+        },
+        {
+          "name": "6 Aciertos",
+          "count": 0,
+          "prize": "$124.267",
+          "average": "-"
+        },
+        {
+          "name": "5 Aciertos + N° de la Suerte",
+          "count": 15,
+          "prize": "$115.062",
+          "average": "$7.670"
+        },
+        {
+          "name": "5 Aciertos",
+          "count": 22,
+          "prize": "$101.255",
+          "average": "$4.600"
+        },
+        {
+          "name": "4 Aciertos + N° de la Suerte",
+          "count": 161,
+          "prize": "$193.200",
+          "average": "$1.200"
+        },
+        {
+          "name": "4 Aciertos",
+          "count": 189,
+          "prize": "$207.900",
+          "average": "$1.100"
+        },
+        {
+          "name": "3 Aciertos + N° de la Suerte",
+          "count": 872,
+          "prize": "$872.000",
+          "average": "$1.000"
+        }
+      ]
+    },
+    {
+      "name": "CATEGORÍA SUELDAZO POR 1 AÑO",
+      "detail": [
+        {
+          "name": "SORTEO 1-7 Aciertos",
+          "prize": "Sueldo de $2 Millones por 1 año reajustable.(1)",
+          "count": 0,
+          "average": "-",
+          "number": "01,08,09,10,13,14,22"
+        },
+        {
+          "name": "SORTEO 2-7 Aciertos",
+          "prize": "Sueldo de $2 Millones por 1 año reajustable.(1)",
+          "count": 0,
+          "average": "-",
+          "number": "09,12,13,15,17,20,29"
+        },
+        {
+          "name": "SORTEO 3-7 Aciertos",
+          "prize": "Sueldo de $2 Millones por 1 año reajustable.(1)",
+          "count": 0,
+          "average": "-",
+          "number": "02,06,09,11,12,27,30"
+        },
+        {
+          "name": "SORTEO 4-7 Aciertos",
+          "prize": "Sueldo de $2 Millones por 1 año reajustable.(1)",
+          "count": 0,
+          "average": "-",
+          "number": "01,05,06,12,13,15,24"
+        },
+        {
+          "name": "SORTEO 5-7 Aciertos",
+          "prize": "Sueldo de $2 Millones por 1 año reajustable.(1)",
+          "count": 0,
+          "average": "-",
+          "number": "01,03,05,06,14,15,29"
+        }
+      ]
+    },
+    {
+      "name": "CATEGORÍA SUELDAZO POR 5 AÑOS",
+      "detail": [
+        {
+          "number": "05,07,14,19,24,25,30|1",
+          "name": "SORTEO 1-7 Aciertos + N° de la Suerte",
+          "name2": "SORTEO 1-7 Aciertos",
+          "prize": "Sueldo de $2 Millones por 5 años reajustable. (2)",
+          "prize2": "Bono de $2 Millones (*)",
+          "count": 0,
+          "count2": 0,
+          "average": "-",
+          "average2": "-"
+        },
+        {
+          "name": "SORTEO 2 Promocional-7 Aciertos + N° de la Suerte",
+          "name2": "SORTEO 2 Promocional-7 Aciertos",
+          "prize": "Sueldo de $2 Millones por 5 años reajustable. (2)",
+          "prize2": "Bono de $2 Millones (*)",
+          "count": 0,
+          "count2": 0,
+          "average": "-",
+          "average2": "-",
+          "number": "01,06,10,19,25,27,29|3"
+        },
+        {
+          "name": "SORTEO 3 Promocional-7 Aciertos + N° de la Suerte",
+          "name2": "SORTEO 3 Promocional-7 Aciertos",
+          "prize": "Sueldo de $2 Millones por 5 años reajustable. (2)",
+          "prize2": "Bono de $2 Millones (*)",
+          "count": 0,
+          "count2": 0,
+          "average": "-",
+          "average2": "-",
+          "number": "03,07,17,21,22,23,26|3"
+        },
+        {
+          "name": "SORTEO 4 Promocional-7 Aciertos + N° de la Suerte",
+          "name2": "SORTEO 4 Promocional-7 Aciertos",
+          "prize": "Sueldo de $2 Millones por 5 años reajustable. (2)",
+          "prize2": "Bono de $2 Millones (*)",
+          "count": 0,
+          "count2": 0,
+          "average": "-",
+          "average2": "-",
+          "number": "01,02,04,22,26,28,30|3"
+        },
+        {
+          "name": "SORTEO 5 Promocional-7 Aciertos + N° de la Suerte",
+          "name2": "SORTEO 5 Promocional-7 Aciertos",
+          "prize": "Sueldo de $2 Millones por 5 años reajustable. (2)",
+          "prize2": "Bono de $2 Millones (*)",
+          "count": 0,
+          "count2": 0,
+          "average": "-",
+          "average2": "-",
+          "number": "04,08,11,20,24,25,30|2"
+        }
+      ]
+    },
+    {
+      "name": "CATEGORÍA SUELDAZO POR 10 AÑOS",
+      "detail": [
+        {
+          "number": "11,12,13,21,26,27,30|3",
+          "name": "SORTEO 1-7 Aciertos + N° de la Suerte",
+          "name2": "SORTEO 1-7 Aciertos",
+          "prize": "Sueldo de $2 Millones por 10 años reajustable. (3)",
+          "prize2": "Bono de $2 Millones (*)",
+          "count": 0,
+          "count2": 0,
+          "average": "-",
+          "average2": "-"
+        },
+        {
+          "number": "01,03,04,12,14,16,21|3",
+          "name": "SORTEO 2 Promocional-7 Aciertos + N° de la Suerte",
+          "name2": "SORTEO 2 Promocional-7 Aciertos",
+          "prize": "Sueldo de $2 Millones por 10 años reajustable. (3)",
+          "prize2": "Bono de $2 Millones (*)",
+          "count": 0,
+          "count2": 0,
+          "average": "-",
+          "average2": "-"
+        }
+      ]
+    },
+    {
+      "name": "CATEGORÍA SUELDAZO POR 20 AÑOS",
+      "detail": [
+        {
+          "number": "01,09,16,17,26,29,30|3",
+          "name": "7 Aciertos + N° de la Suerte",
+          "name2": "7 Aciertos",
+          "prize": "Sueldo de $2 Millones por 20 años reajustable. (4)",
+          "prize2": "Bono de $2 Millones (*)",
+          "count": 0,
+          "count2": 0,
+          "average": "-",
+          "average2": "-"
+        }
+      ]
+    }
+  ],
+  "other": [],
+  "name": "Al Fin Le Achunté",
+  "lotteryID": "cl-al-fin-le-achunté",
+  "issue": "501"
+}

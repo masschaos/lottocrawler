@@ -1,0 +1,95 @@
+{
+  "drawTime": "20200830000000",
+  "numbers": "5|7|6|3|0,5,1",
+  "jackpot": [
+    "$500.000.000"
+  ],
+  "breakdown": [
+    {
+      "name": "TERMINACIÓN",
+      "detail": [
+        {
+          "name": "0",
+          "prize": "$2.000 al vigésimo"
+        },
+        {
+          "name": "5",
+          "prize": "$2.000 al vigésimo"
+        },
+        {
+          "name": "1",
+          "prize": "$2.000 al vigésimo"
+        }
+      ]
+    },
+    {
+      "name": " 1a APROXIMACIÓN Ganadores de $5.000.000 al Entero",
+      "detail": [
+        {
+          "numbers": "57629|57631"
+        }
+      ]
+    },
+    {
+      "name": "2a APROXIMACIÓN Ganadores de $500.000 al Entero",
+      "detail": [
+        {
+          "numbers": "57624|57625|57626|57627|57628|57632|57633|57634|57635|57636"
+        }
+      ]
+    },
+    {
+      "name": "PREMIOS AL VIGÉSIMO",
+      "detail": [
+        {
+          "name": "02711",
+          "count": 15,
+          "prize": "$40.816.327 o Casa",
+          "average": "$40.000.000"
+        },
+        {
+          "name": "67587",
+          "count": 4,
+          "prize": "$40.816.327 o Casa",
+          "average": "$40.000.000"
+        },
+        {
+          "name": "89485",
+          "count": 4,
+          "prize": "$40.816.327 o Casa",
+          "average": "$40.000.000"
+        },
+        {
+          "name": "56429",
+          "count": 15,
+          "prize": "$28.571.429 o Auto",
+          "average": "$28.000.000"
+        }
+      ]
+    },
+    {
+      "name": "GANADORES CÍRCULO DORADO (**)",
+      "detail": [
+        {
+          "name": "26332",
+          "count": 19,
+          "prize": "Bono $500.000"
+        },
+        {
+          "name": "20379",
+          "count": 7,
+          "prize": "Bono $500.000"
+        },
+        {
+          "name": "1944",
+          "count": 16,
+          "prize": "Bono $500.000"
+        }
+      ]
+    }
+  ],
+  "other": [],
+  "name": "Boleto",
+  "lotteryID": "cl-boleto",
+  "issue": "2417"
+}

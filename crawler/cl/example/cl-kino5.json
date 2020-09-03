@@ -1,0 +1,71 @@
+{
+  "drawTime": "20200901230000",
+  "numbers": "07,14,17,22,27,34,35",
+  "jackpot": [],
+  "breakdown": [
+    {
+      "name": "CATEGORÍA KINO5",
+      "detail": [
+        {
+          "name": "5",
+          "count": 0,
+          "prize": "$ 636.440",
+          "average": "-"
+        },
+        {
+          "name": "4",
+          "count": 22,
+          "prize": "$ 44.000",
+          "average": "$2.000"
+        },
+        {
+          "name": "3",
+          "count": 259,
+          "prize": "$ 129.500",
+          "average": "$500"
+        },
+        {
+          "name": "2",
+          "count": 1296,
+          "prize": "$ 324.000",
+          "average": "$250"
+        }
+      ]
+    },
+    {
+      "name": "CATEGORÍA AGRANDADO",
+      "detail": [
+        {
+          "name": "5 Aciertos",
+          "number": "02,05,20,25,31",
+          "count": 0,
+          "prize": "$10.204.082(1)",
+          "average": "-"
+        },
+        {
+          "name": "5 Aciertos",
+          "number": "03,09,24,26,27",
+          "count": 0,
+          "prize": "$10.204.082(1)",
+          "average": "-"
+        },
+        {
+          "name": "5 Aciertos",
+          "number": "02,16,24,29,36",
+          "count": 0,
+          "prize": "$10.204.082(1)",
+          "average": "-"
+        }
+      ]
+    }
+  ],
+  "other": [
+    {
+      "name": "TOTAL DE GANADORES",
+      "value": "1.577"
+    }
+  ],
+  "name": "Kino5",
+  "lotteryID": "cl-kino5",
+  "issue": "5601"
+}
