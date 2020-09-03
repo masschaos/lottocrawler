@@ -96,6 +96,10 @@ function parseBreakdown ($, $elements) {
   $elements.each((index, element) => {
     const breakdownItem = {}
     breakdownItem.name = $(element).find('td:nth-child(1)').text().trim()
+    const stars = $(element).find('.euromillions-quotes__game-table___superstar')
+    if (stars.length > 0) {
+      breakdownItem.name = `${breakdownItem.name} ${stars.length}`
+    }
     breakdownItem.count = parseNumber($(element).find('td:nth-child(2)').text().trim())
     breakdownItem.prize = `CHF ${$(element).find('td:nth-child(3)').text().trim()}`
     breakdowns.push(breakdownItem)
