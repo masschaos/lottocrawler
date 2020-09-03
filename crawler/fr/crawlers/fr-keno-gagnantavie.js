@@ -2,13 +2,14 @@
  * @Author: maple
  * @Date: 2020-08-14 21:30:13
  * @LastEditors: maple
- * @LastEditTime: 2020-08-15 21:38:10
+ * @LastEditTime: 2020-09-03 00:48:41
  */
 const VError = require('verror')
 const moment = require('moment')
 // const log = require('../../../util/log')
 const crawl = require('./fr-index')
 const { getMonth } = require('./date')
+const { DrawingError } = require('../../../util/error')
 
 // url 获取
 const urlSelector = async function (page) {
@@ -84,6 +85,11 @@ const interpreter = async function (page) {
     const numbersWrapper = await numbersContent.$('.numbers-wrapper')
     const numbers = await numbersWrapper.$$eval('div.numbers-item > span.numbers-item_num', els => els.map(el => el.innerText))
     const bonusNum = (await numbersWrapper.$eval('span.numbers-bonus_num', el => el.innerText)).replace(/ /g, '')
+
+    if (!bonusNum || isNaN(parseInt(bonusNum))) {
+      throw new DrawingError(`${data.lotteryID} crawler lack of bonus number`)
+    }
+
     result.numbers = `${numbers.join(',')}|${bonusNum}`
     const date = moment()
     date.set('years', year)

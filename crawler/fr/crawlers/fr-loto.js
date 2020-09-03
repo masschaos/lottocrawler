@@ -2,7 +2,7 @@
  * @Author: maple
  * @Date: 2020-08-14 21:29:48
  * @LastEditors: maple
- * @LastEditTime: 2020-08-16 02:47:21
+ * @LastEditTime: 2020-09-02 23:19:13
  */
 const moment = require('moment')
 const VError = require('verror')
@@ -158,8 +158,8 @@ const urlSelector = async function (page) {
   return noSharp[0] || urls[0]
 }
 
-async function main () {
-  const result = await crawl(data, urlSelector, interpreter)
+async function main (step) {
+  const result = await crawl(data, urlSelector, interpreter, step)
   return result
 }
 

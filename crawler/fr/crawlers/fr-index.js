@@ -2,7 +2,7 @@
  * @Author: maple
  * @Date: 2020-08-14 23:01:17
  * @LastEditors: maple
- * @LastEditTime: 2020-08-24 22:28:30
+ * @LastEditTime: 2020-09-02 22:38:01
  */
 const VError = require('verror')
 const log = require('../../../util/log')
@@ -11,7 +11,7 @@ const { newPage, ignoreImage } = require('../../../pptr')
 const indexPagePath = '/jeux-de-tirage/resultats'
 const mainHost = 'https://www.fdj.fr'
 
-module.exports = async function crawl (data = {}, urlSelector, interpreter) {
+module.exports = async function crawl (data = {}, urlSelector, interpreter, step) {
   let page
   const {
     lotteryID
@@ -38,6 +38,38 @@ module.exports = async function crawl (data = {}, urlSelector, interpreter) {
     if (!result) {
       throw new VError('result is empty!')
     }
+
+    if (step) {
+      if (step === 'result') {
+        return {
+          ...result,
+          breakdown: undefined,
+          other: undefined
+        }
+      } else if (step === 'breakdown') {
+        const {
+          drawTime,
+          breakdown
+        } = result
+
+        if (breakdown.length === 0 ||
+          !breakdown[0].detail ||
+          breakdown[0].detail.length === 0) {
+          throw new VError(`lotteryID: ${lotteryID} breakdown is empty`)
+        }
+
+        return {
+          drawTime,
+          breakdown
+        }
+      } else if (step === 'other') {
+        return {
+          drawTime: result.drawTime,
+          other: result.other
+        }
+      }
+    }
+
     return result
   } catch (err) {
     throw new VError(err, `<${lotteryID}> 没有抓到数据，可能数据源不可用或有更改，请检查调度策略
