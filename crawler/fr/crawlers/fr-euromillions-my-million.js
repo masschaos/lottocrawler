@@ -2,12 +2,13 @@
  * @Author: maple
  * @Date: 2020-08-14 21:29:57
  * @LastEditors: maple
- * @LastEditTime: 2020-08-15 21:37:26
+ * @LastEditTime: 2020-09-03 22:11:47
  */
 const moment = require('moment')
 const VError = require('verror')
 const crawl = require('./fr-index')
 const { getMonth } = require('./date')
+const { DrawingError } = require('../../../util/error')
 
 // 处理 URL 爬取
 const urlSelector = async function (page) {
@@ -57,6 +58,11 @@ const interpreter = async function (page) {
   const specialContent = await euromillionsResults.$('.numbers-item_content-special')
   const starNumbers = await specialContent.$$eval('div.numbers-item > div.star-wrapper > span.star-num', els => els.map(el => el.innerText))
   const bonusNumber = (await (await euromillionsResults.$('span.numbers-bonus_num')).evaluate(el => el.innerText)).replace(/ /g, '')
+
+  if (!bonusNumber || isNaN(parseInt(bonusNumber.slice(2)))) {
+    throw new DrawingError(`${data.lotteryID} crawler lack of bonus number`)
+  }
+
   result.numbers = `${numbers.join(',')}|${starNumbers.join(',')}|${bonusNumber}`
 
   // breakdown
