@@ -88,7 +88,7 @@ jobs:
           username: ec2-user
           key: ${{ secrets.EC2_WEU_KEY }}
           script: nohup sh deploy.sh > /dev/null 2>&1 &
-      - name: deploy sea
+      - name: deploy sea & sam
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.EC2_SEA_HOST }}
