@@ -130,3 +130,7 @@ data/
 # nl history tmp file
 /crawler/nl/history/*
 !/crawler/nl/history/.gitkeep
+
+# br history tmp file
+/crawler/br/history/*
+!/crawler/br/history/.gitkeep

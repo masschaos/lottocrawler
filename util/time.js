@@ -6,6 +6,14 @@ function sleep (ms) {
   Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms)
 }
 
+function wait (ms) {
+  return new Promise(function (resolve) {
+    setTimeout(() => {
+      resolve()
+    }, ms)
+  })
+}
+
 // convert 20201231000000 format to Date
 function parseDrawTime (drawTime, tz) {
   return moment.tz(drawTime, 'YYYYMMDDhhmmss', tz)
@@ -44,6 +52,7 @@ function isExtraReady (drawTime, delay, tz) {
 
 module.exports = {
   sleep,
+  wait,
   hasNewDraw,
   isExtraReady
 }

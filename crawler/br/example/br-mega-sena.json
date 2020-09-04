@@ -1,7 +1,7 @@
 {
   "breakdown": [
     {
-      "name": "",
+      "name": "main",
       "detail": [
         {
           "name": "Sena - 6 números acertados",
@@ -37,7 +37,7 @@
     },
     {
       "name": "Arrecadação total",
-      "value": "R$59204407.5,00"
+      "value": "R$59204407.50"
     }
   ],
   "drawTime": "20200822000000",

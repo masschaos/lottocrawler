@@ -10,6 +10,7 @@
     "lint": "eslint crawler inner pptr util *.js"
   },
   "dependencies": {
+    "@3846masa/axios-cookiejar-support": "^1.0.0",
     "@masschaos/im": "^0.3.5",
     "async-mutex": "^0.2.4",
     "axios": "^0.19.2",
@@ -22,6 +23,7 @@
     "pino-pretty": "^4.1.0",
     "puppeteer": "^5.2.1",
     "qs": "^6.9.4",
+    "tough-cookie": "^4.0.0",
     "utf-8-validate": "^5.0.2",
     "verror": "^1.10.0"
   },
