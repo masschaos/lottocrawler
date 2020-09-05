@@ -170,6 +170,23 @@ function parseWinnerCountKeno (config, drawData) {
   return winnerCount
 }
 
+function parseTotalPrizeKeno (drawData) {
+  let winnerCount = 0
+  const distributionRegular = drawData.resultData.result.distributionRegular
+  for (const distributionRegularItem of distributionRegular) {
+    for (const distribution of distributionRegularItem.distribution) {
+      winnerCount = winnerCount + distribution.winners * parseInt(distribution.amount, 10)
+    }
+  }
+  const distributionKungKeno = drawData.resultData.result.distributionKungKeno
+  for (const distributionKungKenoItem of distributionKungKeno) {
+    for (const distribution of distributionKungKenoItem.distribution) {
+      winnerCount = winnerCount + distribution.winners * parseInt(distribution.amount, 10)
+    }
+  }
+  return winnerCount
+}
+
 function parseWinnerCountLotto (config, drawData) {
   let winnerCount = 0
   const distribution = drawData.resultData.result.distribution
@@ -338,6 +355,16 @@ function parseOther (config, drawData) {
       const distribution = drawData.resultData.result.distribution
       other.push({
         name: 'Totalt', value: formatPrizeValue(getTotalPayout(distribution[0].distribution))
+      })
+      break
+    }
+    case 'keno': {
+      const topWin = drawData.resultData.result.topWin
+      other.push({
+        name: 'Högst vinst idag', value: `${topWin.amount}kr ${topWin.winners} vinnare på ${topWin.description}`
+      })
+      other.push({
+        name: 'Totalt utbetalt vinstbetlopp', value: `${parseTotalPrizeKeno(drawData)} kr`
       })
     }
   }
