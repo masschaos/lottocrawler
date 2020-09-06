@@ -2,12 +2,13 @@
  * @Author: maple
  * @Date: 2020-08-30 09:05:16
  * @LastEditors: maple
- * @LastEditTime: 2020-09-01 22:06:08
+ * @LastEditTime: 2020-09-06 10:34:18
  */
 const Crawler = require('./index')
 const VError = require('verror')
 // const log = require('../../../util/log')
 const moment = require('moment')
+const { DrawingError } = require('../../../util/error')
 
 class BrLoteriaFederal extends Crawler {
   constructor () {
@@ -20,6 +21,10 @@ class BrLoteriaFederal extends Crawler {
   }
 
   render (data) {
+    if (!data.premios || !Array.isArray(data.premios)) {
+      throw new DrawingError('drawing error; premios is not array!')
+    }
+
     data = Object.assign(data, data.premios[0])
 
     const keys = {
