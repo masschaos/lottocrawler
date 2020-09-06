@@ -2,7 +2,7 @@
  * @Author: maple
  * @Date: 2020-08-30 09:05:16
  * @LastEditors: maple
- * @LastEditTime: 2020-09-01 22:05:55
+ * @LastEditTime: 2020-09-06 16:17:08
  */
 const Crawler = require('./index')
 const VError = require('verror')
@@ -16,7 +16,7 @@ class BrDuplaSena extends Crawler {
     }
     super(config)
 
-    this.url = 'http://loterias.caixa.gov.br/wps/portal/loterias/landing/duplasena/%7C%E6%98%9F%E6%9C%9F%E4%BA%8C/!ut/p/a1/04_Sj9CPykssy0xPLMnMz0vMAfGjzOLNDH0MPAzcDbwMPI0sDBxNXAOMwrzCjA2cDIAKIoEKnN0dPUzMfQwMDEwsjAw8XZw8XMwtfQ0MPM2I02-AAzgaENLvRYQFRkW-zr7p-lEFiSUZupl5afn6ETXPZsx_Nmf-k109-uH6UahmuAc4mxo4-rs4WRoYA6GBKVQBPk-CFeDxRUFuaESVT1qwZ7qiIgCmNr_R/dl5/d5/L2dBISEvZ0FBIS9nQSEh/pw/Z7_61L0H0G0J0I280A4EP2VJV30N4/res/id=buscaResultado/c=cacheLevelPage/=/'
+    this.url = 'http://loterias.caixa.gov.br/wps/portal/loterias/landing/duplasena/!ut/p/a1/04_Sj9CPykssy0xPLMnMz0vMAfGjzOLNDH0MPAzcDbwMPI0sDBxNXAOMwrzCjA2cDIAKIoEKnN0dPUzMfQwMDEwsjAw8XZw8XMwtfQ0MPM2I02-AAzgaENLvRYQFRkW-zr7p-lEFiSUZupl5afn6ETXPZsx_Nmf-k109-uH6UahmuAc4mxo4-rs4WRoYA6GBKVQBPk-CFeDxRUFuaESVT1qwZ7qiIgCmNr_R/dl5/d5/L2dBISEvZ0FBIS9nQSEh/pw/Z7_61L0H0G0J0I280A4EP2VJV30N4/res/id=buscaResultado/c=cacheLevelPage/=/'
   }
 
   render (data) {
