@@ -1,0 +1,59 @@
+{
+  "drawTime": "20200906000000",
+  "numbers": "4|0|0|0|8|4",
+  "jackpot": [
+    "€ 1.400.000"
+  ],
+  "nextDrawTime": "20200907000000",
+  "breakdown": [
+    {
+      "name": "Winstverdeling Joker+",
+      "detail": [
+        {
+          "name": "Jackpot (6 cijfers + sterrenbeeld)",
+          "count": 0,
+          "prize": "€ 0,00"
+        },
+        {
+          "name": "6 cijfers",
+          "count": 0,
+          "prize": "€ 20.000,00"
+        },
+        {
+          "name": "5 cijfers",
+          "count": 0,
+          "prize": "€ 2.000,00"
+        },
+        {
+          "name": "4 cijfers",
+          "count": 3,
+          "prize": "€ 200,00"
+        },
+        {
+          "name": "3 cijfers",
+          "count": 17,
+          "prize": "€ 20,00"
+        },
+        {
+          "name": "2 cijfers",
+          "count": 185,
+          "prize": "€ 5,00"
+        },
+        {
+          "name": "1 cijfer",
+          "count": 2045,
+          "prize": "€ 2,00"
+        },
+        {
+          "name": "Sterrenbeeld",
+          "count": 998,
+          "prize": "€ 1,50"
+        }
+      ]
+    }
+  ],
+  "other": [],
+  "name": "Joker+",
+  "lotteryID": "be-joker",
+  "issue": ""
+}

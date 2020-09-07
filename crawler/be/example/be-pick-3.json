@@ -1,0 +1,49 @@
+{
+  "drawTime": "20200906203000",
+  "numbers": "5|6|1",
+  "jackpot": [
+    "€ 500 per dag"
+  ],
+  "nextDrawTime": "20200907203000",
+  "breakdown": [
+    {
+      "name": "Winstverdeling Pick 3",
+      "detail": [
+        {
+          "name": "In volgorde",
+          "count": 3,
+          "prize": "€ 500,00"
+        },
+        {
+          "name": "In willekeurige volgorde met dubbels",
+          "count": 0,
+          "prize": "€ 160,00"
+        },
+        {
+          "name": "In willekeurige volgorde zonder dubbels",
+          "count": 9,
+          "prize": "€ 80,00"
+        },
+        {
+          "name": "Eerste 2",
+          "count": 6,
+          "prize": "€ 50,00"
+        },
+        {
+          "name": "Laatste 2",
+          "count": 6,
+          "prize": "€ 50,00"
+        },
+        {
+          "name": "Laatste cijfer",
+          "count": 716,
+          "prize": "€ 1,00"
+        }
+      ]
+    }
+  ],
+  "other": [],
+  "name": "Pick 3",
+  "lotteryID": "be-pick-3",
+  "issue": ""
+}
