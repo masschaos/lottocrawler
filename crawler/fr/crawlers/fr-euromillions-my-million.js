@@ -2,7 +2,7 @@
  * @Author: maple
  * @Date: 2020-08-14 21:29:57
  * @LastEditors: maple
- * @LastEditTime: 2020-09-03 22:14:38
+ * @LastEditTime: 2020-09-07 23:12:23
  */
 const moment = require('moment')
 const VError = require('verror')
@@ -60,7 +60,7 @@ const interpreter = async function (page) {
   const bonusNumber = (await (await euromillionsResults.$('span.numbers-bonus_num')).evaluate(el => el.innerText)).replace(/ /g, '')
 
   if (!bonusNumber || isNaN(parseInt(bonusNumber.slice(2)))) {
-    throw new DrawingError(`${data.lotteryID} crawler lack of bonus number`)
+    throw new DrawingError(data.lotteryID)
   }
 
   result.numbers = `${numbers.join(',')}|${starNumbers.join(',')}|${bonusNumber}`

@@ -2,7 +2,7 @@
  * @Author: maple
  * @Date: 2020-08-14 21:30:13
  * @LastEditors: maple
- * @LastEditTime: 2020-09-03 22:14:24
+ * @LastEditTime: 2020-09-07 23:12:35
  */
 const VError = require('verror')
 const moment = require('moment')
@@ -87,7 +87,7 @@ const interpreter = async function (page) {
     const bonusNum = (await numbersWrapper.$eval('span.numbers-bonus_num', el => el.innerText)).replace(/ /g, '')
 
     if (!bonusNum || isNaN(parseInt(bonusNum))) {
-      throw new DrawingError(`${data.lotteryID} crawler lack of bonus number`)
+      throw new DrawingError(data.lotteryID)
     }
 
     result.numbers = `${numbers.join(',')}|${bonusNum}`

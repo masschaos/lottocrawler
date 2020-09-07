@@ -2,7 +2,7 @@
  * @Author: maple
  * @Date: 2020-08-14 23:01:17
  * @LastEditors: maple
- * @LastEditTime: 2020-09-02 22:38:01
+ * @LastEditTime: 2020-09-18 03:59:38
  */
 const VError = require('verror')
 const log = require('../../../util/log')
@@ -72,8 +72,12 @@ module.exports = async function crawl (data = {}, urlSelector, interpreter, step
 
     return result
   } catch (err) {
-    throw new VError(err, `<${lotteryID}> 没有抓到数据，可能数据源不可用或有更改，请检查调度策略
-    detail: ${err.name} - ${err.message}`)
+    if (err instanceof DrawingError) {
+      throw err
+    } else {
+      throw new VError(err, `<${lotteryID}> 没有抓到数据，可能数据源不可用或有更改，请检查调度策略
+      detail: ${err.name} - ${err.message}`)
+    }
   } finally {
     try {
       await page.close()

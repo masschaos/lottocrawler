@@ -2,7 +2,7 @@
  * @Author: maple
  * @Date: 2020-08-14 21:29:48
  * @LastEditors: maple
- * @LastEditTime: 2020-09-03 22:07:18
+ * @LastEditTime: 2020-09-08 00:06:50
  */
 const moment = require('moment')
 const VError = require('verror')
@@ -46,7 +46,7 @@ const interpreter = async function (page) {
   const secondDrawNumbers = await secondDraw.$$eval('div.numbers-item > span.numbers-item_num', els => els.map(el => el.innerText))
 
   if (!bonusNum || isNaN(parseInt(bonusNum))) {
-    throw new DrawingError(`${data.lotteryID} crawler lack of bonus number`)
+    throw new DrawingError(data.lotteryID)
   }
 
   result.numbers = `${numbers.slice(0, 5).join(',')}|${numbers[5]}|${bonusNum}|${secondDrawNumbers.join(',')}`
