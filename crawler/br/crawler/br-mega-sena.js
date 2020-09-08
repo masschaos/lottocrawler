@@ -68,11 +68,14 @@ class BrMegaSena extends Crawler {
       14: {
         key: 'vr_estimativa',
         render: (value) => this.formatMoney(value)
+      },
+      15: {
+        key: 'prox_final_zero'
       }
     }
 
     const values = this.getValues(data, keys)
-
+    const otherFinal = values[11] % 10 < 5 ? 'cinco' : 'zero'
     const result = `
     {
       "breakdown": [
@@ -104,7 +107,7 @@ class BrMegaSena extends Crawler {
           "value": "R$${values[6]}"
         },
         {
-          "name": "Acumulado próximo concurso()",
+          "name": "Acumulado próximo concurso final ${otherFinal} (${values[15]})",
           "value": "R$${values[7]}"
         },
         {

@@ -1,0 +1,42 @@
+{
+  "drawTime": "2020903183500",
+  "numbers": "31,17,15,13,28",
+  "jackpot": [
+    "S/ 100,000"
+  ],
+  "breakdown": [
+    {
+      "name": "main",
+      "detail": [
+        {
+          "name": "Con 5 Aciertos",
+          "count": 0,
+          "prize": "S/. 0",
+          "average": "S/. 100,000"
+        },
+        {
+          "name": "Con 4 Aciertos",
+          "count": 1,
+          "prize": "S/. 100",
+          "average": "S/. 100"
+        },
+        {
+          "name": "Con 3 Aciertos",
+          "count": 175,
+          "prize": "S/. 875",
+          "average": "S/. 5"
+        },
+        {
+          "name": "Con 2 Aciertos",
+          "count": 1767,
+          "prize": "",
+          "average": "Jugada Gratis"
+        }
+      ]
+    }
+  ],
+  "other": [],
+  "name": "Gana Diario",
+  "lotteryID": "pe-gana-diario",
+  "issue": "2505"
+}

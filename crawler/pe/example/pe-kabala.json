@@ -1,0 +1,77 @@
+{
+  "drawTime": "20200905165000",
+  "numbers": "03,18,19,21,22,32|12,14,16,19,31,38",
+  "jackpot": [
+    "S/ 187,279"
+  ],
+  "breakdown": [
+    {
+      "name": "Premios de Kabala del",
+      "detail": [
+        {
+          "name": "Con 6 Aciertos",
+          "count": 0,
+          "prize": "S/. 0",
+          "average": "S/. 173,031"
+        },
+        {
+          "name": "Con 5 Aciertos",
+          "count": 4,
+          "prize": "S/. 2,000",
+          "average": "S/. 500"
+        },
+        {
+          "name": "Con 4 Aciertos",
+          "count": 191,
+          "prize": "S/. 3,820",
+          "average": "S/. 20"
+        },
+        {
+          "name": "Con 3 Aciertos",
+          "count": 2978,
+          "prize": "S/. 5,956",
+          "average": "S/. 2"
+        },
+        {
+          "name": "Con 2 Aciertos",
+          "count": 16824,
+          "prize": "",
+          "average": "Jugada Gratis"
+        }
+      ]
+    },
+    {
+      "name": "Premios de Chau Chamba del",
+      "detail": [
+        {
+          "name": "Con 6 Aciertos",
+          "count": 0,
+          "prize": "S/. 0",
+          "average": "S/. 5,000 mensuales por 20 años"
+        },
+        {
+          "name": "Con 5 Aciertos",
+          "count": 0,
+          "prize": "S/. 0",
+          "average": "S/. 500"
+        },
+        {
+          "name": "Con 4 Aciertos",
+          "count": 19,
+          "prize": "S/. 380",
+          "average": "S/. 20"
+        },
+        {
+          "name": "Con 3 Aciertos",
+          "count": 276,
+          "prize": "S/. 552",
+          "average": "S/. 2"
+        }
+      ]
+    }
+  ],
+  "other": [],
+  "name": "Kabala",
+  "lotteryID": "pe-kabala",
+  "issue": ""
+}

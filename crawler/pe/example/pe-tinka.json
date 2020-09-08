@@ -1,0 +1,72 @@
+{
+  "drawTime": "20200905165000",
+  "numbers": "03,08,15,21,22,25#40",
+  "jackpot": [
+    "S/ 6.626,878"
+  ],
+  "breakdown": [
+    {
+      "name": "main",
+      "detail": [
+        {
+          "name": "6 Aciertos",
+          "count": 0,
+          "prize": "S/. 0",
+          "average": "S/. 6.469,263"
+        },
+        {
+          "name": "5 aciertos + Boliyapa",
+          "count": 3,
+          "prize": "S/. 150,000",
+          "average": "S/. 50,000"
+        },
+        {
+          "name": "5 Aciertos",
+          "count": 10,
+          "prize": "S/. 50,000",
+          "average": "S/. 5,000"
+        },
+        {
+          "name": "4 aciertos + Boliyapa",
+          "count": 36,
+          "prize": "S/. 18,000",
+          "average": "S/. 500"
+        },
+        {
+          "name": "4 Aciertos",
+          "count": 462,
+          "prize": "S/. 46,200",
+          "average": "S/. 100"
+        },
+        {
+          "name": "3 Aciertos + Boliyapa",
+          "count": 580,
+          "prize": "S/. 29,000",
+          "average": "S/. 50"
+        },
+        {
+          "name": "3 Aciertos",
+          "count": 6775,
+          "prize": "S/. 33,875",
+          "average": "S/.5"
+        },
+        {
+          "name": "2 Aciertos + Boliyapa",
+          "count": 4298,
+          "prize": "",
+          "average": "Jugada Gratis"
+        },
+        {
+          "name": "2 Aciertos",
+          "count": 39177,
+          "prize": "",
+          "average": "Jugada 2 x 1"
+        }
+      ]
+    }
+  ],
+  "other": [],
+  "name": "Tinka",
+  "lotteryID": "pe-tinka",
+  "issue": ""
+}

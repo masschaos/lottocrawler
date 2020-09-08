@@ -1,0 +1,84 @@
+{
+  "drawTime": "20200905190000",
+  "numbers": "3,4,22,28,31,41#21|3|6|1|4|5|4",
+  "jackpot": ["€ 1.000.000"],
+  "nextDrawTime":"20200909190000",
+  "breakdown": [
+    {
+      "name": "Winstverdeling Lotto",
+      "detail": [
+        {
+          "name": "6",
+          "count": 1,
+          "prize": "€ 3.500.000,00"
+        },
+        {
+          "name": "5+",
+          "count": 5,
+          "prize": "€ 33.699,20"
+        },
+        {
+          "name": "5",
+          "count": 102,
+          "prize": "€ 1.567,90"
+        },
+        {
+          "name": "4+",
+          "count": 309,
+          "prize": "€ 258,70"
+        },
+        {
+          "name": "4",
+          "count": 5412,
+          "prize": "€ 27,30"
+        },
+        {
+          "name": "3+",
+          "count": 7750,
+          "prize": "€ 10,10"
+        },
+        {
+          "name": "3",
+          "count": 94063,
+          "prize": "€ 6,25"
+        },
+        {
+          "name": "2+",
+          "count": 76624,
+          "prize": "€ 3,75"
+        },
+        {
+          "name": "1+1",
+          "count": 267665,
+          "prize": "€ 1,25"
+        }
+      ]
+    },
+    {
+      "name": "Lucky Lotto",
+      "detail": [
+        {
+          "prize": "€ 500",
+          "count": 300
+        }
+      ]
+    },
+    {
+      "name": "Winnaars Lucky Lotto",
+      "detail": [
+        {
+          "prize": "€ 1.000",
+          "count": 7200
+        },
+        {
+          "prize": "€ 500",
+          "count": 16500
+        }
+      ]
+    }
+  ],
+  "other": [],
+  "name": "Loto",
+  "lotteryID": "be-loto",
+  "issue": ""
+}

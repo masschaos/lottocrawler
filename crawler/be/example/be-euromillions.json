@@ -1,0 +1,128 @@
+{
+  "drawTime": "20200904230000",
+  "numbers": "6,22,29,40,43|4,7|4|4|7|3|0|4|9",
+  "jackpot": ["€ 26.000.000"],
+  "nextDrawTime":"20200908230000",
+  "breakdown": [
+    {
+      "name": "Winstverdeling EuroMillions",
+      "detail": [
+        {
+          "name": "5+2",
+          "count": 0,
+          "totalCount": 0,
+          "prize": "€ 0,00"
+        },
+        {
+          "name": "5+1",
+          "count": 0,
+          "totalCount": 4,
+          "prize": "€ 176.702,30"
+        },
+        {
+          "name": "5+0",
+          "count": 1,
+          "totalCount": 8,
+          "prize": "€ 20.649,10"
+        },
+        {
+          "name": "4+2",
+          "count": 1,
+          "totalCount": 38,
+          "prize": "€ 1.354,00"
+        },
+        {
+          "name": "4+1",
+          "count": 84,
+          "totalCount": 674,
+          "prize": "€ 140,60"
+        },
+        {
+          "name": "3+2",
+          "count": 212,
+          "totalCount": 1866,
+          "prize": "€ 53,60"
+        },
+        {
+          "name": "4+0",
+          "count": 139,
+          "totalCount": 1500,
+          "prize": "€ 46,90"
+        },
+        {
+          "name": "2+2",
+          "count": 3300,
+          "totalCount": 28936,
+          "prize": "€ 12,10"
+        },
+        {
+          "name": "3+1",
+          "count": 3650,
+          "totalCount": 32338,
+          "prize": "€ 12,10"
+        },
+        {
+          "name": "3+0",
+          "count": 7718,
+          "totalCount": 68089,
+          "prize": "€ 10,70"
+        },
+        {
+          "name": "1+2",
+          "count": 17099,
+          "totalCount": 163884,
+          "prize": "€ 5,40"
+        },
+        {
+          "name": "2+1",
+          "count": 53995,
+          "totalCount": 491615,
+          "prize": "€ 5,60"
+        },
+        {
+          "name": "2+0",
+          "count": 109420,
+          "totalCount": 1013742,
+          "prize": "€ 4,40"
+        }
+      ]
+    },
+    {
+      "name": "My Bonus",
+      "detail": [
+        {
+          "count": 25,
+          "prize": "€ 100.000,00"
+        },
+        {
+          "count": 400,
+          "prize": "€ 500,00"
+        },
+        {
+          "count": 45000,
+          "prize": "€ 10,00"
+        }
+      ]
+    },{
+      "name":"Winnaars My Bonus",
+      "detail":[
+        {
+          "count": 25,
+          "prize": "€ 100.000,00"
+        },
+        {
+          "count": 21400,
+          "prize": "€ 500,00"
+        },
+        {
+          "count": 270000,
+          "prize": "€ 10,00"
+        }
+      ]
+    }
+  ],
+  "other": [],
+  "name": "EuroMillions",
+  "lotteryID": "be-euromillions",
+  "issue": ""
+}
