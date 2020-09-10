@@ -50,9 +50,19 @@ function isExtraReady (drawTime, delay, tz) {
   return parseDrawTime(drawTime, tz).add(delay, 's').isBefore(moment().tz(tz))
 }
 
+function wait (second) {
+  const promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve()
+    }, second)
+  })
+  return promise
+}
+
 module.exports = {
   sleep,
   wait,
   hasNewDraw,
-  isExtraReady
+  isExtraReady,
+  wait
 }
