@@ -142,3 +142,4 @@ data/
 # at history file
 /crawler/at/history/*
 !/crawler/at/history/.gitkeep
+/crawler/at/crawler/*.json

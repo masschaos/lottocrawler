@@ -2,7 +2,7 @@
  * @Author: maple
  * @Date: 2020-09-06 10:13:35
  * @LastEditors: maple
- * @LastEditTime: 2020-09-06 10:27:22
+ * @LastEditTime: 2020-09-10 22:56:35
  */
 const fs = require('fs')
 const path = require('path')
@@ -20,4 +20,3 @@ for (const filename of filenames) {
 }
 
 module.exports = crawlers
-console.log(crawlers)
