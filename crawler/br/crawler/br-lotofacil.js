@@ -72,7 +72,8 @@ class BrLotofacil extends Crawler {
         key: 'dtProximoConcurso',
         render: (value) => moment(value).format('YYYYMMDD200000')
       },
-      17: 'vrEstimativa'
+      17: 'vrEstimativa',
+      18: 'vrAcumuladoFaixa1'
     }
 
     const values = this.getValues(data, keys)
@@ -113,6 +114,10 @@ class BrLotofacil extends Crawler {
       ],
       "jackpot": [],
       "other": [
+        {
+          "name": "Valor acumulado",
+          "value": "R$${values[18]}"
+        },
         {
           "name": "Acumulado para Sorteio Especial da Independência",
           "value": "R$${values[10]}"
