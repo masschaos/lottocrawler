@@ -7,7 +7,19 @@ const config = {
   env: process.env.DEPLOYMENT_ENV,
   pptrEnv: process.env.PPTR_ENV,
   pptrTimeout: parseInt(process.env.PPTR_TIMEOUT) * 1000 || 50000,
-  level: process.env.LOG_LEVEL || 'info'
+  level: process.env.LOG_LEVEL || 'info',
+  autoDelay: parseBool(process.env.AUTO_DELAY),
+  db: {
+    host: process.env.DB_HOST || 'mysql',
+    port: parseInt(process.env.DB_PORT) || 3306,
+    user: process.env.DB_USER || 'root',
+    password: process.env.DB_PASSWORD || 'root',
+    name: process.env.DB_NAME || 'lotto'
+  }
+}
+
+function parseBool (x) {
+  return (x === 'True' || x === 'TRUE' || x === 'true' || x === '1')
 }
 
 module.exports = config

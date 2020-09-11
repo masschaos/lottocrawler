@@ -7,7 +7,7 @@
     "dev": "node -r dotenv/config dev.js",
     "play": "node -r dotenv/config play.js",
     "devserver": "node -r dotenv/config server.js",
-    "lint": "eslint crawler inner pptr util *.js"
+    "lint": "eslint ."
   },
   "dependencies": {
     "@masschaos/im": "^0.3.5",
@@ -18,10 +18,12 @@
     "encoding-japanese": "^1.0.30",
     "moment": "^2.27.0",
     "moment-timezone": "^0.5.31",
+    "mysql2": "^2.1.0",
     "pino": "^6.5.1",
     "pino-pretty": "^4.1.0",
     "puppeteer": "^5.2.1",
     "qs": "^6.9.4",
+    "sequelize": "^6.3.5",
     "utf-8-validate": "^5.0.2",
     "verror": "^1.10.0"
   },

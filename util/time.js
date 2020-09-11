@@ -1,6 +1,7 @@
 const moment = require('moment-timezone')
 const cronParser = require('cron-parser')
 const VError = require('verror')
+const log = require('./log')
 
 function sleep (ms) {
   Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms)
@@ -31,6 +32,12 @@ function hasNewDraw (timeRules, delay, lastDrawTime, tz) {
       tz
     })
     if (cron.hasNext()) {
+      const n = cron.next().toISOString()
+      log.debug(n)
+      const x = moment(n)
+      const now = moment()
+      log.debug(now.toISOString())
+      log.debug({ diff: now.diff(x, 'seconds') })
       return true
     }
   }
