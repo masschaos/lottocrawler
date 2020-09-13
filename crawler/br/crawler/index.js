@@ -131,12 +131,34 @@ class BrCrawler {
     throw new VError('should implementation')
   }
 
-  // main
-  async crawl (issue) {
-    const url = this.getURL(issue)
+  // craw history 用下面这块代码，需要传递issue
+  // -------------------------start----------------------------
+  // async crawl (issue) {
+  //   const url = this.getURL(issue)
+  //   log.debug(`fetch url: ${url}`)
+  //   const data = await this.getData(url)
+  //   const result = this.render(data)
+  //   return result
+  // }
+  // -------------------------end----------------------------
+  async crawl (step) {
+    const url = this.getURL()
     log.debug(`fetch url: ${url}`)
     const data = await this.getData(url)
     const result = this.render(data)
+    if (step) {
+      if (step === 'result') {
+        return { ...result, breakdown: [], other: [] }
+      } else if (step === 'breakdown') {
+        const { drawTime, breakdown } = result
+        return { drawTime, breakdown }
+      } else if (step === 'other') {
+        return {
+          drawTime: result.drawTime,
+          other: result.other
+        }
+      }
+    }
     return result
   }
 }
