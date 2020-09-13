@@ -2,17 +2,17 @@
  * @Author: maple
  * @Date: 2020-09-13 20:52:33
  * @LastEditors: maple
- * @LastEditTime: 2020-09-14 01:47:14
+ * @LastEditTime: 2020-09-14 01:52:26
  */
 const _ = require('lodash')
 const { getFile, writeHistroy } = require('./index')
 const moment = require('moment')
 
 const urlData = {
-  2020: 'https://www.win2day.at/media/NN_W2D_STAT_Joker_2020.csv'
-  // 2019: 'https://www.win2day.at/media/NN_W2D_STAT_Joker_2019.csv',
-  // 2018: 'https://www.win2day.at/media/NN_W2D_STAT_Joker_2018.csv',
-  // 2017: 'https://www.win2day.at/media/NN_W2D_STAT_Joker_2017.csv'
+  2020: 'https://www.win2day.at/media/NN_W2D_STAT_Joker_2020.csv',
+  2019: 'https://www.win2day.at/media/NN_W2D_STAT_Joker_2019.csv',
+  2018: 'https://www.win2day.at/media/NN_W2D_STAT_Joker_2018.csv',
+  2017: 'https://www.win2day.at/media/NN_W2D_STAT_Joker_2017.csv'
 }
 
 const keys = Object.keys(urlData).sort((a, b) => b - a)
