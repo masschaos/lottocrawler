@@ -2,7 +2,7 @@
  * @Author: maple
  * @Date: 2020-09-13 20:52:33
  * @LastEditors: maple
- * @LastEditTime: 2020-09-14 01:52:26
+ * @LastEditTime: 2020-09-14 01:56:40
  */
 const _ = require('lodash')
 const { getFile, writeHistroy } = require('./index')
@@ -36,6 +36,8 @@ async function deal (year, url) {
         let tmp1 = row[i]
         const tmp3 = row[i + 2]
 
+        // 特等奖是 7,8,9 位
+        // 其中 7 位可能为 JPx 表示未有中奖者
         if (tmp1.indexOf('JP') > -1) {
           tmp1 = 0
         }
@@ -45,9 +47,10 @@ async function deal (year, url) {
         })
         i += 2
       } else {
+        // 除了特等奖，其他奖项只有获奖人数
         if (!row[i]) continue
         data.breakdown.push({
-          count: parseInt(row[i].replace(/\./g, ''))
+          count: parseInt(row[i].replace(/\./g, '')) // 替换人数中的 xx.xx 中的 .
         })
       }
     }
@@ -114,7 +117,7 @@ async function main () {
       issue: ''
     }
 
-    const firstItem = breakdown.shift()
+    const firstItem = breakdown.shift() // 特等奖拿出来单独处理
 
     for (let i = 0; i < breakdown.length; i++) {
       data.breakdown[0].detail[i].count = breakdown[i].count
@@ -123,6 +126,9 @@ async function main () {
     data.other[0].value = firstItem.value
 
     if (firstItem.count > 0) {
+      // 默认 page 上特等奖获奖者是 0 的情况，是不需要填入奖项的
+      // 按照 example 的要求，直接放入 other
+
       // 添加一等奖到 breakdown
       // 如果不需要，删掉这段代码
       data.breakdown[0].detail.unshift({
@@ -131,6 +137,7 @@ async function main () {
         count: firstItem.count
       })
 
+      // 如果获特等奖的话，name 会变成 x Joker
       data.other[0].name = `${firstItem.count} Joker`
     }
 

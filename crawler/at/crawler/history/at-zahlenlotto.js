@@ -3,7 +3,7 @@ const VError = require('verror')
  * @Author: maple
  * @Date: 2020-09-13 20:52:33
  * @LastEditors: maple
- * @LastEditTime: 2020-09-14 01:49:15
+ * @LastEditTime: 2020-09-14 02:04:58
  */
 const _ = require('lodash')
 const { getFile, writeHistroy } = require('./index')
@@ -23,6 +23,8 @@ async function deal (year, url) {
   const rows = csv.getRows()
   let total = []
   for (const row of rows) {
+    // 这个彩种的 csv 并不是一行行来的，而是若干次奖项连续的存入到一行里
+    // 所以直接把所有的数值都组合到一个大数组进行处理
     total = total.concat(row)
   }
   total = total.filter(t => t.trim())
@@ -30,9 +32,9 @@ async function deal (year, url) {
   const result = []
   let data
   for (const item of total) {
-    if (item.indexOf('.') > -1) {
-      if (data !== undefined) {
-        // 第一个不需要 push
+    if (item.indexOf('.') > -1) { // 参数包含 . 表示是个日期项
+      if (data !== undefined) { // 第一次遇到日期不需要 push
+        // 除了第一次，其他都 push data & 初始化 data
         result.push(data)
         data = {
           year: null,
@@ -40,6 +42,7 @@ async function deal (year, url) {
         }
       }
 
+      // 初始化 data
       if (data === undefined) {
         data = {
           year: null,
@@ -47,10 +50,10 @@ async function deal (year, url) {
         }
       }
 
-      data.year = `${item}${year}`
+      data.year = `${item}${year}` // 写入日期
       continue
     }
-    data.items.push(item)
+    data.items.push(item) // 接下来若干个数值都是 Numbers
   }
 
   result.push(data)

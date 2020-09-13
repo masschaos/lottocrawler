@@ -2,7 +2,7 @@
  * @Author: maple
  * @Date: 2020-09-13 20:52:33
  * @LastEditors: maple
- * @LastEditTime: 2020-09-14 01:49:05
+ * @LastEditTime: 2020-09-14 02:01:13
  */
 const _ = require('lodash')
 const { getFile, writeHistroy } = require('./index')
@@ -26,12 +26,13 @@ async function deal (year, url) {
     const [, dateText] = dataLine[0].split(' ')
     const numbers = `${dataLine.slice(1, 6).join(',')}|${dataLine[6]},${dataLine[7]}`
     const otherValue = `€ ${dataLine[13]}`
-    const otherCount = dataLine[11] === 'JP' ? null : parseInt(dataLine[11])
+    const otherCount = dataLine[11] === 'JP' ? null : parseInt(dataLine[11]) // 特等奖的获奖情况在第一行 JP 表示未有获奖者
     const datas = []
     while (true) {
+      // 循环的方式去获得其他 breakdown
       i++
       const data = rows[i]
-      if (!data || data[0] !== '') {
+      if (!data || data[0] !== '') { // 奖项的第一个(其实是好几个) item 是空字符串， 用来判断是否结束
         break
       }
       datas.push(data)
@@ -39,10 +40,10 @@ async function deal (year, url) {
 
     const breakdown = []
     for (const line of datas) {
-      const [, , , value, , prize] = line.filter(l => l)
+      const [, , , value, , prize] = line.filter(l => l) // 若干个数值，取自己需要的
       breakdown.push({
-        value: parseInt(value.replace(/\./g, '')),
-        prize: `€ ${prize}`
+        value: parseInt(value.replace(/\./g, '')), // 需要把 . 去掉 原文是 aa.bbb.ccc
+        prize: `€ ${prize}` // 奖项加上货币符号
       })
     }
     const data = {
@@ -71,7 +72,7 @@ async function main () {
     const data = {
       drawTime: moment(dateText, 'DD.MM.YYYY').format('YYYYMMDD222500'), // '20200828222500',
       numbers: numbers,
-      jackpot: ['€ 100.000,00'],
+      jackpot: ['€ 100.000,00'], // 这个数据不变
       breakdown: [
         {
           name: 'main',
@@ -147,15 +148,17 @@ async function main () {
       lotteryID: 'at-euromillionen',
       issue: ''
     }
-
+    // breakdwon 写入
     for (let i = 0; i < breakdown.length; i++) {
       data.breakdown[0].detail[i].count = breakdown[i].value
       data.breakdown[0].detail[i].prize = breakdown[i].prize
     }
 
-    data.other[0].value = otherValue
+    data.other[0].value = otherValue // 写入 other
 
     if (otherCount !== null) {
+      // 如果特等奖有获奖者
+      // other 的 title 就会变化
       data.other[0].name = '5 Zahlen + 2 Sterne'
 
       // 如果 5 + 2 不需要加到 breakdown，删除以下代码
