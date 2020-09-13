@@ -2,7 +2,7 @@
  * @Author: maple
  * @Date: 2020-09-06 10:12:39
  * @LastEditors: maple
- * @LastEditTime: 2020-09-07 21:12:58
+ * @LastEditTime: 2020-09-14 00:42:27
  */
 const crawler = require('./index')
 const { DrawingError } = require('../../../util/error')
@@ -115,8 +115,15 @@ const interpreter = async function (page) {
   if (originData.breakdownDatas.length > 1) {
     // 如果 breakdown 数据缺失
     // 就可以通过分步的方式获取数据
-    for (let i = 1; i < originData.breakdownDatas.length; i++) {
+    for (let i = 0; i < originData.breakdownDatas.length; i++) {
+      // 第一行可能是 5+2 也可能是未获奖的介绍
+      // 如果 breakdown 不需要 5+2 直接把 let i = 0 改成 i = 1 即可
       const { left, right } = originData.breakdownDatas[i]
+
+      if (left.indexOf('Europot') > -1) {
+        continue
+      }
+
       const _texts = left.split(' ')
       // eslint-disable-next-line no-useless-escape
       const count = parseInt(_texts.shift().replace(/\.|-mal/g, ''))
