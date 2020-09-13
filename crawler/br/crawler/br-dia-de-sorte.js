@@ -106,22 +106,22 @@ class BrDiaDeSorte extends Crawler {
             {
               "name": "6 números acertados",
               "count": ${values[1]},
-              "amount": "R$${values[6]}"
+              "prize": "R$${values[6]}"
             },
             {
               "name": "5 números acertados",
               "count": ${values[2]},
-              "amount": "R$${values[7]}"
+              "prize": "R$${values[7]}"
             },
             {
               "name": "4 números acertados",
               "count": ${values[3]},
-              "amount": "R$${values[8]}"
+              "prize": "R$${values[8]}"
             },
             {
               "name": "Mês da Sorte",
               "count": ${values[4]},
-              "amount": "R$${values[9]}"
+              "prize": "R$${values[9]}"
             }
           ]
         }

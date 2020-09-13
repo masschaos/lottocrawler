@@ -11,22 +11,22 @@
         {
           "name": "6 números acertados",
           "count": 63,
-          "amount": "R$2.362,32"
+          "prize": "R$2.362,32"
         },
         {
           "name": "5 números acertados",
           "count": "2438 apostas ganhadoras",
-          "amount": "R$20,00"
+          "prize": "R$20,00"
         },
         {
           "name": "4 números acertados",
           "count": "32925 apostas ganhadoras",
-          "amount": "R$4,00"
+          "prize": "R$4,00"
         },
         {
           "name": "Mês da Sorte",
           "count": 152684,
-          "amount": "R$2,00"
+          "prize": "R$2,00"
         }
       ]
     }
