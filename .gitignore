@@ -116,6 +116,7 @@ data/
 !/crawler/jp/history/tmp/.gitkeep
 
 # pe history file
+/crawler/pe/history/
 !/crawler/pe/history/.gitkeep
 
 # fr hisotry tmp file
