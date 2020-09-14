@@ -2,12 +2,11 @@
  * @Author: maple
  * @Date: 2020-09-06 10:12:39
  * @LastEditors: maple
- * @LastEditTime: 2020-09-14 00:42:27
+ * @LastEditTime: 2020-09-15 00:15:53
  */
 const crawler = require('./index')
 const { DrawingError } = require('../../../util/error')
 const moment = require('moment')
-const VError = require('verror')
 
 // 默认数据
 const defaultData = {
@@ -87,11 +86,11 @@ const interpreter = async function (page) {
   const result = defaultData.initData()
   const lottoNumber = originData.nums.slice(0, 5).join(',')
   const starNumber = originData.nums.slice(5, 7).join(',')
-  const bonusNumber = originData.quittungsnummer.split(' ').join('')
-  if (isNaN(parseInt(bonusNumber))) {
+  const lottoNo = originData.quittungsnummer.split(' ').join('')
+  if (isNaN(parseInt(lottoNo))) {
     throw new DrawingError()
   }
-  result.numbers = `${lottoNumber}|${starNumber}|${bonusNumber}`
+  result.numbers = `${lottoNumber}|${starNumber}`
 
   // jockpot
   const [, jackpot] = originData.gewin.split(':').map(m => m.trim())
@@ -120,34 +119,47 @@ const interpreter = async function (page) {
       // 如果 breakdown 不需要 5+2 直接把 let i = 0 改成 i = 1 即可
       const { left, right } = originData.breakdownDatas[i]
 
-      if (left.indexOf('Europot') > -1) {
-        continue
-      }
+      // if (left.indexOf('Europot') > -1) {
+      //   continue
+      // }
 
       const _texts = left.split(' ')
       // eslint-disable-next-line no-useless-escape
-      const count = parseInt(_texts.shift().replace(/\.|-mal/g, ''))
+      let countStr = _texts.shift()
+      const tmp = _texts.shift()
+      if (tmp === 'Joker') { // 头奖有获奖者
+        countStr = `${countStr} Joker`
+      } else {
+        // 只有头奖是两个 word
+        // 其他奖项都是单个 word
+        _texts.unshift(tmp)
+      }
 
-      if (isNaN(count)) {
-        throw new VError(`at crawler id: ${defaultData.lotteryID} count error`)
+      let count = parseInt(countStr.replace(/\.|-mal/g, ''))
+      let name = _texts.join(' ')
+
+      if (left.indexOf('Europot') > -1) {
+        count = 0
+        countStr = `${countStr} ${name}`
+        name = '5 Zahlen + 2 Stern'
+        // 头奖未获奖，不会显示 5 Zahlen + 2 Stern
       }
 
       breakdown.detail.push({
-        name: _texts.join(' '),
+        name: name,
+        countStr: countStr,
         prize: right,
         count: count
       })
     }
     result.breakdown.push(breakdown)
-
-    // other
-    const otherData = originData.breakdownDatas[0]
-    const other = {
-      name: otherData.left,
-      value: otherData.right
-    }
-    result.other.push(other)
   }
+
+  result.other.push({
+    name: 'ÖsterreichBonus Quittungsnummer',
+    value: lottoNo // 这个实际上是彩票编号
+  })
+
   return result
 }
 

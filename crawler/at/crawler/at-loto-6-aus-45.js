@@ -1,7 +1,6 @@
 const crawler = require('./index')
 const { DrawingError } = require('../../../util/error')
 const moment = require('moment')
-const VError = require('verror')
 
 // 默认数据
 const defaultData = {
@@ -106,7 +105,7 @@ const interpreter = async function (page) {
 
     // breakdownDatas
     const breakdownDatas = []
-    for (let i = 1; i < fakeTrs.length; i++) {
+    for (let i = 0; i < fakeTrs.length; i++) {
       const tr = fakeTrs[i]
       if (!tr.hasChildNodes()) {
         throw new Error('at child nodes is empty')
@@ -124,9 +123,6 @@ const interpreter = async function (page) {
     data.breakdownDatas = breakdownDatas
     return data
   })
-
-  // console.log(originData)
-  // console.log(originLottoPlusData)
 
   const result = defaultData.initData()
 
@@ -150,20 +146,24 @@ const interpreter = async function (page) {
     const breakdown = defaultData.initBreakdown()
     // 如果 breakdown 数据缺失
     // 就可以通过分步的方式获取数据
-    for (let i = 1; i < originData.breakdownDatas.length; i++) {
+    for (let i = 0; i < originData.breakdownDatas.length; i++) {
       const { left, right } = originData.breakdownDatas[i]
       const _texts = left.split(' ')
       // eslint-disable-next-line no-useless-escape
-      const count = parseInt(_texts.shift().replace(/\./g, ''))
-
+      let countStr = _texts.shift()
+      let count = parseInt(countStr.replace(/\./g, ''))
+      let name = _texts.join(' ')
       if (isNaN(count)) {
-        throw new VError(`at crawler id: ${defaultData.lotteryID} count error`)
+        countStr = `${countStr} ${name}`
+        name = 'Sechser'
+        count = 0
       }
 
       breakdown.detail.push({
-        name: _texts.join(' '),
+        name: name,
         prize: right,
-        count: count
+        count: count,
+        countStr: countStr
       })
     }
     result.breakdown.push(breakdown)
@@ -174,17 +174,20 @@ const interpreter = async function (page) {
     for (let i = 0; i < originLottoPlusData.breakdownDatas.length; i++) {
       const { left, right } = originLottoPlusData.breakdownDatas[i]
       const _texts = left.split(' ')
-      // eslint-disable-next-line no-useless-escape
-      const count = parseInt(_texts.shift().replace(/\./g, ''))
-
+      let countStr = _texts.shift()
+      let count = parseInt(countStr.replace(/\./g, ''))
+      let name = _texts.join(' ')
       if (isNaN(count)) {
-        throw new VError(`at crawler id: ${defaultData.lotteryID} count error`)
+        countStr = `${countStr} ${name}`
+        name = 'Sechser'
+        count = 0
       }
 
       breakdown.detail.push({
-        name: _texts.join(' '),
+        name: name,
         prize: right,
-        count: count
+        count: count,
+        countStr: countStr
       })
     }
     result.breakdown.push(breakdown)
@@ -212,6 +215,7 @@ async function main (step) {
   const result = await crawler(defaultData, selector, interpreter)
   return result
 }
+
 module.exports = {
   crawl: main
 }

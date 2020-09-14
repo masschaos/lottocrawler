@@ -2,7 +2,7 @@
  * @Author: maple
  * @Date: 2020-09-06 10:13:40
  * @LastEditors: maple
- * @LastEditTime: 2020-09-10 23:22:58
+ * @LastEditTime: 2020-09-15 00:48:17
  */
 const crawlers = require('./index')
 const log = require('../../util/log')
@@ -25,8 +25,17 @@ if (writeFiles) {
 
 async function done () {
   for (const [name, datas] of crawlers) {
+    if (name !== 'at-lucky-day') continue
+
     log.debug(`%${name}%`)
-    const result = await datas[0].crawl()
+    let result
+    try {
+      result = await datas[0].crawl()
+    } catch (err) {
+      log.error(err.stack)
+      continue
+    }
+
     log.debug(JSON.stringify(result))
 
     if (writeFiles) {

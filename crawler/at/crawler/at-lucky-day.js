@@ -2,7 +2,7 @@
  * @Author: maple
  * @Date: 2020-09-06 10:12:39
  * @LastEditors: maple
- * @LastEditTime: 2020-09-09 00:06:08
+ * @LastEditTime: 2020-09-15 00:51:05
  */
 const crawler = require('./index')
 const moment = require('moment')
@@ -11,7 +11,7 @@ const moment = require('moment')
 const defaultData = {
   name: 'Lucky Day',
   lotteryID: 'at-lucky-day',
-  defaultURL: 'https://www.win2day.at/lotterie/luckyday',
+  defaultURL: 'https://www.win2day.at/lotterie/luckyday/luckyday-ziehungen',
   initData: function () {
     return {
       drawTime: null,
@@ -34,10 +34,11 @@ const selector = {
 
 // page 解析器
 const interpreter = async function (page) {
+  await page.waitForSelector('h5.accordion-header-is-parent')
   const originData = await page.evaluate(() => {
     const data = {}
-    const lottoResultBlock = document.querySelector('#draw-result-luckyday-5')
-    const winningNumbers = lottoResultBlock.querySelector('.win-numbers')
+    const lottoResultBlock = document.querySelector('#draw-result-luckyday')
+    const winningNumbers = lottoResultBlock.querySelector('.accordion-item.is-open')
     const numBlocks = winningNumbers.querySelectorAll('strong.num')
     const luckSymbol = winningNumbers.querySelector('span.lucky-symbol')
     const nums = []
@@ -51,7 +52,7 @@ const interpreter = async function (page) {
     data.symbolClass = luckSymbol.children[0].className
 
     // date
-    const dateBlock = document.querySelector('span.select2-selection__rendered')
+    const dateBlock = winningNumbers.querySelector('h5.accordion-header-is-parent')
     data.dateText = dateBlock.innerText
     return data
   })
@@ -79,11 +80,11 @@ module.exports = {
   crawl: main
 }
 
-main()
-  .then(function (data) {
-    console.log(data)
-    require('fs').writeFileSync(`${defaultData.lotteryID}.json`, JSON.stringify(data, 2, ' '))
-  })
-  .catch(function (err) {
-    console.error(err)
-  })
+// main()
+//   .then(function (data) {
+//     console.log(data)
+//     require('fs').writeFileSync(`${defaultData.lotteryID}.json`, JSON.stringify(data, 2, ' '))
+//   })
+//   .catch(function (err) {
+//     console.error(err)
+//   })

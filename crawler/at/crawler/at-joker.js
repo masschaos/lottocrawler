@@ -1,6 +1,5 @@
 const crawler = require('./index')
 const moment = require('moment')
-const VError = require('verror')
 
 // 默认数据
 const defaultData = {
@@ -91,24 +90,21 @@ const interpreter = async function (page) {
     // 就可以通过分步的方式获取数据
     for (let i = 0; i < originData.breakdownDatas.length; i++) {
       const { left, right } = originData.breakdownDatas[i]
+      const countStr = left // countStr
+      let count = parseInt(left.replace(/\./g, ''))
 
-      if (left.indexOf('mal') < 0) {
-        result.other.push({
-          name: left,
-          value: right
-        })
-      }
-      // eslint-disable-next-line no-useless-escape
-      const count = parseInt(left.replace(/\.|-mal/g, ''))
-
+      // 两种可能性
+      // 1. 111-mal
+      // 2. 2 Joker
       if (isNaN(count)) {
-        throw new VError(`at crawler id: ${defaultData.lotteryID} count error`)
+        count = 0
       }
 
       breakdown.detail.push({
-        name: '1',
+        name: (i + 1).toString(),
         prize: right,
-        count: count
+        count: count,
+        countStr: countStr
       })
     }
     result.breakdown.push(breakdown)
