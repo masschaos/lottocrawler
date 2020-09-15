@@ -48,7 +48,7 @@ const crawl = async (config, filename) => {
         queryTimeFormat = queryTime.format('YYYY-MM-DD')
         const weekday = queryTime.weekday()
         if (config.openDayList.indexOf(weekday) !== -1) {
-          config.indexPagePath = config.indexPagePath.split('?')[0] + `?del-dia=${queryTimeFormat}`
+          config.indexPagePath = `${config.indexPagePath.split('?')[0]}?del-dia=${queryTimeFormat}`
           crawl = Crawler.createCrawler(config)
           sleep(3000)
           result = await crawl.crawl()
