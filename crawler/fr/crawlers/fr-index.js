@@ -7,7 +7,7 @@
 const VError = require('verror')
 const log = require('../../../util/log')
 const { newPage, ignoreImage } = require('../../../pptr')
-
+const { DrawingError } = require('../../../util/error')
 const indexPagePath = '/jeux-de-tirage/resultats'
 const mainHost = 'https://www.fdj.fr'
 
@@ -55,7 +55,7 @@ module.exports = async function crawl (data = {}, urlSelector, interpreter, step
         if (breakdown.length === 0 ||
           !breakdown[0].detail ||
           breakdown[0].detail.length === 0) {
-          throw new VError(`lotteryID: ${lotteryID} breakdown is empty`)
+          throw new DrawingError(`${data.lotteryID} breakdown is empty`)
         }
 
         return {

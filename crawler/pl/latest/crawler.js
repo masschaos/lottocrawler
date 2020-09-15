@@ -1,4 +1,4 @@
-
+const { DrawingError } = require('../../../util/error')
 const API = require('../api')
 const VError = require('verror')
 function checkSuperSzansaIssueIsNull (data) {
@@ -35,7 +35,7 @@ function createCrawler (config) {
             }
             case 'other': {
               if (checkSuperSzansaIssueIsNull(stepData)) {
-                throw new VError('SuperSzansaIssue is null', `${config.lotteryID} 获取 SuperSzansaIssue 出错`)
+                throw new DrawingError(`${config.lotteryID} SuperSzansaIssue is null`)
               }
               return {
                 drawTime: stepData.drawTime,
