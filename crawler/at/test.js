@@ -2,7 +2,7 @@
  * @Author: maple
  * @Date: 2020-09-06 10:13:40
  * @LastEditors: maple
- * @LastEditTime: 2020-09-15 00:48:17
+ * @LastEditTime: 2020-09-16 19:47:58
  */
 const crawlers = require('./index')
 const log = require('../../util/log')
@@ -25,7 +25,7 @@ if (writeFiles) {
 
 async function done () {
   for (const [name, datas] of crawlers) {
-    if (name !== 'at-lucky-day') continue
+    // if (name !== 'at-lucky-day') continue
 
     log.debug(`%${name}%`)
     let result
@@ -42,6 +42,7 @@ async function done () {
       const filename = path.join(__dirname, 'history', 'test', `${name}.json`)
       const text = JSON.stringify(result, ' ', 2)
       fs.writeFileSync(filename, text)
+      log.debug(`写入文件: ${filename}`)
     }
   }
 }

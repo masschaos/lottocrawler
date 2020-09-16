@@ -2,7 +2,7 @@
  * @Author: maple
  * @Date: 2020-09-06 10:12:39
  * @LastEditors: maple
- * @LastEditTime: 2020-09-15 00:15:53
+ * @LastEditTime: 2020-09-16 19:50:14
  */
 const crawler = require('./index')
 const { DrawingError } = require('../../../util/error')
@@ -119,10 +119,6 @@ const interpreter = async function (page) {
       // 如果 breakdown 不需要 5+2 直接把 let i = 0 改成 i = 1 即可
       const { left, right } = originData.breakdownDatas[i]
 
-      // if (left.indexOf('Europot') > -1) {
-      //   continue
-      // }
-
       const _texts = left.split(' ')
       // eslint-disable-next-line no-useless-escape
       let countStr = _texts.shift()
@@ -141,8 +137,8 @@ const interpreter = async function (page) {
       if (left.indexOf('Europot') > -1) {
         count = 0
         countStr = `${countStr} ${name}`
-        name = '5 Zahlen + 2 Stern'
-        // 头奖未获奖，不会显示 5 Zahlen + 2 Stern
+        name = '1'
+        // 头奖未获奖，不会显示 5 Zahlen + 2 Stern, 直接填入 name: '1'
       }
 
       breakdown.detail.push({

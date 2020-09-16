@@ -177,9 +177,9 @@ const interpreter = async function (page) {
       let countStr = _texts.shift()
       let count = parseInt(countStr.replace(/\./g, ''))
       let name = _texts.join(' ')
-      if (isNaN(count)) {
+      if (isNaN(count)) { // 如果 count 是 NaN，说明是字符串
         countStr = `${countStr} ${name}`
-        name = 'Sechser'
+        name = '1' // 填充 name: '1'
         count = 0
       }
 
@@ -200,13 +200,14 @@ const interpreter = async function (page) {
     value: moment(timeText, 'DD.MM.YYYY').format('YYYYMMDD191700')
   })
 
-  // breakdownDatas 的第一行数据
-  const otherData = originData.breakdownDatas[0]
-  const other = {
-    name: otherData.left,
-    value: otherData.right
-  }
-  result.other.push(other)
+  // // breakdownDatas 的第一行数据
+  // const otherData = originData.breakdownDatas[0]
+  // const other = {
+  //   name: otherData.left,
+  //   value: otherData.right
+  // }
+
+  // result.other.push(other)
 
   return result
 }
