@@ -2,11 +2,13 @@
  * @Author: maple
  * @Date: 2020-09-13 20:52:33
  * @LastEditors: maple
- * @LastEditTime: 2020-09-14 01:56:40
+ * @LastEditTime: 2020-09-17 20:25:58
  */
 const _ = require('lodash')
-const { getFile, writeHistroy } = require('./index')
 const moment = require('moment')
+
+const { getFile, writeHistroy } = require('./index')
+const format = require('../format')
 
 const urlData = {
   2020: 'https://www.win2day.at/media/NN_W2D_STAT_Joker_2020.csv',
@@ -39,18 +41,18 @@ async function deal (year, url) {
         // 特等奖是 7,8,9 位
         // 其中 7 位可能为 JPx 表示未有中奖者
         if (tmp1.indexOf('JP') > -1) {
-          tmp1 = 0
+          tmp1 = '0'
         }
         data.breakdown.push({
-          count: parseInt(tmp1),
-          value: `€ ${tmp3}`
+          count: tmp1,
+          value: tmp3
         })
         i += 2
       } else {
         // 除了特等奖，其他奖项只有获奖人数
         if (!row[i]) continue
         data.breakdown.push({
-          count: parseInt(row[i].replace(/\./g, '')) // 替换人数中的 xx.xx 中的 .
+          count: row[i] // parseInt(row[i].replace(/\./g, '')) // 替换人数中的 xx.xx 中的 .
         })
       }
     }
@@ -79,38 +81,43 @@ async function main () {
           name: 'main',
           detail: [
             {
-              name: '1',
+              name: '2',
               prize: '€ 8.800,00',
+              countStr: null,
               count: null
             },
             {
-              name: '1',
+              name: '3',
               prize: '€ 880,00',
+              countStr: null,
               count: null
             },
             {
-              name: '1',
+              name: '4',
               prize: '€ 88,00',
+              countStr: null,
               count: null
             },
             {
-              name: '1',
+              name: '5',
               prize: '€ 8,00',
+              countStr: null,
               count: null
             },
             {
-              name: '1',
+              name: '6',
               prize: '€ 1,80',
+              countStr: null,
               count: null
             }
           ]
         }
       ],
       other: [
-        {
-          name: 'Doppel Jackpot, zusätzlich zum 1. Rang der nächsten Runde',
-          value: null
-        }
+        // {
+        //   name: 'Doppel Jackpot, zusätzlich zum 1. Rang der nächsten Runde',
+        //   value: null
+        // }
       ],
       name: 'Joker',
       lotteryID: 'at-joker',
@@ -119,27 +126,20 @@ async function main () {
 
     const firstItem = breakdown.shift() // 特等奖拿出来单独处理
 
+    // 第二个到第六个奖项
     for (let i = 0; i < breakdown.length; i++) {
-      data.breakdown[0].detail[i].count = breakdown[i].count
+      data.breakdown[0].detail[i].count = format.formatStr(breakdown[i].count)
+      data.breakdown[0].detail[i].countStr = `${breakdown[i].count}-mal`
     }
 
-    data.other[0].value = firstItem.value
-
-    if (firstItem.count > 0) {
-      // 默认 page 上特等奖获奖者是 0 的情况，是不需要填入奖项的
-      // 按照 example 的要求，直接放入 other
-
-      // 添加一等奖到 breakdown
-      // 如果不需要，删掉这段代码
-      data.breakdown[0].detail.unshift({
-        name: '1',
-        prize: firstItem.value,
-        count: firstItem.count
-      })
-
-      // 如果获特等奖的话，name 会变成 x Joker
-      data.other[0].name = `${firstItem.count} Joker`
-    }
+    // 头奖
+    data.breakdown[0].detail.unshift({
+      name: '1',
+      prize: firstItem.value,
+      countStr: parseInt(firstItem.count) > 0 ? `${firstItem.count} Joker`
+        : 'Doppel Jackpot, zusätzlich zum 1. Rang der nächsten Runde',
+      count: parseInt(firstItem.count) // 头奖应该不会超过 1000 吧
+    })
 
     jsonResults.push(data)
   }

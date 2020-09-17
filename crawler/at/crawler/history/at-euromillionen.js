@@ -2,7 +2,7 @@
  * @Author: maple
  * @Date: 2020-09-13 20:52:33
  * @LastEditors: maple
- * @LastEditTime: 2020-09-14 02:01:13
+ * @LastEditTime: 2020-09-16 19:58:40
  */
 const _ = require('lodash')
 const { getFile, writeHistroy } = require('./index')
@@ -163,7 +163,7 @@ async function main () {
 
       // 如果 5 + 2 不需要加到 breakdown，删除以下代码
       data.breakdown[0].detail.unshift({
-        name: '5 Zahlen + 2 Sterne',
+        name: '1',
         prize: otherValue,
         count: otherCount
       })
