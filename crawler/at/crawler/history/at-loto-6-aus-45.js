@@ -2,7 +2,7 @@
  * @Author: maple
  * @Date: 2020-09-17 20:28:40
  * @LastEditors: maple
- * @LastEditTime: 2020-09-18 01:26:00
+ * @LastEditTime: 2020-09-18 01:31:08
  */
 const { getFile, writeHistory } = require('./index')
 const moment = require('moment')
@@ -10,10 +10,16 @@ const log = require('../../../../util/log')
 const format = require('../format')
 
 const lottoUrls = {
-  2020: 'https://www.win2day.at/media/NN_W2D_STAT_Lotto_2020.csv'
+  2020: 'https://www.win2day.at/media/NN_W2D_STAT_Lotto_2020.csv',
+  2019: 'https://www.win2day.at/media/NN_W2D_STAT_Lotto_2019.csv',
+  2018: 'https://www.win2day.at/media/NN_W2D_STAT_Lotto_2018.csv',
+  2017: 'https://www.win2day.at/media/NN_W2D_STAT_Lotto_2017.csv'
 }
 const lottoPlusUrls = {
-  2020: 'https://www.win2day.at/media/NN_W2D_STAT_LottoPlus_2020.csv'
+  2020: 'https://www.win2day.at/media/NN_W2D_STAT_LottoPlus_2020.csv',
+  2019: 'https://www.win2day.at/media/NN_W2D_STAT_LottoPlus_2019.csv',
+  2018: 'https://www.win2day.at/media/NN_W2D_STAT_LottoPlus_2018.csv',
+  2017: 'https://www.win2day.at/media/NN_W2D_STAT_LottoPlus_2017.csv'
 }
 
 const keys = Object.keys(lottoUrls).sort((a, b) => b - a)
