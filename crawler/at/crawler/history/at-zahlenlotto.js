@@ -6,7 +6,7 @@ const VError = require('verror')
  * @LastEditTime: 2020-09-14 02:04:58
  */
 const _ = require('lodash')
-const { getFile, writeHistroy } = require('./index')
+const { getFile, writeHistory } = require('./index')
 const moment = require('moment')
 
 const urlData = {
@@ -93,7 +93,7 @@ async function main () {
     jsonResults.push(data)
   }
 
-  await writeHistroy('at-zahlenlotto', _.sortBy(jsonResults, 'drawTime'))
+  await writeHistory('at-zahlenlotto', _.sortBy(jsonResults, 'drawTime'))
 }
 
 // main()

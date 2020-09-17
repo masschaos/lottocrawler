@@ -7,7 +7,7 @@
 const _ = require('lodash')
 const moment = require('moment')
 
-const { getFile, writeHistroy } = require('./index')
+const { getFile, writeHistory } = require('./index')
 const format = require('../format')
 
 const urlData = {
@@ -144,7 +144,7 @@ async function main () {
     jsonResults.push(data)
   }
 
-  await writeHistroy('at-joker', _.sortBy(jsonResults, 'drawTime'))
+  await writeHistory('at-joker', _.sortBy(jsonResults, 'drawTime'))
 }
 
 // main()

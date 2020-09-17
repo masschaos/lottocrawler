@@ -2,7 +2,7 @@
  * @Author: maple
  * @Date: 2020-09-17 20:11:21
  * @LastEditors: maple
- * @LastEditTime: 2020-09-17 20:22:21
+ * @LastEditTime: 2020-09-18 01:24:11
  */
 const log = require('../../../util/log')
 
@@ -11,7 +11,7 @@ function formatStr (str) {
     log.warn(`str: ${str} got ${typeof str}`)
     return str
   }
-  return str.replace('-mal', '').replace(/\./g, '')
+  return parseInt(str.replace('-mal', '').replace(/\./g, ''))
 }
 
 function formatNumber (num, noTail = false) {
