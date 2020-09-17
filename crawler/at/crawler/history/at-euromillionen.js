@@ -2,11 +2,12 @@
  * @Author: maple
  * @Date: 2020-09-13 20:52:33
  * @LastEditors: maple
- * @LastEditTime: 2020-09-16 19:58:40
+ * @LastEditTime: 2020-09-18 03:33:57
  */
 const _ = require('lodash')
 const { getFile, writeHistory } = require('./index')
 const moment = require('moment')
+const format = require('../format')
 
 const urlData = {
   2020: 'https://www.win2day.at/media/NN_W2D_STAT_EUML_2020.csv',
@@ -26,7 +27,7 @@ async function deal (year, url) {
     const [, dateText] = dataLine[0].split(' ')
     const numbers = `${dataLine.slice(1, 6).join(',')}|${dataLine[6]},${dataLine[7]}`
     const otherValue = `€ ${dataLine[13]}`
-    const otherCount = dataLine[11] === 'JP' ? null : parseInt(dataLine[11]) // 特等奖的获奖情况在第一行 JP 表示未有获奖者
+    const otherCount = dataLine[11] === 'JP' ? '0' : dataLine[11] // 特等奖的获奖情况在第一行 JP 表示未有获奖者
     const datas = []
     while (true) {
       // 循环的方式去获得其他 breakdown
@@ -42,7 +43,7 @@ async function deal (year, url) {
     for (const line of datas) {
       const [, , , value, , prize] = line.filter(l => l) // 若干个数值，取自己需要的
       breakdown.push({
-        value: parseInt(value.replace(/\./g, '')), // 需要把 . 去掉 原文是 aa.bbb.ccc
+        countStr: value,
         prize: `€ ${prize}` // 奖项加上货币符号
       })
     }
@@ -78,95 +79,110 @@ async function main () {
           name: 'main',
           detail: [
             {
+              name: '5 Zahlen + 2 Stern',
+              prize: null,
+              count: null,
+              countStr: null
+            },
+            {
               name: '5 Zahlen + 1 Stern',
               prize: null,
-              count: null
+              count: null,
+              countStr: null
             },
             {
               name: '5 Zahlen + 0 Sterne',
               prize: null,
-              count: null
+              count: null,
+              countStr: null
             },
             {
               name: '4 Zahlen + 2 Sterne',
               prize: null,
-              count: null
+              count: null,
+              countStr: null
             },
             {
               name: '4 Zahlen + 1 Stern',
               prize: null,
-              count: null
+              count: null,
+              countStr: null
             },
             {
               name: '3 Zahlen + 2 Sterne',
               prize: null,
-              count: null
+              count: null,
+              countStr: null
             },
             {
               name: '2 Zahlen + 2 Sterne',
               prize: null,
-              count: null
+              count: null,
+              countStr: null
             },
             {
               name: '3 Zahlen + 1 Sterne',
               prize: null,
-              count: null
+              count: null,
+              countStr: null
             },
             {
               name: '3 Zahlen + 1 Sterne',
               prize: null,
-              count: null
+              count: null,
+              countStr: null
             },
             {
               name: '3 Zahlen + 0 Sterne',
               prize: null,
-              count: null
+              count: null,
+              countStr: null
             },
             {
               name: '1 Zahl + 2 Sterne',
               prize: null,
-              count: null
+              count: null,
+              countStr: null
             },
             {
               name: '2 Zahlen + 1 Sterne',
               prize: null,
-              count: null
+              count: null,
+              countStr: null
             },
             {
               name: '2 Zahlen + 0 Sterne',
               prize: null,
-              count: null
+              count: null,
+              countStr: null
             }
           ]
         }
       ],
-      other: [{
-        name: 'Europot, zusätzlich zum 1. Rang der nächsten Runde',
-        value: null
-      }],
+      other: [], // other 木有数据
       name: 'EuroMillionen',
       lotteryID: 'at-euromillionen',
       issue: ''
     }
     // breakdwon 写入
     for (let i = 0; i < breakdown.length; i++) {
-      data.breakdown[0].detail[i].count = breakdown[i].value
-      data.breakdown[0].detail[i].prize = breakdown[i].prize
+      data.breakdown[0].detail[i + 1].countStr = `${breakdown[i].countStr}-mal`
+      data.breakdown[0].detail[i + 1].count = format.formatStr(breakdown[i].countStr)
+      data.breakdown[0].detail[i + 1].prize = breakdown[i].prize
     }
 
-    data.other[0].value = otherValue // 写入 other
+    data.breakdown[0].detail[0].prize = otherValue
+    data.breakdown[0].detail[0].countStr = `${otherCount} Joker`
+    data.breakdown[0].detail[0].count = parseInt(otherCount)
 
-    if (otherCount !== null) {
-      // 如果特等奖有获奖者
-      // other 的 title 就会变化
-      data.other[0].name = '5 Zahlen + 2 Sterne'
-
-      // 如果 5 + 2 不需要加到 breakdown，删除以下代码
-      data.breakdown[0].detail.unshift({
-        name: '1',
-        prize: otherValue,
-        count: otherCount
-      })
+    if (parseInt(otherCount) === 0) {
+      data.breakdown[0].detail[0].name = '1'
+      data.breakdown[0].detail[0].countStr = 'Europot, zusätzlich zum 1. Rang der nächsten Runde'
+    }
+    if (data.breakdown[0].detail[1].count === 0) {
+      data.breakdown[0].detail[1].name = '2'
+      data.breakdown[0].detail[1].prize = '' // 二等奖 count 0 不会显示数值
+      data.breakdown[0].detail[1].countStr = 'Europot, zusätzlich zum 1. Rang der nächsten Runde'
     }
 
     jsonResults.push(data)
