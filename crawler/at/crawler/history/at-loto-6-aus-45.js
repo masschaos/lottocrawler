@@ -2,7 +2,7 @@
  * @Author: maple
  * @Date: 2020-09-17 20:28:40
  * @LastEditors: maple
- * @LastEditTime: 2020-09-18 01:31:08
+ * @LastEditTime: 2020-09-18 01:40:48
  */
 const { getFile, writeHistory } = require('./index')
 const moment = require('moment')
@@ -257,7 +257,7 @@ async function main () {
     results.push(temp)
   }
 
-  await writeHistory('at-loto-60-aus-45', results)
+  await writeHistory('at-loto-6-aus-45', results)
 }
 
 // main()
