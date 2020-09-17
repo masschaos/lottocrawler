@@ -3,7 +3,7 @@ const VError = require('verror')
  * @Author: maple
  * @Date: 2020-09-13 20:52:33
  * @LastEditors: maple
- * @LastEditTime: 2020-09-18 02:22:05
+ * @LastEditTime: 2020-09-18 02:57:28
  */
 const _ = require('lodash')
 const { getFile, writeHistory } = require('./index')
@@ -11,9 +11,7 @@ const moment = require('moment')
 
 const urlData = {
   2020: 'https://www.win2day.at/media/NN_W2D_STAT_Lucky_Day_2020.csv',
-  2019: 'https://www.win2day.at/media/NN_W2D_STAT_Lucky_Day_2019.csv',
-  2018: 'https://www.win2day.at/media/NN_W2D_STAT_Lucky_Day_2018.csv',
-  2017: 'https://www.win2day.at/media/NN_W2D_STAT_Lucky_Day_2017.csv'
+  2019: 'https://www.win2day.at/media/NN_W2D_STAT_Lucky_Day_2019.csv'
 }
 
 const keys = Object.keys(urlData).sort((a, b) => b - a)
@@ -102,6 +100,6 @@ async function main () {
   await writeHistory('at-lucky-day', _.sortBy(jsonResults, 'drawTime'))
 }
 
-main()
+// main()
 
 module.exports = main

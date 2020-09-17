@@ -2,7 +2,7 @@
  * @Author: maple
  * @Date: 2020-09-13 20:29:20
  * @LastEditors: maple
- * @LastEditTime: 2020-09-18 01:18:12
+ * @LastEditTime: 2020-09-18 02:41:07
  */
 const { request } = require('axios')
 const CSVReader = require('../../../../util/CSV_READER')
@@ -32,7 +32,7 @@ async function writeHistory (name, items) {
     items = JSON.stringify(items, ' ', 2)
   }
   const defaultPath = '../../history'
-  const filename = path.join(defaultPath, `${name}.json`)
+  const filename = path.join(__dirname, defaultPath, `${name}.json`)
   await writeFile(filename, items)
 
   log.info(`write file ${filename} success`)
@@ -40,7 +40,7 @@ async function writeHistory (name, items) {
 
 async function readHistory (name) {
   const defaultPath = '../../history'
-  const filename = path.join(defaultPath, `${name}.json`)
+  const filename = path.join(__dirname, defaultPath, `${name}.json`)
   const data = await readFile(filename, { encoding: 'utf-8' })
 
   try {

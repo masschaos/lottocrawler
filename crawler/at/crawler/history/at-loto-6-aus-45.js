@@ -2,30 +2,31 @@
  * @Author: maple
  * @Date: 2020-09-17 20:28:40
  * @LastEditors: maple
- * @LastEditTime: 2020-09-18 01:40:48
+ * @LastEditTime: 2020-09-18 03:02:46
  */
 const { getFile, writeHistory } = require('./index')
 const moment = require('moment')
 const log = require('../../../../util/log')
 const format = require('../format')
 
+// 2017 年数据存在缺失
 const lottoUrls = {
   2020: 'https://www.win2day.at/media/NN_W2D_STAT_Lotto_2020.csv',
   2019: 'https://www.win2day.at/media/NN_W2D_STAT_Lotto_2019.csv',
-  2018: 'https://www.win2day.at/media/NN_W2D_STAT_Lotto_2018.csv',
-  2017: 'https://www.win2day.at/media/NN_W2D_STAT_Lotto_2017.csv'
+  2018: 'https://www.win2day.at/media/NN_W2D_STAT_Lotto_2018.csv'
+  // 2017: 'https://www.win2day.at/media/NN_W2D_STAT_Lotto_2017.csv'
 }
 const lottoPlusUrls = {
   2020: 'https://www.win2day.at/media/NN_W2D_STAT_LottoPlus_2020.csv',
   2019: 'https://www.win2day.at/media/NN_W2D_STAT_LottoPlus_2019.csv',
-  2018: 'https://www.win2day.at/media/NN_W2D_STAT_LottoPlus_2018.csv',
-  2017: 'https://www.win2day.at/media/NN_W2D_STAT_LottoPlus_2017.csv'
+  2018: 'https://www.win2day.at/media/NN_W2D_STAT_LottoPlus_2018.csv'
+  // 2017: 'https://www.win2day.at/media/NN_W2D_STAT_LottoPlus_2017.csv'
 }
 
 const keys = Object.keys(lottoUrls).sort((a, b) => b - a)
 
 async function getData () {
-  const results = []
+  const dataMap = {}
   // lotto
   for (const key of keys) {
     const url = lottoUrls[key]
@@ -48,7 +49,7 @@ async function getData () {
       data.items.push([...(firstRow.slice(2, 10))])
       data.items.push(firstRow[11].indexOf('JP') > -1 ? '0' : firstRow[11])
       data.items.push(firstRow[13])
-      data.items.push(firstRow[15])
+      data.items.push(firstRow[15].indexOf('JP') > -1 ? '0' : firstRow[15])
       data.items.push(firstRow[17])
       data.items.push(firstRow[19])
       data.items.push(firstRow[21])
@@ -63,7 +64,9 @@ async function getData () {
       data.items.push(nextRow[23])
       data.items.push(nextRow[25])
 
-      results.push(data)
+      // dataMap.push(data)
+
+      dataMap[data.year] = data
 
       // for (let i = 0; i < firstRow.length; i++) {
       //   console.log(`first row id: ${i} value: ${firstRow[i]}`)
@@ -83,12 +86,14 @@ async function getData () {
 
     for (let i = 0; i < rows.length; i++) {
       const row = rows[i]
-      const data = results[i]
+      // const data = dataMap[i]
       const [, date] = row[0].split(' ')
       const year = `${date}${key}`
 
-      if (data.year !== year) {
-        log.warn(`index: ${i} lotto date: ${data.year} plus date :${year}`)
+      const data = dataMap[year]
+
+      if (!data) {
+        log.warn(`data 缺失！plus date :${year}`)
         throw new Error('参数不一致，请检查两个 csv 日期是否一致')
       }
       // if (row[0].indexOf('13.09.') < 0) continue
@@ -103,13 +108,15 @@ async function getData () {
       data.plusItems.push(row[23])
     }
   }
-  return results
+  return dataMap
 }
 
 async function main () {
-  const datas = await getData()
+  const dataMap = await getData()
   const results = []
-  for (const data of datas) {
+  const keys = Object.keys(dataMap)
+  for (const key of keys) {
+    const data = dataMap[key]
     const {
       year,
       items,
@@ -120,11 +127,6 @@ async function main () {
     const bocusNumber = numbers.pop()
     numbers.pop() // 去掉中间一位 ZZ
     const plusNumbers = plusItems.shift()
-
-    // const firstPrize = {
-    //   count: items.shift(),
-    //   prize: items.shift()
-    // }
 
     const temp = {
       drawTime: moment(year, 'DD.MM.YYYY').format('YYYYMMDD191700'),
@@ -235,10 +237,14 @@ async function main () {
       breakdown.count = format.formatStr(items[i])
     }
 
-    // 当 lotto 头奖没有获奖者时
+    // 当 lotto 头奖 & 二等奖没有获奖者时
     if (lottoBreakdown[0].count === 0) {
       lottoBreakdown[0].countStr = 'zusätzlich zum 1. Rang der nächsten Runde'
       lottoBreakdown[0].name = '1'
+    }
+    if (lottoBreakdown[1].count === 0) {
+      lottoBreakdown[1].countStr = 'zusätzlich zum 1. Rang der nächsten Runde'
+      lottoBreakdown[1].name = '2'
     }
 
     for (let i = 0, j = 0; i < plusItems.length; i += 2, j++) {
