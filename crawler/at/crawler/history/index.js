@@ -2,7 +2,7 @@
  * @Author: maple
  * @Date: 2020-09-13 20:29:20
  * @LastEditors: maple
- * @LastEditTime: 2020-09-18 02:41:07
+ * @LastEditTime: 2020-09-19 00:28:34
  */
 const { request } = require('axios')
 const CSVReader = require('../../../../util/CSV_READER')
@@ -16,14 +16,22 @@ const readFile = util.promisify(fs.readFile)
 
 const reader = new CSVReader({ separator: ';' })
 
+function uintToString (uintArray) {
+  return String.fromCharCode.apply(null, new Uint8Array(uintArray))
+}
+
 async function get (url) {
   log.info(`at crawl history ${url}`)
   const res = await request({
     method: 'GET',
-    url: url
+    url: url,
+    responseType: 'arraybuffer'
   })
   const data = res.data
-  const csv = reader.readCSV(data)
+  // 先转换成 Uint8Array 然后再转化成字符串。
+  // 而不是直接解析成 ascii
+  // 感谢 @wenjia
+  const csv = reader.readCSV(uintToString(data))
   return csv
 }
 
