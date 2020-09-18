@@ -1,33 +1,33 @@
 /**
  * @Author: maple
- * @Date: 2020-08-14 23:01:17
+ * @Date: 2020-09-06 21:49:23
  * @LastEditors: maple
- * @LastEditTime: 2020-09-18 23:09:06
+ * @LastEditTime: 2020-09-18 23:02:52
  */
 const log = require('../../../util/log')
 const { newPage, ignoreImage } = require('../../../pptr')
-const { DrawingError } = require('../../../util/error')
-const indexPagePath = '/jeux-de-tirage/resultats'
-const mainHost = 'https://www.fdj.fr'
 
-module.exports = async function crawl (data = {}, urlSelector, interpreter, step) {
-  // 建立一个新 page
+async function crawl (defaultData = {}, { selector, date }, interpreter, step) {
+  const {
+    lotteryID,
+    defaultURL
+  } = defaultData
+
+  // new page
   const page = await newPage()
 
-  // 忽略图片爬取
+  // 忽略图片
   await ignoreImage(page)
 
-  // 爬取目录
-  await page.goto(`${mainHost}${indexPagePath}`)
-  const url = await urlSelector(page)
-  log.info(`crawl ${data.lotteryID} URL: ${url}`)
-  data.url = url
+  const url = defaultURL
 
   // 打开页面
   await page.goto(url)
+  log.info(`at crawl ${lotteryID} URL: ${url}`)
 
-  // 爬取
+  // 爬取页面
   const result = await interpreter(page)
+
   if (step) {
     if (step === 'result') {
       return {
@@ -41,12 +41,6 @@ module.exports = async function crawl (data = {}, urlSelector, interpreter, step
         breakdown
       } = result
 
-      if (breakdown.length === 0 ||
-        !breakdown[0].detail ||
-        breakdown[0].detail.length === 0) {
-        throw new DrawingError(`${data.lotteryID} breakdown is empty`)
-      }
-
       return {
         drawTime,
         breakdown
@@ -58,6 +52,10 @@ module.exports = async function crawl (data = {}, urlSelector, interpreter, step
       }
     }
   }
+
   await page.close()
+
   return result
 }
+
+module.exports = crawl
