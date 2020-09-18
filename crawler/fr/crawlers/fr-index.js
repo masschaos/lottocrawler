@@ -2,9 +2,8 @@
  * @Author: maple
  * @Date: 2020-08-14 23:01:17
  * @LastEditors: maple
- * @LastEditTime: 2020-09-18 22:54:57
+ * @LastEditTime: 2020-09-18 23:09:06
  */
-const VError = require('verror')
 const log = require('../../../util/log')
 const { newPage, ignoreImage } = require('../../../pptr')
 const { DrawingError } = require('../../../util/error')
@@ -29,10 +28,6 @@ module.exports = async function crawl (data = {}, urlSelector, interpreter, step
 
   // 爬取
   const result = await interpreter(page)
-  if (!result) {
-    throw new VError('result is empty!')
-  }
-
   if (step) {
     if (step === 'result') {
       return {
