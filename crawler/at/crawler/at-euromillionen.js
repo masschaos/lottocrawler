@@ -2,7 +2,7 @@
  * @Author: maple
  * @Date: 2020-09-06 10:12:39
  * @LastEditors: maple
- * @LastEditTime: 2020-09-16 19:50:14
+ * @LastEditTime: 2020-09-18 23:03:10
  */
 const crawler = require('./index')
 const { DrawingError } = require('../../../util/error')
@@ -160,7 +160,7 @@ const interpreter = async function (page) {
 }
 
 async function main (step) {
-  const result = await crawler(defaultData, selector, interpreter)
+  const result = await crawler(defaultData, selector, interpreter, step)
   return result
 }
 module.exports = {

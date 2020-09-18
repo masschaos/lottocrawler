@@ -2,13 +2,12 @@
  * @Author: maple
  * @Date: 2020-09-06 21:49:23
  * @LastEditors: maple
- * @LastEditTime: 2020-09-18 22:24:07
+ * @LastEditTime: 2020-09-18 23:02:52
  */
-const VError = require('verror')
 const log = require('../../../util/log')
 const { newPage, ignoreImage } = require('../../../pptr')
 
-async function crawl (defaultData = {}, { selector, date }, interpreter) {
+async function crawl (defaultData = {}, { selector, date }, interpreter, step) {
   const {
     lotteryID,
     defaultURL
@@ -28,8 +27,30 @@ async function crawl (defaultData = {}, { selector, date }, interpreter) {
 
   // 爬取页面
   const result = await interpreter(page)
-  if (!result) {
-    throw new VError('result is empty!')
+
+  if (step) {
+    if (step === 'result') {
+      return {
+        ...result,
+        breakdown: undefined,
+        other: undefined
+      }
+    } else if (step === 'breakdown') {
+      const {
+        drawTime,
+        breakdown
+      } = result
+
+      return {
+        drawTime,
+        breakdown
+      }
+    } else if (step === 'other') {
+      return {
+        drawTime: result.drawTime,
+        other: result.other
+      }
+    }
   }
 
   await page.close()

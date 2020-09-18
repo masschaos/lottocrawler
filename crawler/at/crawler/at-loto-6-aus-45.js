@@ -220,7 +220,7 @@ const interpreter = async function (page) {
 }
 
 async function main (step) {
-  const result = await crawler(defaultData, selector, interpreter)
+  const result = await crawler(defaultData, selector, interpreter, step)
   return result
 }
 

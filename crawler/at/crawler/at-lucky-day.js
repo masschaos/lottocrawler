@@ -2,7 +2,7 @@
  * @Author: maple
  * @Date: 2020-09-06 10:12:39
  * @LastEditors: maple
- * @LastEditTime: 2020-09-15 00:51:05
+ * @LastEditTime: 2020-09-18 23:06:03
  */
 const crawler = require('./index')
 const moment = require('moment')
@@ -73,7 +73,7 @@ const interpreter = async function (page) {
 }
 
 async function main (step) {
-  const result = await crawler(defaultData, selector, interpreter)
+  const result = await crawler(defaultData, selector, interpreter, step)
   return result
 }
 module.exports = {
