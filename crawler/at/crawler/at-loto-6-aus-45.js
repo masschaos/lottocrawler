@@ -1,12 +1,14 @@
+
+const moment = require('moment')
 const crawler = require('./index')
 const { DrawingError } = require('../../../util/error')
-const moment = require('moment')
+const log = require('../../../util/log')
 
 // 默认数据
 const defaultData = {
   name: 'Loto 6 aus 45',
   lotteryID: 'at-loto-6-aus-45',
-  defaultURL: 'https://www.win2day.at/lotterie/lotto',
+  defaultURL: 'https://www.win2day.at/lotterie/lotto/lotto-ziehungen',
   lottoPlusURL: 'https://www.win2day.at/lotterie/lottoplus/lottoplus-ziehungen',
   initData: function () {
     return {
@@ -46,9 +48,10 @@ const selector = {
 
 // page 解析器
 const interpreter = async function (page) {
+  await page.waitForSelector('h5.accordion-header-is-parent')
   const originData = await page.evaluate(() => {
     const data = {}
-    const lottoResultBlock = document.querySelector('#draw-result-lotto-1')
+    const lottoResultBlock = document.querySelector('#draw-result-lotto')
     const winningNumbers = lottoResultBlock.querySelector('.win-numbers')
     const [numbers, lottoPlus] = winningNumbers.querySelectorAll('.draw-numbers')
 
@@ -88,24 +91,27 @@ const interpreter = async function (page) {
     data.breakdownDatas = breakdownDatas
 
     // date
-    const dateBlock = lottoResultBlock.querySelector('h5.accordion-header')
+    const dateBlock = lottoResultBlock.querySelector('h5.accordion-header-is-parent')
     data.dateText = dateBlock.innerText
     return data
   })
 
   // 转至 lottoPlus 页面
   await page.goto(defaultData.lottoPlusURL)
+  log.info(`at crawl: ${defaultData.lottoPlusURL}`)
 
   const originLottoPlusData = await page.evaluate(() => {
     const data = {}
-    const lottoResultBlock = document.querySelector('#draw-result-10-lottoplus')
-
+    const lottoResultBlock = document.querySelector('.accordion-item.is-open')
+    const winningNumbers = lottoResultBlock.querySelector('.draw-numbers')
+    const nums = winningNumbers.querySelectorAll('span.ball')
+    data.nums = nums
     const fakeTable = lottoResultBlock.querySelector('.fake-table')
     const fakeTrs = fakeTable.querySelectorAll('.fake-tr')
 
     // breakdownDatas
     const breakdownDatas = []
-    for (let i = 0; i < fakeTrs.length; i++) {
+    for (let i = 1; i < fakeTrs.length; i++) {
       const tr = fakeTrs[i]
       if (!tr.hasChildNodes()) {
         throw new Error('at child nodes is empty')
@@ -115,9 +121,9 @@ const interpreter = async function (page) {
       const rightTd = tr.children[2]
 
       breakdownDatas.push({
-        left: leftTd.hasChildNodes() ? leftTd.children[0].innerText : null,
+        left: leftTd.hasChildNodes() ? leftTd.innerText : null,
         mid: midTd.hasChildNodes() ? midTd.innerText : null,
-        right: rightTd.hasChildNodes() ? rightTd.children[0].innerText : null
+        right: rightTd.hasChildNodes() ? rightTd.innerText : null
       })
     }
     data.breakdownDatas = breakdownDatas
@@ -153,9 +159,9 @@ const interpreter = async function (page) {
       let countStr = _texts.shift()
       let count = parseInt(countStr.replace(/\./g, ''))
       let name = _texts.join(' ')
-      if (isNaN(count)) {
-        countStr = `${countStr} ${name}`
-        name = 'Sechser'
+      if (isNaN(count)) { // 如果 count 是 isNaN
+        countStr = `${countStr} ${name}` // 把 countStr 和 name 拼接
+        name = '1' // name 用 1 代替
         count = 0
       }
 
@@ -169,6 +175,7 @@ const interpreter = async function (page) {
     result.breakdown.push(breakdown)
   }
 
+  // lotto plus 的 breakdown
   if (originLottoPlusData && originLottoPlusData.breakdownDatas && originLottoPlusData.breakdownDatas.length) {
     const breakdown = defaultData.initLottoPlusBreakdown()
     for (let i = 0; i < originLottoPlusData.breakdownDatas.length; i++) {
