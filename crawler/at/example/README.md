@@ -2,7 +2,7 @@
  * @Author: maple
  * @Date: 2020-09-02 21:30:07
  * @LastEditors: maple
- * @LastEditTime: 2020-09-18 02:23:08
+ * @LastEditTime: 2020-09-18 22:16:51
 -->
 奥地利-(Zahlenlotto)
 星期二、星期四下午6:00，周六5:00
@@ -27,6 +27,9 @@ https://www.win2day.at/media/NN_W2D_STAT_EUML_2017.csv
 奥地利-(Loto 6 aus 45)
 周三下午6:47，周日下午7:17
 https://www.win2day.at/lotterie/lotto
+
+https://www.win2day.at/lotterie/lotto/lotto-ziehungen
+https://www.win2day.at/lotterie/lottoplus/lottoplus-ziehungen
 
 https://www.win2day.at/media/NN_W2D_STAT_Lotto_2020.csv
 https://www.win2day.at/media/NN_W2D_STAT_LottoPlus_2020.csv

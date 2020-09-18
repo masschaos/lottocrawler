@@ -3,7 +3,7 @@ const VError = require('verror')
  * @Author: maple
  * @Date: 2020-09-13 20:52:33
  * @LastEditors: maple
- * @LastEditTime: 2020-09-14 02:04:58
+ * @LastEditTime: 2020-09-18 22:47:55
  */
 const _ = require('lodash')
 const { getFile, writeHistory } = require('./index')
@@ -61,10 +61,11 @@ async function deal (year, url) {
 }
 
 async function main () {
-  let results = []
+  let csvAllDatas = []
   for (const key of keys) {
     const datas = await deal(key, urlData[key])
     for (const data of datas) {
+      // 检查数据是否缺失
       if (!data.year) {
         throw new VError(`year 缺失; data: ${JSON.stringify(data)}`)
       }
@@ -72,14 +73,15 @@ async function main () {
       if (data.items.length !== 5) {
         throw new VError(`item 数量缺失; data: ${JSON.stringify(data)}`)
       }
-      results = results.concat(datas)
     }
+    // 把所有的 datas 放到一个数组里
+    csvAllDatas = csvAllDatas.concat(datas)
   }
 
   const jsonResults = []
 
-  for (const item of results) {
-    const { year, items } = item
+  for (const lottoDate of csvAllDatas) {
+    const { year, items } = lottoDate
     const data = {
       drawTime: moment(year, 'DD.MM.YYYY').format('YYYYMMDD000000'),
       numbers: items.join(','),
