@@ -13,10 +13,7 @@ const mainHost = 'https://www.fdj.fr'
 
 module.exports = async function crawl (data = {}, urlSelector, interpreter, step) {
   let page
-  const {
-    lotteryID
-  } = data
-
+  const { lotteryID } = data
   try {
     // 建立一个新 page
     page = await newPage()
@@ -69,17 +66,8 @@ module.exports = async function crawl (data = {}, urlSelector, interpreter, step
         }
       }
     }
-
     return result
-  } catch (err) {
-    throw new VError(err, `<${lotteryID}> 没有抓到数据，可能数据源不可用或有更改，请检查调度策略
-    detail: ${err.name} - ${err.message}`)
   } finally {
-    try {
-      await page.close()
-    } catch (err) {
-      log.error(err)
-      // do nothing
-    }
+    await page.close()
   }
 }
