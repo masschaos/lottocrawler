@@ -3,7 +3,7 @@ const VError = require('verror')
  * @Author: maple
  * @Date: 2020-09-13 20:52:33
  * @LastEditors: maple
- * @LastEditTime: 2020-09-18 02:57:28
+ * @LastEditTime: 2020-09-18 22:52:15
  */
 const _ = require('lodash')
 const { getFile, writeHistory } = require('./index')
@@ -65,10 +65,11 @@ async function deal (year, url) {
 }
 
 async function main () {
-  let results = []
+  let allLottoDatas = []
   for (const key of keys) {
-    const datas = await deal(key, urlData[key])
-    for (const data of datas) {
+    const lottoDatasPerYear = await deal(key, urlData[key])
+    // 检查 row 数据是否问题
+    for (const data of lottoDatasPerYear) {
       if (!data.year) {
         throw new VError(`year 缺失; data: ${JSON.stringify(data)}`)
       }
@@ -76,13 +77,14 @@ async function main () {
       if (data.items.length !== 4) {
         throw new VError(`item 数量缺失; data: ${JSON.stringify(data)}`)
       }
-      results = results.concat(datas)
     }
+    // 将每年的数据聚合到一个数组里来
+    allLottoDatas = allLottoDatas.concat(lottoDatasPerYear)
   }
 
   const jsonResults = []
 
-  for (const item of results) {
+  for (const item of allLottoDatas) {
     const { year, items } = item
     const data = {
       drawTime: moment(year, 'DD.MM.YYYY').format('YYYYMMDD184000'),
