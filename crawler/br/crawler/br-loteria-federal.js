@@ -21,62 +21,64 @@ class BrLoteriaFederal extends Crawler {
   }
 
   render (data) {
-    if (!data.premios || !Array.isArray(data.premios)) {
+    if (!data.listaMunicipioUFGanhadores || !Array.isArray(data.listaMunicipioUFGanhadores)) {
       throw new DrawingError('drawing error; premios is not array!')
     }
 
-    data = Object.assign(data, data.premios[0])
-
+    data = Object.assign(data, data.listaMunicipioUFGanhadores[0])
+    function compare (p) {
+      return function (m, n) {
+        return m[p] - n[p]
+      }
+    }
     const keys = {
       0: {
-        key: 'premios',
-        render: vs => vs.map(v => `{
-          "name": "${parseInt(v.faixa)}º",
-          "prize": "R$${v.valor}",
-          "lotteryUnit": "${v.noFantasiaCD}",
-          "country": "${v.noMunicipioCD}/${v.noSgUfCD}"
-        }`).join(',\n')
+        key: 'listaMunicipioUFGanhadores',
+        render: vs => vs.sort(compare('posicao')).map(v => { return { name: parseInt(v.posicao) + 'º', lotteryUnit: v.nomeFatansiaUL.trim(), country: `${v.municipio}/${v.uf}` } })
       },
-      1: 'concursoAnterior',
+      1: {
+
+        key: 'listaRateioPremio',
+        render: vs => vs.map(item => item.valorPremio)
+      },
       2: 'concursoAnterior',
       3: 'concursoAnterior',
       4: 'concursoAnterior',
       5: {
-        key: 'dataExtracao',
+        key: 'dataApuracao',
         render: (value) => moment(value, 'DD/MM/YYYY').format('YYYYMMDD000000')
       },
-      6: 'concursoAnterior',
+      6: 'numero',
       7: {
-        key: 'premio1',
-        render: value => value.slice(1)
+        key: 'listaDezenas',
+        render: value => value[0].slice(1)
       },
       8: {
-        key: 'premio2',
-        render: value => value.slice(1)
+        key: 'listaDezenas',
+        render: value => value[1].slice(1)
       },
       9: {
-        key: 'premio3',
-        render: value => value.slice(1)
+        key: 'listaDezenas',
+        render: value => value[2].slice(1)
       },
       10: {
-        key: 'premio4',
-        render: value => value.slice(1)
+        key: 'listaDezenas',
+        render: value => value[3].slice(1)
       },
       11: {
-        key: 'premio5',
-        render: value => value.slice(1)
+        key: 'listaDezenas',
+        render: value => value[4].slice(1)
       }
     }
 
     const values = this.getValues(data, keys)
-
     const result = `
     {
       "breakdown": [
         {
           "name": "1º sorteio",
           "detail": [
-            ${values[0]}
+            ${JSON.stringify(values[0].map((item, index) => { return { ...item, prize: this.formatMoney(values[1][index]) } }))}
           ]
         }],
       "jackpot": [],

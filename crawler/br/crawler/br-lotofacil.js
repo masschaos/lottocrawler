@@ -21,33 +21,48 @@ class BrLotofacil extends Crawler {
 
   render (data) {
     const keys = {
-      0: 'qt_ganhador_faixa1',
-      1: 'qt_ganhador_faixa2',
-      2: 'qt_ganhador_faixa3',
-      3: 'qt_ganhador_faixa4',
-      4: 'qt_ganhador_faixa5',
+      0: {
+        key: 'listaRateioPremio',
+        render: (value) => value[0].numeroDeGanhadores
+      },
+      4: {
+        key: 'listaRateioPremio',
+        render: (value) => value[4].numeroDeGanhadores
+      },
+      1: {
+        key: 'listaRateioPremio',
+        render: (value) => value[1].numeroDeGanhadores
+      },
+      2: {
+        key: 'listaRateioPremio',
+        render: (value) => value[2].numeroDeGanhadores
+      },
+      3: {
+        key: 'listaRateioPremio',
+        render: (value) => value[3].numeroDeGanhadores
+      },
       5: {
-        key: 'vr_rateio_faixa1',
-        render: value => this.formatMoney(value)
+        key: 'listaRateioPremio',
+        render: (value) => this.formatMoney(value[0].valorPremio)
       },
       6: {
-        key: 'vr_rateio_faixa2',
-        render: value => this.formatMoney(value)
+        key: 'listaRateioPremio',
+        render: (value) => this.formatMoney(value[1].valorPremio)
       },
       7: {
-        key: 'vr_rateio_faixa3',
-        render: value => this.formatMoney(value)
+        key: 'listaRateioPremio',
+        render: (value) => this.formatMoney(value[2].valorPremio)
       },
       8: {
-        key: 'vr_rateio_faixa4',
-        render: value => this.formatMoney(value)
+        key: 'listaRateioPremio',
+        render: (value) => this.formatMoney(value[3].valorPremio)
       },
       9: {
-        key: 'vr_rateio_faixa5',
-        render: value => this.formatMoney(value)
+        key: 'listaRateioPremio',
+        render: (value) => this.formatMoney(value[4].valorPremio)
       },
-      10: 'vrAcumuladoEspecial',
-      11: 'vrArrecadado',
+      10: 'valorAcumuladoConcursoEspecial',
+      11: 'valorArrecadado',
       12: {
         key: 'ganhadoresPorUf',
         render: (items) => items ? items.map(item => {
@@ -60,20 +75,20 @@ class BrLotofacil extends Crawler {
         }).join('\n') : ''
       },
       13: {
-        key: 'dt_apuracao',
-        render: (value) => moment(value).format('YYYYMMDD200000')
+        key: 'dataApuracao',
+        render: (value) => moment(value, 'DD/MM/YYYY').format('YYYYMMDD200000')
       },
-      14: 'nu_concurso',
+      14: 'numero',
       15: {
-        key: 'de_resultado',
-        render: (value) => value.split('-').join(',')
+        key: 'listaDezenas',
+        render: (value) => value.map(item => item.slice(1)).join(',')
       },
       16: {
-        key: 'dtProximoConcurso',
-        render: (value) => moment(value).format('YYYYMMDD200000')
+        key: 'dataProximoConcurso',
+        render: (value) => moment(value, 'DD/MM/YYYY').format('YYYYMMDD200000')
       },
-      17: 'vrEstimativa',
-      18: 'vrAcumuladoFaixa1'
+      17: 'valorEstimadoProximoConcurso',
+      18: 'valorAcumuladoConcurso_0_5'
     }
 
     const values = this.getValues(data, keys)
@@ -134,7 +149,7 @@ class BrLotofacil extends Crawler {
       "name": "Lotofacil",
       "lotteryID": "br-lotofacil",
       "nextDrawTime": "${values[16]}",
-      "nextPoolSize": "R$ ${values[17]}"
+      "nextPoolSize": "R$ ${this.formatMoney(values[17])}"
     }
     `
     try {
