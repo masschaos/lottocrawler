@@ -21,77 +21,101 @@ class BrDuplaSena extends Crawler {
 
   render (data) {
     const keys = {
-      0: 'ganhadores_sena1',
-      4: {
-        key: 'valor_sena1',
-        render: (value) => value === 0 ? 'Não houve acertador' : `R$${this.formatMoney(value)}`
+      0: {
+        key: 'listaRateioPremio',
+        render: (value) => value[0].numeroDeGanhadores
       },
-      1: 'qt_ganhador_quina_faixa1',
-      2: 'qt_ganhador_quadra_faixa1',
-      3: 'qt_ganhador_terno_faixa1',
+      4: {
+        key: 'listaRateioPremio',
+        render: (value) => value[0].valorPremio === 0 ? 'Não houve acertador' : `R$${this.formatMoney(value[0].valorPremio)}`
+      },
+      1: {
+        key: 'listaRateioPremio',
+        render: (value) => value[1].numeroDeGanhadores
+      },
+      2: {
+        key: 'listaRateioPremio',
+        render: (value) => value[2].numeroDeGanhadores
+      },
+      3: {
+        key: 'listaRateioPremio',
+        render: (value) => value[3].numeroDeGanhadores
+      },
       5: {
-        key: 'vr_quina_faixa1',
-        render: (value) => this.formatMoney(value)
+        key: 'listaRateioPremio',
+        render: (value) => this.formatMoney(value[1].valorPremio)
       },
       6: {
-        key: 'vr_quadra_faixa1',
-        render: (value) => this.formatMoney(value)
+        key: 'listaRateioPremio',
+        render: (value) => this.formatMoney(value[2].valorPremio)
       },
       7: {
-        key: 'vr_terno_faixa1',
-        render: (value) => this.formatMoney(value)
+        key: 'listaRateioPremio',
+        render: (value) => this.formatMoney(value[3].valorPremio)
       },
-      8: 'ganhadores_sena1',
+      8: {
+        key: 'listaRateioPremio',
+        render: (value) => value[4].numeroDeGanhadores
+      },
       12: {
-        key: 'valor_sena1',
-        render: (value) => value === 0 ? 'Não houve acertador' : `R$${this.formatMoney(value)}`
+        key: 'listaRateioPremio',
+        render: (value) => value[4].valorPremio === 0 ? 'Não houve acertador' : `R$${this.formatMoney(value[0].valorPremio)}`
       },
-      9: 'ganhadores_quina2',
-      10: 'ganhadores_quadra2',
-      11: 'qt_ganhador_terno_faixa2',
+      9: {
+        key: 'listaRateioPremio',
+        render: (value) => value[5].numeroDeGanhadores
+      },
+      10: {
+        key: 'listaRateioPremio',
+        render: (value) => value[6].numeroDeGanhadores
+      },
+      11: {
+        key: 'listaRateioPremio',
+        render: (value) => value[7].numeroDeGanhadores
+      },
       13: {
-        key: 'valor_quina2',
-        render: (value) => this.formatMoney(value)
+        key: 'listaRateioPremio',
+        render: (value) => this.formatMoney(value[5].valorPremio)
       },
       14: {
-        key: 'valor_quadra2',
-        render: (value) => this.formatMoney(value)
+        key: 'listaRateioPremio',
+        render: (value) => this.formatMoney(value[6].valorPremio)
       },
       15: {
-        key: 'vr_terno_faixa2',
-        render: (value) => this.formatMoney(value)
+        key: 'listaRateioPremio',
+        render: (value) => this.formatMoney(value[7].valorPremio)
       },
       16: {
-        key: 'valor_acumulado_sena1',
+        key: 'valorAcumuladoProximoConcurso',
         render: (value) => this.formatMoney(value)
       },
       17: {
-        key: 'vr_acumulado_especial',
+        key: 'valorAcumuladoConcursoEspecial',
         render: (value) => this.formatMoney(value)
       },
       18: {
-        key: 'vr_arrecadado',
+        key: 'valorArrecadado',
         render: (value) => this.formatMoney(value)
       },
       19: {
-        key: 'dtinclusao',
-        render: (value) => moment(value).format('YYYYMMDD200000')
+        key: 'dataApuracao',
+        render: (value) => moment(value, 'DD/MM/YYYY').format('YYYYMMDD200000')
       },
-      20: 'concurso',
+      20: 'numero',
       21: {
-        key: 'resultadoOrdenadoSorteio1',
-        render: (value) => value.split('-').join(',')
+        key: 'listaDezenas',
+        render: (value) => value.map(item => item.slice(1)).join(',')
       },
       22: {
-        key: 'resultadoOrdenadoSorteio2',
-        render: (value) => value.split('-').join(',')
+        key: 'listaDezenasSegundoSorteio',
+        render: (value) => value.map(item => item.slice(1)).join(',')
       },
       23: {
-        key: 'data_proximo_concurso',
-        render: (value) => moment(value).format('YYYYMMDD200000')
+        key: 'dataProximoConcurso',
+        render: (value) => moment(value, 'DD/MM/YYYY').format('YYYYMMDD200000')
       },
       24: {
-        key: 'valor_estimativa',
+        key: 'valorEstimadoProximoConcurso',
         render: value => this.formatMoney(value)
       }
     }

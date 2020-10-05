@@ -21,56 +21,65 @@ class BrMegaSena extends Crawler {
 
   render (data) {
     const keys = {
-      0: 'ganhadores',
-      1: 'ganhadores_quina',
-      2: 'ganhadores_quadra',
+      0: {
+        key: 'listaRateioPremio',
+        render: (value) => value[0].numeroDeGanhadores
+      },
+      1: {
+        key: 'listaRateioPremio',
+        render: (value) => this.formatMoney(value[0].valorPremio)
+      },
+      2: {
+        key: 'listaRateioPremio',
+        render: (value) => value[1].numeroDeGanhadores
+      },
       3: {
-        key: 'valor',
-        render: (value) => value === 0 ? 'Acumulado' : `R$${this.formatMoney(value)}`
+        key: 'listaRateioPremio',
+        render: (value) => this.formatMoney(value[1].valorPremio)
       },
       4: {
-        key: 'valor_quina',
-        render: value => this.formatMoney(value)
+        key: 'listaRateioPremio',
+        render: (value) => value[2].numeroDeGanhadores
       },
       5: {
-        key: 'valor_quadra',
-        render: value => this.formatMoney(value)
+        key: 'listaRateioPremio',
+        render: (value) => this.formatMoney(value[2].valorPremio)
       },
       6: {
-        key: 'valor_acumulado',
+        key: 'valorAcumuladoProximoConcurso',
         render: (value) => this.formatMoney(value)
       },
       7: {
-        key: 'ac_final_zero',
+        key: 'valorAcumuladoConcurso_0_5',
         render: (value) => this.formatMoney(value)
       },
       8: {
-        key: 'vr_acumulado_especial',
+        key: 'valorAcumuladoConcursoEspecial',
         render: (value) => this.formatMoney(value)
       },
       9: {
-        key: 'vr_arrecadado',
+        key: 'valorArrecadado',
         render: (value) => this.formatMoney(value)
       },
       10: {
-        key: 'data',
-        render: (value) => moment(value).format('YYYYMMDD000000')
+        key: 'dataApuracao',
+        render: (value) => moment(value, 'DD/MM/YYYY').format('YYYYMMDD000000')
       },
-      11: 'concurso',
+      11: 'numero',
       12: {
-        key: 'resultado',
-        render: (value) => value.split('-').join(',')
+        key: 'listaDezenas',
+        render: (value) => value && value.map(item => item.slice(1)).join(',')
       },
       13: {
-        key: 'dt_proximo_concurso',
-        render: (value) => moment(value).format('YYYYMMDD000000')
+        key: 'dataProximoConcurso',
+        render: (value) => moment(value, 'DD/MM/YYYY').format('YYYYMMDD000000')
       },
       14: {
-        key: 'vr_estimativa',
+        key: 'valorEstimadoProximoConcurso',
         render: (value) => this.formatMoney(value)
       },
       15: {
-        key: 'prox_final_zero'
+        key: 'numeroConcursoFinal_0_5'
       }
     }
 
@@ -85,16 +94,16 @@ class BrMegaSena extends Crawler {
             {
               "name": "Sena - 6 números acertados",
               "count": ${values[0]},
-              "amount": "${values[3]}"
+              "amount": "R$${values[1]}"
             },
             {
               "name": "Quina - 5 números acertados",
-              "count": ${values[1]},
-              "amount": "R$${values[4]}"
+              "count": ${values[2]},
+              "amount": "R$${values[3]}"
             },
             {
               "name": "Quadra - 4 números acertados",
-              "count": ${values[2]},
+              "count": ${values[4]},
               "amount": "R$${values[5]}"
             }
           ]

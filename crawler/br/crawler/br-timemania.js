@@ -21,69 +21,86 @@ class BrTimemania extends Crawler {
 
   render (data) {
     const keys = {
-      0: 'qt_GANHADOR_FAIXA_1',
-      1: 'qt_GANHADOR_FAIXA_2',
-      2: 'qt_GANHADOR_FAIXA_3',
-      3: 'qt_GANHADOR_FAIXA_4',
-      4: 'qt_GANHADOR_FAIXA_5',
-      5: 'qt_GANHADOR_TIME_CORACAO',
+      0: {
+        key: 'listaRateioPremio',
+        render: (value) => value[0].numeroDeGanhadores
+      },
+      1: {
+        key: 'listaRateioPremio',
+        render: (value) => value[1].numeroDeGanhadores
+      },
+      2: {
+        key: 'listaRateioPremio',
+        render: (value) => value[2].numeroDeGanhadores
+      },
+      3: {
+        key: 'listaRateioPremio',
+        render: (value) => value[3].numeroDeGanhadores
+      },
+      4: {
+        key: 'listaRateioPremio',
+        render: (value) => value[4].numeroDeGanhadores
+      },
+      5: {
+        key: 'listaRateioPremio',
+        render: (value) => value[5].numeroDeGanhadores
+      },
       6: {
-        key: 'vr_RATEIO_FAIXA_1',
-        render: (value) => value === 0 ? 'Acumulado' : `R$${this.formatMoney(value)}`
+        key: 'listaRateioPremio',
+        render: (value) => value[0].valorPremio === 0 ? 'Não houve acertador' : `R$${this.formatMoney(value[0].valorPremio)}`
       },
       7: {
-        key: 'vr_RATEIO_FAIXA_2',
-        render: (value) => value === 0 ? 'Acumulado' : `R$${this.formatMoney(value)}`
+        key: 'listaRateioPremio',
+        render: (value) => value[1].valorPremio === 0 ? 'Não houve acertador' : `R$${this.formatMoney(value[1].valorPremio)}`
       },
       8: {
-        key: 'vr_RATEIO_FAIXA_3',
-        render: value => this.formatMoney(value)
+        key: 'listaRateioPremio',
+        render: (value) => value[2].valorPremio === 0 ? 'Não houve acertador' : `${this.formatMoney(value[2].valorPremio)}`
       },
       9: {
-        key: 'vr_RATEIO_FAIXA_4',
-        render: value => this.formatMoney(value)
+        key: 'listaRateioPremio',
+        render: (value) => value[3].valorPremio === 0 ? 'Não houve acertador' : `${this.formatMoney(value[3].valorPremio)}`
       },
       10: {
-        key: 'vr_RATEIO_FAIXA_5',
-        render: value => this.formatMoney(value)
+        key: 'listaRateioPremio',
+        render: (value) => value[4].valorPremio === 0 ? 'Não houve acertador' : `${this.formatMoney(value[4].valorPremio)}`
       },
       11: {
-        key: 'vr_RATEIO_TIME_CORACAO',
-        render: value => this.formatMoney(value)
+        key: 'listaRateioPremio',
+        render: (value) => value[5].valorPremio === 0 ? 'Não houve acertador' : `${this.formatMoney(value[5].valorPremio)}`
       },
       12: {
-        key: 'vr_ACUMULADO_FAIXA_1',
+        key: 'valorAcumuladoProximoConcurso',
         render: value => this.formatMoney(value)
       },
       13: {
-        key: 'vr_ACUMULADO_PROXIMO_CONCURSO',
+        key: 'valorAcumuladoConcurso_0_5',
         render: value => this.formatMoney(value)
       },
       14: {
-        key: 'vr_ARRECADADO',
+        key: 'valorArrecadado',
         render: value => this.formatMoney(value)
       },
       15: {
-        key: 'dt_APURACAO',
-        render: (value) => moment(value).format('YYYYMMDD200000')
+        key: 'dataApuracao',
+        render: (value) => moment(value, 'DD/MM/YYYY').format('YYYYMMDD000000')
       },
-      16: 'nu_CONCURSO',
+      16: 'numero',
       17: {
-        key: 'resultadoOrdenado',
-        render: (value) => value.split('-').join(',')
+        key: 'listaDezenas',
+        render: (value) => value && value.map(item => item.slice(1)).join(',')
       },
-      18: 'co_TIME_CORACAO',
+      18: 'numeroJogo',
       19: {
-        key: 'dt_PROXIMO_CONCURSO',
-        render: (value) => moment(value).format('YYYYMMDD200000')
+        key: 'dataProximoConcurso',
+        render: (value) => moment(value, 'DD/MM/YYYY').format('YYYYMMDD000000')
       },
       20: {
-        key: 'vr_ESTIMATIVA_FAIXA_1',
-        render: value => this.formatMoney(value)
+        key: 'valorEstimadoProximoConcurso',
+        render: (value) => this.formatMoney(value)
       },
       21: {
-        key: 'timeCoracao',
-        render: value => value ? `,{"name":"timeCoracao","value":"${value}"}` : ''
+        key: 'nomeTimeCoracaoMesSorte'
       }
     }
 
@@ -141,8 +158,8 @@ class BrTimemania extends Crawler {
         {
           "name": "Arrecadação total",
           "value": "R$${values[14]}"
-        }
-        ${values[21]}
+        },
+        {"name":"timeCoracao","value":"${values[21].split('\u0000').join('')}"}
       ],
       "drawTime": "${values[15]}",
       "issue": "${values[16]}",
@@ -151,7 +168,7 @@ class BrTimemania extends Crawler {
       "lotteryID": "br-timemania",
       "nextDrawTime": "${values[19]}",
       "nextPoolSize": "R$${values[20]}"
-    }    
+    }
     `
     try {
       return JSON.parse(result)

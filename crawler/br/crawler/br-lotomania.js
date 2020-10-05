@@ -21,64 +21,85 @@ class BrLotomania extends Crawler {
 
   render (data) {
     const keys = {
-      0: 'qtGanhadoresFaixa1',
-      1: 'qtGanhadoresFaixa2',
-      2: 'qtGanhadoresFaixa3',
-      3: 'qtGanhadoresFaixa4',
-      4: 'qtGanhadoresFaixa5',
-      5: 'qtGanhadoresFaixa7',
-      6: 'qtGanhadoresFaixa6',
+      0: {
+        key: 'listaRateioPremio',
+        render: (value) => value[0].numeroDeGanhadores
+      },
+      1: {
+        key: 'listaRateioPremio',
+        render: (value) => value[1].numeroDeGanhadores
+      },
+      2: {
+        key: 'listaRateioPremio',
+        render: (value) => value[2].numeroDeGanhadores
+      },
+      3: {
+        key: 'listaRateioPremio',
+        render: (value) => value[3].numeroDeGanhadores
+      },
+      4: {
+        key: 'listaRateioPremio',
+        render: (value) => value[4].numeroDeGanhadores
+      },
+      5: {
+        key: 'listaRateioPremio',
+        render: (value) => value[5].numeroDeGanhadores
+      },
+      6: {
+        key: 'listaRateioPremio',
+        render: (value) => value[6].numeroDeGanhadores
+      },
       7: {
-        key: 'vrRateioFaixa1',
-        render: value => value === 0 ? 'Acumulado' : `R$${this.formatMoney(value)}`
+        key: 'listaRateioPremio',
+        render: (value) => value[0].valorPremio === 0 ? 'Nã houve acertador' : this.formatMoney(value[0].valorPremio)
       },
       8: {
-        key: 'vrRateioFaixa2',
-        render: value => value === 0 ? 'Acumulado' : `R$${this.formatMoney(value)}`
+        key: 'listaRateioPremio',
+        render: (value) => value[1].valorPremio === 0 ? 'Nã houve acertador' : this.formatMoney(value[1].valorPremio)
       },
       9: {
-        key: 'vrRateioFaixa3',
-        render: value => this.formatMoney(value)
+        key: 'listaRateioPremio',
+        render: (value) => value[2].valorPremio === 0 ? 'Nã houve acertador' : this.formatMoney(value[2].valorPremio)
       },
       10: {
-        key: 'vrRateioFaixa4',
-        render: value => this.formatMoney(value)
+        key: 'listaRateioPremio',
+        render: (value) => value[3].valorPremio === 0 ? 'Nã houve acertador' : this.formatMoney(value[3].valorPremio)
       },
       11: {
-        key: 'vrRateioFaixa5',
-        render: value => this.formatMoney(value)
+        key: 'listaRateioPremio',
+        render: (value) => value[4].valorPremio === 0 ? 'Nã houve acertador' : this.formatMoney(value[4].valorPremio)
       },
       12: {
-        key: 'vrRateioFaixa7',
-        render: value => this.formatMoney(value)
+        key: 'listaRateioPremio',
+        render: (value) => value[5].valorPremio === 0 ? 'Nã houve acertador' : this.formatMoney(value[5].valorPremio)
       },
       13: {
-        key: 'vrRateioFaixa6',
-        render: value => value === 0 ? 'Acumulado' : `R$${this.formatMoney(value)}`
+        key: 'listaRateioPremio',
+        render: (value) => value[6].valorPremio === 0 ? 'Nã houve acertador' : this.formatMoney(value[6].valorPremio)
       },
       14: {
-        key: 'vrAcumuladoFaixa1',
-        render: value => this.formatMoney(value)
+        key: 'valorAcumuladoProximoConcurso',
+        render: (value) => this.formatMoney(value)
       },
       15: {
-        key: 'vrArrecadado',
+        key: 'valorArrecadado',
         render: value => this.formatMoney(value)
       },
       16: {
-        key: 'dtApuracao',
-        render: (value) => moment(value).format('YYYYMMDD200000')
+        key: 'dataApuracao',
+        render: (value) => moment(value, 'DD/MM/YYYY').format('YYYYMMDD200000')
       },
-      17: 'concurso',
+      17: 'numero',
       18: {
-        key: 'resultadoOrdenado',
-        render: (value) => value.split('-').join(',')
+        key: 'listaDezenas',
+        render: (value) => value && value.map(item => item.slice(1)).join(',')
       },
       19: {
-        key: 'dtProximoConcurso',
-        render: (value) => moment(value).format('YYYYMMDD200000')
+        key: 'dataProximoConcurso',
+        render: (value) => moment(value, 'DD/MM/YYYY').format('YYYYMMDD200000')
       },
       20: {
-        key: 'vrEstimativa',
+        key: 'valorEstimadoProximoConcurso',
         render: value => this.formatMoney(value)
       }
     }
@@ -147,7 +168,7 @@ class BrLotomania extends Crawler {
       "lotteryID": "br-lotomania",
       "nextDrawTime": "${values[19]}",
       "nextPoolSize": "R$${values[20]}"
-    }    
+    }
     `
     try {
       return JSON.parse(result)

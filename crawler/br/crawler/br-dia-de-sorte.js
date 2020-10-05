@@ -21,60 +21,72 @@ class BrDiaDeSorte extends Crawler {
   render (data) {
     const keys = {
       0: {
-        key: 'qt_GANHADOR_FAIXA_1',
-        render: value => parseInt(value)
+        key: 'listaRateioPremio',
+        render: (value) => value[0].numeroDeGanhadores
       },
-      1: 'qt_GANHADOR_FAIXA_2',
-      2: 'qt_GANHADOR_FAIXA_3',
-      3: 'qt_GANHADOR_FAIXA_4',
-      4: 'qt_GANHADOR_MES_DE_SORTE',
+      1: {
+        key: 'listaRateioPremio',
+        render: (value) => value[1].numeroDeGanhadores
+      },
+      2: {
+        key: 'listaRateioPremio',
+        render: (value) => value[2].numeroDeGanhadores
+      },
+      3: {
+        key: 'listaRateioPremio',
+        render: (value) => value[3].numeroDeGanhadores
+      },
+      4: {
+        key: 'listaRateioPremio',
+        render: (value) => value[4].numeroDeGanhadores
+      },
       5: {
-        key: 'vr_RATEIO_FAIXA_1',
-        render: (value) => value === 0 ? 'Não houve acertador' : `R$${this.formatMoney(value)}`
+        key: 'listaRateioPremio',
+        render: (value) => value[0].valorPremio === 0 ? 'Não houve acertador' : `${this.formatMoney(value[0].valorPremio)}`
       },
       6: {
-        key: 'vr_RATEIO_FAIXA_2',
-        render: (value) => this.formatMoney(value)
+        key: 'listaRateioPremio',
+        render: (value) => value[1].valorPremio === 0 ? 'Não houve acertador' : `${this.formatMoney(value[1].valorPremio)}`
       },
       7: {
-        key: 'vr_RATEIO_FAIXA_3',
-        render: (value) => this.formatMoney(value)
+        key: 'listaRateioPremio',
+        render: (value) => value[2].valorPremio === 0 ? 'Não houve acertador' : `${this.formatMoney(value[2].valorPremio)}`
       },
       8: {
-        key: 'vr_RATEIO_FAIXA_4',
-        render: (value) => this.formatMoney(value)
+        key: 'listaRateioPremio',
+        render: (value) => value[3].valorPremio === 0 ? 'Não houve acertador' : `${this.formatMoney(value[3].valorPremio)}`
       },
       9: {
-        key: 'vr_RATEIO_MES_DE_SORTE',
-        render: (value) => this.formatMoney(value)
+        key: 'listaRateioPremio',
+        render: (value) => value[4].valorPremio === 0 ? 'Não houve acertador' : `${this.formatMoney(value[4].valorPremio)}`
       },
       10: {
-        key: 'vr_ACUMULADO',
+        key: 'valorAcumuladoProximoConcurso',
         render: (value) => value === 0 ? '' : `{
           "name": "Acumulado próximo concurso",
           "value": "R$${this.formatMoney(value)}"
         },`
       },
       11: {
-        key: 'vr_ARRECADADO',
+        key: 'valorArrecadado',
         render: (value) => this.formatMoney(value)
       },
       12: {
-        key: 'dt_APURACAO',
-        render: (value) => moment(value).format('YYYYMMDD200000')
+        key: 'dataApuracao',
+        render: (value) => moment(value, 'DD/MM/YYYY').format('YYYYMMDD200000')
       },
-      13: 'concursoAnterior',
+      13: 'numero',
       14: {
-        key: 'resultadoOrdenado',
-        render: (value) => value.split('-').join(',')
+        key: 'listaDezenas',
+        render: (value) => value && value.map(item => item.slice(1)).join(',')
       },
-      15: 'mes_DE_SORTE',
+      15: 'numeroJogo',
       16: {
-        key: 'dt_PROXIMO_CONCURSO',
-        render: (value) => moment(value).format('YYYYMMDD200000')
+        key: 'dataProximoConcurso',
+        render: (value) => moment(value, 'DD/MM/YYYY').format('YYYYMMDD200000')
       },
       17: {
-        key: 'vr_ESTIMATIVA',
+        key: 'valorEstimadoProximoConcurso',
         render: (value) => this.formatMoney(value)
       },
       18: {
