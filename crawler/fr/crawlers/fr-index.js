@@ -13,7 +13,7 @@ const mainHost = 'https://www.fdj.fr'
 
 module.exports = async function crawl (data = {}, urlSelector, interpreter, step) {
   let page
-  const { lotteryID } = data
+  // const { lotteryID } = data
   try {
     // 建立一个新 page
     page = await newPage()
